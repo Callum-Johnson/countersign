@@ -35,8 +35,23 @@ a fleet of them from quietly destroying a codebase while doing so.
 | [ADR process](docs/adr-process.md) | When a decision is architectural, and how it gets recorded |
 | [Disclosure policy](DISCLOSURE.md) | What is withheld from this repository, and the reasoning |
 
-Templates are in [`templates/`](templates/). Real, unmodified artifacts that
-were safe to publish are in [`examples/`](examples/).
+Templates are in [`templates/`](templates/). Real artifacts that were safe to
+publish are in [`examples/`](examples/).
+
+## This repository runs on its own process
+
+Work here is tracked as tickets and decisions, in the system this repository
+documents — see [the board](docs/tickets/README.md) and
+[the decision records](docs/adr/).
+
+It did not start that way. The initial commit landed 2,540 lines with no ticket
+and no decision record, which is visible in the git history and is the first
+thing worth checking about a repository like this.
+[ADR-0001](docs/adr/0001-this-repository-is-governed-by-the-process-it-documents.md)
+records adopting the process and rejects backdating tickets to cover the gap.
+[ADR-0002](docs/adr/0002-critical-tier-review-in-a-single-maintainer-repository.md)
+deals with the awkward consequence: a single maintainer cannot satisfy the
+model's own two-reviewer rule.
 
 ---
 
