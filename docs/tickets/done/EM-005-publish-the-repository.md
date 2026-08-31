@@ -1,12 +1,13 @@
 ---
 id: EM-005
 title: Publish the repository to a public host
-status: ready
+status: done
 tier: critical
 complexity: S
 dependencies: [EM-003]
 claimed_by: maintainer
 claimed_at: 2026-08-31
+closed_at: 2026-08-31
 ---
 
 # EM-005 — Publish the repository to a public host
@@ -66,3 +67,42 @@ BLOCKER: two decisions are the maintainer's and cannot be made by an executor.
 remaining work is the push itself, which is the maintainer's to perform: it is
 irreversible in the way that matters, and the executor does not publish on the
 maintainer's behalf.
+
+## PR Description
+
+### Ticket
+EM-005
+
+### Tier
+`critical` — irreversible publication of material assessed under EM-001.
+
+**Independent review not obtained.** Per ADR-0002, recorded rather than
+reclassified. The pre-push gate below was run by the executor.
+
+### Summary
+Published to `github.com/Callum-Johnson/countersign` over SSH, on `main`.
+Four commits, 33 files.
+
+### Acceptance criteria
+1. AC1 — met. Proprietary-term scan run against the exact tree pushed:
+   0 matches across 33 files. A key-material and `.env` check also returned
+   clean, and the working tree was verified clean before the push.
+2. AC2 — met. Name recorded in Context: `countersign`.
+3. AC3 — met. Remote added and `main` pushed and tracking.
+4. AC4 — met. Rendered README, `docs/adr/0001-*` and `docs/tickets/README.md`
+   confirmed rendering on the host, not only locally. Relative links resolve.
+
+### Out of scope
+Confirmed: no source repository was published. This repository only.
+
+### How to verify
+Fetch the public URL and confirm the README heading, the four top-level
+directories, and that the ADR and board pages render.
+
+### Risks / follow-ups
+- **The repository description field is empty.** A reader arriving from a CV
+  or a search result sees no one-line explanation. Maintainer to set it.
+- **Commit authorship is not linked to the account.** Commits are authored
+  `Callum Johnson <meuwhowhatwherey@googlemail.com>`; unless that address is
+  verified under the account's email settings, they render unattributed.
+  Retroactive once verified. Raised as EM-005-001.
