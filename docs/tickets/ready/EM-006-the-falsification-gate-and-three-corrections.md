@@ -62,18 +62,25 @@ The three corrections concern patterns already published:
    **1a — the same id under two slugs merges silently.** The same lineage id written
    under two different slugs — one in the main working tree, one on a branch —
    produces two files for one id and **merges with no conflict**, because the
-   paths differ. It was found only because a reviewer simulated the merge with
-   `git merge-tree --write-tree` rather than trusting that a clean merge is a
-   correct one. It breaks the ADR's own sibling-lookup mechanic and lets two
-   agents claim the same ticket from different files.
+   paths differ and git compares paths. Nothing in the scheme detects it: it
+   breaks the ADR's own sibling-lookup mechanic and lets two agents claim the
+   same ticket from different files. The mechanism is structural and can be
+   reproduced on demand; the implementer should state it that way rather than
+   as an incident, because the source project's own record of how it was first
+   noticed is a working-session artefact and not reconstructible from the
+   repository.
 
    **1b — an id, once created, is spent, and the tree does not know it.** The
    ADR tells the reader to take the next flat id from the highest across the
    ticket directories. That read is of the *working tree*, and a ticket raised
    and later deleted, absorbed or renamed leaves no file behind while remaining
    named in closed tickets, commit messages and pull-request bodies. On the
-   source project **thirteen ids have no file today**, and the next flat id was
-   taken, worked and closed before anyone noticed it had been used before. The
+   source project, measured against its default branch, **fourteen ids have
+   been created and later had their file removed** — and the next flat id was
+   taken, worked and closed before anyone noticed it had been used before, which
+   is the fourteenth. (Measured on the branch that discovered it the figure is
+   thirteen, because there the reused id has a file again; the implementer
+   should quote whichever population it names, and name it.) The
    next id must come from **history** — `git log --diff-filter=A` over the
    ticket directories — not from the tree; and a reused id is not renumbered
    after the fact, consistent with the ADR's own no-retroactive-renumbering
