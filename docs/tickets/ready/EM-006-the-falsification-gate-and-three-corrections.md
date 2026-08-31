@@ -39,22 +39,47 @@ separated them, however carefully written.
 
 None of this was caught by gates. All of it was caught by second-agent review,
 and only because a reviewer mutated the code and counted. Across the wave,
-**second-agent review returned a finding 26 times consecutively**, and the
-recurring finding was not broken code — it was a true-sounding claim *about*
-code that did not survive measurement. That is a strong result for the
+**every critical-tier ticket returned findings at first review — six of six** —
+and the recurring finding was not broken code. It was a true-sounding claim
+*about* code that did not survive measurement. That is a strong result for the
 countersignature thesis and a weak one for the gates, and both belong in the
 documents.
 
+The six-of-six figure is what the wave itself supports and is the only tally
+this ticket asserts. A larger running count was in circulation while the wave
+was worked and was carried between briefs without ever being derived from the
+repository; it did not survive checking, and the correction is recorded here
+rather than quietly dropped, because it is an instance of the same defect the
+ticket is about. Anyone wanting a longer-run figure must derive it from the
+closed tickets rather than inherit it. See Notes.
+
 The three corrections concern patterns already published:
 
-1. **ADR-0038's lineage ids collide silently.** The same lineage id written
+1. **ADR-0038's id namespace has two independent defects**, both of which are
+   the same shape: the scheme's lookup instruction is narrower than the
+   namespace it protects.
+
+   **1a — the same id under two slugs merges silently.** The same lineage id written
    under two different slugs — one in the main working tree, one on a branch —
    produces two files for one id and **merges with no conflict**, because the
    paths differ. It was found only because a reviewer simulated the merge with
    `git merge-tree --write-tree` rather than trusting that a clean merge is a
    correct one. It breaks the ADR's own sibling-lookup mechanic and lets two
-   agents claim the same ticket from different files. ADR-0038 is published in
-   `examples/`.
+   agents claim the same ticket from different files.
+
+   **1b — an id, once created, is spent, and the tree does not know it.** The
+   ADR tells the reader to take the next flat id from the highest across the
+   ticket directories. That read is of the *working tree*, and a ticket raised
+   and later deleted, absorbed or renamed leaves no file behind while remaining
+   named in closed tickets, commit messages and pull-request bodies. On the
+   source project **thirteen ids have no file today**, and the next flat id was
+   taken, worked and closed before anyone noticed it had been used before. The
+   next id must come from **history** — `git log --diff-filter=A` over the
+   ticket directories — not from the tree; and a reused id is not renumbered
+   after the fact, consistent with the ADR's own no-retroactive-renumbering
+   rule.
+
+   ADR-0038 is published in `examples/`.
 
 2. **A 72-character commit-subject limit does not compose with lineage ids.** A
    fourth-generation id consumes roughly a third of the line before the verb.
@@ -141,10 +166,11 @@ change that surface and are the reason for the tier.
    sentence, without duplicating the rule in full in both places.
 5. AC5: The identical-script rule states the no-global-mutation constraint and
    gives the editable-install failure as its example.
-6. AC6: `examples/adr/adr-0038-*.md` carries an in-place annotation covering the
-   silent collision and the on-the-branch placement rule, and
-   `docs/ticket-lifecycle.md` carries the operational form. The ADR is not
-   superseded.
+6. AC6: `examples/adr/adr-0038-*.md` carries an in-place annotation covering
+   **both** namespace defects — the silent slug collision with its
+   on-the-branch placement rule, and the spent-id problem with its
+   next-id-from-history rule — and `docs/ticket-lifecycle.md` carries both in
+   operational form. The ADR is not superseded.
 7. AC7: The 72-character subject limit is replaced by a stated alternative, and
    the reasoning for the specific replacement chosen is recorded.
 8. AC8: No third-party material enters the repository. The source project
@@ -189,13 +215,21 @@ change that surface and are the reason for the tier.
 
 ## Notes
 
-**On the 26-review figure.** It is the strongest single number this wave
-produced and it wants care. It is a count of consecutive reviews that returned
-at least one finding, on one project, over one wave, with reviews briefed to
-look hard. It is evidence that independent review is not ceremonial; it is not
-evidence of a rate that would hold elsewhere. State it with its scope attached
-or leave it out — an unqualified version of it would be exactly the kind of
-number this ticket exists to prohibit.
+**On the review-yield figure.** It is the strongest single number this wave
+produced and it wants care. Six of six critical-tier tickets returning findings
+at first review is evidence that independent review is not ceremonial; it is not
+evidence of a rate that would hold elsewhere, on one project over one wave with
+reviewers briefed to look hard. State it with its scope attached or leave it out.
+
+The first draft of this ticket asserted a larger consecutive-review count that
+had been carried between agent briefs and never derived from the repository. It
+did not survive checking and is corrected in the Context above. It is worth
+recording *how* it failed, because the mechanism is the one this ticket
+addresses: the number was never wrong at the moment it was first written — it
+was inherited, incremented, and restated as fact by successive readers, none of
+whom had the source. A measured number and an inherited one are indistinguishable
+once written down, which is why the rule has to be that the sentence names the
+baseline.
 
 **Placement judgement.** `case-studies/` is the more honest home for the figure
 than a policy document, since a policy document that cites its own success rate
