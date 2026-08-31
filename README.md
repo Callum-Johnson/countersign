@@ -1,8 +1,13 @@
-# Engineering Methods
+# Countersign
 
 How I run software projects where most of the code is written by AI agents:
-the ticket system they work from, the policy that constrains them, the review
-tiers, and the gates that have to pass before anything merges.
+the ticket that binds them, the policy that constrains them, and the second
+signature that lets their work merge.
+
+The name is the rule the repository is built around: work that alters an
+existing contract does not merge on the say-so of the agent that produced it.
+It requires a countersignature — a reviewer that is not the executor, and that
+has not seen the executor's reasoning.
 
 This repository documents **process, not product**. The projects it draws on
 are private. What is published here is the operating system around them — the

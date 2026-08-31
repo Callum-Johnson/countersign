@@ -48,9 +48,10 @@ Create the public repository, push, and confirm the rendered result.
 
 BLOCKER: two decisions are the maintainer's and cannot be made by an executor.
 
-1. **Repository name.** `engineering-methods` is the working name. It is
-   accurate and forgettable, and the name is the first thing a reader
-   evaluates.
+1. **Repository name.** ~~Undecided.~~ **Resolved 2026-08-31: `countersign`**,
+   chosen by the maintainer. Named for the separation-of-duties rule — a
+   second, independent signature required before work takes effect. The local
+   directory is renamed to match. AC2 is met.
 2. **Hosting account.** Publishing under an account that also carries older
    repositories exposes those to the same reader. The 2024 project described
    in `case-studies/00-growth-2024-2026.md` has a committed development TLS
