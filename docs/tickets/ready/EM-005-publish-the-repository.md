@@ -1,13 +1,12 @@
 ---
 id: EM-005
 title: Publish the repository to a public host
-status: blocked
+status: ready
 tier: critical
 complexity: S
 dependencies: [EM-003]
 claimed_by: maintainer
 claimed_at: 2026-08-31
-blocked_at: 2026-08-31
 ---
 
 # EM-005 — Publish the repository to a public host
@@ -52,12 +51,18 @@ BLOCKER: two decisions are the maintainer's and cannot be made by an executor.
    chosen by the maintainer. Named for the separation-of-duties rule — a
    second, independent signature required before work takes effect. The local
    directory is renamed to match. AC2 is met.
-2. **Hosting account.** Publishing under an account that also carries older
-   repositories exposes those to the same reader. The 2024 project described
-   in `case-studies/00-growth-2024-2026.md` has a committed development TLS
-   key and five host-disclosing crash dumps, and is currently not public. If
-   it were to become public, or if other repositories on the account have not
-   been audited, that audit is a prerequisite and not part of this ticket.
+2. **Hosting account.** ~~Undecided.~~ **Resolved 2026-08-31: `callum-johnson`**,
+   an account created for the purpose. This satisfies the audit prerequisite by
+   construction rather than by work — a new account carries no other
+   repositories, so publishing here exposes nothing that has not been assessed.
 
-Blocked pending both. Per `docs/ai-contributor-policy.md` §3, the executor
-does not choose on the maintainer's behalf.
+   The 2024 project described in `case-studies/00-growth-2024-2026.md` — the
+   one with a committed development TLS key and five host-disclosing crash
+   dumps — remains private under a separate account and is unaffected by this
+   decision. It is named in the case study but not linked, and nothing in this
+   repository points a reader to it.
+
+**Unblocked 2026-08-31.** Both maintainer decisions are recorded above. The
+remaining work is the push itself, which is the maintainer's to perform: it is
+irreversible in the way that matters, and the executor does not publish on the
+maintainer's behalf.
