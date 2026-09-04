@@ -26,6 +26,11 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-005 | done | critical | Publish the repository |
 | EM-005-001 | ready | trivial | Link commit authorship to the publishing account |
 | EM-006 | ready | critical | Falsification gate; correct three published patterns that do not compose |
+| EM-007 | ready | critical | State when an independent review ends |
+| EM-008 | ready | critical | A decision reserved to another party is handled as ambiguity |
+| EM-009 | ready | critical | A review finding is repaired at its class, falsified per sibling |
+| EM-010 | ready | critical | A review answers two questions; over-tightening is a finding |
+| EM-011 | ready | critical | Review runs in its own worktree; the tree is checked afterwards |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
 backdated; ADR-0001 explains why backdating was rejected.
