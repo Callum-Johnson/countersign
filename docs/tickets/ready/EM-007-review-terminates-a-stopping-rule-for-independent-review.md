@@ -130,12 +130,14 @@ existing rule.
   Context quotes; on a one-round review it is one. The template carries nine
   `###` headings today, measured 2026-09-05 at 8b0a8b4 — seven template
   sections inside the code block and two document headings; this ticket adds
-  one template section, and EM-009 adds another.
+  one template section, which EM-009 then edits.
 - Each block at cap costs a maintainer read of the review record and a
   decision. On the source ticket the saving is eleven rounds against one
-  block. On a project with several non-converging tickets at once, the
-  maintainer becomes the bottleneck the block was meant to protect; the rule
-  should say what the maintainer does with three blocked records in a day.
+  block — fourteen rounds from the counts Context quotes, less the cap of
+  three. On a project with several non-converging tickets at once, the
+  maintainer becomes the bottleneck the block was meant to protect. What the
+  maintainer does with three blocked records in a day is not stated; it is
+  the cost this ticket transfers rather than removes.
 
 ## Acceptance criteria
 

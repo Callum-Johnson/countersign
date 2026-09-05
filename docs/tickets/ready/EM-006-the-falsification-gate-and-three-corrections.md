@@ -92,7 +92,9 @@ The three corrections concern patterns already published:
    fourth-generation id consumes roughly a third of the line before the verb.
    On the source project the limit is now breached routinely, including by merge
    commits on the default branch. Two published conventions that cannot both be
-   followed is worse than either alone.
+   followed is worse than either alone. This repository publishes the lineage
+   scheme and no subject-length rule, so the correction here is to state the
+   hazard beside the scheme, for readers who bring a subject limit with them.
 
 3. **The identical-script rule has a fleet failure mode.** `quality-gates.md`
    requires the local command and the CI job to be the same script, which is
@@ -126,8 +128,10 @@ deleted without a stated replacement.
   operating instructions are incomplete.
 - `docs/ticket-lifecycle.md` — the placement rule in its operational form: a
   ticket raised by a review is created on the branch under review.
-- Wherever the 72-character subject limit is stated — replace it, do not merely
-  delete it.
+- `docs/ticket-lifecycle.md`, "Lineage" — state that a fixed commit-subject
+  length does not compose with lineage ids, with the fourth-generation figure
+  from Context, so that a reader adopting the scheme alongside such a limit
+  knows to choose.
 - `case-studies/` — the review-yield figure, if the implementer judges it
   belongs there rather than in a policy document. See Notes.
 
@@ -175,13 +179,11 @@ change that surface and are the reason for the tier.
   ordinary Python arrangement. A project adopting the no-global-mutation
   constraint restructures its gate or, as three agents on the source project
   did, refuses to run it as written.
-- A commit-subject convention — but not one this repository publishes. No
-  subject-length rule appears anywhere in `docs/` or `templates/` at 8b0a8b4;
-  the 72-character limit lives in the source project's guidance, and AC7 as
-  written has no file in this repository to act on. The implementer either
-  finds the rule readers are meant to have imported and names it, or narrows
-  AC7 to state the composition hazard without replacing a rule that is not
-  here.
+- Nothing, on the subject-length point. No subject-length rule appears in
+  `docs/` or `templates/` at 8b0a8b4, so there is none to replace; AC7 states
+  the composition hazard beside the lineage scheme and refuses no convention.
+  A reader who brought a 72-character limit from elsewhere is told the two do
+  not compose and left to choose.
 
 **Costs.**
 
@@ -198,8 +200,10 @@ change that surface and are the reason for the tier.
 - Reviewer brief: five of the documents this wave edits total 3,150 words,
   measured 2026-09-05 at commit 8b0a8b4 (tier-review-model 761, quality-gates
   411, ai-contributor-policy 1,034, ticket-lifecycle 544, PR-DESCRIPTION 400).
-  This ticket adds to four of them and replaces one rule. AC10 makes the
-  re-measurement at close an acceptance criterion rather than a wish.
+  This ticket adds to four of them and removes from none; its corrections are
+  an in-place annotation of ADR-0038 and a stated hazard beside the lineage
+  scheme. AC10 makes the re-measurement at close an acceptance criterion
+  rather than a wish, at the cost of one word count per edited file.
 
 ## Acceptance criteria
 
@@ -220,8 +224,10 @@ change that surface and are the reason for the tier.
    on-the-branch placement rule, and the spent-id problem with its
    next-id-from-history rule — and `docs/ticket-lifecycle.md` carries both in
    operational form. The ADR is not superseded.
-7. AC7: The 72-character subject limit is replaced by a stated alternative, and
-   the reasoning for the specific replacement chosen is recorded.
+7. AC7: `docs/ticket-lifecycle.md` states beside the lineage scheme that a
+   fixed commit-subject length does not compose with lineage ids, and why. No
+   subject-length rule is introduced, replaced or removed, since none is
+   published here.
 8. AC8: No third-party material enters the repository. The source project
    implements a third party's ruleset; every example is stated in engineering
    terms — inclusive comparisons, discriminating bands, fixture coincidence —
@@ -230,9 +236,11 @@ change that surface and are the reason for the tier.
 9. AC9: Critical tier per ADR-0002: an independent agent that did not perform
    the work reviews this against the artifacts, and its findings are recorded in
    the pull-request description.
-10. AC10: The pull-request description states the word count of each document
-    this ticket edits, before and after, against the figures measured at
-    8b0a8b4 in the section above, and the total delta.
+10. AC10: The pull-request description states the word count of every file
+    this ticket edits, before and after — the four documents figured in the
+    section above against those figures, and `examples/adr/adr-0038-*.md`,
+    `docs/ticket-lifecycle.md` and any case-study file against a count taken
+    at 8b0a8b4 in the same description — and the total delta.
 
 ## Out of scope
 

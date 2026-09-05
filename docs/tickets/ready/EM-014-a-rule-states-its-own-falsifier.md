@@ -23,8 +23,9 @@ changes no rule's procedure"; EM-009 "adds an obligation to an existing
 gate"; EM-010 "adds to the reviewer's brief and removes nothing from it";
 EM-011 "adds a constraint on how review is conducted and changes nothing
 about what it examines"; EM-012 "adds a path through the lifecycle and
-removes none". EM-006 replaces one rule and adds several, and says "no
-existing rule is deleted without a stated replacement". Five of the seven are
+removes none". EM-006 annotates one published pattern in place, adds several
+rules, and says "no existing rule is deleted without a stated replacement".
+Five of the seven are
 first-column tickets in EM-010's terms; EM-007 is mixed; EM-012 is the one
 loosening. The wave that diagnoses monotonic tightening is, at the level of
 the documents it edits, a monotonic tightening, and nothing in this
@@ -88,17 +89,22 @@ every rule and a path that did not exist.
   form; it is the form most rules take.
 - A rule stated in two documents — hooks may not be skipped appears in the
   contributor policy and in the quality gates — carries one falsifier,
-  stated where the rule is stated first and referenced from the other.
-- A second-column finding under EM-010 that matches a rule's stated
-  falsifier is routed under EM-007's second condition: it lies inside a
-  limit the rule itself recorded, so it goes to a ticket that owns it, raised
-  if it does not exist, and the round's must-fix is discharged by raising
-  that ticket. That ticket is a **retirement ticket**, critical tier under
-  the operative test's process-surface clause. It produces a decision record
-  per `docs/adr-process.md`, which carries the rule's text as it stood and
-  the finding that matched, and the rule leaves the document. Retired rules
-  are kept in the record for the reason superseded decision records are kept:
-  what was tried and why it stopped is most of the value.
+  stated in the contributor policy and referenced from the quality gates.
+- A second-column finding under EM-010 that matches the stated falsifier of
+  a rule **already in `docs/` at the change's baseline** is handled by
+  extending EM-007's second condition from the round to the finding: the
+  finding lies inside a limit the rule itself recorded, so it goes to a
+  ticket that owns it, raised if it does not exist, and that one must-fix is
+  discharged by raising it. That ticket is a **retirement ticket**, critical
+  tier under the operative test's process-surface clause. It produces a
+  decision record per `docs/adr-process.md`, which carries the rule's text as
+  it stood and the finding that matched, and the rule leaves the document.
+  Retired rules are kept in the record for the reason superseded decision
+  records are kept: what was tried and why it stopped is most of the value.
+- A second-column finding that matches the falsifier of a rule **the change
+  under review itself adds** is a must-fix on the change, repaired in the
+  round like any other. The defective rule does not ship and then get
+  retired; it does not ship.
 - **Amendment with record.** Where the match is technical and the correction
   small — a word, a scope, a threshold — the retirement ticket may amend the
   rule in place instead of removing it, provided the decision record carries
@@ -112,10 +118,14 @@ every rule and a path that did not exist.
   is wrong. The review says which.
 - A ticket raised after this ticket closes that adds a rule states the
   rule's falsifier in its Behaviour section, and a ticket that does not is
-  not ready, in the sense the ticket template uses that word. Tickets in
-  `ready/` before this ticket closes — EM-006 to EM-012 and EM-010-001 — are
-  not affected; each states the falsifier for the rule it adds when it is
-  worked, and its pull-request description says so.
+  not ready, in the sense the ticket template uses that word. Rule-adding
+  tickets already in `ready/` when this ticket closes are not affected; each
+  states the falsifier for the rule it adds when it is worked, and its
+  pull-request description says so. A rule-adding ticket raised between this
+  ticket's raise and its close states its falsifier if it can and says "no
+  falsifier stated" if not. The exempt tickets are named in the decision
+  record that lands this ticket, not in the model, which adopting projects
+  read.
 - **This ticket's own falsifier.** Retired when twenty rules carry stated
   falsifiers, ten second-column findings have been recorded against rules
   that carry one, and none has matched. That would show the falsifiers are
@@ -143,7 +153,8 @@ now do.
   ticket-lifecycle 7, adr-process 9 — and that method cannot see
   quality-gates' five rules, which are headings, while it does see seven
   checklist items and seven procedure steps that are arguably not rules. A
-  defensible count is between about 38 and 57 depending on what a rule is.
+  defensible count is between 43 and 57 — the five heading rules in, the
+  fourteen steps in or out — depending on what a rule is.
   The implementer states the method used and the count it gives.
 - The thinking cost is the real one, and it is the point. Stating a
   falsifier for a rule the author is fond of is uncomfortable in the way
@@ -155,10 +166,12 @@ now do.
 ## Acceptance criteria
 
 1. AC1: `docs/tier-review-model.md` states, in its own section, that a
-   second-column finding matching a rule's stated falsifier is routed under
-   EM-007's second condition to a retirement ticket, that the round's
-   must-fix is discharged by raising it, and that the outcome is a decision
-   record carrying the rule's text and the finding.
+   second-column finding matching the stated falsifier of a rule at the
+   baseline goes to a retirement ticket by extending EM-007's second
+   condition to the finding, that the must-fix is discharged by raising it,
+   that a rule the change itself adds is repaired in the round instead, and
+   that the outcome is a decision record carrying the rule's text and the
+   finding.
 2. AC2: Every rule-bearing document under `docs/` carries a **Retired when:**
    line per rule or per section of rules, or the words "no falsifier stated"
    in its place, and the pull-request description states the counting method
@@ -176,8 +189,9 @@ now do.
 7. AC7: `templates/TICKET.md` states that a ticket adding a rule states its
    falsifier, in one sentence, referencing the section for the rule.
 8. AC8: The section states that the falsifier obligation applies to tickets
-   raised after this ticket closes, and names the tickets in `ready/` at
-   close that are not affected.
+   raised after this ticket closes and that rule-adding tickets already in
+   `ready/` are exempt; the exempt tickets are named in the decision record
+   that lands this ticket, and the section does not list ticket ids.
 9. AC9: This ticket's own falsifier is stated in its Behaviour section, with
    the two counts a reviewer would check.
 10. AC10: No existing rule is retired or amended by this ticket. The path is
@@ -191,7 +205,8 @@ now do.
 ## Out of scope
 
 - Retiring or amending anything now, including anything in the wave. AC10.
-- Stating falsifiers for the rules the wave adds. Each wave ticket states its
+- Stating falsifiers for the rules the wave adds, or for EM-014-001's. Each
+  such ticket states its
   own when it is worked; until then the wave's tickets carry the *refuses and
   costs* sections added 2026-09-05, which are the same question asked of the
   ticket rather than of the rule.
@@ -199,7 +214,7 @@ now do.
   records. The first draft of this ticket proposed one; independent review
   found that `docs/adr-process.md` already requires a decision record when a
   workflow rule changes, and one record for one event is the right number.
-- Adding a *refuses and costs* section to the ticket template. Eight tickets
+- Adding a *refuses and costs* section to the ticket template. Nine tickets
   carry one as a retrofit. Whether every ticket should is a separate decision
   with the cost of one more mandatory section, and is not decided here.
 - Any mechanism for tracking falsifiers over time — a register, a review

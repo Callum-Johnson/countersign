@@ -91,8 +91,8 @@ existing rule and changes no rule's procedure.
 - All work past the first reserved question, including work the answer
   cannot affect. The rule has no carve-out for unaffected parts, because the
   executor cannot reliably tell which parts are unaffected — that is the
-  argument for the rule — but it is also a refusal of honest work, and the
-  ticket should say so rather than leave the reader to find it.
+  argument for the rule — but it is also a refusal of honest work. The
+  ticket's Behaviour does not say so; this section does.
 - Provisional answers that are cheap to reverse. "One deletion undoes it" is
   forbidden by name.
 
@@ -105,8 +105,8 @@ existing rule and changes no rule's procedure.
   with the rest not yet discovered. Whether they surface in one further block
   or nine is not known. It is a question for a project that has a governance
   surface; this repository does not (Out of scope, first bullet), so it
-  cannot be measured here. Where the approver is one maintainer working
-  evenings, one reserved question can cost a day.
+  cannot be measured here. An assumption, stated as one: where the approver
+  is one maintainer working evenings, one reserved question can cost a day.
 - The cost this rule removes — work discarded when an answer changes the
   shape — is asserted from OMN-021's record, not measured by it. The record
   shows fourteen rounds and ten questions; it does not show how much of the

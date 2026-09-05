@@ -101,9 +101,11 @@ brief and removes nothing from it.
 - A first-column finding whose remedy cannot be costed. A new refusal on a
   path nothing has touched yet has a historical cost of zero commits and an
   unknown forward cost. The rule as written calls that finding incomplete, and
-  an incomplete finding of a real hole may be dropped. The rule should state
-  what "cannot be measured" is allowed to look like — a stated population and
-  a zero is a measurement; "unknowable" is not.
+  an incomplete finding of a real hole may be dropped. What "cannot be
+  measured" is allowed to look like is not defined here; the closest honest
+  reading is that a stated population and a zero is a measurement and
+  "unknowable" is not, and whether to write that into Behaviour is the
+  maintainer's call.
 - Reviewer severity judgement, by design, and the Notes say why.
 
 **Costs.**
@@ -117,11 +119,13 @@ brief and removes nothing from it.
 - **Two-column ping-pong.** Column 1 tightens a rule; column 2 finds the
   tightening refuses honest work and loosens it; the next round tightens it
   again. EM-007's cap catches this after three rounds. Nothing catches it in
-  round two. That is a gap in this ticket's design, and the fix is a stopping
-  trigger — a specification change with a cost. It is raised as EM-010-001
-  rather than proposed here, because a change to Behaviour belongs in a
-  ticket's own Specification with its cost stated, not in a paragraph the
-  implementer cannot tell is in scope.
+  round two when the ping-pong pair is a minority of the round; EM-007's own
+  repairs-of-repairs signal fires when it is the majority. That is a gap in
+  this ticket's design, and the fix is a stopping trigger — a specification
+  change with a cost. It is raised as EM-014-001, from the review of the
+  commit that added this section, rather than proposed here, because a
+  change to Behaviour belongs in a ticket's own Specification with its cost
+  stated, not in a paragraph the implementer cannot tell is in scope.
 
 ## Acceptance criteria
 
