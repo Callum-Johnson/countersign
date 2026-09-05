@@ -82,6 +82,35 @@ existing rule and changes no rule's procedure.
 - The lifecycle document's Blocking section names the reserved case in one
   sentence and defers to §3 for the rule.
 
+## What this refuses, and what it costs
+
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+
+**Refuses.**
+
+- All work past the first reserved question, including work the answer
+  cannot affect. The rule has no carve-out for unaffected parts, because the
+  executor cannot reliably tell which parts are unaffected — that is the
+  argument for the rule — but it is also a refusal of honest work, and the
+  ticket should say so rather than leave the reader to find it.
+- Provisional answers that are cheap to reverse. "One deletion undoes it" is
+  forbidden by name.
+
+**Costs.**
+
+- Throughput becomes the approver's response latency. On OMN-021, ten
+  reserved questions accumulated over thirteen rounds; under this rule the
+  first would have blocked at round one and the other nine were not yet
+  discovered. Whether they surface in one further block or nine is not known
+  and should be measured on the next governance-surface ticket. Where the
+  approver is one maintainer working evenings, one reserved question can cost
+  a day.
+- The cost this rule removes — work discarded when an answer changes the
+  shape — is asserted from OMN-021's record, not measured by it. The record
+  shows fourteen rounds and ten questions; it does not show how much of the
+  work between would have been discarded. The saving is real in kind and
+  unmeasured in size.
+
 ## Acceptance criteria
 
 1. AC1: `docs/ai-contributor-policy.md` §3 states that a decision reserved to

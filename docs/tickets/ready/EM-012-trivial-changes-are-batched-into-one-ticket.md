@@ -76,6 +76,34 @@ the lifecycle and removes none.
   shared append-only ticket file conflicts between agents, and the file move
   is the crude lock this lifecycle already relies on.
 
+## What this refuses, and what it costs
+
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+
+This is the only ticket in the wave whose primary effect is in EM-010's second
+column: it adds a cheaper path and refuses nothing that was previously
+allowed. That is worth saying plainly, because the other six are all
+first-column tickets, and a wave of seven whose one loosening is a batching
+path for trivial work has not answered the second question for standard-tier
+work, which is where most of the wave's cost lands.
+
+**Refuses.**
+
+- Appending to a batch another agent holds; the next agent opens the next
+  batch. A standing batch is refused by the cap.
+- Silent reclassification. A change found to be above trivial leaves the
+  batch with a recorded finding, not a quiet move.
+
+**Costs.**
+
+- Per entry: the operative test's answer and its evidence, written
+  individually. The saving is one gate run per batch rather than one per
+  entry, and the Notes already state that the first entry saves nothing.
+- The scrutiny cost is the real one and the Notes state it: the batch is the
+  least-read path in the lifecycle. Measure it the only way it can be
+  measured — count reclassifications out of batches over the first ten
+  batches, and if the count is zero, ask whether nobody is reading them.
+
 ## Acceptance criteria
 
 1. AC1: `docs/ticket-lifecycle.md` describes the batch ticket: what may join

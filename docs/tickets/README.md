@@ -33,6 +33,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-011 | ready | critical | Review runs in its own worktree; the tree is checked afterwards |
 | EM-012 | ready | critical | Trivial changes are batched into one ticket |
 | EM-013 | ready | standard | Assess the methodology against ISO/IEC 42001 |
+| EM-014 | ready | critical | A rule states its own falsifier; a control can be retired |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
 backdated; ADR-0001 explains why backdating was rejected.

@@ -106,6 +106,34 @@ existing rule.
   times — recorded in its own Review section as "sixteen", "thirty-five" and
   "twenty-nine" — while it was asserted rather than derived.
 
+## What this refuses, and what it costs
+
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+
+**Refuses.**
+
+- A fourth round on a ticket whose third round still found rule defects. The
+  three conditions exist to prevent exactly that, but the cap applies whether
+  or not the conditions were applied, and where they were not, the cap ends
+  the wrong review. The cap's own falsifier, stated so it can be watched for: a
+  ticket blocked at cap whose maintainer, reading the record, orders a further
+  round that finds a rule defect.
+- A reviewer's judgement that a list is dangerously incomplete. Condition 3
+  ends list review after one round of additions and records coverage. A
+  reviewer convinced the list is short has that one round to say so.
+
+**Costs.**
+
+- The per-round record: five fields per round in every critical-tier
+  pull-request description. On OMN-021 that is fourteen rows; on a one-round
+  review it is one. The template carries nine `###` sections today, measured
+  2026-09-05 at 8b0a8b4; this ticket makes it ten.
+- Each block at cap costs a maintainer read of the review record and a
+  decision. On the source ticket the saving is eleven rounds against one
+  block. On a project with several non-converging tickets at once, the
+  maintainer becomes the bottleneck the block was meant to protect; the rule
+  should say what the maintainer does with three blocked records in a day.
+
 ## Acceptance criteria
 
 1. AC1: `docs/tier-review-model.md` states, in its own section, the conditions

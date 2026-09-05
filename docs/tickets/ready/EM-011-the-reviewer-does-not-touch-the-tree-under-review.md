@@ -76,6 +76,29 @@ how review is conducted and changes nothing about what it examines.
   promise: the party that will be blamed for a finding is the party that must
   be able to show the tree was its own.
 
+## What this refuses, and what it costs
+
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+
+**Refuses.**
+
+- In-place review of any kind, including review by a tool that assumes the
+  working directory is the tree: hosted review interfaces, editor-integrated
+  reviewers, an agent handed a path with no ability to create a worktree.
+- Review on a checkout where a worktree cannot be created, or where creating
+  one costs a full environment build. The rule has no fallback for either.
+
+**Costs.**
+
+- Per review: create a worktree, build its environment, run, remove. Under
+  EM-006's no-global-mutation constraint each worktree needs its own
+  interpreter environment, so this is minutes and disk per review round, not
+  seconds. On OMN-021's fourteen rounds, that is fourteen environments.
+- Per round: the executor's status-and-worktree-list check before the next
+  gate run. Seconds, but one more step in the sequence, and the executor's
+  step — the ticket is right that it must be, and that is still a cost the
+  executor pays for the reviewer's discipline.
+
 ## Acceptance criteria
 
 1. AC1: `docs/quality-gates.md` states that review runs in the reviewer's own

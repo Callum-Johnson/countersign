@@ -92,6 +92,35 @@ brief and removes nothing from it.
   party ignores is not a control, and a review that only ever tightens
   produces controls that get ignored.
 
+## What this refuses, and what it costs
+
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+
+**Refuses.**
+
+- A first-column finding whose remedy cannot be costed. A new refusal on a
+  path nothing has touched yet has a historical cost of zero commits and an
+  unknown forward cost. The rule as written calls that finding incomplete, and
+  an incomplete finding of a real hole may be dropped. The rule should state
+  what "cannot be measured" is allowed to look like — a stated population and
+  a zero is a measurement; "unknowable" is not.
+- Reviewer severity judgement, by design, and the Notes say why.
+
+**Costs.**
+
+- Every critical-tier review is now two passes, and every tightening finding
+  carries a measurement the reviewer must run — commit counts against a
+  branch, or equivalent. On the source ticket's item 6 the measurement was one
+  git query; the cost is not the query, it is that the reviewer must know to
+  make it, which puts the measurement in the brief.
+- **Two-column ping-pong.** Column 1 tightens a rule; column 2 finds the
+  tightening refuses honest work and loosens it; the next round tightens it
+  again. EM-007's cap catches this after three rounds. Nothing catches it in
+  round two. Proposed addition to Behaviour, for the maintainer to take or
+  decline: when both columns land on the same rule in consecutive rounds,
+  that is a class signal per EM-009, and the next step is a redesign of the
+  rule, not a third adjustment.
+
 ## Acceptance criteria
 
 1. AC1: `docs/tier-review-model.md` states the two questions every

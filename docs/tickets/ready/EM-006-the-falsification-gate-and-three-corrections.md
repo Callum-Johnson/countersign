@@ -159,6 +159,42 @@ change that surface and are the reason for the tier.
 - The ADR-0038 annotation states the placement rule and the reason: paths
   differing means git cannot see the collision.
 
+## What this refuses, and what it costs
+
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+
+**Refuses.**
+
+- Any behavioural change whose executor cannot construct a plausible wrong
+  implementation. A refactor, a rename, a change with no discriminating band
+  must either invent a mutant to satisfy the gate or label its test
+  non-discriminating. The label is permitted and is the honest path, but it is
+  now a declaration the executor writes and a reviewer may challenge, on every
+  such change.
+- Any gate script that installs the package in editable mode, which is the
+  ordinary Python arrangement. A project adopting the no-global-mutation
+  constraint restructures its gate or, as three agents on the source project
+  did, refuses to run it as written.
+- A commit-subject convention readers may already follow. AC7 replaces it with
+  one not yet chosen; until it is, readers have a rule that says "not this"
+  and nothing else.
+
+**Costs.**
+
+- Per behavioural claim: construct the mutant, run the suite, record the
+  count. That is at least one additional full suite run per claim. On the gate
+  run EM-012 measures at about twelve minutes, a change carrying three claims
+  pays roughly thirty-six minutes of gate time before reporting, against a
+  baseline of one run. Measure on the next five closed critical tickets:
+  claims per ticket, suite runs per ticket.
+- Baseline-in-sentence is a writing cost only, but it applies to every number
+  in every pull-request description from now on.
+- Reviewer brief: the five documents this wave edits total 3,150 words,
+  measured 2026-09-05 at commit 8b0a8b4 (tier-review-model 761, quality-gates
+  411, ai-contributor-policy 1,034, ticket-lifecycle 544, PR-DESCRIPTION 400).
+  This ticket adds to three of them and removes from none. Measure again at
+  close and state the delta in the pull-request description.
+
 ## Acceptance criteria
 
 1. AC1: `docs/quality-gates.md` states, in its own section, that coverage

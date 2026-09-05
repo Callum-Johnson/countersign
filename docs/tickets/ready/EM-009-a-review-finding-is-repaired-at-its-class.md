@@ -96,6 +96,36 @@ an existing gate.
   in engineering terms — an assertion that a name matches nothing, with a
   comment justifying the absence, on a list whose purpose was to match it.
 
+## What this refuses, and what it costs
+
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+
+**Refuses.**
+
+- A one-line fix for a finding the executor believes is singular, unless the
+  pull-request description says "repair of the instance" in those words. The
+  declaration is permitted. Its cost is that it becomes a claim the next round
+  can hold against the executor, so executors will enumerate defensively —
+  which is the rule working, and is also more enumeration than some findings
+  deserve.
+- Repairs whose class question has no finite answer. "What does the
+  interpreter load" enumerates; "what could a user type" does not. The rule
+  gives no exit for the unenumerable class, and an executor meeting one has
+  to choose between an honest "repair of the instance" and an invented
+  enumeration.
+
+**Costs.**
+
+- This ticket multiplies EM-006's cost by sibling count: per finding, one
+  mutant-and-count per sibling. On OMN-021's 46 must-fixes, taken from its
+  Review section, three siblings each would be roughly 140 suite runs, which
+  at EM-012's twelve-minute figure is about twenty-eight hours of gate time on
+  one ticket, against the fourteen runs that ticket actually paid. That is an
+  upper bound with an assumed sibling count; measure it on the first ticket
+  worked under the rule and replace the assumption.
+- Adds an executor obligation to policy section 6, which carries five today,
+  measured 2026-09-05 at 8b0a8b4.
+
 ## Acceptance criteria
 
 1. AC1: `docs/ai-contributor-policy.md` states the class obligation as an
