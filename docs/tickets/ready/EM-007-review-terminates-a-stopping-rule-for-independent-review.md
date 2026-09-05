@@ -108,7 +108,7 @@ existing rule.
 
 ## What this refuses, and what it costs
 
-> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. A figure measured here names its baseline in the same sentence; a figure from a private project names the ticket section it is taken from; an assumption says so. Raised alongside EM-014; corrected after independent review of c0111ae.
 
 **Refuses.**
 
@@ -125,9 +125,12 @@ existing rule.
 **Costs.**
 
 - The per-round record: five fields per round in every critical-tier
-  pull-request description. On OMN-021 that is fourteen rows; on a one-round
-  review it is one. The template carries nine `###` sections today, measured
-  2026-09-05 at 8b0a8b4; this ticket makes it ten.
+  pull-request description. On OMN-021 that is fourteen rows, one per round
+  in the per-round counts its Review section records and this ticket's
+  Context quotes; on a one-round review it is one. The template carries nine
+  `###` headings today, measured 2026-09-05 at 8b0a8b4 — seven template
+  sections inside the code block and two document headings; this ticket adds
+  one template section, and EM-009 adds another.
 - Each block at cap costs a maintainer read of the review record and a
   decision. On the source ticket the saving is eleven rounds against one
   block. On a project with several non-converging tickets at once, the

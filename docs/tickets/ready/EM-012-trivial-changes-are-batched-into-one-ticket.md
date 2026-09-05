@@ -78,14 +78,16 @@ the lifecycle and removes none.
 
 ## What this refuses, and what it costs
 
-> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. A figure measured here names its baseline in the same sentence; a figure from a private project names the ticket section it is taken from; an assumption says so. Raised alongside EM-014; corrected after independent review of c0111ae.
 
 This is the only ticket in the wave whose primary effect is in EM-010's second
 column: it adds a cheaper path and refuses nothing that was previously
-allowed. That is worth saying plainly, because the other six are all
-first-column tickets, and a wave of seven whose one loosening is a batching
-path for trivial work has not answered the second question for standard-tier
-work, which is where most of the wave's cost lands.
+allowed. That is worth saying plainly. Five of the other six are first-column
+tickets; EM-007 is mixed, since a cap removes an unbounded obligation while
+adding a record. A wave of seven whose one loosening is a batching path for
+trivial work has not answered the second question for standard-tier work,
+which is where the wave's per-change obligations — EM-006's gate and EM-009's
+per-sibling counts — apply without being amortised.
 
 **Refuses.**
 
@@ -100,9 +102,10 @@ work, which is where most of the wave's cost lands.
   individually. The saving is one gate run per batch rather than one per
   entry, and the Notes already state that the first entry saves nothing.
 - The scrutiny cost is the real one and the Notes state it: the batch is the
-  least-read path in the lifecycle. Measure it the only way it can be
-  measured — count reclassifications out of batches over the first ten
-  batches, and if the count is zero, ask whether nobody is reading them.
+  least-read path in the lifecycle. The only measurement available is to an
+  adopting project: count reclassifications out of batches over its first ten
+  batches, and if the count is zero, ask whether anyone is reading them. This
+  repository has no batches and cannot take it.
 
 ## Acceptance criteria
 

@@ -78,13 +78,16 @@ how review is conducted and changes nothing about what it examines.
 
 ## What this refuses, and what it costs
 
-> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. A figure measured here names its baseline in the same sentence; a figure from a private project names the ticket section it is taken from; an assumption says so. Raised alongside EM-014; corrected after independent review of c0111ae.
 
 **Refuses.**
 
-- In-place review of any kind, including review by a tool that assumes the
-  working directory is the tree: hosted review interfaces, editor-integrated
-  reviewers, an agent handed a path with no ability to create a worktree.
+- Review that writes to the tree under review, in any form — which includes
+  any reviewer tool that runs the suite or applies a mutant in place, and an
+  agent handed a path with no ability to create a worktree. A read-only
+  hosted review writes nothing and is not refused by this rule; what it
+  cannot do is discharge the run-the-suite duty, and that refusal is the tier
+  model's, not this ticket's.
 - Review on a checkout where a worktree cannot be created, or where creating
   one costs a full environment build. The rule has no fallback for either.
 
@@ -93,7 +96,9 @@ how review is conducted and changes nothing about what it examines.
 - Per review: create a worktree, build its environment, run, remove. Under
   EM-006's no-global-mutation constraint each worktree needs its own
   interpreter environment, so this is minutes and disk per review round, not
-  seconds. On OMN-021's fourteen rounds, that is fourteen environments.
+  seconds. On OMN-021's fourteen rounds, per the per-round counts EM-007's
+  Context quotes, that is fourteen environments if each round builds afresh —
+  which the rule implies and the record does not state.
 - Per round: the executor's status-and-worktree-list check before the next
   gate run. Seconds, but one more step in the sequence, and the executor's
   step — the ticket is right that it must be, and that is still a cost the

@@ -161,7 +161,7 @@ change that surface and are the reason for the tier.
 
 ## What this refuses, and what it costs
 
-> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. A figure measured here names its baseline in the same sentence; a figure from a private project names the ticket section it is taken from; an assumption says so. Raised alongside EM-014; corrected after independent review of c0111ae.
 
 **Refuses.**
 
@@ -175,25 +175,31 @@ change that surface and are the reason for the tier.
   ordinary Python arrangement. A project adopting the no-global-mutation
   constraint restructures its gate or, as three agents on the source project
   did, refuses to run it as written.
-- A commit-subject convention readers may already follow. AC7 replaces it with
-  one not yet chosen; until it is, readers have a rule that says "not this"
-  and nothing else.
+- A commit-subject convention — but not one this repository publishes. No
+  subject-length rule appears anywhere in `docs/` or `templates/` at 8b0a8b4;
+  the 72-character limit lives in the source project's guidance, and AC7 as
+  written has no file in this repository to act on. The implementer either
+  finds the rule readers are meant to have imported and names it, or narrows
+  AC7 to state the composition hazard without replacing a rule that is not
+  here.
 
 **Costs.**
 
 - Per behavioural claim: construct the mutant, run the suite, record the
-  count. That is at least one additional full suite run per claim. On the gate
-  run EM-012 measures at about twelve minutes, a change carrying three claims
-  pays roughly thirty-six minutes of gate time before reporting, against a
-  baseline of one run. Measure on the next five closed critical tickets:
-  claims per ticket, suite runs per ticket.
+  count. That is at least one additional full suite run per claim. On the
+  twelve-minute gate run EM-012 reports from OMN-025's pull-request
+  description, a change carrying three claims pays roughly thirty-six minutes
+  of gate time before reporting, against a baseline of one run. Claims per
+  ticket and suite runs per ticket are a question for an adopting project on
+  its first five critical tickets under the gate; this repository has no
+  suite and cannot measure them.
 - Baseline-in-sentence is a writing cost only, but it applies to every number
   in every pull-request description from now on.
-- Reviewer brief: the five documents this wave edits total 3,150 words,
+- Reviewer brief: five of the documents this wave edits total 3,150 words,
   measured 2026-09-05 at commit 8b0a8b4 (tier-review-model 761, quality-gates
   411, ai-contributor-policy 1,034, ticket-lifecycle 544, PR-DESCRIPTION 400).
-  This ticket adds to three of them and removes from none. Measure again at
-  close and state the delta in the pull-request description.
+  This ticket adds to four of them and replaces one rule. AC10 makes the
+  re-measurement at close an acceptance criterion rather than a wish.
 
 ## Acceptance criteria
 
@@ -224,6 +230,9 @@ change that surface and are the reason for the tier.
 9. AC9: Critical tier per ADR-0002: an independent agent that did not perform
    the work reviews this against the artifacts, and its findings are recorded in
    the pull-request description.
+10. AC10: The pull-request description states the word count of each document
+    this ticket edits, before and after, against the figures measured at
+    8b0a8b4 in the section above, and the total delta.
 
 ## Out of scope
 

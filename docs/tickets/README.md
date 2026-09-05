@@ -30,6 +30,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-008 | ready | critical | A decision reserved to another party is handled as ambiguity |
 | EM-009 | ready | critical | A review finding is repaired at its class, falsified per sibling |
 | EM-010 | ready | critical | A review answers two questions; over-tightening is a finding |
+| EM-010-001 | ready | critical | Both columns on one rule in consecutive rounds is a class signal |
 | EM-011 | ready | critical | Review runs in its own worktree; the tree is checked afterwards |
 | EM-012 | ready | critical | Trivial changes are batched into one ticket |
 | EM-013 | ready | standard | Assess the methodology against ISO/IEC 42001 |

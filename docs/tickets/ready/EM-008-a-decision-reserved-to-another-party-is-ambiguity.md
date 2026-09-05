@@ -84,7 +84,7 @@ existing rule and changes no rule's procedure.
 
 ## What this refuses, and what it costs
 
-> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. A figure measured here names its baseline in the same sentence; a figure from a private project names the ticket section it is taken from; an assumption says so. Raised alongside EM-014; corrected after independent review of c0111ae.
 
 **Refuses.**
 
@@ -99,12 +99,14 @@ existing rule and changes no rule's procedure.
 **Costs.**
 
 - Throughput becomes the approver's response latency. On OMN-021, ten
-  reserved questions accumulated over thirteen rounds; under this rule the
-  first would have blocked at round one and the other nine were not yet
-  discovered. Whether they surface in one further block or nine is not known
-  and should be measured on the next governance-surface ticket. Where the
-  approver is one maintainer working evenings, one reserved question can cost
-  a day.
+  reserved questions accumulated over thirteen rounds, per OMN-021-001 as
+  this ticket's Context cites it; under this rule the first would have
+  blocked in whichever round it surfaced, which the record does not state,
+  with the rest not yet discovered. Whether they surface in one further block
+  or nine is not known. It is a question for a project that has a governance
+  surface; this repository does not (Out of scope, first bullet), so it
+  cannot be measured here. Where the approver is one maintainer working
+  evenings, one reserved question can cost a day.
 - The cost this rule removes — work discarded when an answer changes the
   shape — is asserted from OMN-021's record, not measured by it. The record
   shows fourteen rounds and ten questions; it does not show how much of the

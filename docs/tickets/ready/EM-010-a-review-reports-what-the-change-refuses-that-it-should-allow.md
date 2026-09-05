@@ -94,7 +94,7 @@ brief and removes nothing from it.
 
 ## What this refuses, and what it costs
 
-> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. A figure measured here names its baseline in the same sentence; a figure from a private project names the ticket section it is taken from; an assumption says so. Raised alongside EM-014; corrected after independent review of c0111ae.
 
 **Refuses.**
 
@@ -110,16 +110,18 @@ brief and removes nothing from it.
 
 - Every critical-tier review is now two passes, and every tightening finding
   carries a measurement the reviewer must run — commit counts against a
-  branch, or equivalent. On the source ticket's item 6 the measurement was one
-  git query; the cost is not the query, it is that the reviewer must know to
+  branch, or equivalent. On the source ticket's item 6 the result is recorded
+  as 5 of 203 commits, per this ticket's Context; how it was obtained is not
+  recorded. The cost is not the query, it is that the reviewer must know to
   make it, which puts the measurement in the brief.
 - **Two-column ping-pong.** Column 1 tightens a rule; column 2 finds the
   tightening refuses honest work and loosens it; the next round tightens it
   again. EM-007's cap catches this after three rounds. Nothing catches it in
-  round two. Proposed addition to Behaviour, for the maintainer to take or
-  decline: when both columns land on the same rule in consecutive rounds,
-  that is a class signal per EM-009, and the next step is a redesign of the
-  rule, not a third adjustment.
+  round two. That is a gap in this ticket's design, and the fix is a stopping
+  trigger — a specification change with a cost. It is raised as EM-010-001
+  rather than proposed here, because a change to Behaviour belongs in a
+  ticket's own Specification with its cost stated, not in a paragraph the
+  implementer cannot tell is in scope.
 
 ## Acceptance criteria
 

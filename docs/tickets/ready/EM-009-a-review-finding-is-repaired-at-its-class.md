@@ -98,7 +98,7 @@ an existing gate.
 
 ## What this refuses, and what it costs
 
-> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. Every figure names its baseline in the same sentence. Raised alongside EM-014.
+> Added 2026-09-05 on review of the wave, applying EM-010's two questions to the ticket that proposes them. A figure measured here names its baseline in the same sentence; a figure from a private project names the ticket section it is taken from; an assumption says so. Raised alongside EM-014; corrected after independent review of c0111ae.
 
 **Refuses.**
 
@@ -118,11 +118,14 @@ an existing gate.
 
 - This ticket multiplies EM-006's cost by sibling count: per finding, one
   mutant-and-count per sibling. On OMN-021's 46 must-fixes, taken from its
-  Review section, three siblings each would be roughly 140 suite runs, which
-  at EM-012's twelve-minute figure is about twenty-eight hours of gate time on
-  one ticket, against the fourteen runs that ticket actually paid. That is an
-  upper bound with an assumed sibling count; measure it on the first ticket
-  worked under the rule and replace the assumption.
+  Review section as this ticket's Context quotes them, an assumed three
+  siblings each would be about 138 suite runs, which at the twelve-minute
+  figure EM-012 reports from OMN-025 is roughly twenty-eight hours of gate
+  time on one ticket. The record gives rounds, not gate runs, so the figure
+  that ticket actually paid is not available and is not asserted. The
+  twenty-eight hours is an upper bound on an assumed sibling count; the first
+  adopting project to work a ticket under the rule can replace the
+  assumption, and this repository cannot.
 - Adds an executor obligation to policy section 6, which carries five today,
   measured 2026-09-05 at 8b0a8b4.
 
