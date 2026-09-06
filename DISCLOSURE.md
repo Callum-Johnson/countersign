@@ -62,7 +62,16 @@ narrowed 331 files to 29 for me to read. It was wrong about 19 of them.
 otherwise unmodified except for one normalisation: project names and ticket
 identifiers were replaced with neutral equivalents, because the project names
 are themselves drawn from the third party's setting. No other text was
-changed, and nothing was redacted within a published file.
+changed at publication, and nothing was redacted within a published file.
+
+One exception was made after publication and is marked as such. The decision
+record on ticket lineage carries an annotation appended on 2026-09-06 under
+ticket EM-006, under its own dated heading, stating two defects in the
+scheme's lookup instructions that were found in use. The original text above
+the annotation is unchanged. It is annotated rather than superseded because
+the decision is sound and only its procedure was incomplete, and a reader
+copying the scheme needs the correction beside it rather than in a file they
+may not open.
 
 Where an artifact needed redaction to be publishable, it was **excluded rather
 than redacted**. A partially redacted document invites the reader to
