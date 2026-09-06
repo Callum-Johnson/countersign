@@ -122,11 +122,10 @@ shapes that a control must catch. A reviewer briefed to find the entry the
 list is missing will find one every round, because the list is finite and the
 adversary's options are not.
 
-A round is one reviewer's pass over one commit, and the repair it produces.
-A must-fix is a finding the reviewer records as blocking merge. A round ends
-the loop
-**without a further fix** under any of three conditions. Each names where its
-findings go.
+A round is one reviewer's pass over one commit, and the repair it produces. A
+must-fix is a finding the reviewer records as blocking merge. A round ends the
+loop **without a further fix** under any of three conditions. Each names where
+its findings go.
 
 1. **The round finds no must-fix.** Review is complete.
 2. **Every must-fix in the round lies inside a limit the ticket already
@@ -146,20 +145,20 @@ findings go.
 
 **The cap.** A ticket takes at most **three** review rounds before it blocks
 to the maintainer with its review record attached. Three is a default, named
-as one, and the reasoning is one ticket's record: on OMN-021, the control-plane
-ticket this section was measured on, the per-round must-fix counts in its
-Review section run 7, 5, 2, 3, 4, 2, 2, 2, 6, 5, 3, 1, 2, 2 over fourteen
+as one, and the reasoning is one ticket's record: on OMN-021, the control-
+plane ticket this section was measured on, the per-round must-fix counts in
+its Review section run 7, 5, 2, 3, 4, 2, 2, 2, 6, 5, 3, 1, 2, 2 over fourteen
 rounds, the eight rules it built were unchanged after round 6, and every
 finding from round 7 onward was in two path lists. Rounds 1 to 3 found the
 rules' original defects; rounds 4 to 6 repaired the repairs, which is the
 signal below; everything from round 7 was lists. Three is set one round past
 the point where original rule defects stopped, and the record supports no
-stronger claim for it than that. Blocking at the cap is a success path in exactly the
-sense of the contributor policy's §3: the executor has correctly identified
-that the loop is not converging, and the alternative is another round that
-looks like progress. The record travels with the block: the per-round table
-is appended to the ticket file under the `BLOCKER:` comment, since the
-pull-request description it would otherwise live in is not written until
+stronger claim for it than that. Blocking at the cap is a success path in
+exactly the sense of the contributor policy's §3: the executor has correctly
+identified that the loop is not converging, and the alternative is another
+round that looks like progress. The record travels with the block: the per-
+round table is appended to the ticket file under the `BLOCKER:` comment, since
+the pull-request description it would otherwise live in is not written until
 close.
 
 The cap is not the rule; the conditions are. A cap alone ends a review that
