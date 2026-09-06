@@ -53,6 +53,48 @@ the worktree owns, or run against the source tree without installing.
 **Retired when:** the project runs one agent per machine by construction, so
 that no process shares an interpreter with another tree.
 
+## Review isolation
+
+The rule above one level up: a review must not mutate the tree it reviews.
+
+The falsification gate asks a reviewer to do something that looks like
+mutation — apply a wrong implementation, run the suite, count — and it is
+right to ask. Where it happens is the question. **Review, including any
+mutation the gate asks for, runs in a worktree the reviewer creates, owns
+and removes. The tree under review is read by the reviewer, never
+written.** A review that writes nothing — a hosted reviewer reading a diff
+— is not refused by this rule; what such a review cannot do is discharge
+the run-the-suite duty, and that refusal is the tier model's.
+
+**The tree is checked after the review returns**, before any repair or
+further round: the status command reports nothing untracked and nothing
+modified, and the worktree list shows nothing the executor did not
+register. Anything found is a finding against the review, recorded as such
+in the round's record, and is removed before the tree is used again.
+
+The mechanism this guards against, stated so the class is understood and
+not only the file: an interpreter that imports a module of a fixed name at
+start-up, from any directory on its path, will run whatever a file of that
+name contains before the test runner or the type checker examines anything.
+A copy that exits zero under those tools makes both gates pass having
+examined nothing, and only a gate that reads files as text — lint — sees it.
+On the source project one reviewer left such a file at the root of the
+tree under review, and the lint gate was what failed; another left a
+registered worktree the main tree's status command does not show. The
+executor found both, by checking status and the worktree list before every
+gate run as a private discipline. That discipline is this rule.
+
+It is the executor's check and not the reviewer's promise because the
+party that will be blamed for a finding is the party that must be able to
+show the tree was its own. A record that cannot say whether a finding was
+in the work or in the review of it has lost the thing a review record is
+for.
+
+**Retired when:** review is dispatched by a mechanism that cannot write to
+the tree under review — a hosted reviewer with a read-only checkout and its
+own environment — and the project has no other reviewer; the post-review
+check then checks nothing, and the worktree rule constrains nobody.
+
 ## Coverage: no regression, not a threshold
 
 There is no global coverage percentage to hit. The rule is **no regression on

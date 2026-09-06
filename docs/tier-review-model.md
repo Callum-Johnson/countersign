@@ -123,6 +123,10 @@ The reviewer has to verify the evidence and run the suite itself rather than
 accept the executor's summary — which is the whole value, since a persuasive
 summary of wrong work is the characteristic AI failure mode.
 
+The reviewer works in a worktree of its own and never writes to the tree
+under review; the rule and the check the executor runs afterwards are in
+`docs/quality-gates.md`, "Review isolation".
+
 What it does not substitute for is accountability. The independence is real;
 the judgement is still mine.
 
