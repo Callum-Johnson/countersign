@@ -1,10 +1,13 @@
 ---
 id: EM-004
 title: Add per-project case studies
-status: ready
+status: blocked
 tier: standard
 complexity: M
 dependencies: [EM-002]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
+blocked_at: 2026-09-06
 ---
 
 # EM-004 — Add per-project case studies
@@ -66,3 +69,18 @@ approach, and none describing the domain.
 AC3 is the point of the ticket. Case studies that describe only successes
 read as marketing, and the growth case study already sets the expectation
 that this repository records what it got wrong.
+
+**BLOCKER (2026-09-06):** every sentence this ticket asks for is about a
+private project the executor cannot read. The engineering problem, the
+approach, the thing got wrong first, and every metric "verifiable from the
+repository" are all facts about three repositories that are not this one.
+Writing them without access is invention, which contributor policy §3
+forbids, and a case study invented to fit the headings would be exactly the
+marketing the ticket's Notes warn against.
+
+To proceed the executor needs, per project, the maintainer's notes: the
+problem, the approach, at least one thing that went wrong and what changed,
+and each metric with where it was counted. A page of bullet points per
+project is enough; the executor can write the prose and run the
+proprietary-term scan. Alternatively, the maintainer writes the three files
+and the executor works AC1, AC2 and AC4.
