@@ -1,10 +1,12 @@
 ---
 id: EM-018-001
 title: The ticket template's how-to-use steps disagree with the lifecycle on three points
-status: ready
+status: in-progress
 tier: standard
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-018-001 — The ticket template's how-to-use steps disagree with the lifecycle on three points
