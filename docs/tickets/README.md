@@ -44,7 +44,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-016 | done | critical | Bound the brief a contributor must read |
 | EM-016-001 | ready | trivial | The README's document table is a third description the rule does not bind |
 | EM-017 | done | trivial | Batch — trivial changes, 2026-09-06 |
-| EM-018 | ready | standard | The templates cite files this repository does not publish |
+| EM-018 | active | standard | The templates cite files this repository does not publish |
 | EM-019 | done | trivial | Three figures in EM-016's closed description were predicted, not measured |
 | EM-019-001 | done | critical | A reported figure is read from a command, not written by its author |
 | EM-019-001-001 | ready | critical | Rule-adding tickets produce no decision record, against the trigger list |
