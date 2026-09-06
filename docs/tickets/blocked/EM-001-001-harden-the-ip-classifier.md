@@ -1,10 +1,13 @@
 ---
 id: EM-001-001
 title: Harden the IP classifier and make the triage reproducible
-status: ready
+status: blocked
 tier: standard
 complexity: M
 dependencies: [EM-001]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
+blocked_at: 2026-09-06
 ---
 
 # EM-001-001 — Harden the IP classifier and make the triage reproducible
@@ -78,3 +81,25 @@ as data rather than embedded literals, and fix the two demonstrated failures.
 The finding is already documented in `DISCLOSURE.md` as the substantive lesson
 of the triage. This ticket does not change that text — the lesson stands
 whether or not the tool improves.
+
+**BLOCKER (2026-09-06):** the executor cannot proceed for two reasons, one an
+input and one a decision reserved to the maintainer.
+
+1. **The term list is not available.** Context records that the classifier
+   was discarded after use; the term list exists, if at all, only on the
+   maintainer's machine. Without it AC1 is vacuous (an empty list clears
+   everything), AC3 cannot be demonstrated, and AC2 depends on two private
+   artifacts that are not in this repository and cannot be.
+2. **Whether `tools/terms.txt` may be published is a publication decision the
+   ticket does not make.** A list of a third party's vocabulary identifies the
+   ruleset, which is the domain content `DISCLOSURE.md` withholds. The ticket
+   specifies the list as data in the tree without saying whether the tree it
+   means is the public one. Options the executor can see: publish the list
+   (maintainer's call, with the disclosure amended to say why a vocabulary is
+   not content); ship the script with the list gitignored and a documented
+   format, so AC1–AC3 are verified by the maintainer locally and the README
+   says so; or a decoy list that proves the mechanism and nothing else.
+
+To proceed the executor needs the maintainer's choice among those, and, for
+the first two, the list — or the two artifacts named in Context, or a stated
+substitute for AC2.
