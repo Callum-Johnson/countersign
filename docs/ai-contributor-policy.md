@@ -22,7 +22,7 @@ row names where the rule is. What you must read before your first edit is
 | What may I do, what may I not, and what do I do when I cannot proceed? | this document |
 | How do I claim, block, batch and close work, and how are tickets numbered? | `docs/ticket-lifecycle.md` — the mechanics; §3 above states when to block |
 | What must be true before I report this change done? | this document, §6 |
-| What tier is my change, who reviews it, what does a review report, when does it end, and how does a rule leave? | `docs/tier-review-model.md` |
+| What tier is my change, who reviews it, what does a review report, when does it end, how does a rule leave, and what does one need before it enters? | `docs/tier-review-model.md` |
 | Which machine checks must pass, what does the falsification gate ask of me, and where does a review run? | `docs/quality-gates.md` |
 | Is this decision a record, and what does that record carry? | `docs/adr-process.md` |
 | What shape does a ticket, a pull-request description or a decision record take? | `templates/` |

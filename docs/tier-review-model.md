@@ -25,7 +25,7 @@ opens that section, and reaches the rest when a finding turns on them.
 | Why "another agent, human or AI" | Who reviews, what they receive, and where they work |
 | What a review reports | The two questions a review answers, what a tightening must cost, and the class signal |
 | When review ends | The three conditions, the round cap, the per-round record, and the read before a repair is handed back |
-| Retiring a control | The falsifier every rule states, and how a rule leaves the documents |
+| Retiring a control | The falsifier every rule states, how a rule leaves the documents, and what it needs before it enters |
 
 The rule that keeps this index current is stated once, with the map in
 `docs/ai-contributor-policy.md`, "Which document settles what".
@@ -469,6 +469,36 @@ finding goes.
 - A retirement ticket is not worked by the executor whose work the rule
   refused. The party subject to a control does not get to remove it, and
   raising the ticket is as far as that party goes.
+
+**A rule needs a second instance.** A failure met once is recorded where it
+was met — as a child ticket under the contributor policy's §4 if it is work,
+or under Risks / follow-ups in the description if it is a cost or an
+observation — and is not written into these documents as a rule until it is
+met a second time, in a second ticket or on a second project, since the second
+instance is what shows the first was not its own context. The ticket that adds
+the rule names its instances in its Context; a name a reader cannot open is
+still a name, quoted with its round or its cost as the wave's tickets do. The
+first instance is not lost: §4 keeps the first kind and the description the
+second, and the second instance is what promotes either. The bar governs a
+rule's entry as a ticket's own subject. It does not reach a repair of the
+change under review, an entry in a list, or an amendment under this section. A
+rule that prevents an outcome that cannot be undone — third-party material
+published, the main branch force-pushed — may be written from one instance or
+from none, and says so. The reason is the brief: every rule here is read by
+every future reviewer on every round, and a rule written from one instance is
+a bet that the instance recurs, paid whether it does or not. Of the thirteen
+rule-adding tickets from EM-006 to EM-020, eight name one source ticket on one
+project in their Context — EM-007, EM-008, EM-010, EM-011, EM-012, EM-012-001,
+EM-014-001 and EM-019-001 — counted by reading each Context for the source it
+names. Those eight are this rule's instances, and none would have cleared the
+bar it supplies. The bar binds tickets raised after the ticket that landed
+this paragraph closed; a rule-adding ticket that names one instance and claims
+no exception is not ready.
+
+**Retired when:** a failure recorded once and left unruled under this bar
+recurs and costs a review round, more than once over a stated population of
+closed tickets; the bar is then holding back rules that would have saved
+rounds, which is the unit it exists to save.
 
 **Who this binds.** A ticket that adds a rule states the rule's falsifier in
 its Behaviour section, and a ticket that does not is not ready, in the sense

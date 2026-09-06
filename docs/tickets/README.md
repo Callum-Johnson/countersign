@@ -49,7 +49,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-019-001 | done | critical | A reported figure is read from a command, not written by its author |
 | EM-019-001-001 | ready | critical | Rule-adding tickets produce no decision record, against the trigger list |
 | EM-020 | done | critical | Read the whole thing before acting on part of it |
-| EM-021 | ready | critical | A rule needs a second instance before it is written |
+| EM-021 | done | critical | A rule needs a second instance before it is written |
 | EM-020-001 | ready | critical | A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded |
 | EM-007-002 | blocked | critical | A process-document change is trivial by the test and critical by ADR-0002 |
 | EM-009-001 | blocked | critical | The class obligation binds every repaired finding |
