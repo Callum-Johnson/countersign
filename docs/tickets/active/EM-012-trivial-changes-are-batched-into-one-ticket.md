@@ -1,10 +1,12 @@
 ---
 id: EM-012
 title: Trivial changes are batched into one ticket
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-012 — Trivial changes are batched into one ticket
