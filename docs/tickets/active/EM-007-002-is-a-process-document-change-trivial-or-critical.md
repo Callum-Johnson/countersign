@@ -1,10 +1,12 @@
 ---
 id: EM-007-002
 title: A change to a process document is trivial by the operative test and critical by ADR-0002
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-007-002 — Is a change to a process document trivial or critical?

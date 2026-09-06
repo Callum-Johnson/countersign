@@ -44,7 +44,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-016 | ready | critical | Bound the brief a contributor must read |
 | EM-017 | ready | trivial | Batch — trivial changes, 2026-09-06 |
 | EM-018 | ready | standard | The templates cite files this repository does not publish |
-| EM-007-002 | ready | critical | A process-document change is trivial by the test and critical by ADR-0002 |
+| EM-007-002 | active | critical | A process-document change is trivial by the test and critical by ADR-0002 |
 | EM-009-001 | ready | critical | The class obligation binds every repaired finding |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
