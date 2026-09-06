@@ -55,9 +55,11 @@ EM-021's second-instance bar sits nearest the line and on the second side:
 it says what a rule-adding ticket carries before its rule enters, and was
 added as one paragraph under ADR-0003's decision that a rule is held to
 evidence — ADR-0003's migration added a line to every rule in `docs/`, and
-EM-021 rewrote none. That is the line in one question: does the change act
-on the rules already there, or add one? The test above reads the same way:
-the constraint such a rule places on future work is the existing decision's,
+EM-021 rewrote none. That is the line in one question, for a change to the
+rules: does it act on the rules as a set — every one rewritten, or one
+leaving or amended with its record under "Retiring a control" — or on one
+rule, added or extended in place? The test above reads the same way: the
+constraint such a rule places on future work is the existing decision's,
 applied at one step, and that decision has its record. This is the practice
 this repository has followed — the rules added by EM-008, EM-009, EM-010,
 EM-011, EM-012, EM-016 and EM-019-001
