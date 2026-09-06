@@ -66,6 +66,8 @@ round. The total is derived from the rows and never asserted beside them
 |---|---|---|---|---|
 | 1 | <n> | <where> | — | <commit> |
 | 2 | <n> | <where> | <m of n> | <commit> |
+
+`—` where nothing was repaired; `m` and `n` count must-fixes, not findings.
 ```
 
 ### Definition of Done (all tiers)
