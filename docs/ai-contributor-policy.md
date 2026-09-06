@@ -167,7 +167,9 @@ every reading of it. That is not caution — it is unreviewable code.
   **repair of the instance**, in those words. That is permitted — some
   findings are singular — and it is a claim the reviewer can check: the
   next round finding a sibling is then a finding against the repair's own
-  claim. The form is in `templates/PR-DESCRIPTION.md`, and the reason a
+  claim. A class with no finite enumeration — "what could a user type" —
+  is recorded as the stopping rule's third condition records a list:
+  best-effort, with the coverage stated. The form is in `templates/PR-DESCRIPTION.md`, and the reason a
   test pins a claim rather than a mechanism is with the gate in
   `docs/quality-gates.md`.
   **Retired when:** over a stated population of critical-tier tickets,
