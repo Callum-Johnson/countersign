@@ -110,13 +110,17 @@ the judgement is still mine.
 ## What a review reports
 
 A critical-tier review answers two questions of the change, and records the
-answers as two columns of findings:
+answers as two columns of findings in the pull-request description's Review
+section:
 
 1. **What does the change permit that the ticket says it must refuse?**
 2. **What does the change refuse that honest work needs?**
 
 **A finding in the second column is a must-fix of the same rank as a finding
-in the first.** Over-tightening is a defect, not a conservative default. A
+in the first** — a must-fix being a finding the reviewer records as blocking
+merge, as "When review ends" defines it; whether a finding blocks merge does
+not depend on its column. Over-tightening is a defect, not a conservative
+default. A
 reviewer briefed to look hard looks, unprompted, for one thing — what the
 change lets through — and a review that runs for several rounds under that
 brief tightens monotonically, because every finding adds a refusal and no
@@ -146,7 +150,7 @@ its remedy costs is incomplete. On OMN-021 a configuration filename was added
 to the list that raises the review tier of any change touching it, matched
 anywhere in the tree; the file it matched at the repository's own root is
 touched by 5 of the 203 commits on that repository's default branch, counted
-in OMN-021-001, and each of those now needs an independent approval. The
+in OMN-021-001, item 6, and each of those now needs an independent approval. The
 cost was measured after the fact, by the executor, for the maintainer. It
 belonged in the finding. Commit counts against a default branch are one
 measure, given as an example and not prescribed.
