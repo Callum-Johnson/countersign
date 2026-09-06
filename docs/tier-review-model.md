@@ -487,11 +487,11 @@ third-party material published, the main branch force-pushed — may be
 written from one instance or from none, and says so. The reason is the
 brief: every rule here is read by every future reviewer on every round, and
 a rule written from one instance is a bet that the instance recurs, paid
-whether it does or not. Of the twelve rule-adding tickets from EM-006 to
-EM-020, seven name one source ticket on one project in their Context —
-EM-007, EM-008, EM-010, EM-011, EM-012, EM-014-001 and EM-016 — counted by
-reading each Context for the source it names. Those seven are this rule's
-instances, and none would have cleared the bar it supplies. The bar binds
+whether it does or not. Of the thirteen rule-adding tickets from EM-006 to
+EM-020, eight name one source ticket on one project in their Context —
+EM-007, EM-008, EM-010, EM-011, EM-012, EM-012-001, EM-014-001 and EM-016 —
+counted by reading each Context for the source it names. Those eight are
+this rule's instances, and none would have cleared the bar it supplies. The bar binds
 tickets raised after this section's landing ticket closed; a rule-adding
 ticket that names one instance and claims no exception is not ready.
 
