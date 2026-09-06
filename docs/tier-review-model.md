@@ -52,6 +52,7 @@ to have drawn a must-fix at independent review.
 
 Gates are mandatory at every tier. There is no tier that skips the machine
 checks — the tier governs *human and peer* review, not automated review.
+
 `trivial` work may share one batch ticket rather than take a ticket each;
 the rule is in `docs/ticket-lifecycle.md`, "Batching trivial work".
 
