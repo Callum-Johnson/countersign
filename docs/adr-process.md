@@ -44,9 +44,9 @@ carries, where a review runs, and sits under the decision that put that
 step there. Such a rule stays in the document with its falsifier, and its
 ticket is its record: the Context names what it was written from, the
 ticket file states the rule and its falsifier — or, for a rule that predates
-ADR-0003, EM-014 states the falsifier — and the pull-request description
-records the review, so a decision record would carry the same content a
-second time. Those clauses decide a case; the three that follow show them
+ADR-0003, EM-014's migration wrote the falsifier, which the document carries
+— and the pull-request description records the review, so a decision record
+would carry the same content a second time. Those clauses decide a case; the three that follow show them
 applied.
 ADR-0003 is on the first side: the falsifier obligation changed how every
 rule in `docs/` is written and how the set can shrink, and no document could
