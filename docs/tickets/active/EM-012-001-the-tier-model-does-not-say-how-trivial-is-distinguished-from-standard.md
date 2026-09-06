@@ -1,10 +1,12 @@
 ---
 id: EM-012-001
 title: The tier model does not say how trivial is distinguished from standard
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: [EM-012]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-012-001 — The tier model does not say how trivial is distinguished from standard
