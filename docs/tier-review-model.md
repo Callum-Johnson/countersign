@@ -218,7 +218,7 @@ findings exceed must-fixes: the round-1 review of c0111ae, the commit that
 raised the rule's parent, returned 22 findings and 1 must-fix, per the
 record in 3da6c57 that the ticket raising this rule quotes. The next round
 reads the previous round's finding lines from the brief it is given or
-from the ticket, where the executor commits them with the repair.
+from the ticket, where the executor may commit them with the repair.
 
 **Retired when:** three rules sent to redesign by this signal each produced
 a redesign whose effect the per-round record shows to be the same as the
