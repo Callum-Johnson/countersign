@@ -1,10 +1,12 @@
 ---
 id: EM-004
 title: Add per-project case studies
-status: ready
+status: in-progress
 tier: standard
 complexity: M
 dependencies: [EM-002]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-004 — Add per-project case studies
