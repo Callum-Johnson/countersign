@@ -1,10 +1,12 @@
 ---
 id: EM-010
 title: A critical-tier review answers two questions, and over-tightening is a finding
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-010 — A review reports what the change refuses that it should allow
