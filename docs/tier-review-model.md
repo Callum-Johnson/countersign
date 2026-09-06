@@ -50,8 +50,13 @@ to have drawn a must-fix at independent review.
 | `standard` | Most feature work — new validators, resolvers, queries, components | None; author self-merges after a complete PR description with evidence per criterion | Mandatory |
 | `critical` | Anything the operative test catches | One approval from **another agent**, human or AI, who must verify the evidence and run the suite themselves | Mandatory |
 
-Gates are mandatory at every tier. There is no tier that skips the machine
-checks — the tier governs *human and peer* review, not automated review.
+Gates are mandatory at every tier. There is no tier that skips the four
+machine checks — the tier governs *human and peer* review, not automated
+review. The fifth gate, falsification, is discharged by the executor at
+every tier and independently verified only where the tier summons a
+reviewer; at `trivial` and `standard` its recorded count stands on the
+executor's word, which is a gap the tier table accepts and this sentence
+names.
 
 `trivial` work may share one batch ticket rather than take a ticket each;
 the rule is in `docs/ticket-lifecycle.md`, "Batching trivial work".
