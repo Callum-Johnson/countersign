@@ -5,8 +5,30 @@ before merge.
 
 The point of the model is that the tier is decided by **the semantics of the
 change, not the location of the file it lands in**. "This file is important,
-so be careful" is not a control; it is a mood. What follows is a test with a
-yes/no answer.
+so be careful" is not a control; it is a mood. What follows is a test with
+a yes/no answer.
+
+## What is in this document
+
+An index. Each section below states its own rules; this restates none. A
+critical-tier reviewer works from "What a review reports", "When review ends"
+and "Retiring a control", is bound by "Separation of duties" whether or not it
+opens that section, and reaches the rest when a finding turns on them.
+
+| Section | What it settles |
+|---|---|
+| What is in this document | This index, and the sections a reviewer works from |
+| The operative test | Which tier a change is |
+| The tiers | What each tier requires, and what `trivial` may batch |
+| The scrutiny list, and why it is not a trigger | Why a file path is a cue and not an escalation |
+| Separation of duties | Who may move a tier, and in which direction |
+| Why "another agent, human or AI" | Who reviews, what they receive, and where they work |
+| What a review reports | The two questions a review answers, what a tightening must cost, and the class signal |
+| When review ends | The three conditions, the round cap, and the per-round record |
+| Retiring a control | The falsifier every rule states, and how a rule leaves the documents |
+
+The rule that keeps this index current is stated once, with the map in
+`docs/ai-contributor-policy.md`, "Which document settles what".
 
 ---
 
