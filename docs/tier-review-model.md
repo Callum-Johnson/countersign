@@ -123,8 +123,8 @@ list is missing will find one every round, because the list is finite and the
 adversary's options are not.
 
 A round is one reviewer's pass over one commit, and the repair it produces.
-A must-fix is a finding the reviewer records as blocking merge; the report
-that records it is described in the previous section. A round ends the loop
+A must-fix is a finding the reviewer records as blocking merge. A round ends
+the loop
 **without a further fix** under any of three conditions. Each names where its
 findings go.
 
@@ -152,9 +152,9 @@ Review section run 7, 5, 2, 3, 4, 2, 2, 2, 6, 5, 3, 1, 2, 2 over fourteen
 rounds, the eight rules it built were unchanged after round 6, and every
 finding from round 7 onward was in two path lists. Rounds 1 to 3 found the
 rules' original defects; rounds 4 to 6 repaired the repairs, which is the
-signal below; everything from round 7 was lists. Three is set at the point
-where original rule defects stopped, and the record supports no stronger
-claim for it than that. Blocking at the cap is a success path in exactly the
+signal below; everything from round 7 was lists. Three is set one round past
+the point where original rule defects stopped, and the record supports no
+stronger claim for it than that. Blocking at the cap is a success path in exactly the
 sense of the contributor policy's §3: the executor has correctly identified
 that the loop is not converging, and the alternative is another round that
 looks like progress. The record travels with the block: the per-round table

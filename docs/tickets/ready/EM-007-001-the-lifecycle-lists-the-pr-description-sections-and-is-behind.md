@@ -58,7 +58,10 @@ N/A — this repository publishes documents. No rule changes.
 ## Notes
 
 Trivial under the operative test: the procedure is unchanged; one list is
-replaced by a reference to the list it duplicated.
+replaced by a reference to the list it duplicated. ADR-0002's sentence that
+changes to process documents are process-surface changes is read as applying
+to changes that alter a rule or a procedure; this one alters neither, and
+the executor re-tests the tier at claim and may raise it.
 
 ## PR Description
 
