@@ -1,10 +1,12 @@
 ---
 id: EM-007
 title: State when an independent review ends
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-007 — Review terminates: a stopping rule for independent review
