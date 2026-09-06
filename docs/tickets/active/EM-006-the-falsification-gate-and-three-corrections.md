@@ -1,10 +1,12 @@
 ---
 id: EM-006
 title: Add a falsification gate, and correct three published patterns that do not compose
-status: ready
+status: in-progress
 tier: critical
 complexity: L
 dependencies: [EM-002]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-006 — the falsification gate, and three corrections
