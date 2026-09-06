@@ -151,9 +151,9 @@ restated here.
 
 ## Closing
 
-1. Append the pull-request description to the ticket file — ticket, tier,
-   summary, each acceptance criterion ticked with evidence, out-of-scope
-   confirmation, verification steps, risks and follow-ups.
+1. Append the pull-request description to the ticket file, in the form
+   `templates/PR-DESCRIPTION.md` gives. The template is the one list of
+   what the description contains; this step does not repeat it.
 2. Move to `done/`, set `status: done` and `closed_at`.
 3. Commit: `chore(PRJ-XXX): close ticket`.
 

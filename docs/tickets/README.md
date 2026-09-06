@@ -28,7 +28,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-006 | done | critical | Falsification gate; correct three published patterns that do not compose |
 | EM-006-001 | ready | critical | The README and the tier model say every gate is machine-checked; one now is not |
 | EM-007 | done | critical | State when an independent review ends |
-| EM-007-001 | ready | trivial | The lifecycle's list of pull-request description sections is behind the template |
+| EM-007-001 | done | trivial | The lifecycle's list of pull-request description sections is behind the template |
 | EM-008 | done | critical | A decision reserved to another party is handled as ambiguity |
 | EM-009 | done | critical | A review finding is repaired at its class, falsified per sibling |
 | EM-010 | done | critical | A review answers two questions; over-tightening is a finding |
