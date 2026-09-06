@@ -351,6 +351,26 @@ contributor policy's §6, referenced here and not restated. On OMN-021, 29 of
 the 46 must-fixes, derived from the per-round figures in its Review section,
 were defects in a fix rather than in the original work.
 
+**The repair is read whole before it is handed back.** Before a repaired
+change goes to the next round, the executor reads the whole section as it
+now stands, as the reviewer will, and not the lines the repair touched. On
+this repository's closed records at 5d94db7, every must-fix found after a
+first round sat inside the previous round's own repair — five of five, per
+the Review tables of the closed tickets — and each repair was right where it
+pointed and wrong beside it: an exemption clause that swallowed the trigger
+above it, a date excluded from a rule whose neighbouring bullet names a date
+as a baseline. The reviewer reads the section fresh each round; the executor
+had read one sentence. The same reading is asked for at claim by item 2 of
+the contributor policy's §7 checklist: a ticket whose Context, Files and
+Behaviour disagree is blocked under §3, not transcribed. A repair does not
+re-flow text it did not change. These documents are not wrapped by rule, and
+a difference in wrapping between paragraphs is not a finding.
+
+**Retired when:** over a stated population of critical-tier tickets closed
+under this rule, must-fixes found after the first round sit inside the
+previous round's repair as often as they did before it, which at 5d94db7 was
+every one.
+
 **The record.** The pull-request description's Review section carries, per
 round: the round number, the must-fix count, where the findings sat (rules,
 lists, documents, tests), how many sat inside the previous round's fix, and
