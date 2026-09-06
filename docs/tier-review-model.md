@@ -120,12 +120,11 @@ section:
 in the first** — a must-fix being a finding the reviewer records as blocking
 merge, as "When review ends" defines it; whether a finding blocks merge does
 not depend on its column. Over-tightening is a defect, not a conservative
-default. A
-reviewer briefed to look hard looks, unprompted, for one thing — what the
-change lets through — and a review that runs for several rounds under that
-brief tightens monotonically, because every finding adds a refusal and no
-finding removes one. The scrutiny-list section above already says why that
-is a defect: a control the controlled party ignores is not a control, and a
+default. A reviewer briefed to look hard looks, unprompted, for one thing —
+what the change lets through — and a review that runs for several rounds under
+that brief tightens monotonically, because every finding adds a refusal and no
+finding removes one. The scrutiny-list section above already says why that is
+a defect: a control the controlled party ignores is not a control, and a
 review that only ever tightens produces controls that get ignored.
 
 The evidence is OMN-021 on the control-plane project that implements this
