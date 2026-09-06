@@ -1,10 +1,12 @@
 ---
 id: EM-013
 title: Assess the methodology against ISO/IEC 42001
-status: ready
+status: in-progress
 tier: standard
 complexity: L
 dependencies: [EM-002]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-013 — Assess the methodology against ISO/IEC 42001
