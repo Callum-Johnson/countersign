@@ -25,7 +25,7 @@ opens that section, and reaches the rest when a finding turns on them.
 | Why "another agent, human or AI" | Who reviews, what they receive, and where they work |
 | What a review reports | The two questions a review answers, what a tightening must cost, and the class signal |
 | When review ends | The three conditions, the round cap, the per-round record, and the read before a repair is handed back |
-| Retiring a control | The falsifier every rule states, and how a rule leaves the documents |
+| Retiring a control | The falsifier every rule states, how a rule leaves the documents, and what it needs before it enters |
 
 The rule that keeps this index current is stated once, with the map in
 `docs/ai-contributor-policy.md`, "Which document settles what".
