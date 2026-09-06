@@ -1,10 +1,12 @@
 ---
 id: EM-019-001
 title: A reported figure is read from a command, not written by its author
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: [EM-019]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-019-001 — A reported figure is read from a command, not written by its author
