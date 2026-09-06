@@ -94,8 +94,9 @@ the party subject to a control does not get to remove it.
 Critical review requires a second reviewer that is not the executor. It does
 not require a human.
 
-An independent agent, given the ticket and the diff but not the executor's
-reasoning, catches a specific and common failure: an implementation that
+An independent agent, given the ticket, the diff, the evidence and the two
+questions in the next section, but not the executor's reasoning, catches a
+specific and common failure: an implementation that
 satisfies the letter of every acceptance criterion while missing their intent.
 The reviewer has to verify the evidence and run the suite itself rather than
 accept the executor's summary — which is the whole value, since a persuasive
@@ -103,6 +104,59 @@ summary of wrong work is the characteristic AI failure mode.
 
 What it does not substitute for is accountability. The independence is real;
 the judgement is still mine.
+
+---
+
+## What a review reports
+
+A critical-tier review answers two questions of the change, and records the
+answers as two columns of findings:
+
+1. **What does the change permit that the ticket says it must refuse?**
+2. **What does the change refuse that honest work needs?**
+
+**A finding in the second column is a must-fix of the same rank as a finding
+in the first.** Over-tightening is a defect, not a conservative default. A
+reviewer briefed to look hard looks, unprompted, for one thing — what the
+change lets through — and a review that runs for several rounds under that
+brief tightens monotonically, because every finding adds a refusal and no
+finding removes one. The scrutiny-list section above already says why that
+is a defect: a control the controlled party ignores is not a control, and a
+review that only ever tightens produces controls that get ignored.
+
+The evidence is OMN-021 on the control-plane project that implements this
+process mechanically. Its pull-request description's over-tightening
+paragraph records four over-tightenings and names three with the round that
+caught each: a rule that refused the board index every claim touches, making
+every branch in the repository unmergeable, caught in round 4, one round
+after it was written; a rule that denied on inherited duplicate identifiers,
+stalling every branch in any corpus with a pre-existing collision, caught in
+round 5; a rule that refused any non-Markdown file under the ticket
+directory, with no achievable remedy, while two such files sat on the branch,
+caught in round 6. Each was caught a round late, by the next reviewer,
+incidentally, while looking for holes. A reviewer asked the second question
+would have found the first in the round that introduced it, because the
+answer was every branch, including the one under review.
+
+**A tightening states its cost.** A first-column finding whose remedy adds
+to a control — a list entry, a tier escalation, a refusal — states in the
+same finding what the addition costs: which ordinary changes now pay the
+control, measured where it can be measured. A finding that cannot say what
+its remedy costs is incomplete. On OMN-021 a configuration filename was added
+to the list that raises the review tier of any change touching it, matched
+anywhere in the tree; the file it matched at the repository's own root is
+touched by 5 of the 203 commits on that repository's default branch, counted
+in OMN-021-001, and each of those now needs an independent approval. The
+cost was measured after the fact, by the executor, for the maintainer. It
+belonged in the finding. Commit counts against a default branch are one
+measure, given as an example and not prescribed.
+
+The reviewer receives the two questions as part of the brief, alongside the
+ticket, the diff and the evidence. They are two columns and not a severity
+scale because a scale asks the reviewer to rank a hole against an
+over-tightening, which reintroduces the judgement the two questions exist to
+separate. The reviewer answers both; what to do about the answers is the
+executor's and the maintainer's.
 
 ---
 

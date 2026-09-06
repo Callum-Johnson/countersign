@@ -68,6 +68,15 @@ round. The total is derived from the rows and never asserted beside them
 | 2 | <n> | <where> | <m of n> | <commit> |
 
 `—` where nothing was repaired; `m` and `n` count must-fixes, not findings.
+
+Findings, per round, each in one of the two columns the tier review model
+names ("What a review reports"). A tightening remedy carries its cost in
+the same line.
+- R1 · permits · <what the change permits that the ticket refuses> —
+  remedy: <x>; cost: <which ordinary changes now pay it, measured where
+  it can be>
+- R1 · refuses · <what the change refuses that honest work needs> —
+  remedy: <x>
 ```
 
 ### Definition of Done (all tiers)
