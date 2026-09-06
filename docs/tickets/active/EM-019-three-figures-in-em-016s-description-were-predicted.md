@@ -1,10 +1,12 @@
 ---
 id: EM-019
 title: Three figures in EM-016's closed description were predicted, not measured
-status: ready
+status: in-progress
 tier: trivial
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-019 — Three figures in EM-016's description were predicted, not measured
