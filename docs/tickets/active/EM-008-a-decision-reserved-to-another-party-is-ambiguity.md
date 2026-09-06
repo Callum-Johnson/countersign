@@ -1,10 +1,12 @@
 ---
 id: EM-008
 title: A decision reserved to another party is handled as ambiguity
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-008 — A decision reserved to another party is ambiguity
