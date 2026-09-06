@@ -132,13 +132,15 @@ See `docs/ai-contributor-policy.md` and `docs/ticket-lifecycle.md`
      second-agent review): append a three-digit sequence to the originating
      ticket's id — `PRJ-284-001`, then `PRJ-284-002`. A ticket raised while
      working *that* one is `PRJ-284-001-001`, and so on without limit. Find
-     the next sequence by listing siblings of that one parent:
-     `ls docs/tickets/*/PRJ-284-*`. Because the read is scoped to a single
-     parent, two agents working different tickets cannot collide.
+     the next sequence from the siblings of that one parent ever added, read
+     from history rather than the tree, since a deleted or renamed ticket's
+     id is spent: `git log --diff-filter=A --name-only --format= --
+     docs/tickets`, with the ids extracted from the paths, as
+     `docs/ticket-lifecycle.md`, "Lineage", says. Because the read is scoped
+     to a single parent, two agents working different tickets cannot collide.
    - **Raised on its own account** — from a message from a downstream client, a
      rules audit, a planning pass, or the maintainer — continue the flat
-     sequence: the highest flat `PRJ-NNN` across `ready/`, `active/`,
-     `blocked/` and `done/`, plus one.
+     sequence: the highest flat `PRJ-NNN` in that same history, plus one.
 
    The `id:` frontmatter carries the full lineage id and the filename repeats
    it. Lineage records **where a ticket came from, not what blocks it** — set
@@ -149,8 +151,11 @@ See `docs/ai-contributor-policy.md` and `docs/ticket-lifecycle.md`
 3. Set `tier` per the operative test in `docs/tier-review-model.md`.
 4. Set `dependencies` to the list of ticket IDs that must be in `done/`
    before this can start.
-5. Commit on a `docs/ticket-PRJ-XXX` branch (or directly to master if
-   you have permission for trivial-tier ticket additions).
+5. Commit on a branch whose name begins with the ticket identifier, per
+   `docs/ticket-lifecycle.md`, "Claiming" — for a ticket raised while
+   working another, the originating ticket's branch, which is where
+   "Lineage" creates one raised by a review. Never directly to the default
+   branch.
 
 Every file the templates in this directory send a reader to exists in
 this repository or is named, in those words, as the adopting project's
