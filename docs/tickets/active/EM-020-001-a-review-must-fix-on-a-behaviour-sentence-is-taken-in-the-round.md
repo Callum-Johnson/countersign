@@ -1,10 +1,12 @@
 ---
 id: EM-020-001
 title: A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: [EM-021]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-020-001 — A review must-fix on a Behaviour sentence is taken in the round and recorded
