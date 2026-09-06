@@ -1,10 +1,13 @@
 ---
 id: EM-012
 title: Trivial changes are batched into one ticket
-status: ready
+status: done
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-012 — Trivial changes are batched into one ticket
@@ -176,4 +179,109 @@ None of the five bounds effort to the size of a change; this one does.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-012 — Trivial changes are batched into one ticket
+
+### Tier
+`critical` — process-surface change (clause 5): it adds a path through the
+lifecycle.
+
+**Independent review obtained**, per ADR-0002: a separate agent, given the
+ticket, the diff and the two questions, and not the executor's reasoning,
+reviewed the change in two rounds, read-only. Findings are under
+Review; the tree was checked clean after each round.
+
+### Summary
+The lifecycle gains "Batching trivial work" after "Claiming": a change the
+operative test returns `trivial` for may join an open batch ticket, which
+is an ordinary ticket in every other respect; each entry is listed with its
+own operative-test answer and evidence; a change found to be above trivial
+leaves the batch with a recorded finding; the batch closes on a cap, ten
+entries or seven days as a default named as one; only the holder commits;
+gates run once on the head; and what batching does not save. The tier
+model points at the section from beneath its table. The rule carries a
+Retired-when line, stated under ADR-0003's exemption clause, which this
+description says so per that clause.
+
+### Acceptance criteria
+- [x] AC1: what may join, entries listed individually with their own
+  answers, claimed and closed as an ordinary ticket —
+  `docs/ticket-lifecycle.md`, "Batching trivial work", the first three
+  bullets.
+- [x] AC2: the cap as a named default with reasoning — the fourth bullet.
+- [x] AC3: reclassification leaves the batch and is recorded, not tidied —
+  the third bullet.
+- [x] AC4: the single-holder rule and why, referencing the claiming lock —
+  the fifth bullet.
+- [x] AC5: the tier model points at the section without restating —
+  `docs/tier-review-model.md`, "The tiers", the sentence after the
+  gates-mandatory sentence.
+- [x] AC6: what batching does not save — the paragraph "**What batching
+  does not save.**"
+- [x] AC7: independent review — see Review.
+
+### Falsification
+N/A — no behavioural claim. What a reader does differently, per criterion:
+- AC1: an agent with a trivial change appends an entry with its own
+  operative-test answer instead of opening a ticket.
+- AC2: a holder closes the batch at ten entries or seven days without
+  being asked.
+- AC3: a holder who finds an entry was standard-tier records a finding in
+  the batch and opens a ticket, instead of moving the entry quietly.
+- AC4: a second agent opens the next batch instead of appending.
+- AC5: a reader of the tier table knows the path exists.
+- AC6: a reader with one lone trivial change does not adopt batching
+  expecting it to be cheaper.
+
+### Out of scope (per ticket)
+Confirmed: gate scoping is named as the other lever and left open; the
+operative test and what `trivial` means are unchanged; standard-tier work
+is not batched.
+
+### Review
+| Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
+|---|---|---|---|---|
+| 1 | 3 (of 8 findings) | documents: the entry condition named an operative-test outcome the test does not return (must-fix); the holder's position under policy §2 unstated (must-fix); what a batch ticket file is and where entries go unstated (must-fix); the falsifier retiring the rule on its own mitigation working; the cap's reasoning unlabelled as assumption; the age with no datum and no enforcer; a Retired-when line re-flowed outside Files; the tier-model pointer inside a gates paragraph | — | 6de1578 |
+| 2 | 0 (of 4 findings) | documents: the §2 cost stated for one agent only; the batch has no entries at creation; the abandoned-batch close is a non-holder commit; two ragged lines | 4 of 4 | the closing commit |
+
+Derived total: 3 must-fix over two rounds.
+Round 1 by column and rule — permits: R1.1, the rule's own falsifier
+(remedy: counts recorded reclassifications over ten batches, names the
+holder as finder). Refuses: R1.2, the entry condition and the per-entry
+answer (remedy: a tier, and the answer that supports it; the tier model's
+own gap routed to EM-012-001 under the stopping rule's second condition,
+since EM-012's Out of scope reserves it); R1.3, the single-holder rule
+against policy §2 (remedy: the holder closes before claiming other work and
+may close early, with the cost stated — §2 applied unchanged, the amendment
+left to its own ticket rather than answered in the diff); R1.4, the cap's
+reasoning (remedy: says it is unmeasured); R1.5, what a batch ticket is
+(remedy: entries in the Specification in the commit that makes them; at
+close they are the criteria and the Falsification section is per entry);
+R1.6, the age (remedy: from `claimed_at`; an abandoned batch closed by
+whoever finds it); R1.7, the Claiming section's Retired-when line re-flowed
+without content change, outside Files — recorded; R1.8, the pointer's
+placement (remedy: its own paragraph). Round 2's four notes were all inside
+round-1 remedies and are taken at close: the holder does nothing else on
+any project; the batch is created and claimed in one step with its
+Specification saying it is a batch; the abandoned-batch close is the one
+exception to holder-only; two lines re-flowed.
+Post-review tree check after each round: `git status --porcelain` empty,
+`git worktree list` showing only the main tree.
+
+### How to verify
+1. `grep -n "^## " docs/ticket-lifecycle.md` — "Batching trivial work"
+   follows "Claiming".
+2. `grep -n "Batching trivial work" docs/tier-review-model.md` — one
+   pointer, no restatement.
+3. `wc -w` at the baseline and at close: lifecycle 1,251 to 2,074 and tier model 3,516 to 3,537, as the reviewer measured at 4900e2c and 6de1578.
+
+### Risks / follow-ups
+- The batch is the least-read path in the lifecycle, and the section says
+  so. The measurement the ticket names — reclassifications out of a
+  project's first ten batches — cannot be taken here; this repository's
+  own trivial tickets (EM-005-001, EM-007-001, EM-010-002, EM-015) could be
+  the first batch, and would show whether the form is used.
+- This is the only ticket in the wave that loosens, and only for trivial
+  work. Standard-tier work still pays every per-change obligation the wave
+  added, unamortised, as EM-012's own Refuses section says.
+

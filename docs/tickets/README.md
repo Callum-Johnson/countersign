@@ -34,7 +34,8 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-010 | done | critical | A review answers two questions; over-tightening is a finding |
 | EM-010-002 | ready | trivial | ADR-0002 lags the model on what the reviewer receives |
 | EM-011 | done | critical | Review runs in its own worktree; the tree is checked afterwards |
-| EM-012 | ready | critical | Trivial changes are batched into one ticket |
+| EM-012 | done | critical | Trivial changes are batched into one ticket |
+| EM-012-001 | ready | critical | The tier model does not say how trivial is distinguished from standard |
 | EM-013 | blocked | standard | Assess the methodology against ISO/IEC 42001 |
 | EM-014 | done | critical | A rule states its own falsifier; a control can be retired |
 | EM-014-001 | ready | critical | Both columns on one rule in consecutive rounds is a class signal |

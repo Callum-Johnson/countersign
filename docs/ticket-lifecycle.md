@@ -52,9 +52,87 @@ no coordination service, and cannot fail in a way that silently permits two
 agents to work the same ticket — which is the failure that actually matters.
 
 **Retired when:** two agents are shown to have worked the same ticket without
-a conflict — the lock failed silently, which it is designed not to do — or the
-project adopts a coordination service that makes the file move redundant.
+a conflict — the lock failed silently, which it is designed not to do — or
+the project adopts a coordination service that makes the file move
+redundant.
 
+## Batching trivial work
+
+The tier model scales review to risk and nothing else: a `trivial` change and
+a `critical` one pay the same ticket, claim, description, close and gate run.
+On the control-plane project that implements this process mechanically, one
+line added to `.gitignore` cost six commits, two moves through the ticket
+directories, a pull-request description and a gate run of about twelve
+minutes, per the pull-request description of the ticket that made it
+(OMN-025). Nothing was done wrong. A lifecycle whose cheapest path costs that
+trains contributors to commit small things without it, and a rule routinely
+bypassed is worse than none.
+
+A change whose tier is `trivial` may therefore be committed against an **open
+batch ticket** instead of a ticket of its own. Every other tier keeps its own
+ticket.
+
+- **The batch is an ordinary ticket** in every other respect: a flat
+  identifier, claimed by the procedure above, held by one agent, in `active/`
+  while held, closed and merged like any other. It is created and claimed in
+  one step, since it has no entries at creation: its Specification states that
+  it is a batch and lists the entries beneath as they arrive. It is not a
+  standing ticket. A ticket permanently in `active/` makes the board describe
+  work nobody is doing.
+- **Each entry is listed individually**: what changed, its tier and the
+  operative-test answer that supports it — no clause holds — and its evidence.
+  Entries are listed in the ticket's Specification, one per entry, in the
+  commit that makes the entry, so that the ticket is the record while the
+  batch is open. At close the entries are the acceptance criteria, each ticked
+  with its diff as the evidence, and the Falsification section is written per
+  entry. The batch is a container for separately justified changes, not one
+  change with several parts. Listing each entry with its own answer makes
+  hiding a non-trivial change a false statement a reviewer can check, rather
+  than an omission nobody can see. That is a mitigation, not a guarantee: a
+  project adopting this accepts that the batch is the least scrutinised path
+  it has.
+- **A change found to be above `trivial` leaves the batch** and takes its own
+  ticket. If it was already committed to the batch, the batch ticket records
+  that as a finding, in those words; it is not quietly moved.
+- **The batch closes on a cap** — a number of entries or an age from
+  `claimed_at`, whichever comes first — so that it cannot accumulate and so
+  that the gate run at its head stays attributable to a diff small enough to
+  read. Ten entries or seven days is the default, named as a default; the
+  reasoning is that ten `.gitignore`-sized diffs are still one screen and a
+  week is the longest a board should show a batch as active work, and neither
+  figure is measured — the first adopting project's closed batches replace
+  them. The holder may close earlier at any time. A batch past its age with no
+  holder is closed by whoever finds it, entries as they stand — the one
+  exception to the holder-only rule below — since a ticket in `active/` that
+  nobody holds is the board describing work nobody is doing.
+- **Only the holder commits to the batch.** An agent wanting a trivial change
+  while another holds the batch opens the next one rather than appending. A
+  shared append-only file conflicts between agents, and the file move is the
+  crude lock this lifecycle already relies on. A batch is a claimed ticket,
+  and the contributor policy's §2 holds one agent to one ticket at a time, so
+  the holder closes the batch before claiming other work. On any project the
+  holder does nothing else while the batch is open; on a project with one
+  agent a batch therefore rarely outlives the gap between two tickets and the
+  entry cap is rarely reached. That is the cost of leaving §2 as it is, and a
+  project that wants a batch to outlive its holder's other work amends §2,
+  which is its own ticket.
+- **Gates run once, on the batch's head**, under the existing rule. That is
+  the whole saving: one run for several entries rather than one each.
+
+**What batching does not save.** It amortises; it does not reduce. The first
+entry in a batch costs exactly what a solo trivial ticket costs, and the
+measured change above had no siblings to batch with — this rule would not have
+made it faster. The saving appears only across several, and a project with few
+trivial changes should expect little. The lever that lowers the floor for a
+lone change is scoping the gates to what the diff touches, which is a change
+to the quality gates and is not decided here.
+
+**Retired when:** over a project's first ten closed batches, the holder
+records more than one entry reclassified above `trivial` — the batch is then
+attracting what it was said to refuse, and the count is read from the findings
+in the closed batch tickets — or gate scoping lands and a lone trivial change
+costs no more than its diff, at which point a batch saves nothing and costs a
+read.
 ## Blocking
 
 An agent that cannot proceed adds a comment prefixed `BLOCKER:` stating what
