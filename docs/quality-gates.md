@@ -60,16 +60,15 @@ must not mutate the tree it reviews.
 
 The falsification gate hands a reviewer a count to verify, and verifying it
 looks like mutation — apply the wrong implementation, run the suite, count.
-The gate is right to ask for that. Where it happens is the question. **Review, including any
-mutation the gate asks for, runs in a worktree the reviewer creates, owns
-and removes. The tree under review is read by the reviewer, never
-written.** A review that writes nothing — a hosted reviewer reading a diff
-— is not refused by this rule; what such a review cannot do is discharge
-the run-the-suite duty, and that refusal is the tier model's. A reviewer
-that cannot create a worktree at all — an agent handed a path and nothing
-else — cannot discharge this rule; the review is then unavailable in
-ADR-0002's sense, and the ticket says so rather than letting the review
-write in place.
+The gate is right to ask for that. Where it happens is the question. **Review,
+including any mutation the gate asks for, runs in a worktree the reviewer
+creates, owns and removes. The tree under review is read by the reviewer,
+never written.** A review that writes nothing — a hosted reviewer reading a
+diff — is not refused by this rule; what such a review cannot do is discharge
+the run-the-suite duty, and that refusal is the tier model's. A reviewer that
+cannot create a worktree at all — an agent handed a path and nothing else —
+cannot discharge this rule; the review is then unavailable in ADR-0002's
+sense, and the ticket says so rather than letting the review write in place.
 
 **The tree is checked after the review returns**, before any repair or
 further round: the status command reports nothing untracked and nothing
@@ -80,20 +79,21 @@ its own line after the round's row in the record, outside the must-fix
 count and the two columns, and removed before the tree is used again, the
 closing commit included.
 
-The mechanism this guards against, stated so the class is understood and
-not only the file: an interpreter that imports a module of a fixed name at
-start-up, from any directory on its path, will run whatever a file of that
-name contains before the test runner or the type checker examines anything.
-A copy that exits zero under those tools makes both gates pass having
-examined nothing, and only a gate that reads files as text — lint — sees it.
-In CPython the module is `sitecustomize`; which invocations reach a
-root-level copy depends on the invocation, and the source project's own
-record is the authority on that. On OMN-021 on the control-plane project,
-one reviewer left such a file at the root of the tree under review, in
-round 12 as that project's policy-module comment records, and the lint gate
-was what failed; another, in round 13, left a registered worktree the main
-tree's status command does not show. The executor found both, by checking status and the worktree list before every
-gate run as a private discipline. That discipline is this rule.
+The mechanism this guards against, stated so the class is understood and not
+only the file: an interpreter that imports a module of a fixed name at start-
+up, from any directory on its path, will run whatever a file of that name
+contains before the test runner or the type checker examines anything. A copy
+that exits zero under those tools makes both gates pass having examined
+nothing, and only a gate that reads files as text — lint — sees it. In CPython
+the module is `sitecustomize`; which invocations reach a root-level copy
+depends on the invocation, and the source project's own record is the
+authority on that. On OMN-021 on the control-plane project, one reviewer left
+such a file at the root of the tree under review, in round 12 as that
+project's policy-module comment records, and the lint gate was what failed;
+another, in round 13, left a registered worktree the main tree's status
+command does not show. The executor found both, by checking status and the
+worktree list before every gate run as a private discipline. That discipline
+is this rule.
 
 It is the executor's check and not the reviewer's promise because the
 party that will be blamed for a finding is the party that must be able to
