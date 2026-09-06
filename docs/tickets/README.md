@@ -36,7 +36,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-011 | done | critical | Review runs in its own worktree; the tree is checked afterwards |
 | EM-012 | done | critical | Trivial changes are batched into one ticket |
 | EM-012-001 | done | critical | The tier model does not say how trivial is distinguished from standard |
-| EM-012-001-001 | ready | trivial | The batch entry's supporting answer is still the standard-tier answer |
+| EM-012-001-001 | done | trivial | The batch entry's supporting answer is still the standard-tier answer |
 | EM-013 | blocked | standard | Assess the methodology against ISO/IEC 42001 |
 | EM-014 | done | critical | A rule states its own falsifier; a control can be retired |
 | EM-014-001 | done | critical | Both columns on one rule in consecutive rounds is a class signal |

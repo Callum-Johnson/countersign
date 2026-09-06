@@ -80,7 +80,8 @@ ticket.
   standing ticket. A ticket permanently in `active/` makes the board describe
   work nobody is doing.
 - **Each entry is listed individually**: what changed, its tier and the
-  operative-test answer that supports it — no clause holds — and its evidence.
+  answer that supports it — no clause holds, and nothing a program executes
+  or a caller reads as a contract is touched — and its evidence.
   Entries are listed in the ticket's Specification, one per entry, in the
   commit that makes the entry, so that the ticket is the record while the
   batch is open. At close the entries are the acceptance criteria, each ticked
