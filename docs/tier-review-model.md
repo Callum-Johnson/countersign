@@ -489,16 +489,16 @@ every future reviewer on every round, and a rule written from one instance is
 a bet that the instance recurs, paid whether it does or not. Of the thirteen
 rule-adding tickets from EM-006 to EM-020, eight name one source ticket on one
 project in their Context — EM-007, EM-008, EM-010, EM-011, EM-012, EM-012-001,
-EM-014-001 and EM-016 — counted by reading each Context for the source it
+EM-014-001 and EM-019-001 — counted by reading each Context for the source it
 names. Those eight are this rule's instances, and none would have cleared the
-bar it supplies. The bar binds tickets raised after this section's landing
-ticket closed; a rule-adding ticket that names one instance and claims no
-exception is not ready.
+bar it supplies. The bar binds tickets raised after the ticket that landed
+this paragraph closed; a rule-adding ticket that names one instance and claims
+no exception is not ready.
 
 **Retired when:** a failure recorded once and left unruled under this bar
-recurs, more than once over a stated population of closed tickets, at a cost
-in review rounds greater than the rule would have cost in words carried on
-every round; the bar is then holding back rules that pay for themselves.
+recurs and costs a review round, more than once over a stated population of
+closed tickets; the bar is then holding back rules that would have saved
+rounds, which is the unit it exists to save.
 
 **Who this binds.** A ticket that adds a rule states the rule's falsifier in
 its Behaviour section, and a ticket that does not is not ready, in the sense
