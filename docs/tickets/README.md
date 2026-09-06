@@ -26,7 +26,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-005 | done | critical | Publish the repository |
 | EM-005-001 | ready | trivial | Link commit authorship to the publishing account |
 | EM-006 | done | critical | Falsification gate; correct three published patterns that do not compose |
-| EM-006-001 | ready | critical | The README and the tier model say every gate is machine-checked; one now is not |
+| EM-006-001 | active | critical | The README and the tier model say every gate is machine-checked; one now is not |
 | EM-007 | done | critical | State when an independent review ends |
 | EM-007-001 | done | trivial | The lifecycle's list of pull-request description sections is behind the template |
 | EM-008 | done | critical | A decision reserved to another party is handled as ambiguity |

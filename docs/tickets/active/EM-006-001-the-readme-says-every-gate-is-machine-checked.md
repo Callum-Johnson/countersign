@@ -1,10 +1,12 @@
 ---
 id: EM-006-001
 title: The README and the tier model say every gate is machine-checked; one now is not
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: [EM-006]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-006-001 — The README and the tier model say every gate is machine-checked
