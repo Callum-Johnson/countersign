@@ -2,7 +2,7 @@
 id: EM-019-001-001
 title: Rule-adding tickets produce no decision record, against the trigger list
 status: ready
-tier: standard
+tier: critical
 complexity: S
 dependencies: []
 ---
@@ -48,7 +48,12 @@ N/A — this repository publishes documents. One trigger is made precise.
   (the falsifier obligation, which changed how every rule is written) on
   one, and EM-011's review-isolation rule (added under the existing review
   model) on the other.
-- The rule states its falsifier.
+- **The falsifier of the line this ticket draws:** retired when a rule
+  added under an existing decision, and therefore recorded nowhere, is
+  found to have been undone or contradicted by a later contributor who
+  could not see why it was there, more than once over a stated population
+  of merged changes. The line is then drawn too narrowly and the trigger
+  should reach those rules after all.
 
 ## Acceptance criteria
 
@@ -57,7 +62,8 @@ N/A — this repository publishes documents. One trigger is made precise.
 2. AC2: The seven rule-adding tickets that produced no record are either
    consistent with the stated line, or named in the pull-request
    description as a gap the decision accepts.
-3. AC3: The trigger carries a **Retired when:** line.
+3. AC3: The line this ticket draws carries its own **Retired when:**
+   line, distinct from the one the trigger list already has at baseline.
 4. AC4: An independent agent reviews this and records findings in two
    columns.
 
@@ -77,9 +83,10 @@ N/A — this repository publishes documents. One trigger is made precise.
 
 ## Notes
 
-Proposed `standard`: it makes an existing trigger precise and adds no
-obligation. EM-007-002 owns the question of whether that proposal should be
-`critical` instead.
+Proposed `critical`: `docs/adr-process.md` is a process document, which
+ADR-0002 classifies as process-surface, and an author may raise but never
+lower. EM-007-002 owns whether that classification is right; until it is
+answered, the tier that does not remove a control is the one to propose.
 
 ## PR Description
 

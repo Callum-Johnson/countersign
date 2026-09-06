@@ -96,8 +96,9 @@ and one `grep -c` — counted by the same pipeline with
 cost on the wave's largest description is three runs and three command
 strings written down.
 
-Nineteen of the 21 files in `done/` hold a figure of four digits or more in
-their `## PR Description` section, from
+Nineteen of the 21 files in `done/` — the denominator from
+`git ls-tree --name-only e8c4417 docs/tickets/done/ | wc -l` — hold a
+figure of four digits or more in their `## PR Description` section, from
 
 ```sh
 for f in $(git ls-tree --name-only e8c4417 docs/tickets/done/); do
