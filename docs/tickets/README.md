@@ -48,7 +48,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-019 | done | trivial | Three figures in EM-016's closed description were predicted, not measured |
 | EM-019-001 | done | critical | A reported figure is read from a command, not written by its author |
 | EM-019-001-001 | ready | critical | Rule-adding tickets produce no decision record, against the trigger list |
-| EM-020 | ready | critical | Read the whole thing before acting on part of it |
+| EM-020 | active | critical | Read the whole thing before acting on part of it |
 | EM-021 | ready | critical | A rule needs a second instance before it is written |
 | EM-007-002 | blocked | critical | A process-document change is trivial by the test and critical by ADR-0002 |
 | EM-009-001 | blocked | critical | The class obligation binds every repaired finding |

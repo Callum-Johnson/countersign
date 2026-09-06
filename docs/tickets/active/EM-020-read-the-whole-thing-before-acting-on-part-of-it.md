@@ -1,10 +1,12 @@
 ---
 id: EM-020
 title: Read the whole thing before acting on part of it
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-020 — Read the whole thing before acting on part of it
