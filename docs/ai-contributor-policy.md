@@ -268,6 +268,29 @@ every reading of it. That is not caution — it is unreviewable code.
   the population counted. A number without its baseline is indistinguishable
   from an inherited one once written down, and inherited numbers drift — they
   are restated, incremented and believed by readers who never had the source.
+- **A measured number a command can produce is read from that command's
+  output**, and the description names the command, once for a class of figures
+  one run produces. This bullet reaches what the bullet above reaches, and a
+  measured number is one the description asserts as a fact about a tree or its
+  history — a count, a size, a date, a proportion — such that re-running the
+  command would confirm it or refute it. A number that names something rather
+  than measures it asserts no such fact and is outside this bullet: a ticket
+  id, a section number, a finding number, an ordinal in a list. The test is
+  whether a command could disagree with the number, not what kind of token it
+  looks like. You do not count, and you do not estimate what a pending edit
+  will change: run the command after the last commit that changes what it
+  counts, and where the closing commit changes it — a note taken at close, a
+  re-flow — run it again there. Where no command can produce the measurement,
+  say how it was obtained, which is what makes an inherited figure visible as
+  one. An agent asked for a count produces a plausible one, and a plausible
+  count beside a correctly named baseline is the most expensive kind of wrong
+  number: it survives every check the description carries. This is the
+  falsification gate's demand applied to figures — a number nobody re-ran is
+  unpinned, and naming its baseline makes it look pinned.
+  **Retired when:** over a stated population of closed tickets, figures
+  reported under this rule are found wrong as often as the figures reported
+  before it; the rule then costs a command per class of figure and catches
+  nothing.
 - For critical-tier work, a second reviewer has approved.
 
 The pull-request description is appended to the ticket file before the ticket
