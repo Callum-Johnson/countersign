@@ -38,7 +38,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-012-001 | ready | critical | The tier model does not say how trivial is distinguished from standard |
 | EM-013 | blocked | standard | Assess the methodology against ISO/IEC 42001 |
 | EM-014 | done | critical | A rule states its own falsifier; a control can be retired |
-| EM-014-001 | ready | critical | Both columns on one rule in consecutive rounds is a class signal |
+| EM-014-001 | done | critical | Both columns on one rule in consecutive rounds is a class signal |
 | EM-015 | ready | trivial | The README states two commit counts for one project |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
