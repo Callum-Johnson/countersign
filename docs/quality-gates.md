@@ -143,18 +143,17 @@ nothing review would not.
 **A test pins a claim, not a mechanism.** A test that asserts a helper was
 called, or that a case is absent from a list, defends the executor's belief
 about how the code works, and turns red when the belief is corrected rather
-than when a caller is let down. The assertion names what the change
-guarantees to a caller; the docstring names the claim. The example, from
-OMN-021 on the control-plane project, in the commit its round 11 records: a
-test asserting that a directory name
-matched nothing on a list, with a comment explaining why the absence was
-correct, on a list whose purpose was to match it — a test written to defend
-a defect. Such a test passes the coverage rule and passes this gate as
-stated, because the wrong implementation it rules out is real. What it
-fails is the gate's purpose, which is that a red test means a claim was
-violated. The gate's companion for the repair of a review finding — name
-the class, falsify per sibling — is stated with the executor's other duties
-in the contributor policy's §6 and not restated here.
+than when a caller is let down. The assertion names what the change guarantees
+to a caller; the docstring names the claim. The example, from OMN-021 on the
+control-plane project, in the commit its round 11 records: a test asserting
+that a directory name matched nothing on a list, with a comment explaining why
+the absence was correct, on a list whose purpose was to match it — a test
+written to defend a defect. Such a test passes the coverage rule and passes
+this gate as stated, because the wrong implementation it rules out is real.
+What it fails is the gate's purpose, which is that a red test means a claim
+was violated. The gate's companion for the repair of a review finding — name
+the class, falsify per sibling — is stated with the executor's other duties in
+the contributor policy's §6 and not restated here.
 
 **Retired when:** over a stated population of tests that predate this rule
 or that review let through, those that assert a mechanism are shown to have

@@ -1,12 +1,13 @@
 ---
 id: EM-009
 title: A review finding is repaired at its class, and the repair is falsified per sibling
-status: in-progress
+status: done
 tier: critical
 complexity: S
 dependencies: [EM-006]
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-009 — A review finding is repaired at its class
@@ -185,4 +186,145 @@ loophole.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-009 — A review finding is repaired at its class
+
+### Tier
+`critical` — process-surface change (clause 5): it adds an executor
+obligation to the definition of done and a rule to the gates.
+
+**Independent review obtained**, per ADR-0002: a separate agent, given the
+ticket, the diff and the two questions, and not the executor's reasoning,
+reviewed the change in two rounds, read-only. Findings are under
+Review; the tree was checked clean after each round.
+
+### Summary
+Policy §6 gains the class obligation for the repair of a review finding,
+with the instance-versus-class example and the "repair of the instance"
+declaration; the template's Falsification section gains the per-sibling
+form; the quality gates gain the claim-not-mechanism rule with the
+asserted-absence example, beside the gate whose loophole it is. Both new
+rules carry a Retired-when line, stated under ADR-0003's exemption clause,
+which this description says so per that clause.
+
+### Acceptance criteria
+- [x] AC1: the class obligation as an executor duty with the example —
+  `docs/ai-contributor-policy.md` §6, the bullet beginning "A review
+  finding is repaired at its class", with "what does the interpreter load"
+  against "`.py` files at the root".
+- [x] AC2: the per-sibling form and the instance declaration —
+  `templates/PR-DESCRIPTION.md`, Falsification, the paragraph and two lines
+  after the claim lines.
+- [x] AC3: the claim-not-mechanism rule with the asserted-absence example —
+  `docs/quality-gates.md`, "The falsification gate", the paragraph
+  beginning "**A test pins a claim, not a mechanism.**"
+- [x] AC4: no restatement — the rule is stated in full once in the policy;
+  the gates carry one pointer sentence to it; the template carries the form
+  and a pointer; the policy points at the gates for the mechanism reasoning.
+- [x] AC5: figures name their section — no OMN-021 figure is quoted; the
+  one item taken from it, the round-11 test, names the ticket, the project
+  and the commit its round records. Round 1 found it attributed to the wrong
+  project and it was corrected.
+- [x] AC6: independent review — see Review.
+
+### Falsification
+N/A — no behavioural claim. What a reader does differently, per criterion:
+- AC1: an executor repairing a finding writes the class question and its
+  siblings, or the words "repair of the instance", instead of a one-line
+  fix.
+- AC2: a closing executor has a line per repaired finding and the next
+  reviewer a claim to check.
+- AC3: an executor writes the assertion as what a caller is guaranteed;
+  a reviewer with a non-zero red count still asks whether the test pins a
+  claim.
+- AC4, AC5: nothing beyond finding each rule and source once.
+
+Repairs of this ticket's own review findings, in the form this ticket
+lands. There is no suite; each sibling says what a reader does
+differently.
+- R1.1 — class: which documents define "the source project", and does each
+  use of it in text this ticket adds match that definition? Siblings: the
+  quality gates (defines it as the rules engine; the added use did not
+  match — repaired, a reader now reaches the right project); the policy and
+  the template (no use added). Red: a reader following the old attribution
+  reached the wrong case study.
+- R1.3 — class: which obligations this ticket adds have no discharge in a
+  repository without a suite? Siblings: the per-sibling red count (repaired
+  in the template: a sibling says what a reader does differently); the
+  claim-level assertion rule (no discharge needed; it describes a test); the
+  instance declaration (dischargeable as words). Red: an executor here could
+  not have written this section honestly before the repair.
+- R1.4, R1.5, R1.6, R1.8 — repair of the instance, each: a misplaced line,
+  an unnamed population, a missing exit, an unindexed reference. Each is
+  one sentence in one place and the round-1 record names no sibling.
+
+### Out of scope (per ticket)
+Confirmed: the stopping rule is unchanged in substance — the one edit to
+`docs/tier-review-model.md` replaces "the class obligation EM-009 adds to
+the falsification gate" with "the class obligation in the contributor
+policy's §6", a cross-reference that is now true, and it is beyond the
+ticket's Files list and declared here; EM-006's gate for original work is
+untouched, both hunks in the gates document being insertions; no method for
+finding a class is prescribed.
+
+### Review
+| Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
+|---|---|---|---|---|
+| 1 | 2 (of 8 findings) | documents: the round-11 example attributed to the wrong project (must-fix); the per-sibling count undischargeable without a suite (must-fix); two Retired-when lines adjacent with nothing tying either to its rule; the mechanism falsifier's population unnamed; no exit for the unenumerable class; the obligation binding notes as well as must-fixes; the finding index unnumbered; the cross-reference edit beyond Files | — | 0d48410 |
+| 2 | 0 (of 4 notes) | documents: two ragged lines from round-1 repairs; the policy named "the stopping rule" without saying where it is; the no-suite exit lived in the template only | 4 of 4 | the closing commit |
+
+Derived total: 2 must-fix over two rounds.
+- R1.1 · permits · the baseline rule (policy §6) · the example named "the
+  source project", which the gates define as the rules engine, for a test
+  on the control-plane project — remedy: name the ticket, the project and
+  the commit; no tightening.
+- R1.2 · permits · scope · the tier-model cross-reference exceeds Files —
+  remedy: declare it; done above.
+- R1.3 · refuses · the class obligation · the per-sibling red count has no
+  discharge in a repository with no suite, and "repair of the instance"
+  would be false for a finding with siblings — remedy: the template says
+  what a sibling records where there is no suite; a loosening.
+- R1.4 · refuses · the two new Retired-when lines · adjacent, unattributed
+  — remedy: each now follows its rule.
+- R1.5 · refuses · the mechanism rule's falsifier · population unnamed —
+  remedy: tests that predate the rule or that review let through.
+- R1.6 · refuses · the class obligation · no exit for a class with no
+  finite enumeration — remedy: recorded as the stopping rule's third
+  condition records a list; a loosening.
+- R1.7 · refuses · the class obligation · it binds notes as well as
+  must-fixes, and the ticket priced it on must-fixes; on this repository's
+  four closed records at 0781e98 that is 55 findings against 5 must-fixes,
+  per the reviewer's count of their Review tables — recorded, not fixed,
+  since the Behaviour says "each review finding"; the maintainer may
+  narrow it by a retirement ticket.
+- R1.8 · refuses · the template · findings unindexed — remedy: n.k in both
+  forms.
+Round 2 found no must-fix; its four notes all sat inside round-1 remedies
+and are taken at close: both paragraphs re-flowed, the policy names "When
+review ends" and its document, and the no-suite exit is in the rule as well
+as the form. Round 2 verified the attribution against the ticket's Context
+and References and the n.k indexing across both forms.
+Post-review tree check after each round: `git status --porcelain` empty,
+`git worktree list` showing only the main tree.
+
+### How to verify
+1. `grep -n "repair of the instance" docs/ai-contributor-policy.md
+   templates/PR-DESCRIPTION.md` — the declaration in both, the rule once.
+2. `sed -n '/^## The falsification gate/,/^## Formatting/p'
+   docs/quality-gates.md | grep -n "Retired when\|A test pins\|The gate is
+   an"` — each Retired-when line follows its rule.
+3. `git diff 301df38..HEAD -- docs/tier-review-model.md` — one
+   cross-reference, nothing else.
+4. `wc -w` at 301df38 and at close: policy 1,717 to 1,944; gates 1,436 to 1,672; template 709 to 799, as the reviewer measured at 0d48410, before the close commit's re-flow and one clause.
+
+### Risks / follow-ups
+- The obligation falls per finding, not per must-fix, and this repository's
+  reviews return roughly eleven findings per must-fix. The ticket's cost
+  section priced it on must-fixes. A project adopting this should expect
+  the per-sibling form on most findings, and this repository's next closed
+  records will show what that costs in words.
+- The first discharge of the rule is this description's own Falsification
+  section. It shows the form works for documentation findings and that
+  "repair of the instance" is the honest answer more often than the rule's
+  emphasis suggests.
+
