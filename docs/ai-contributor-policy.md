@@ -267,7 +267,23 @@ every reading of it. That is not caution — it is unreviewable code.
   the baseline it was measured against: the commit, the branch, the date, or
   the population counted. A number without its baseline is indistinguishable
   from an inherited one once written down, and inherited numbers drift — they
-  are restated, incremented and believed by readers who never had the source.
+    are restated, incremented and believed by readers who never had the source.
+- **A number a command can produce is read from that command's output**, and
+  the description names the command. You do not count, and you do not
+  estimate what a pending edit will change: run the command after the last
+  commit that changes what it counts, and where the closing commit changes
+  it — a note taken at close, a re-flow — run it again there. Where no
+  command can produce the number, say how it was obtained, which is what
+  makes an inherited figure visible as one. An agent asked for a count
+  produces a plausible one, and a plausible count beside a correctly named
+  baseline is the most expensive kind of wrong number: it survives every
+  check the description carries. This is the falsification gate's demand
+  applied to figures — a number nobody re-ran is unpinned, and naming its
+  baseline makes it look pinned.
+  **Retired when:** over a stated population of closed tickets, figures
+  reported under this rule are found wrong as often as the figures reported
+  before it; the rule then costs a command per class of figure and catches
+  nothing.
 - For critical-tier work, a second reviewer has approved.
 
 The pull-request description is appended to the ticket file before the ticket

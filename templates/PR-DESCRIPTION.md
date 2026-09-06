@@ -30,7 +30,9 @@ PRJ-XXX — <ticket title> (also in frontmatter; can be terse)
 
 ### Acceptance criteria
 Copy each AC from the ticket and tick it with evidence. Every number names
-its baseline in the same sentence (contributor policy §6):
+its baseline in the same sentence and is read from a command the
+description names, run after the last commit that changes it (contributor
+policy §6):
 - [x] AC1: <criterion> — see `tests/unit/test_modifiers.py::test_caps_sv`
 - [x] AC2: <criterion> — see implementation in `core/modifiers.py:42`
 - [ ] AC3: <not done — explain why>
@@ -107,8 +109,10 @@ A PR may not be merged unless all are true:
 7. **Coverage** on changed files is ≥ the prior baseline (no regression).
 8. **No TODO / FIXME / XXX** introduced unless paired with a follow-up
    ticket ID in the comment, e.g. `# TODO(PRJ-042): handle ...`.
-9. **PR description** is complete per the template above, and every
-   number in it names its baseline in the same sentence.
+9. **PR description** is complete per the template above; every number in
+   it names its baseline in the same sentence, and every number a command
+   can produce was read from that command after the last commit that
+   changes it.
 10. **No forbidden actions** taken (see AGENTS.md).
 11. **Falsification gate** discharged and recorded: a red count per
     behavioural claim, a zero written as a zero.
