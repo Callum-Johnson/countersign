@@ -97,9 +97,9 @@ are trying to reconstruct why a change was made months later.
 
 **Retired when:** child tickets raised under this rule are, over a stated
 population, closed unworked as not wanted at a rate that shows the ticket file
-is ceremony and a line in the pull-request body would have served. One in
-five over the project's first fifty such tickets is the default rate, named
-as a default.
+is ceremony and a line in the pull-request body would have served. One in five
+over the project's first fifty such tickets is the default rate, named as a
+default.
 
 ## 5. Forbidden actions
 

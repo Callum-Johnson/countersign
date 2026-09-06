@@ -104,9 +104,9 @@ This is the oldest idea in the document and the one that transfers furthest:
 the party subject to a control does not get to remove it.
 
 **Retired when:** the project has no reviewer distinct from the executor and
-cannot obtain one, so the asymmetry has no second party to rest on. ADR-0002
-is the current answer to that for this repository; this retires only if that
-answer is withdrawn.
+cannot obtain one, so the asymmetry has no second party to rest on. In this
+repository ADR-0002 is the current answer to that, and the rule retires here
+only if that answer is withdrawn.
 
 ---
 
@@ -269,8 +269,11 @@ asserted beside them.** OMN-021's own total drifted three times — its Review
 section records "sixteen", "thirty-five" and "twenty-nine" — while it was
 asserted rather than derived.
 
-
-**Retired when:** a ticket blocked at the cap whose maintainer, reading the record, orders a further round that finds a rule defect — the cap's own falsifier, stated in the ticket that landed it — or the per-round record is shown, over a stated population, never to have been read by anyone deciding what to do next.
+**Retired when:** a ticket blocked at the cap whose maintainer, reading the
+record, orders a further round that finds a rule defect — the cap's own
+falsifier, stated in the ticket that landed it — or the per-round record is
+shown, over a stated population, never to have been read by anyone deciding
+what to do next.
 
 ---
 
@@ -340,8 +343,13 @@ finding goes.
 - A second-column finding that does **not** match the stated falsifier is a
   finding against the falsifier as much as against the rule. Either the rule
   is refusing something its author did not foresee, in which case the
-  falsifier was too narrow and is widened in the same ticket, or the finding
-  is wrong. The review says which.
+  falsifier was too narrow and is widened by the retirement ticket the
+  finding raises, as an amendment with record, or the finding is wrong. The
+  review says which it found; what follows is the executor's and the
+  maintainer's, as "What a review reports" says.
+- A retirement ticket is not worked by the executor whose work the rule
+  refused. The party subject to a control does not get to remove it, and
+  raising the ticket is as far as that party goes.
 
 **Who this binds.** A ticket that adds a rule states the rule's falsifier in
 its Behaviour section, and a ticket that does not is not ready, in the sense
@@ -355,7 +363,10 @@ this section, not here.
 **Retired when:** twenty rules carry stated falsifiers, ten second-column
 findings have been recorded against rules that carry one, and none has
 matched. That would show the falsifiers are decorative — written to satisfy
-this section, not to be recognised — and a decorative falsifier is the
-defect this section exists to remove. The two counts are read from the
-Retired-when lines in `docs/` and from the Review sections of closed
-critical-tier tickets.
+this section, not to be recognised — and a decorative falsifier is the defect
+this section exists to remove. The first count is read from the Retired-when
+lines in `docs/`, and is already past twenty at landing, so the condition is
+the second. That is read from the Review sections of closed critical-tier
+tickets, which record each finding's column; the rule a finding landed on is
+readable once the per-round record carries it, which EM-014-001 adds, and
+until then by re-reading the findings.

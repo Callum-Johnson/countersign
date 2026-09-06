@@ -148,8 +148,8 @@ agent asked to match surrounding style will otherwise produce a plausible
 approximation of it, and review time gets spent on whitespace instead of
 behaviour.
 
-**Retired when:** the formatter's output is contested at review more often,
-over a stated population, than hand formatting was before it.
+**Retired when:** the formatter's output is contested at review more often
+than it is accepted, over a stated population of pull requests.
 
 ## Strict typing
 
@@ -173,5 +173,5 @@ The rule exists because `--no-verify` is exactly the kind of locally
 reasonable shortcut an agent will take to satisfy its immediate instruction,
 and it defeats every gate above at once.
 
-
-*Falsifier:* stated once, with the rule in the contributor policy's forbidden actions, and not restated here.
+*Falsifier:* stated once, with the rule in the contributor policy's forbidden
+actions, and not restated here.

@@ -101,8 +101,8 @@ without anyone having to remember.
 
 **Retired when:** lineage reaches a depth the project's tooling cannot carry,
 or provenance is recorded in frontmatter and read in every place the id
-appears — commit messages, branch names, comments — which ADR-0038 rejected
-because it is not.
+appears — commit messages, branch names, comments — which the lineage decision
+record in `examples/adr/` rejected because it is not.
 
 Three things the scheme does not say for itself, each found in use:
 
@@ -152,5 +152,5 @@ both be followed are worse than either alone: the one enforced by nothing is
 the one dropped, and it is dropped silently. Exempt the id prefix from the
 count, or drop the limit, but decide.
 
-
-*Not a rule.* This paragraph states a hazard and refuses no convention; it carries no falsifier.
+*Not a rule.* This paragraph states a hazard and refuses no convention; it
+carries no falsifier.

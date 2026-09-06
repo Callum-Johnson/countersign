@@ -49,6 +49,9 @@ history is kept somewhere the superseded record is not needed.
 
 ## Why this matters more with AI contributors
 
+*Not a rule.* This section explains the rules above and constrains nothing; it
+carries no falsifier.
+
 The no-shared-memory rule means an agent cannot ask why something is the way it
 is. It can only read.
 
@@ -74,5 +77,6 @@ A governance system that cannot be changed becomes a system people route
 around. One that can be changed silently is not a control. Recording process
 changes the same way as technical ones is what keeps it honest.
 
-
-**Retired when:** the tier model ceases to class the process surface as `critical`, at which point this rule's second sentence is false and its first stands alone.
+**Retired when:** the tier model ceases to class the process surface as
+`critical`, at which point this rule's second sentence is false and its first
+stands alone.
