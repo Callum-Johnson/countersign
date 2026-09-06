@@ -56,8 +56,8 @@ population of tickets. The rule then costs more honest work than it stops.
 ## 3. Ambiguity is escalated, never resolved by invention
 
 If anything in the ticket is ambiguous, **stop**. Add a comment to the ticket
-file prefixed `BLOCKER:`, stating what is unclear and what you would need in
-order to proceed. Commit it, move the ticket to the blocked state, and pick up
+file prefixed `BLOCKER:`, stating what is unclear — or which question is
+reserved — and what you would need in order to proceed. Commit it, move the ticket to the blocked state, and pick up
 something else.
 
 Do not invent an interpretation. Do not pick the reading that makes the ticket
@@ -68,32 +68,36 @@ The same applies when the specification is wrong rather than unclear: raise a
 `BLOCKER:` explaining what is wrong and what you would change. Do not
 unilaterally rewrite the spec you were given.
 
-A decision reserved to another party is handled the same way. Some
-questions are perfectly clear and are simply not yours to answer, because
-the project's rules reserve them to someone else — a maintainer, an
-approver, a named owner. That is not ambiguity: the question has two
-coherent answers, and the rule that decides between them is that you do
-not decide. The test is who answers, not whether you could. Stop, state
-the question and the answers available, and block. Answering it
-provisionally in the diff, however reversible the answer, is the invention
-this section forbids; "one deletion undoes it" is a note saying you
-assumed something. The reason is how authorisation works: an approval
-names the exact diff approved, and approval of one diff is not approval of
-a revised one, so everything done after the first reserved question is
-work on a diff the approver has not seen, and if the answer changes the
-shape, the work between is discarded. The first reserved question is
-therefore the point at which continuing costs the most and buys the least.
-The first blocker carries every reserved question found by then, so that
-the answering party sees them together; there is no threshold, and one
-reserved question blocks. What is reserved is each project's own rule to
-state — this section says only what you do on meeting one.
+A decision reserved to another party is handled the same way. Some questions
+are perfectly clear and are simply not yours to answer, because the project's
+rules reserve them to someone else — a maintainer, an approver, a named owner.
+That is not ambiguity: the question has two coherent answers, and the rule
+that decides between them is that you do not decide. The test is who answers,
+not whether you could. Stop, state the question and the answers available, and
+block. Answering it provisionally in the diff, however reversible the answer,
+is the invention this section forbids; "one deletion undoes it" is a note
+saying you assumed something.
+
+The reason is how authorisation works: an approval names the exact diff
+approved, and approval of one diff is not approval of a revised one, so
+everything done after the first reserved question is work on a diff the
+approver has not seen, and if the answer changes the shape, the work between
+is discarded — including work you would judge unaffected, since which parts
+are unaffected is the answer's to decide. The first reserved question is
+therefore the point at which continuing costs the most and buys the least. The
+first blocker carries every reserved question already found — several may
+surface in one reading of the ticket — so that the answering party sees them
+together; there is no threshold, and one reserved question blocks. What is
+reserved is each project's own rule to state — this section says only what you
+do on meeting one, and where a project reserves nothing, the ambiguity test
+above is unchanged.
 
 **Retired when:** over a stated population of blocks raised on reserved
 questions, the answering party's answer never changed the shape of the diff
-the executor would have produced, so that the discarded work the rule
-exists to prevent was never going to be discarded; or the project has no
-rule reserving any decision, in which case the trigger has nothing to
-match and the ambiguity test above is unchanged.
+the executor would have produced, so that the discarded work the rule exists
+to prevent was never going to be discarded; or, after a stated period under
+this policy, the project has adopted no rule reserving any decision, so that
+the trigger has had nothing to match.
 
 Non-convergence is a further trigger: a critical-tier review that reaches the
 round cap in `docs/tier-review-model.md`, "When review ends", blocks by this
