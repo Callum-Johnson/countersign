@@ -1,10 +1,12 @@
 ---
 id: EM-001-001
 title: Harden the IP classifier and make the triage reproducible
-status: ready
+status: in-progress
 tier: standard
 complexity: M
 dependencies: [EM-001]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-001-001 — Harden the IP classifier and make the triage reproducible
