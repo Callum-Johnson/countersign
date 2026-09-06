@@ -30,8 +30,11 @@ Python arrangement fails this: a gate script whose first step installs the
 package in editable mode repoints the interpreter's import path at *this*
 tree, for every process on the machine that shares that interpreter. With
 several agents in parallel worktrees, one agent running the gate makes every
-other agent's suite import the first agent's code. On the source project three
-agents independently deduced this and refused to run the script as written;
+other agent's suite import the first agent's code. On the source project —
+the rules engine in
+[the growth case study](../case-studies/00-growth-2024-2026.md), which is
+what "the source project" means throughout this document — three agents
+independently deduced this and refused to run the script as written;
 the gates were trustworthy only because each pinned its interpreter by hand
 and printed the path as evidence. A script that is identical everywhere but
 leaks across trees is identical in the wrong way. Install into an environment
@@ -60,10 +63,9 @@ test that executes a changed line and would pass under the old implementation
 as well as the new one satisfies the coverage rule and pins nothing.
 
 A fully covered file can be fully unpinned. On one ten-ticket wave of the
-source project — the rules engine in
-[the growth case study](../case-studies/00-growth-2024-2026.md) — four
-separate changes passed the no-regression rule — one on a file at 100% of
-statements and branches — while shipping tests that could not fail: reverting
+source project, four separate changes passed the no-regression rule, one of
+them on a file at 100% of statements and branches, while shipping tests that
+could not fail: reverting
 the exact line each change had fixed left the whole suite green. The mechanism
 was ordinary each time. A predicate ended in an inclusive comparison, so the
 old and new implementations agreed at both values the tests used and differed

@@ -88,9 +88,10 @@ without anyone having to remember.
 Three things the scheme does not say for itself, each found in use:
 
 **A ticket raised by a review is created on the branch under review** — by
-the executor, from the review's record, before the next round; the reviewer
-names the ticket and the executor writes it, since the reviewer does not write
-to the tree it reviews. The id lives in the filename and git compares paths, so one id written under two
+the executor, from the review's record, before the next round or the close;
+the reviewer names the ticket and the executor writes it, so that the
+reviewer need not write to the tree it reviews. The id lives in the filename
+and git compares paths, so one id written under two
 slugs in two places — a review's copy in the main tree, the executor's on the
 branch — is two files for one id, and it merges with no conflict. Nothing in
 the scheme detects it, and two agents can then claim one ticket from different

@@ -1,12 +1,13 @@
 ---
 id: EM-006
 title: Add a falsification gate, and correct three published patterns that do not compose
-status: in-progress
+status: done
 tier: critical
 complexity: L
 dependencies: [EM-002]
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-006 — the falsification gate, and three corrections
@@ -313,4 +314,152 @@ documentation equivalent of a test that cannot fail.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-006 — the falsification gate, and three corrections
+
+### Tier
+`critical` — process-surface change (clause 5 of the operative test): it
+adds a gate, an executor obligation and a reporting rule, and corrects a
+published pattern readers may have adopted.
+
+**Independent review obtained**, per ADR-0002: a separate agent, given the
+ticket and the diff and not the executor's reasoning, reviewed the change in
+two rounds, working read-only. Its findings are recorded under Review below,
+and the tree under review was checked clean after each round.
+
+### Summary
+Five documents gain the falsification gate and its supporting rules;
+ADR-0038 is annotated in place with the two id-namespace defects and their
+rules; the ticket lifecycle carries both rules in operational form and states
+the subject-length hazard beside the lineage scheme; the review-yield figure
+goes in the case study, scoped. One child ticket raised.
+
+### Acceptance criteria
+- [x] AC1: coverage measures execution, not discrimination, in its own
+  section — `docs/quality-gates.md`, "Coverage measures execution, not
+  discrimination", with the inclusive-comparison band and the
+  fixture-coincidence mechanism, and the file-at-100% instance.
+- [x] AC2: the gate as an executor obligation with a recorded red count, and
+  what zero means — `docs/quality-gates.md`, "The falsification gate", steps
+  1–3 and the bold sentence on zero.
+- [x] AC3: the non-discriminating label and one case per rival — same
+  section, the two bullets.
+- [x] AC4: baseline-in-sentence required between the policy and the template
+  without full duplication — the rule with its reasoning is one bullet in
+  `docs/ai-contributor-policy.md` §6; `templates/PR-DESCRIPTION.md` carries a
+  one-line pointer to it and a clause in Definition of Done item 9.
+- [x] AC5: no-global-mutation with the editable install as the example —
+  `docs/quality-gates.md`, "The identical-script rule", the bold paragraph.
+- [x] AC6: both namespace defects in the ADR and in the lifecycle —
+  `examples/adr/adr-0038-*.md`, "Annotation — added 2026-09-06 under EM-006",
+  items 1 and 2 with the placement rule and the next-id rule; the ADR's status
+  is unchanged and the diff to it is append-only. `docs/ticket-lifecycle.md`,
+  "Lineage", the first two bold paragraphs. The lifecycle's local instance is
+  verified: `EM-010-001` was added at 3da6c57 and its file removed at 0947dda,
+  and `ls docs/tickets/*/EM-010-*` shows no child of EM-010.
+- [x] AC7: subject length does not compose with lineage ids, no rule
+  introduced — `docs/ticket-lifecycle.md`, "Lineage", the third bold
+  paragraph; `grep -rn "72" docs templates` finds no subject-length rule.
+- [x] AC8: no third-party material; DISCLOSURE amended and says why — every
+  example is in engineering terms (inclusive comparison, specification
+  readings, fixture coincidence, editable install). `DISCLOSURE.md`, "What is
+  published", gains a paragraph naming the annotation as the one
+  post-publication exception and why it is an annotation rather than a
+  supersession; `examples/README.md` says the same in one sentence.
+- [x] AC9: independent review — see Review.
+- [x] AC10: word counts — `wc -w`, at 8b0a8b4 and at the closing commit of
+  this branch:
+
+  | File | 8b0a8b4 | close | Δ |
+  |---|---|---|---|
+  | `docs/quality-gates.md` | 411 | 1,175 | +764 |
+  | `docs/ai-contributor-policy.md` | 1,034 | 1,157 | +123 |
+  | `docs/ticket-lifecycle.md` | 544 | 996 | +452 |
+  | `templates/PR-DESCRIPTION.md` | 400 | 539 | +139 |
+  | `docs/tier-review-model.md` (not edited) | 761 | 761 | 0 |
+  | `examples/adr/adr-0038-*.md` | 791 | 1,228 | +437 |
+  | `case-studies/00-growth-2024-2026.md` | 641 | 762 | +121 |
+  | `DISCLOSURE.md` | 657 | 748 | +91 |
+  | `examples/README.md` | 304 | 341 | +37 |
+
+  Total delta across edited files: +2,164 words. The five-document reviewer
+  brief the ticket priced at 3,150 words at 8b0a8b4 is 4,628 at close, a 47%
+  increase; `docs/quality-gates.md` is 2.9 times its baseline. The ticket
+  accepted the cost; this table is what makes it visible.
+
+### Falsification
+N/A — no behavioural claim; this repository has no suite. Per the ticket's
+Notes, the gate in spirit: what a reader does differently per criterion.
+- AC1: stops reading a green coverage delta as evidence a change is pinned.
+- AC2–AC3: runs the mutant and writes the count before reporting; keeps and
+  labels a test that cannot discriminate; writes one case per rival.
+- AC4: writes the baseline in the sentence with the number.
+- AC5: builds the gate's environment inside the worktree.
+- AC6: creates a review-raised ticket on the branch; reads the next id from
+  history. Verified against this repository's own spent id.
+- AC7: an adopter with a subject limit decides, instead of discovering.
+- AC8: a DISCLOSURE reader knows where the original ADR text stops.
+
+### Out of scope (per ticket)
+Confirmed: `docs/tier-review-model.md` is untouched (761 words at 8b0a8b4 and
+at close); `README.md` is untouched — the contradiction the gate creates
+with its idea 5 is raised as EM-006-001, not fixed; no project-specific
+lesson from the source wave was carried over; the granularity question is
+left to EM-009, which already exists.
+
+Beyond the Files list and declared here: the `### Falsification` section in
+the PR template (required by the gate's own text), one sentence in
+`examples/README.md` (required by AC8's honesty about the annotation), and
+the local `EM-010-001` instance in the lifecycle (not asked for; verified;
+it is the only spent-id measurement this repository can take).
+
+### Placement judgement
+The review-yield figure is in the case study, not a policy document, for the
+reason the ticket's Notes give: a policy document citing its own success
+rate reads as advocacy. It is stated with its scope — one project, one wave,
+reviewers briefed to look hard — and with what it does not say.
+
+### Review
+Per-round record. The total is derived from the rows, not asserted.
+
+| Round | Must-fix | Where the findings sat | Inside the previous round's fix | Repaired by |
+|---|---|---|---|---|
+| 1 | 1 (of 10 findings) | documents: 1 must-fix in `examples/README.md`; 9 notes across the ADR annotation, lifecycle, quality-gates, PR template | — | b92c47c |
+| 2 | 0 (of 8 notes) | documents: the placement rule's justifying clause stated an unpublished rule as premise; "the source project" still undefined at its first use; three over-long lines; two notes on EM-006-001 as a ticket | 2 of 8 — the premise clause was added in repairing round-1 finding 5, and the template line repairing finding 10 carries a cost the remedy did not price | the closing commit |
+
+Derived total: 1 must-fix over two rounds. Round 1's column-1
+findings: the examples README contradicted its own annotated row (must-fix);
+the four-changes figure lacked its wave; the README/tier-model contradiction
+(raised as EM-006-001). Column-2 findings: the placement rule named no actor;
+the next-id command was wrong in one place and printed non-ids in both; three
+wording defects in the annotation; "the source project" undefined at first
+use; the template gave no line for a change with no behavioural claim. All
+nine notes were taken in b92c47c. Round 2's notes were taken in the closing
+commit, except one recorded here rather than fixed: the template's line for a
+change with no behavioural claim makes the "what a reader does differently"
+statement a standing requirement of every documentation-only pull request at
+every tier, which is a cost on trivial-tier work that EM-012 is about and
+that the round-1 remedy did not price. Post-review tree check after each round:
+`git status --porcelain` empty, `git worktree list` showing only the main
+tree.
+
+### How to verify
+1. `git diff c8c4795..HEAD -- examples/adr/` — the ADR diff is append-only
+   below a horizontal rule; nothing above it changed.
+2. `git log --diff-filter=A --name-only --format= -- docs/tickets | grep
+   EM-010-001` returns the spent id; `ls docs/tickets/*/EM-010-*` does not.
+3. `grep -n "Retired when\|same sentence" docs/ai-contributor-policy.md
+   templates/PR-DESCRIPTION.md` — the baseline rule once in full, once as a
+   pointer.
+4. Re-run the `wc -w` table above.
+
+### Risks / follow-ups
+- **EM-006-001** (raised here, on this branch, per the placement rule this
+  ticket lands): README idea 5 and the tier model's "no tier skips the
+  machine checks" are now incomplete.
+- The five-document brief grew by 47%. EM-014's cost section already counts
+  rules; the word growth is a cost every subsequent reviewer pays.
+- The gate is stated for a project with a suite. This repository has none,
+  and every ticket here will write `N/A` in Falsification; whether that line
+  decays into ceremony is something the maintainer can watch for.
+

@@ -37,6 +37,11 @@ Documentation changes only.
 - `README.md` — core idea 5.
 - `docs/tier-review-model.md` — the sentence under the tier table.
 
+### Public surface
+
+N/A — this repository publishes documents. The change corrects two sentences
+and adds no rule.
+
 ### Behaviour
 
 - README idea 5 states that four gates are machine-checked and the fifth is
