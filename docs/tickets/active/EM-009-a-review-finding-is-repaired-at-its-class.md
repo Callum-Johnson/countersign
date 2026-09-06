@@ -1,10 +1,12 @@
 ---
 id: EM-009
 title: A review finding is repaired at its class, and the repair is falsified per sibling
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: [EM-006]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-009 — A review finding is repaired at its class
