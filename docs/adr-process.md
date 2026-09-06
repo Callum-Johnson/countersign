@@ -26,7 +26,10 @@ Do **not** write one for:
 The test: if the decision affects multiple tickets or constrains future work,
 it is an ADR. If it affects only the ticket in hand, the ticket is enough.
 
-**Retired when:** a regression a recorded decision would have prevented happens with the record present, more than once over a stated population, or the set of records grows past what a contributor reads before a first edit; the trigger list is then producing records nobody reads.
+**Retired when:** a regression a recorded decision would have prevented
+happens with the record present, more than once over a stated population, or
+the set of records grows past what a contributor reads before a first edit;
+the trigger list is then producing records nobody reads.
 
 ## Structure
 
@@ -40,7 +43,9 @@ the decision history, and deleting the wrong turns destroys most of its value.
 
 See [the template](../templates/ADR.md).
 
-**Retired when:** a section is `N/A` in most records over a stated population — the structure then asks questions the decisions do not have — or decision history is kept somewhere the superseded record is not needed.
+**Retired when:** a section is `N/A` in most records over a stated population
+— the structure then asks questions the decisions do not have — or decision
+history is kept somewhere the superseded record is not needed.
 
 ## Why this matters more with AI contributors
 

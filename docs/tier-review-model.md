@@ -34,7 +34,11 @@ If none hold, the tier is `standard`. In one line:
 > **Could an existing caller, or a seeded run, notice this change without
 > opting in? If yes, `critical`. If no, `standard`.**
 
-**Retired when:** a change every clause passed as `standard` is found by review to have changed an existing caller's outcome, more than once over a stated population — the test's coverage is then shorter than its claim — or the changes it classes `critical` are shown, over a stated population, never to have drawn a must-fix at independent review.
+**Retired when:** a change every clause passed as `standard` is found by
+review to have changed an existing caller's outcome, more than once over a
+stated population — the test's coverage is then shorter than its claim — or
+the changes it classes `critical` are shown, over a stated population, never
+to have drawn a must-fix at independent review.
 
 ---
 
@@ -49,7 +53,9 @@ If none hold, the tier is `standard`. In one line:
 Gates are mandatory at every tier. There is no tier that skips the machine
 checks — the tier governs *human and peer* review, not automated review.
 
-**Retired when:** `standard`-tier work spot-checked by a reviewer draws must-fix findings at a rate comparable to `critical`-tier review yield, over a stated population; the tier that skips review then skips something.
+**Retired when:** `standard`-tier work spot-checked by a reviewer draws must-
+fix findings at a rate comparable to `critical`-tier review yield, over a
+stated population; the tier that skips review then skips something.
 
 ---
 
@@ -69,7 +75,11 @@ This distinction matters more than it looks. A model that escalates on file
 paths trains contributors to treat escalation as noise, and an escalation
 everyone ignores is worse than none.
 
-**Retired when:** changes to the listed modules that the test classed `standard` are found by review to have altered existing behaviour, more than once over a stated population; the test's clauses are then not catching what a path trigger would, and the argument against the trigger is weaker than its cost.
+**Retired when:** changes to the listed modules that the test classed
+`standard` are found by review to have altered existing behaviour, more than
+once over a stated population; the test's clauses are then not catching what a
+path trigger would, and the argument against the trigger is weaker than its
+cost.
 
 ---
 
@@ -93,7 +103,10 @@ control and therefore cannot be done by the party the control is on.
 This is the oldest idea in the document and the one that transfers furthest:
 the party subject to a control does not get to remove it.
 
-**Retired when:** the project has no reviewer distinct from the executor and cannot obtain one, so the asymmetry has no second party to rest on. ADR-0002 is the current answer to that for this repository; this retires only if that answer is withdrawn.
+**Retired when:** the project has no reviewer distinct from the executor and
+cannot obtain one, so the asymmetry has no second party to rest on. ADR-0002
+is the current answer to that for this repository; this retires only if that
+answer is withdrawn.
 
 ---
 
@@ -113,7 +126,10 @@ summary of wrong work is the characteristic AI failure mode.
 What it does not substitute for is accountability. The independence is real;
 the judgement is still mine.
 
-**Retired when:** independent review of `critical`-tier work returns no must-fix over a stated population of tickets. The current count against that is the source wave's six of six and this repository's own record, which are in the case study and the closed tickets.
+**Retired when:** independent review of `critical`-tier work returns no must-
+fix over a stated population of tickets. The current count against that is the
+source wave's six of six and this repository's own record, which are in the
+case study and the closed tickets.
 
 ---
 
@@ -171,7 +187,10 @@ over-tightening, which reintroduces the judgement the two questions exist to
 separate. The reviewer answers both; what to do about the answers is the
 executor's and the maintainer's.
 
-**Retired when:** second-column findings over a stated population of critical-tier reviews are all notes and never must-fixes, or every tightening finding's cost line reads "cannot be measured"; the second question then finds nothing that blocks, and the cost rule produces no measurement.
+**Retired when:** second-column findings over a stated population of critical-
+tier reviews are all notes and never must-fixes, or every tightening finding's
+cost line reads "cannot be measured"; the second question then finds nothing
+that blocks, and the cost rule produces no measurement.
 
 ---
 

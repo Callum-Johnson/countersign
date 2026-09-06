@@ -32,7 +32,10 @@ This means:
 
 Almost every other rule in this document follows from this one.
 
-**Retired when:** the project adopts a durable memory outside the repository that every contributor reads before every session and that outlives the sessions that wrote it. Until then the repository is the only such place, and the rule protects the only record there is.
+**Retired when:** the project adopts a durable memory outside the repository
+that every contributor reads before every session and that outlives the
+sessions that wrote it. Until then the repository is the only such place, and
+the rule protects the only record there is.
 
 ## 2. Scope is defined by the ticket
 
@@ -45,7 +48,10 @@ criteria, the references, and an explicit out-of-scope list.
 - One ticket at a time per agent. Do not claim several in parallel.
 - Do not start a ticket whose dependencies are unfinished.
 
-**Retired when:** a project's closed tickets show out-of-scope work rejected at review that the ticket's author, asked afterwards, would have accepted, more often than they show scope creep caught — counted over a stated population of tickets. The rule then costs more honest work than it stops.
+**Retired when:** a project's closed tickets show out-of-scope work rejected
+at review that the ticket's author, asked afterwards, would have accepted,
+more often than they show scope creep caught — counted over a stated
+population of tickets. The rule then costs more honest work than it stops.
 
 ## 3. Ambiguity is escalated, never resolved by invention
 
@@ -66,7 +72,10 @@ Non-convergence is a further trigger: a critical-tier review that reaches the
 round cap in `docs/tier-review-model.md`, "When review ends", blocks by this
 same procedure, with its review record attached.
 
-**Retired when:** blocked tickets on a project are, over a stated population, routinely unblocked with the reading the executor would have taken. The block then buys nothing the executor did not already know, and its cost is the answering party's latency.
+**Retired when:** blocked tickets on a project are, over a stated population,
+routinely unblocked with the reading the executor would have taken. The block
+then buys nothing the executor did not already know, and its cost is the
+answering party's latency.
 
 ## 4. Discovered work becomes a ticket with recorded lineage
 
@@ -86,7 +95,10 @@ prose get lost; findings that live in the ticket directory get worked.
 This also gives every unit of work a traceable origin, which matters when you
 are trying to reconstruct why a change was made months later.
 
-**Retired when:** child tickets raised under this rule are, over a stated population, closed unworked as not wanted at a rate that shows the ticket file is ceremony and a line in the pull-request body would have served. The rate that would show it is the maintainer's to name.
+**Retired when:** child tickets raised under this rule are, over a stated
+population, closed unworked as not wanted at a rate that shows the ticket file
+is ceremony and a line in the pull-request body would have served. The rate
+that would show it is the maintainer's to name.
 
 ## 5. Forbidden actions
 
@@ -109,11 +121,11 @@ Universal. They apply on every ticket whether or not the ticket restates them.
   material or a listed term, and has done so on a stated population of
   commits; a later control then covers what this rule was added for.
 - **Do not quote or paraphrase large blocks of third-party text** in code or
-    comments. Reference by section identifier instead.
+  comments. Reference by section identifier instead.
   *Retired when:* the project holds a licence to the third-party text that
   permits reproduction, at which point the rule protects nothing.
 - **Do not add backwards-compatibility shims** for code written in the same
-    session. If you change a signature, update the callers.
+  session. If you change a signature, update the callers.
   *Retired when:* the project ships a signature to callers outside the
   repository within a session, so that updating the callers is not in the
   executor's power.
@@ -122,7 +134,7 @@ Universal. They apply on every ticket whether or not the ticket restates them.
   *Retired when:* the project's release process requires a flag on every
   change, so that every ticket asks and the rule is noise.
 - **Do not write speculative abstractions** for hypothetical future needs.
-    Three similar lines beat a premature interface.
+  Three similar lines beat a premature interface.
   *Retired when:* a project's review record shows, over a stated population,
   that similar lines left unabstracted under this rule were later unified at
   a higher cost than an interface at the second occurrence would have been.
@@ -155,7 +167,11 @@ The pull-request description is appended to the ticket file before the ticket
 closes. It does not live only in a code-forge UI, because the repository has
 to remain the record.
 
-**Retired when:** any item in this list is shown, over a stated population of closed tickets, to be satisfied nominally on every ticket without changing the work — a Falsification section that reads N/A on every code change, a baseline that is always the same commit. The falsification gate's own falsifier is stated with the gate in `docs/quality-gates.md`.
+**Retired when:** any item in this list is shown, over a stated population of
+closed tickets, to be satisfied nominally on every ticket without changing the
+work — a Falsification section that reads N/A on every code change, a baseline
+that is always the same commit. The falsification gate's own falsifier is
+stated with the gate in `docs/quality-gates.md`.
 
 ## 7. Pre-flight checklist
 
@@ -171,7 +187,10 @@ Confirmed before the first edit of any session:
 
 If you cannot tick all seven, do not write code yet.
 
-**Retired when:** the transcript shows the ticks made without the reads — a ticket blocked on a reference its executor had ticked as read — more than once over a stated population. The checklist then produces the nominal satisfaction it exists to prevent.
+**Retired when:** the transcript shows the ticks made without the reads — a
+ticket blocked on a reference its executor had ticked as read — more than once
+over a stated population. The checklist then produces the nominal satisfaction
+it exists to prevent.
 
 ---
 

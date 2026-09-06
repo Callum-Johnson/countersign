@@ -33,7 +33,8 @@ makes drift visible. A ticket whose field and directory disagree is a
 workflow error you can find with a script, and a contributor that half-completed
 a transition leaves evidence rather than a silent inconsistency.
 
-**Retired when:** a tool derives one of the two from the other at every move and the second copy cannot disagree; the check then checks nothing.
+**Retired when:** a tool derives one of the two from the other at every move
+and the second copy cannot disagree; the check then checks nothing.
 
 ## Claiming
 
@@ -50,7 +51,9 @@ That is deliberately a crude lock. It costs one wasted claim commit, requires
 no coordination service, and cannot fail in a way that silently permits two
 agents to work the same ticket — which is the failure that actually matters.
 
-**Retired when:** two agents are shown to have worked the same ticket without a conflict — the lock failed silently, which it is designed not to do — or the project adopts a coordination service that makes the file move redundant.
+**Retired when:** two agents are shown to have worked the same ticket without
+a conflict — the lock failed silently, which it is designed not to do — or the
+project adopts a coordination service that makes the file move redundant.
 
 ## Blocking
 
@@ -63,7 +66,8 @@ correctly identified that it does not have enough information — which is
 precisely the judgement that is hardest to elicit, and the alternative is an
 invented interpretation that looks like progress.
 
-*Falsifier:* stated with the rule in the contributor policy's §3 and not restated here.
+*Falsifier:* stated with the rule in the contributor policy's §3 and not
+restated here.
 
 ## Closing
 
@@ -77,7 +81,9 @@ The description lives in the ticket file, not only in a code-forge interface.
 The repository has to remain the record: forge metadata is not portable, not
 greppable offline, and not guaranteed to outlive the host.
 
-**Retired when:** the forge's metadata is exported into the repository automatically on every close, so the description is in the record without being appended.
+**Retired when:** the forge's metadata is exported into the repository
+automatically on every close, so the description is in the record without
+being appended.
 
 ## Lineage
 
@@ -93,7 +99,10 @@ siblings of one parent, so two agents working different tickets cannot collide
 on identifiers. It also means every ticket answers "why does this exist?"
 without anyone having to remember.
 
-**Retired when:** lineage reaches a depth the project's tooling cannot carry, or provenance is recorded in frontmatter and read in every place the id appears — commit messages, branch names, comments — which ADR-0038 rejected because it is not.
+**Retired when:** lineage reaches a depth the project's tooling cannot carry,
+or provenance is recorded in frontmatter and read in every place the id
+appears — commit messages, branch names, comments — which ADR-0038 rejected
+because it is not.
 
 Three things the scheme does not say for itself, each found in use:
 
@@ -110,7 +119,9 @@ yields the next id is the listing the id will land in, and a duplicate becomes
 a merge conflict, which is the crude lock this lifecycle already relies on,
 rather than a silent second file.
 
-**Retired when:** the merge tool compares ids rather than paths — a merge driver that conflicts on a duplicate id under any slug — so that placement no longer decides whether a collision is seen.
+**Retired when:** the merge tool compares ids rather than paths — a merge
+driver that conflicts on a duplicate id under any slug — so that placement no
+longer decides whether a collision is seen.
 
 **The next id comes from history, not the tree.** An id, once created, is
 spent. A ticket raised and later deleted, absorbed or renamed leaves no file
@@ -128,7 +139,8 @@ the fourteenth was taken, worked and closed before anyone noticed. A reused id
 is not renumbered afterwards; the newer ticket records the reuse and points at
 the older use.
 
-**Retired when:** the project forbids deleting a ticket file — tickets are only ever moved — so that the tree is the history and reads the same.
+**Retired when:** the project forbids deleting a ticket file — tickets are
+only ever moved — so that the tree is the history and reads the same.
 
 **A fixed commit-subject length does not compose with lineage ids.** No
 subject-length rule is published here. A project that brings one should

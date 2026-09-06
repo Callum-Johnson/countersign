@@ -17,7 +17,11 @@ executor obligation discharged before the pull request is reported. It is
 listed here because it is a condition of merge like the other four, and
 because the four above cannot do its job.
 
-**Retired when:** a gate is shown, over a stated count of pull requests, to block merges that a reviewer passes without any change to the work — a formatter fighting generated code, a type checker needing suppressions on most files. That gate then costs review time and catches nothing; each gate below carries its own line.
+**Retired when:** a gate is shown, over a stated count of pull requests, to
+block merges that a reviewer passes without any change to the work — a
+formatter fighting generated code, a type checker needing suppressions on most
+files. That gate then costs review time and catches nothing; each gate below
+carries its own line.
 
 ## The identical-script rule
 
@@ -27,7 +31,9 @@ not two configurations that resemble each other. Anything else produces the
 becomes an expensive loop: the agent cannot see CI, so it guesses, and it
 guesses confidently.
 
-**Retired when:** local and CI environments differ in a way one script cannot express, and the "passes locally, fails in CI" loop is shown absent over a stated population anyway.
+**Retired when:** local and CI environments differ in a way one script cannot
+express, and the "passes locally, fails in CI" loop is shown absent over a
+stated population anyway.
 
 **The script must not mutate state outside the working tree.** The ordinary
 Python arrangement fails this: a gate script whose first step installs the
@@ -44,7 +50,8 @@ and printed the path as evidence. A script that is identical everywhere but
 leaks across trees is identical in the wrong way. Install into an environment
 the worktree owns, or run against the source tree without installing.
 
-**Retired when:** the project runs one agent per machine by construction, so that no process shares an interpreter with another tree.
+**Retired when:** the project runs one agent per machine by construction, so
+that no process shares an interpreter with another tree.
 
 ## Coverage: no regression, not a threshold
 
@@ -60,7 +67,9 @@ already-well-covered file can stay above the line. Measuring the delta on
 changed files asks the only question that matters: did *this change* come with
 its tests?
 
-**Retired when:** every change records a red count under the falsification gate, over a stated population, at which point coverage adds nothing the count does not say more precisely.
+**Retired when:** every change records a red count under the falsification
+gate, over a stated population, at which point coverage adds nothing the count
+does not say more precisely.
 
 ## Coverage measures execution, not discrimination
 
@@ -87,7 +96,8 @@ independent review, and only because a reviewer changed the code and counted.
 The gate that follows moves the count to where it is cheapest: before the
 report, by the executor.
 
-*Not a rule.* This section describes what coverage measures; it carries no falsifier because it constrains nothing.
+*Not a rule.* This section describes what coverage measures; it carries no
+falsifier because it constrains nothing.
 
 ## The falsification gate
 
@@ -125,7 +135,10 @@ distinction is the point. On the source project every instance was found at
 review, and each cost a full review round of rework. Putting the count in the
 report means the reviewer verifies a number rather than derives one.
 
-**Retired when:** over a stated population of changes every recorded red count is non-zero and no reviewer's mutation has found an unpinned claim the executor's count missed. The gate then costs a suite run per claim and catches nothing review would not.
+**Retired when:** over a stated population of changes every recorded red count
+is non-zero and no reviewer's mutation has found an unpinned claim the
+executor's count missed. The gate then costs a suite run per claim and catches
+nothing review would not.
 
 ## Formatting is machine-applied
 
@@ -135,7 +148,8 @@ agent asked to match surrounding style will otherwise produce a plausible
 approximation of it, and review time gets spent on whitespace instead of
 behaviour.
 
-**Retired when:** the formatter's output is contested at review more often, over a stated population, than hand formatting was before it.
+**Retired when:** the formatter's output is contested at review more often,
+over a stated population, than hand formatting was before it.
 
 ## Strict typing
 
@@ -147,7 +161,8 @@ data shape produces code that reads fluently and fails the type checker
 immediately. Without it the same misunderstanding survives review and surfaces
 later as a runtime error in an unrelated place.
 
-**Retired when:** the project's language or its generated code cannot satisfy `--strict` without suppressions on most files, counted.
+**Retired when:** the project's language or its generated code cannot satisfy
+`--strict` without suppressions on most files, counted.
 
 ## Hooks may not be skipped
 
