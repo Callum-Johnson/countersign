@@ -29,7 +29,19 @@ Run it against your change. **Any one clause means `critical`:**
 5. **Process surface.** A schema migration, a CI configuration change, or a
    change to the review model itself.
 
-If none hold, the tier is `standard`. In one line:
+If none hold, the tier is `standard` — unless nothing a program executes
+and nothing a caller reads is touched, in which case it is `trivial`:
+documentation, comments, ticket files, data no program loads. Anything a
+program or a caller can observe is at least `standard`. Where the line is
+unclear the executor may raise, never lower, as the separation-of-duties
+section says.
+
+**Retired when:** a change classed `trivial` under this sentence is found
+by review to have altered what a program or a caller observes, more than
+once over a stated population; the line is then drawn in the wrong place,
+and the sentence retires in favour of one drawn from those cases.
+
+In one line:
 
 > **Could an existing caller, or a seeded run, notice this change without
 > opting in? If yes, `critical`. If no, `standard`.**
