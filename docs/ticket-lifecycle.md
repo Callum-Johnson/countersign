@@ -5,7 +5,7 @@ directories as their state changes.
 
 ```
 docs/tickets/
-├── TEMPLATE.md
+├── README.md    the board, and a pointer to templates/TICKET.md
 ├── ready/       specified, dependencies met, available to claim
 ├── active/      claimed, in progress, one owner
 ├── blocked/     cannot proceed; carries a BLOCKER: comment

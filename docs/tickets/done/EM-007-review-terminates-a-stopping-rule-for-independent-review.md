@@ -272,6 +272,10 @@ evidence and its Behaviour sentence a summary of it; the maintainer may
 reinstate the original sentence by amending the section, which is a
 process-surface change and takes a ticket.
 
+**Departure accepted 2026-09-06 by the maintainer.** The section stands as
+landed; the original Behaviour sentence is not reinstated. Recorded as an
+entry of the batch EM-017.
+
 ### Out of scope (per ticket)
 Confirmed: the cap is not tuned (three, as a default); EM-009's class
 mechanism is referenced, not restated; the two-column report is not
