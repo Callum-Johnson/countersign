@@ -80,10 +80,10 @@ row in the record, outside the must-fix count and the two columns, and removed
 before the tree is used again, the closing commit included.
 
 The mechanism this guards against, stated so the class is understood and not
-only the file: an interpreter that imports a module of a fixed name at start-
-up, from any directory on its path, will run whatever a file of that name
-contains before the test runner or the type checker examines anything. A copy
-that exits zero under those tools makes both gates pass having examined
+only the file: an interpreter that imports a module of a fixed name at
+start-up, from any directory on its path, will run whatever a file of that
+name contains before the test runner or the type checker examines anything. A
+copy that exits zero under those tools makes both gates pass having examined
 nothing, and only a gate that reads files as text — lint — sees it. In CPython
 the module is `sitecustomize`; which invocations reach a root-level copy
 depends on the invocation, and the control-plane project's own record is the
