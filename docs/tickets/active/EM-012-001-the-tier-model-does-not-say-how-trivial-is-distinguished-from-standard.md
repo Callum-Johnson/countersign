@@ -49,7 +49,12 @@ the table already implies.
 - The sentence says who decides where the line is unclear: the executor
   may raise, never lower, as the separation-of-duties section already
   says.
-- The rule states its falsifier, per "Retiring a control".
+- The rule states its falsifier, per "Retiring a control". Stated here
+  at close, since the ticket was claimed without it: retired when a change
+  classed `trivial` under the sentence is found to have touched something a
+  program executes or a caller reads as a contract, more than once over a
+  stated population — closed batch tickets' recorded reclassifications, or
+  a maintainer's spot-check of self-merged work.
 
 ## Acceptance criteria
 

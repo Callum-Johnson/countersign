@@ -30,21 +30,27 @@ Run it against your change. **Any one clause means `critical`:**
    change to the review model itself.
 
 If none hold, the tier is `standard` — unless nothing a program executes
-and nothing a caller reads is touched, in which case it is `trivial`:
-documentation, comments, ticket files, data no program loads. Anything a
-program or a caller can observe is at least `standard`. Where the line is
+and nothing a caller reads as a contract is touched, in which case it is
+`trivial`: documentation, comments, ticket files, data no program loads.
+A program executes code, tests, migrations and CI configuration; a caller
+reads as a contract a schema, an interface, or a data file a program
+loads; anything in either set is at least `standard`. Where the line is
 unclear the executor may raise, never lower, as the separation-of-duties
 section says.
 
-**Retired when:** a change classed `trivial` under this sentence is found
-by review to have altered what a program or a caller observes, more than
-once over a stated population; the line is then drawn in the wrong place,
-and the sentence retires in favour of one drawn from those cases.
+**Retired when:** a change classed `trivial` under the first sentence of
+the paragraph above is found to have touched something a program executes
+or a caller reads as a contract, more than once over a stated population —
+the reclassifications recorded in closed batch tickets are one such
+population, and a maintainer's spot-check of self-merged work is another;
+the line is then drawn in the wrong place, and the sentence retires in
+favour of one drawn from those cases.
 
 In one line:
 
 > **Could an existing caller, or a seeded run, notice this change without
-> opting in? If yes, `critical`. If no, `standard`.**
+> opting in? If yes, `critical`. If no, `standard` — or `trivial`, where
+> nothing a program executes or a caller reads as a contract is touched.**
 
 **Retired when:** a change every clause passed as `standard` is found by
 review to have changed an existing caller's outcome, more than once over a
@@ -58,7 +64,7 @@ to have drawn a must-fix at independent review.
 
 | Tier | Typical work | Review | Gates |
 |---|---|---|---|
-| `trivial` | Documentation, comments, data additions, ticket edits | None; author self-merges | Mandatory |
+| `trivial` | Documentation, comments, data no program loads, ticket edits | None; author self-merges | Mandatory |
 | `standard` | Most feature work — new validators, resolvers, queries, components | None; author self-merges after a complete PR description with evidence per criterion | Mandatory |
 | `critical` | Anything the operative test catches | One approval from **another agent**, human or AI, who must verify the evidence and run the suite themselves | Mandatory |
 
