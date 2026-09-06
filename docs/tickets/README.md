@@ -32,7 +32,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-010 | ready | critical | A review answers two questions; over-tightening is a finding |
 | EM-011 | ready | critical | Review runs in its own worktree; the tree is checked afterwards |
 | EM-012 | ready | critical | Trivial changes are batched into one ticket |
-| EM-013 | ready | standard | Assess the methodology against ISO/IEC 42001 |
+| EM-013 | blocked | standard | Assess the methodology against ISO/IEC 42001 |
 | EM-014 | ready | critical | A rule states its own falsifier; a control can be retired |
 | EM-014-001 | ready | critical | Both columns on one rule in consecutive rounds is a class signal |
 | EM-015 | ready | trivial | The README states two commit counts for one project |

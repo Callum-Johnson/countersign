@@ -1,10 +1,13 @@
 ---
 id: EM-013
 title: Assess the methodology against ISO/IEC 42001
-status: ready
+status: blocked
 tier: standard
 complexity: L
 dependencies: [EM-002]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
+blocked_at: 2026-09-06
 ---
 
 # EM-013 — Assess the methodology against ISO/IEC 42001
@@ -105,3 +108,30 @@ Expect the management-context clauses (leadership, roles, resourcing,
 competence) to be where a one-maintainer repository looks thinnest. Do not
 pad them. ADR-0002 is the model: name the constraint, decide what to do about
 it, record it.
+
+**BLOCKER (2026-09-06):** the pre-flight checklist in contributor policy §7
+requires the executor to have read every external reference the ticket
+cites. The one reference that matters is held "by purchase; not held in this
+repository", and the executor cannot read it.
+
+The executor could assess against its own recollection of the standard's
+clause structure — the seven main-body clauses and the Annex A control
+families are widely paraphrased — but a clause-by-clause verdict written
+against a paraphrase the executor has not checked is the "proceed with a note
+saying you assumed something" that §3 forbids, and whether that is acceptable
+here is the maintainer's decision, not the executor's.
+
+To proceed the executor needs one of:
+
+1. The maintainer's authorisation to assess against the executor's own
+   paraphrase of clauses 4–10 and each Annex A control, with the maintainer
+   checking every clause and control number against the purchased text
+   before the ticket closes, and the assessment's first paragraph saying that
+   is how it was produced; or
+2. A maintainer-written input file — clause or control number and one line
+   of paraphrase each, in the maintainer's own words — which the executor
+   assesses against. This also gives AC5 a concrete thing to test: the
+   assessment reproduces nothing that is not in that file.
+
+The second is the better artifact, since the paraphrase then has one author
+who has read the standard.
