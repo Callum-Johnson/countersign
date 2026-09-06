@@ -1,12 +1,13 @@
 ---
 id: EM-020-001
 title: A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded
-status: in-progress
+status: blocked
 tier: critical
 complexity: S
 dependencies: [EM-021]
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-06
+blocked_at: 2026-09-06
 ---
 
 # EM-020-001 — A review must-fix on a Behaviour sentence is taken in the round and recorded
@@ -86,6 +87,44 @@ existing rule or confirms the rule as written.
 
 Depends on EM-021 because it is the first rule raised under that bar, and
 should be the first to cite it.
+
+**BLOCKER (2026-09-06):** the executor cannot proceed. The ticket carries
+two questions §3 reserves to the maintainer, found in one reading and stated
+together as §3 asks.
+
+1. **Whether §3 gains the clause.** The ticket does not say the decision is
+   made: Context ends "Nothing written says which", AC1 admits "or states
+   that it is not", and the EM-020 description that raised this ticket says
+   "not decided here". Behaviour bullet 1 and AC2 presuppose the clause.
+   Context and Behaviour therefore disagree on whether the choice exists,
+   which is the disagreement §7 item 2 sends to §3. And the choice is not
+   the executor's to make. The clause narrows §3, a control on the executor,
+   over a class of cases; "Separation of duties" says the party subject to a
+   control does not get to remove it, and "Retiring a control" says an
+   amendment that loosens a rule is a retirement ticket not worked by the
+   executor whose work the rule refused. The three departures the clause
+   would license were each `claude-fable-5-1`'s, the executor this ticket is
+   claimed by. Blocked on the precedent of EM-009-001, whose Specification
+   narrowed a control on the executor by the same shape. The answers
+   available: (a) §3 gains the clause as Behaviour states it, with its
+   conditions, its three instances and its falsifier; (b) §3 stands as
+   written and the practice stops, which is AC1's second arm, closes with no
+   document change, and leaves the three departures as accepted exceptions
+   that the description records; (c) a narrower clause in the maintainer's
+   own wording, which replaces Behaviour bullet 1.
+2. **If (a), the form and the hands.** "Retiring a control" makes a
+   loosening an amendment with record: a decision record carrying §3's text
+   as it stands, the finding that matched, and the new text. The Files list
+   names no record, and EM-019-001-001, in `ready/`, owns whether a
+   rule-adding ticket produces one. And the same section's last bullet
+   would have this ticket worked by an executor other than the one the rule
+   refused, which on this repository to date is every executor; the
+   maintainer may waive that and say so, or work the amendment directly.
+
+To proceed the executor needs the maintainer's answer to 1, and where it is
+(a), to 2. Whichever answer comes is one count for or against §3's own
+falsifier, which reads on blocks unblocked with the reading the executor
+would have taken; that count is the maintainer's to keep.
 
 ## PR Description
 
