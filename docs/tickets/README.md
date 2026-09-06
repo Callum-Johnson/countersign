@@ -43,6 +43,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-015 | ready | trivial | The README states two commit counts for one project |
 | EM-016 | done | critical | Bound the brief a contributor must read |
 | EM-016-001 | in-progress | trivial | The README's document table is a third description the rule does not bind |
+| EM-016-001-001 | ready | trivial | The README's fourth core idea names two tiers of three |
 | EM-017 | done | trivial | Batch — trivial changes, 2026-09-06 |
 | EM-018 | ready | standard | The templates cite files this repository does not publish |
 | EM-019 | done | trivial | Three figures in EM-016's closed description were predicted, not measured |
