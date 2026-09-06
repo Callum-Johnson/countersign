@@ -28,6 +28,7 @@ row names where the rule is. What you must read before your first edit is
 | What shape does a ticket, a pull-request description or a decision record take? | `templates/` |
 | What has this repository already decided, and on what reasoning? | `docs/adr/` |
 | What is withheld from this repository, and why? | `DISCLOSURE.md` |
+| Where do I start, and what does each of these documents settle, in a line? | `README.md`, "Start here" — an index of the documents, kept true by the rule below |
 
 **Keeping the map true.** The map and the indexes it governs are wrong when
 they name something that is not there, omit something that is, or send a
