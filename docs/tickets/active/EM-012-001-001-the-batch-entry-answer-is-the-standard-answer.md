@@ -1,10 +1,12 @@
 ---
 id: EM-012-001-001
 title: The batch entry's supporting answer is still the standard-tier answer
-status: ready
+status: in-progress
 tier: trivial
 complexity: S
 dependencies: [EM-012-001]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-012-001-001 — The batch entry's supporting answer is still the standard-tier answer
