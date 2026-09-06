@@ -344,7 +344,10 @@ finding goes.
   finding against the falsifier as much as against the rule. Either the rule
   is refusing something its author did not foresee, in which case the
   falsifier was too narrow and is widened by the retirement ticket the
-  finding raises, as an amendment with record, or the finding is wrong. The
+  finding raises, as an amendment with record — one whose record carries
+  the old and new falsifier text and the finding, and says why the finding
+  was not foreseen rather than why a match was technical — or the finding
+  is wrong. The
   review says which it found; what follows is the executor's and the
   maintainer's, as "What a review reports" says.
 - A retirement ticket is not worked by the executor whose work the rule

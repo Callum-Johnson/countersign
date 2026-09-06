@@ -1,6 +1,6 @@
 # ADR-0003: Every rule states its falsifier, and a control can be retired
 
-- **Status:** proposed
+- **Status:** accepted
 - **Date:** 2026-09-06
 - **Deciders:** maintainer, on the executor's implementation of EM-014
 - **Related:** EM-014 (this decision); EM-006 (the falsification gate it
