@@ -371,8 +371,9 @@ a finding.
 under this rule, a must-fix found after the first round sits inside the
 previous round's repair more than once; the read then costs a section per
 repair and prevents nothing. At 5d94db7, before the rule, the count was five,
-over the thirteen closed tickets that carry a Review table. The claim-time
-reading retires with §3's blocking rule, whose falsifier it shares. The
+over the thirteen closed tickets that carry a Review table. The claim-time reading retires with §3's blocking rule, whose falsifier —
+blocks routinely unblocked with the reading the executor would have taken —
+it shares. The
 wrapping clause retires when a wrap convention applied by a tool lands, at
 which point it protects nothing.
 
