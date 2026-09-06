@@ -1,12 +1,13 @@
 ---
 id: EM-016-001-001
 title: The README's fourth core idea names two tiers of three
-status: in-progress
+status: done
 tier: trivial
 complexity: S
 dependencies: []
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-016-001-001 — The README's fourth core idea names two tiers of three
