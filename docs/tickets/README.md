@@ -45,7 +45,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-016-001 | ready | trivial | The README's document table is a third description the rule does not bind |
 | EM-017 | done | trivial | Batch — trivial changes, 2026-09-06 |
 | EM-018 | ready | standard | The templates cite files this repository does not publish |
-| EM-019 | ready | trivial | Three figures in EM-016's closed description were predicted, not measured |
+| EM-019 | done | trivial | Three figures in EM-016's closed description were predicted, not measured |
 | EM-007-002 | blocked | critical | A process-document change is trivial by the test and critical by ADR-0002 |
 | EM-009-001 | blocked | critical | The class obligation binds every repaired finding |
 

@@ -194,17 +194,27 @@ baseline), at e1beeb6 (this ticket's baseline) and at close:
 
 | Document | 8b0a8b4 | e1beeb6 | close |
 |---|---|---|---|
-| `ai-contributor-policy.md` | 1,034 | 2,316 | 2,899 |
+| `ai-contributor-policy.md` | 1,034 | 2,316 | 2,897 |
 | `tier-review-model.md` | 761 | 4,222 | 4,461 |
 | `quality-gates.md` | 411 | 2,229 | 2,229 |
 | `ticket-lifecycle.md` | 544 | 2,153 | 2,153 |
 | `adr-process.md` | 402 | 563 | 563 |
-| **Total** | **3,152** | **11,483** | **12,305** |
+| **Total** | **3,152** | **11,483** | **12,303** |
 
 The baseline for this change is e1beeb6, 11,483 words, and not the 11,476
 the ticket's Context quotes at 34dc12c: EM-017 added seven words to the
-lifecycle between the two. This change adds 822 words, all to the two
+lifecycle between the two. This change adds 820 words, all to the two
 documents it edits.
+
+**Corrected 2026-09-06 under EM-019.** The three figures in this section
+read 2,899, 12,305 and 822 when this ticket closed. They were written from
+an estimate of the closing commit's own edit — a review note that added
+five words to the map — rather than measured after it, and `wc -w` at
+858fcbb gives 2,897, 12,303 and 820. The correction is marked rather than
+made silently, because a closed description edited without a mark is a
+record a reader cannot check. This is the defect EM-006's Notes describe,
+occurring in a description that satisfied §6's baseline rule: naming the
+baseline does not make the number measured.
 
 The index covers 9 sections against the 9 `## ` headings in the document,
 its own included. That was the first application of the rule it sits
@@ -219,7 +229,7 @@ are answered by rows of their own now.
 
 **Who pays and who is paid.** For the reader §7 obliges to read the policy
 end to end before a first edit, this change is strictly longer: 2,316 to
-2,899 words, a quarter again, and the map is read before that document rather than instead
+2,897 words, a quarter again, and the map is read before that document rather than instead
 of it. The saving goes to the returning reader with a question, who reads
 one row instead of searching five documents. The ticket chose navigation
 over shortening and argued for it; this is the direction of the number, and
