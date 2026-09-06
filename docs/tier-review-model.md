@@ -24,7 +24,7 @@ opens that section, and reaches the rest when a finding turns on them.
 | Separation of duties | Who may move a tier, and in which direction |
 | Why "another agent, human or AI" | Who reviews, what they receive, and where they work |
 | What a review reports | The two questions a review answers, what a tightening must cost, and the class signal |
-| When review ends | The three conditions, the round cap, and the per-round record |
+| When review ends | The three conditions, the round cap, the per-round record, and the read before a repair is handed back |
 | Retiring a control | The falsifier every rule states, and how a rule leaves the documents |
 
 The rule that keeps this index current is stated once, with the map in
@@ -350,6 +350,32 @@ redesign of the fix against its class — the class obligation in the
 contributor policy's §6, referenced here and not restated. On OMN-021, 29 of
 the 46 must-fixes, derived from the per-round figures in its Review section,
 were defects in a fix rather than in the original work.
+
+**The repair is read whole before it is handed back.** Before a repaired
+change goes to the next round, the executor reads the whole `##` section of
+each document the repair touches, as it now stands and as the reviewer will,
+and not the lines the repair touched. On this repository's closed records at
+5d94db7, every must-fix found after a first round sat inside the previous
+round's own repair — five of five, per the Review tables of the closed tickets
+— and each repair was right where it pointed and wrong beside it: an exemption
+clause that swallowed the trigger above it, a date excluded from a rule whose
+neighbouring bullet names a date as a baseline. The reviewer reads the section
+fresh each round; the executor's repair had touched one sentence. The same
+reading is asked for at claim, by item 2 of the contributor policy's §7
+checklist, which says what is checked and where a disagreement goes. A repair
+does not re-flow text it did not change. These documents are not wrapped by
+rule, and a difference in wrapping, within a paragraph or between them, is not
+a finding.
+
+**Retired when:** over a stated population of critical-tier tickets closed
+under this rule, a must-fix found after the first round sits inside the
+previous round's repair more than once; the read then costs a section per
+repair and prevents nothing. At 5d94db7, before the rule, the count was five,
+over the thirteen closed tickets that carry a Review table. The claim-time reading retires with §3's blocking rule, whose falsifier —
+blocks routinely unblocked with the reading the executor would have taken —
+it shares. The
+wrapping clause retires when a wrap convention applied by a tool lands, at
+which point it protects nothing.
 
 **The record.** The pull-request description's Review section carries, per
 round: the round number, the must-fix count, where the findings sat (rules,
