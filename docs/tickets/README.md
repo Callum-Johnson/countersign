@@ -45,7 +45,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-016-001 | done | trivial | The README's document table is a third description the rule does not bind |
 | EM-016-001-001 | ready | trivial | The README's fourth core idea names two tiers of three |
 | EM-017 | done | trivial | Batch — trivial changes, 2026-09-06 |
-| EM-018 | ready | standard | The templates cite files this repository does not publish |
+| EM-018 | done | standard | The templates cite files this repository does not publish |
 | EM-019 | done | trivial | Three figures in EM-016's closed description were predicted, not measured |
 | EM-019-001 | done | critical | A reported figure is read from a command, not written by its author |
 | EM-019-001-001 | ready | critical | Rule-adding tickets produce no decision record, against the trigger list |
@@ -54,6 +54,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-020-001 | blocked | critical | A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded |
 | EM-007-002 | blocked | critical | A process-document change is trivial by the test and critical by ADR-0002 |
 | EM-009-001 | blocked | critical | The class obligation binds every repaired finding |
+| EM-018-001 | ready | standard | The ticket template's how-to-use steps disagree with the lifecycle on three points |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
 backdated; ADR-0001 explains why backdating was rejected.

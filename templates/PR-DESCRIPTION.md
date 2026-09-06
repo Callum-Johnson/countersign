@@ -113,7 +113,7 @@ A PR may not be merged unless all are true:
    number in it names its baseline in the same sentence, and was read from
    a command the description names, run after the last commit that changes
    it (contributor policy §6).
-10. **No forbidden actions** taken (see AGENTS.md).
+10. **No forbidden actions** taken (see `docs/ai-contributor-policy.md`, §5).
 11. **Falsification gate** discharged and recorded: a red count per
     behavioural claim, a zero written as a zero.
 
