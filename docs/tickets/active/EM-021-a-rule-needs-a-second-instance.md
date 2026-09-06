@@ -94,8 +94,9 @@ absolute.
   its landing forward; ADR-0001's rejection of backdating applies to
   un-landing.
 - Defining what counts as "the same" failure across two instances. If two
-  findings name the same rule and the same defect, they are two instances;
-  a tighter definition is a later ticket with evidence.
+  findings in different tickets name the same rule and the same defect,
+  they are two instances; a tighter definition is a later ticket with
+  evidence.
 
 ## References
 
