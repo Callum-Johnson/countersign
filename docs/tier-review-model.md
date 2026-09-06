@@ -10,10 +10,10 @@ a yes/no answer.
 
 ## What is in this document
 
-An index. Each section below states its own rules; this restates none. A critical-tier reviewer works from "What a review reports", "When review
-ends" and "Retiring a control", is bound by "Separation of duties" whether
-or not it opens that section, and reaches the rest when a finding turns on
-them.
+An index. Each section below states its own rules; this restates none. A
+critical-tier reviewer works from "What a review reports", "When review ends"
+and "Retiring a control", is bound by "Separation of duties" whether or not it
+opens that section, and reaches the rest when a finding turns on them.
 
 | Section | What it settles |
 |---|---|
