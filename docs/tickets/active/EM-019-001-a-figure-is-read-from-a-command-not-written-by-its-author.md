@@ -80,13 +80,33 @@ command for. It is not refused outright — the third bullet admits it — but
 it must now be labelled as obtained rather than measured, on every such
 figure, including ones nobody doubts.
 
-**Costs.** One command run per class of figure, not per figure. EM-016's
-description carries 121 digit groups, counted by `grep -oE '\b[0-9][0-9,]*\b'`
-over its `## PR Description` section at e8c4417, and they come from three
-commands: `wc -w`, `git diff -w`, and one `grep -c`. Thirteen of the
-descriptions in `done/` carry a figure of four digits or more, counted by
-`grep -l` at the same commit. So the cost is a handful of command runs per
-ticket, and the writing of the command beside the number.
+**Costs.** One command run per class of measurement, not per number.
+EM-016's description holds 121 digit groups, from
+
+```sh
+git show e8c4417:docs/tickets/done/EM-016-bound-the-brief-a-contributor-must-read.md \
+  | awk '/^## PR Description/{p=1} p' | grep -oE '\b[0-9][0-9,]*\b' | wc -l
+```
+
+but most of those are ticket-id fragments, section numbers, finding numbers
+and list ordinals, which are not measurements and which this rule does not
+reach. Its measurements come from three commands — `wc -w`, `git diff -w`
+and one `grep -c` — counted by the same pipeline with
+`grep -oE '`(wc -w|git diff[^`]*|grep -c[^`]*)`' | sort -u | wc -l`. So the
+cost on the wave's largest description is three runs and three command
+strings written down.
+
+Nineteen of the 21 files in `done/` hold a figure of four digits or more in
+their `## PR Description` section, from
+
+```sh
+for f in $(git ls-tree --name-only e8c4417 docs/tickets/done/); do
+  git show e8c4417:$f | awk '/^## PR Description/{p=1} p' \
+    | grep -qE '[0-9]{4}' && echo $f
+done | wc -l
+```
+
+so the rule reaches nearly every description this repository has written.
 
 The cost this rule does not remove: it cannot catch a figure whose command
 was run against the wrong tree, only one that was never run.

@@ -267,14 +267,18 @@ every reading of it. That is not caution — it is unreviewable code.
   the baseline it was measured against: the commit, the branch, the date, or
   the population counted. A number without its baseline is indistinguishable
   from an inherited one once written down, and inherited numbers drift — they
-    are restated, incremented and believed by readers who never had the source.
-- **A number a command can produce is read from that command's output**, and
-  the description names the command. You do not count, and you do not
-  estimate what a pending edit will change: run the command after the last
-  commit that changes what it counts, and where the closing commit changes
-  it — a note taken at close, a re-flow — run it again there. Where no
-  command can produce the number, say how it was obtained, which is what
-  makes an inherited figure visible as one. An agent asked for a count
+  are restated, incremented and believed by readers who never had the source.
+- **A measured number a command can produce is read from that command's
+  output**, and the description names the command, once for a class of
+  figures one run produces. This bullet reaches what the bullet above
+  reaches: a measurement. An identifier, a section number, a date, a
+  finding number and the description's own ordinals are not measurements
+  and are outside it. You do not count, and you do not estimate what a
+  pending edit will change: run the command after the last commit that
+  changes what it counts, and where the closing commit changes it — a note
+  taken at close, a re-flow — run it again there. Where no command can
+  produce the measurement, say how it was obtained, which is what makes an
+  inherited figure visible as one. An agent asked for a count
   produces a plausible one, and a plausible count beside a correctly named
   baseline is the most expensive kind of wrong number: it survives every
   check the description carries. This is the falsification gate's demand
