@@ -44,3 +44,15 @@ verified.
 ## Notes
 
 Maintainer action; not executable from the working environment.
+
+**Measured 2026-09-06 at 0947dda, via the host's public commit API.** The
+authoring address now resolves to a linked account — but not to the
+publishing account. The address is verified under a different, older account
+of the maintainer's, so every commit here renders with that account's avatar
+and profile link rather than `callum-johnson`'s. AC1 is therefore not met as
+written, and the state is arguably worse than unattributed: EM-005 chose a
+new account so that publishing here would expose nothing unassessed, and the
+commit attribution now points a reader at an account that decision did not
+audit. The remedy is still account-side — move the verified address to the
+publishing account, or record here that the attribution is accepted and why.
+The other account is deliberately not named in this file.
