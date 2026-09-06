@@ -1,10 +1,13 @@
 ---
 id: EM-009-001
 title: The class obligation binds every repaired finding and was priced on must-fixes
-status: ready
+status: blocked
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
+blocked_at: 2026-09-06
 ---
 
 # EM-009-001 — The class obligation binds every repaired finding
@@ -87,6 +90,18 @@ with record and not a wording fix.
   contests, and its recorded review finding 7.
 - `docs/tier-review-model.md`, "Separation of duties" — why the executor
   may not choose here.
+
+**BLOCKER (2026-09-06):** the executor cannot proceed. The Specification
+above states a question that §3 reserves to the maintainer: which findings
+the class obligation binds. Answers 2 and 3 narrow a control that sits on
+the executor, and "Separation of duties" is explicit that the party subject
+to a control does not get to remove it. An executor choosing here would be
+choosing how much its own repairs must justify themselves.
+
+To proceed the executor needs the maintainer's choice among the three
+answers stated above, or a fourth. Answer 1 needs no document change and
+would close this ticket by recording the decision; answers 2 and 3 are an
+amendment with record under "Retiring a control".
 
 ## PR Description
 
