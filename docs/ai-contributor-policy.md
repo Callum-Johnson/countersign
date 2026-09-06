@@ -10,6 +10,34 @@ produces a confident, plausible, wrong implementation and a persuasive summary
 of it. Most of what follows is designed to make that specific failure
 expensive and visible rather than cheap and silent.
 
+## Which document settles what
+
+A map, so that a reader with a question opens one document rather than
+five. The table states no rule; each row names where the rule is. What you
+must read before your first edit is §7's checklist, not this table.
+
+| Question | Where it is settled |
+|---|---|
+| What may I do, what may I not, and what do I do when I cannot proceed? | this document |
+| How do I claim, block, batch and close work, and how are tickets numbered? | `docs/ticket-lifecycle.md` |
+| What tier is my change, who reviews it, what does a review report, when does it end, and how does a rule leave? | `docs/tier-review-model.md` |
+| What must pass before merge, and what does the falsification gate ask of me? | `docs/quality-gates.md` |
+| Is this decision a record, and what does that record carry? | `docs/adr-process.md` |
+| What shape does a ticket, a pull-request description or a decision record take? | `templates/` |
+| What is withheld from this repository, and why? | `DISCLOSURE.md` |
+
+**Keeping the map true.** A section added to, removed from or renamed in
+any document above is reflected here, and in that document's own index
+where it has one, in the same commit. This is the directory/status
+invariant's argument applied to the documents: two descriptions that must
+agree make drift visible at no cost, and a map that has gone stale sends a
+reader to the wrong place with confidence.
+
+**Retired when:** a review finds this map, or an index it governs, stale
+more than once over a stated population of merged changes — the
+same-commit rule is then not being followed, and a map nobody maintains
+costs a reader more than navigating without one.
+
 ---
 
 ## 1. The no-shared-memory rule
