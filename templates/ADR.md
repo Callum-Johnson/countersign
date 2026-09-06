@@ -3,14 +3,15 @@
 - **Status:** proposed | accepted | superseded by ADR-MMMM | withdrawn
 - **Date:** YYYY-MM-DD
 - **Deciders:** <agent identifiers or roles>
-- **Related:** <ticket IDs, other ADR IDs, DESIGN.md sections>
+- **Related:** <ticket IDs, other ADR IDs, sections of the adopting project's own DESIGN.md>
 
 ## Context
 
 What is the problem? Why does it need a decision? What was the trigger
 — a specific ticket, a bug, a constraint that emerged during
-implementation? Two to five short paragraphs. Reference DESIGN.md
-sections that this ADR supplements or contradicts.
+implementation? Two to five short paragraphs. Reference the sections of
+the adopting project's own DESIGN.md that this ADR supplements or
+contradicts.
 
 ## Decision
 
@@ -78,9 +79,10 @@ Write one when:
 
 - A library is added or swapped.
 - A public engine API shape changes.
-- A locked decision in DESIGN.md needs revision.
+- A locked decision in the adopting project's own DESIGN.md needs revision.
 - A new top-level package is added.
-- A workflow rule in CONTRIBUTING.md changes.
+- A workflow rule in `docs/ai-contributor-policy.md`, `docs/ticket-lifecycle.md`
+  or `docs/tier-review-model.md` changes.
 
 Do **not** write one for:
 
