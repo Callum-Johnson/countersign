@@ -52,11 +52,11 @@ to have drawn a must-fix at independent review.
 
 Gates are mandatory at every tier. There is no tier that skips the four
 machine checks — the tier governs *human and peer* review, not automated
-review. The fifth gate, falsification, is discharged by the executor at
-every tier, per `docs/quality-gates.md`, and independently verified only
-where the tier summons a reviewer; at `trivial` and `standard` its recorded count stands on the
-executor's word, which is a gap the tier table accepts and this sentence
-names.
+review. The fifth gate, falsification, is discharged by the executor at every
+tier, per `docs/quality-gates.md`, and independently verified only where the
+tier summons a reviewer; at `trivial` and `standard` its recorded count stands
+on the executor's word, which is a gap the tier table accepts and this
+sentence names.
 
 `trivial` work may share one batch ticket rather than take a ticket each;
 the rule is in `docs/ticket-lifecycle.md`, "Batching trivial work".
