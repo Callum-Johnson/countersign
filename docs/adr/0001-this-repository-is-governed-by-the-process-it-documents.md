@@ -92,3 +92,21 @@ work needs a ticket but no review.
 
 EM-003 creates the ticket directories, the decision-record directory, and the
 retrospective tickets. No existing content changes.
+
+---
+
+## Annotation — added 2026-09-06 under EM-017
+
+> Not part of the decision as recorded. The text above the horizontal line
+> is unchanged, and the status stays `accepted`.
+
+This record and ADR-0002 were both created carrying `status: accepted`, in
+the same commit that introduced them. `docs/adr-process.md` says a status
+"begins `proposed` and becomes `accepted` when the change merges". The
+first record to follow that rule is ADR-0003, which was created `proposed`
+and moved to `accepted` in the commit that closed EM-014.
+
+The two are left as they stand rather than edited to `proposed` and back.
+Rewriting a status after the fact would be the same shape of fabrication
+this record rejects for tickets: the history shows what happened, and the
+gap is recorded here instead of tidied away.

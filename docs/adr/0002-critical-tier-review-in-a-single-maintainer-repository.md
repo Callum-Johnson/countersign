@@ -110,3 +110,8 @@ produced the work — stands; the description of what independence receives
 grew, and the model is the authority on it. Routed here from the
 independent reviews of EM-010 (finding 7 of round 1) and EM-011 (finding
 R1.9 of round 1).
+
+## Annotation — added 2026-09-06 under EM-017
+
+This record was also created carrying `status: accepted` rather than
+`proposed`. ADR-0001's annotation records why both are left as they stand.
