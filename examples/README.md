@@ -4,8 +4,10 @@ Ten artifacts from a private project, published because they concern software
 architecture and workflow only. See [DISCLOSURE.md](../DISCLOSURE.md) for how
 they were selected and what was excluded.
 
-Project names and ticket identifiers are normalised. Nothing else is changed,
-and nothing within a published file is redacted.
+Project names and ticket identifiers are normalised. Nothing else was changed
+at publication, and nothing within a published file is redacted. One dated
+annotation was added later, under its own heading, to `adr-0038`; see
+[DISCLOSURE.md](../DISCLOSURE.md) for why.
 
 ## Decision records
 

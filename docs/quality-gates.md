@@ -59,7 +59,9 @@ ran; it does not record that any assertion depended on what the line did. A
 test that executes a changed line and would pass under the old implementation
 as well as the new one satisfies the coverage rule and pins nothing.
 
-A fully covered file can be fully unpinned. On the source project four
+A fully covered file can be fully unpinned. On one ten-ticket wave of the
+source project — the rules engine in
+[the growth case study](../case-studies/00-growth-2024-2026.md) — four
 separate changes passed the no-regression rule — one on a file at 100% of
 statements and branches — while shipping tests that could not fail: reverting
 the exact line each change had fixed left the whole suite green. The mechanism

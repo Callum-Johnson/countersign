@@ -40,6 +40,8 @@ One line per behavioural claim: the wrong implementation ruled out, and the
 count of tests that go red under it (see "The falsification gate" in the
 quality-gates document). A zero is written as a zero. A test that cannot
 discriminate is listed with its docstring label and what it would take.
+A change with no behavioural claim writes `N/A` and says, per acceptance
+criterion, what a reader would do differently because of it.
 - <claim> — mutant: <what was changed>; red: <N> of <M> tests
 - <claim> — non-discriminating: <label>; would need <input or fixture>
 

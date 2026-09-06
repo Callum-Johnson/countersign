@@ -87,8 +87,10 @@ without anyone having to remember.
 
 Three things the scheme does not say for itself, each found in use:
 
-**A ticket raised by a review is created on the branch under review.** The id
-lives in the filename and git compares paths, so one id written under two
+**A ticket raised by a review is created on the branch under review** — by
+the executor, from the review's record, before the next round; the reviewer
+names the ticket and the executor writes it, since the reviewer does not write
+to the tree it reviews. The id lives in the filename and git compares paths, so one id written under two
 slugs in two places — a review's copy in the main tree, the executor's on the
 branch — is two files for one id, and it merges with no conflict. Nothing in
 the scheme detects it, and two agents can then claim one ticket from different
@@ -101,12 +103,14 @@ rather than a silent second file.
 spent. A ticket raised and later deleted, absorbed or renamed leaves no file
 and remains named in closed tickets, commit messages and pull-request bodies,
 and a read of the tree hands its id out again. Take the next number from the
-set of ticket files ever added — `git log --diff-filter=A --name-only --
-docs/tickets` — not from `ls`. This repository already has one such id:
+set of ticket files ever added — `git log --diff-filter=A --name-only
+--format= -- docs/tickets`, with the ids extracted from the paths — not from
+`ls`. This repository already has one such id:
 `EM-010-001` was created at 3da6c57 and renamed `EM-014-001` at 0947dda, so
 the tree shows no child of EM-010 while the history does, and the next child
-of EM-010 read from the tree would be `-001` again. On the source project the
-count stood at fourteen against its default branch when EM-006 was raised, and
+of EM-010 read from the tree would be `-001` again. On the source project — the
+rules engine in the growth case study — the count stood at fourteen against
+its default branch when EM-006 was raised, and
 the fourteenth was taken, worked and closed before anyone noticed. A reused id
 is not renumbered afterwards; the newer ticket records the reuse and points at
 the older use.

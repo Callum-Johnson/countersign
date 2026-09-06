@@ -112,7 +112,7 @@ puts it everywhere the id already goes.
 ## Annotation — added 2026-09-06 under EM-006
 
 > This section is not part of the decision as recorded. Everything above the
-> rule is the original text. It is added in place rather than by superseding
+> horizontal line is the original text. It is added in place rather than by superseding
 > the record because the decision is sound and its operating instructions are
 > incomplete; a reader copying the scheme needs the correction beside it.
 
@@ -123,12 +123,13 @@ unique in. That is one defect with two faces.
 filename and the frontmatter, and git compares paths. `PRJ-900-001-first.md`
 in the main tree and `PRJ-900-001-second.md` on a branch are two files for one
 id, and the branch merges with no conflict. The sibling listing above then
-shows two `-001`s, and the next agent either takes `-002` for what should have
-been `-001`'s second use or claims the same ticket from the other file. The
+shows two `-001`s: two agents can claim one ticket from different files, and
+the count of siblings no longer says how many tickets there are. The
 mechanism is structural and can be reproduced on demand; it needs no race.
 
 *Placement rule:* a ticket raised by a second-agent review of a branch is
-created **on that branch**, not in the main tree. The sibling listing the next
+created **on that branch**, not in the main tree — by the executor, from the
+review's record, since the reviewer does not write to the tree it reviews. The sibling listing the next
 id is read from is then the listing the id will land in, and a duplicate
 becomes a path conflict at merge — the same crude lock claiming relies on —
 instead of a silent second file.
@@ -148,7 +149,7 @@ ticket files ever added:
 
 ```sh
 git log --diff-filter=A --name-only --format= -- docs/tickets \
-  | sed -E 's#.*/(PRJ-[0-9]+(-[0-9]+)*)-.*#\1#' | sort -u
+  | sed -nE 's#.*/(PRJ-[0-9]+(-[0-9]+)*)-.*#\1#p' | sort -u
 ```
 
 A reused id is not renumbered after the fact, consistent with the
