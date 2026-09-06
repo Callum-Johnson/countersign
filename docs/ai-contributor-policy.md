@@ -58,6 +58,10 @@ The same applies when the specification is wrong rather than unclear: raise a
 `BLOCKER:` explaining what is wrong and what you would change. Do not
 unilaterally rewrite the spec you were given.
 
+Non-convergence is a further trigger: a critical-tier review that reaches the
+round cap in `docs/tier-review-model.md`, "When review ends", blocks by this
+same procedure, with its review record attached.
+
 ## 4. Discovered work becomes a ticket with recorded lineage
 
 When you find something else that needs fixing, you do not fix it. You raise a

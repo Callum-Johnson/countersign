@@ -1,10 +1,13 @@
 ---
 id: EM-007
 title: State when an independent review ends
-status: ready
+status: done
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-007 — Review terminates: a stopping rule for independent review
@@ -201,4 +204,124 @@ fifteenth fix.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-007 — Review terminates: a stopping rule for independent review
+
+### Tier
+`critical` — process-surface change (clause 5): it changes the review model
+itself.
+
+**Independent review obtained**, per ADR-0002: a separate agent, given the
+ticket and the diff and not the executor's reasoning, reviewed the change in
+three rounds, read-only, which is the cap the section itself sets. Findings are under Review; the tree was checked clean
+after each round.
+
+### Summary
+The tier review model gains "When review ends": three conditions under which
+a round ends the loop without a further fix, a cap of three rounds named as a
+default with the source ticket's record as its reasoning, blocking at the cap
+as a success path, the repairs-of-repairs signal, and the per-round record
+whose total is derived and never asserted. The pull-request template gains
+the Review section; policy §3 names non-convergence as a trigger in one
+sentence. One child ticket raised.
+
+### Acceptance criteria
+- [x] AC1: three conditions, each naming where its findings go —
+  `docs/tier-review-model.md`, "When review ends", the numbered list.
+- [x] AC2: a cap with a named default and reasoning; blocking as a success
+  path cross-referencing §3 — the paragraph beginning "**The cap.**"
+- [x] AC3: a list entry does not reopen review of the rules — condition 3's
+  last sentence.
+- [x] AC4: the template's Review section with the per-round fields and the
+  derived-total statement — `templates/PR-DESCRIPTION.md`, "### Review".
+- [x] AC5: §3 names non-convergence in one sentence without restating the
+  rule — `docs/ai-contributor-policy.md` §3, the paragraph beginning
+  "Non-convergence is a further trigger".
+- [x] AC6: every quoted figure names its section in the same sentence —
+  the fourteen per-round counts, the 29 of 46, and the three drifted totals
+  each carry "in its Review section"; the reviewer re-summed both series
+  (14 values to 46, 13 values to 29) against the ticket's Context.
+- [x] AC7: independent review — see Review.
+
+### Falsification
+N/A — no behavioural claim. What a reader does differently, per criterion:
+- AC1: an executor whose round's must-fixes all sit inside a recorded limit
+  routes them to the ticket that owns it and closes, instead of fixing.
+- AC2: an executor at the end of round 3 with must-fixes open blocks with
+  the round table under the BLOCKER comment, instead of starting round 4.
+- AC3: a reviewer who finds a missing list entry records it as list-building
+  and does not reopen the rules the list serves.
+- AC4: a critical-tier description carries one row per round and no total
+  sentence beside the table.
+- AC5: a reader of §3 knows a capped review is a blocking trigger and where
+  the cap is defined.
+- AC6: a reader can trace each figure to a named section without the ticket.
+
+### Departure from Behaviour, recorded
+The ticket's Behaviour says the default of three is reasoned from "rounds 1
+to 3 found the rules' defects and everything after was lists". The ticket's
+Context says the eight rules were unchanged only after round 6. Round 1 of
+the review found the two irreconcilable in one paragraph. The landed text
+says what the Context supports: original rule defects in rounds 1 to 3,
+repairs of repairs in 4 to 6, lists from 7, and three set one round past the
+point where original defects stopped, with the record supporting no stronger claim. This
+is a wording correction that keeps the decision (three, as a default) and
+weakens its stated justification to what the evidence bears. It is recorded
+here rather than raised as a BLOCKER because the ticket's own Context is the
+evidence and its Behaviour sentence a summary of it; the maintainer may
+reinstate the original sentence by amending the section, which is a
+process-surface change and takes a ticket.
+
+### Out of scope (per ticket)
+Confirmed: the cap is not tuned (three, as a default); EM-009's class
+mechanism is referenced, not restated; the two-column report is not
+introduced (the template's "Where" column is a location; EM-010 adds the
+columns); who reviews and what the reviewer receives are unchanged, apart
+from two definitions ("round", "must-fix") added at first use on the
+reviewer's finding that the section used both without defining either.
+
+### Review
+| Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
+|---|---|---|---|---|
+| 1 | 1 (of 8 findings) | documents: the cap's reasoning contradicted the record in the same paragraph (must-fix); who decides "inside a limit"; where the record lives at the cap; "round" and "must-fix" undefined; the template's row for a clean round; "at full strength" undefined; the lifecycle's Closing list behind the template (raised as EM-007-001) | — | c3fc025 |
+| 2 | 1 (of 4 findings) | documents: the must-fix definition pointed at a report "described in the previous section", which describes none (must-fix); "at the point" where defects stopped is one round past it; EM-006's done record counts notes where the template now counts must-fixes; EM-007-001's tier against ADR-0002's sentence | 1 of 1 | dc00883 |
+| 3 | 0 (of 1 note) | documents: a ragged paragraph and one long line left by the round-2 edit | — | the closing commit |
+
+Derived total: 2 must-fix over three rounds, the cap. Column 1 in round 1:
+the must-fix above, and the discovered drift raised as EM-007-001. Column 2:
+the six notes on definitions and discharge, all taken in c3fc025 — the
+reviewer's record now names the limit a finding sits inside and the
+executor routes without reclassifying; the record at the cap goes under the
+BLOCKER comment; a round and a must-fix are defined; the template says what
+a dash means and what m and n count. Round 2's one must-fix was inside the
+round-1 repair — the definition added for note 7 pointed at a section that
+does not yet exist — and every round-2 finding sat inside a round-1 remedy,
+which by the section's own repairs-of-repairs signal calls for redesign; at
+one false clause the executor read the signal as over-firing and repaired
+the instance, and records that here as a case the signal does not
+distinguish. One round-2 note is recorded, not fixed: EM-006's closed record
+wrote "2 of 8" over findings where the template now counts must-fixes; the
+rule applies from this ticket forward. Post-review tree check after each
+round: `git status --porcelain` empty, `git worktree list` showing only the
+main tree.
+
+### How to verify
+1. `git diff e2c7e16..HEAD -- docs/tier-review-model.md` — one new section
+   at the end; nothing above it changed.
+2. `grep -c "in its Review section" docs/tier-review-model.md` — each
+   quoted OMN-021 figure carries its source.
+3. Sum the fourteen per-round counts in the section: 46. Sum the thirteen
+   inside-previous-fix counts in the ticket's Context: 29.
+4. `wc -w docs/tier-review-model.md templates/PR-DESCRIPTION.md
+   docs/ai-contributor-policy.md` — at e2c7e16: 761, 539, 1,157; at close
+   the reviewer measured 1,547, 630 and 1,185 at dc00883.
+
+### Risks / follow-ups
+- **EM-007-001** (raised here): the lifecycle's Closing step enumerates the
+  description's sections and is behind the template.
+- The cap transfers cost to the maintainer, as the ticket's Costs section
+  says; nothing here says what a maintainer does with three blocked records
+  in a day.
+- "Must-fix" is defined here provisionally; EM-010 defines the report that
+  records it and should be read as the authority once it lands.
+

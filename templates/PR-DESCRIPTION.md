@@ -56,6 +56,18 @@ Steps a reviewer or future agent can take to confirm this works:
 
 ### Risks / follow-ups
 <known limitations, things to watch, follow-up tickets created>
+
+### Review
+Critical tier only; write `N/A` otherwise. One row per independent review
+round. The total is derived from the rows and never asserted beside them
+(tier review model, "When review ends").
+
+| Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
+|---|---|---|---|---|
+| 1 | <n> | <where> | — | <commit> |
+| 2 | <n> | <where> | <m of n> | <commit> |
+
+`—` where nothing was repaired; `m` and `n` count must-fixes, not findings.
 ```
 
 ### Definition of Done (all tiers)
