@@ -234,9 +234,13 @@ At 50fa1d5 the record carried inside-previous-fix per round, as `m of n`,
 not per finding; the two sentences could not both be true of it. The
 landed text says the record "carries for every finding" both fields, and
 the cost is two fields per finding, not one; the ticket's Costs section,
-which priced one, is superseded by this description. The correction was
-directed by a review must-fix, confined to the description of the record,
-and leaves the signal's conditions as the ticket states them.
+which priced one, is superseded by this description. The correction was directed by a review must-fix, confined to the description
+of the record, and leaves the signal's conditions as the ticket states
+them.
+
+**Departure accepted 2026-09-06 by the maintainer.** The landed text
+stands; the ticket's Behaviour and Costs sentences are superseded by it.
+Recorded as an entry of the batch EM-017.
 Post-review tree check after each round: `git status --porcelain` empty,
 `git worktree list` showing only the main tree.
 
