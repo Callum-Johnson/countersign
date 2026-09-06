@@ -124,7 +124,7 @@ it draws in its Behaviour, as "Who this binds" requires.
 - [x] AC1: `docs/adr-process.md` states what "a workflow rule changes"
   reaches, with an example on each side of the line — see the paragraph
   beginning **What "a workflow rule changes" reaches** in "When to write
-  one", landed at f51ad72 and as it stands at 8fe386c. ADR-0003 is named on
+  one", landed at f51ad72 and as it stands at baaafd0. ADR-0003 is named on
   the reaching side, with why no document could have carried it as one rule
   among the others; EM-011's rule, `docs/quality-gates.md`, "Review
   isolation", is named on the other, with the decision it sits under
@@ -133,10 +133,9 @@ it draws in its Behaviour, as "Who this binds" requires.
 - [x] AC2: each of the seven tickets checked against the line. The line's
   test is whether the rule changes the form every rule takes, who may review
   or approve, or whether the process applies to the repository (reaching), or
-  what the process asks at one step under a decision already recorded (not
-  reaching) — in one question, whether the change acts on the rules as a set
-  or on one rule added or extended in place. All seven are consistent with
-  the line; no gap is accepted:
+  what the process asks at one step under a decision already recorded,
+  added or extended in place one rule at a time (not reaching). All seven
+  are consistent with the line; no gap is accepted:
   - EM-008 — §3 blocks on a reserved question as on ambiguity. What the
     blocking step asks; under §3 as adopted by ADR-0001. Consistent.
   - EM-009 — a repair names its class and siblings. What a repair carries;
@@ -162,14 +161,14 @@ it draws in its Behaviour, as "Who this binds" requires.
 - [x] AC3: the line carries its own **Retired when:**, distinct from the one
   the trigger list already has. The "When to write one" section holds 1
   line beginning `**Retired when:**` at the baseline ce59c8f and 2 at
-  8fe386c, from `git show <commit>:docs/adr-process.md | sed -n '/^## When
+  baaafd0, from `git show <commit>:docs/adr-process.md | sed -n '/^## When
   to write one/,/^## Structure/p' | grep -c '^\*\*Retired when:\*\*'` run
-  at 8fe386c for each commit. The trigger list's names a regression with the
+  at baaafd0 for each commit. The trigger list's names a regression with the
   record present or a set of records nobody reads; the line's names a rule
   recorded in no decision record that a later contributor undid or
   contradicted for want of one.
 - [ ] AC4: an independent agent reviews this and records findings in two
-  columns — round 1 recorded below; round 2 pending.
+  columns — rounds 1 and 2 recorded below; round 3 pending.
 
 ### Falsification
 N/A — a documentation change with no suite. Per acceptance criterion, what a
@@ -197,7 +196,7 @@ suite, so each sibling says what a reader does differently:
 - R1.1 — class: which routed or live rule-adding cases does the line leave
   undecidable? The question enumerates the rule-adding tickets closed on
   this repository outside the seven the ticket names, read from
-  `docs/tickets/done/` at 8fe386c: EM-021 (the routed case) and its
+  `docs/tickets/done/` at baaafd0: EM-021 (the routed case) and its
   siblings EM-006, EM-007, EM-012-001, EM-014-001 and EM-020. Each was
   checked against the line as repaired, and each falls on the second side:
   - EM-021 — the second-instance bar; one paragraph added under ADR-0003's
@@ -214,18 +213,53 @@ suite, so each sibling says what a reader does differently:
     second side.
   - EM-012-001 — the trivial/standard clause; one sentence extended in place
     in the operative test, with no record. This sibling is what the read
-    of the whole section caught after the repair: the one-question form
-    as first written ("act on the rules already there, or add one")
-    placed it on the record side, and 8fe386c reworded the question to
-    "on the rules as a set, or on one rule added or extended in place". A
-    contributor extending one rule's sentence outside "Retiring a control"
-    reads it on the second side.
+    of the whole section caught after the round-1 repair: the one-question
+    form as first written ("act on the rules already there, or add one")
+    placed it on the record side, and 8fe386c reworded the question. At
+    baaafd0 the question is gone and the prose's second side carries
+    "extended in place one rule at a time" instead. A contributor extending
+    one rule's sentence outside "Retiring a control" reads it on the second
+    side.
   - EM-014-001 — the class signal; a paragraph added under ADR-0002 and
     ADR-0003. Second side.
   - EM-020 — read the whole section before handing a repair back; a
     paragraph added under ADR-0002. Second side.
 - R1.2 — repair of the instance.
 - R1.5 — repair of the instance.
+- R2.1 — class: which cases does the one-question form decide differently
+  from the prose it summarises? Its siblings are every clause the prose
+  names that the question omitted: who may review or approve (R2.1's own
+  case, ADR-0002), the form every rule takes (ADR-0003), whether the process
+  applies to the repository (ADR-0001), and several-but-not-all rules
+  rewritten (R2.3). The enumeration is finite — it is the prose's clauses —
+  but only while there are two statements to compare. The redesign chosen
+  closes the class by leaving one statement: the question is dropped at
+  baaafd0, the prose clauses decide, and the second side gains "or extended
+  in place one rule at a time", which is the one thing the question carried
+  that the prose did not. Carrying every clause into the question was
+  rejected because two statements that must agree are the drift this class
+  is made of, and the repository's own argument for redundant state — the
+  directory/status invariant — rests on a check that costs nothing, which
+  a reader comparing two paragraphs is not. Tested against all thirteen
+  tickets and the three records, reading each against the clauses as they
+  stand at baaafd0; none moves from its round-1 side:
+  - ADR-0001 — whether the process applies to the repository: first side.
+    ADR-0002 — who may review: first side. ADR-0003 — the form every rule
+    takes: first side.
+  - EM-006 (adds the falsification gate), EM-007 (adds "When review ends"),
+    EM-010 (adds "What a review reports"), EM-011 (adds "Review isolation"),
+    EM-012 (adds batching), EM-014-001 (adds the class signal), EM-016 (adds
+    the map and its rule), EM-020 (adds the whole-section read), EM-021
+    (adds the second-instance bar): each a rule added inside a document
+    under an existing decision — second side.
+  - EM-008 (§3), EM-009 (§6), EM-012-001 (the operative test), EM-019-001
+    (§6): each a rule extended in place, one rule at a time, under an
+    existing decision — second side.
+  A reader with a change to who reviews now finds one statement that places
+  it on the first side; a reader with a change touching several rules but
+  not all finds "one rule at a time" and places each under its decision.
+- R2.2 — repair of the instance.
+- R2.3 — sibling of R2.1, above; it falls out with the question.
 
 ### Out of scope (per ticket)
 - No decision record was written for any of the seven, or for EM-021.
@@ -247,13 +281,13 @@ suite, so each sibling says what a reader does differently:
   its population.
 
 ### How to verify
-1. `git diff ce59c8f..8fe386c -- docs/adr-process.md` — one paragraph and
+1. `git diff ce59c8f..baaafd0 -- docs/adr-process.md` — one paragraph and
    one **Retired when:** added to "When to write one"; nothing removed.
-2. Read the whole "When to write one" section at 8fe386c and check that the
-   three named cases sit on the sides stated, that the one-question form
-   agrees with the clauses before it, and that the trigger list's own
-   **Retired when:** is unchanged.
-3. `git diff ce59c8f..8fe386c --stat -- docs/ai-contributor-policy.md` —
+2. Read the whole "When to write one" section at baaafd0 and check that the
+   three named cases sit on the sides stated, that the paragraph carries one
+   statement of the line and no summary of it, and that the trigger list's
+   own **Retired when:** is unchanged.
+3. `git diff ce59c8f..baaafd0 --stat -- docs/ai-contributor-policy.md` —
    empty; the map row for `docs/adr-process.md` still settles "Is this
    decision a record, and what does that record carry?" and no section was
    added, removed or renamed, so the same-commit rule asked for no map change.
@@ -265,14 +299,15 @@ suite, so each sibling says what a reader does differently:
 
 ### Risks / follow-ups
 - **Cost of the addition.** `docs/adr-process.md` grows from 563 words at
-  ce59c8f to 1056 at 8fe386c, from `git show ce59c8f:docs/adr-process.md |
-  wc -w` and `wc -w < docs/adr-process.md` run at 8fe386c; the diff is 42
-  insertions and 0 deletions from `git diff --stat ce59c8f..8fe386c --
+  ce59c8f to 1043 at baaafd0, from `git show ce59c8f:docs/adr-process.md |
+  wc -w` and `wc -w < docs/adr-process.md` run at baaafd0; the diff is 41
+  insertions and 0 deletions from `git diff --stat ce59c8f..baaafd0 --
   docs/adr-process.md`. That is the brief EM-016 set out to bound growing by
   one paragraph, paid by every reader of this document, so that a reader
   with a rule-adding ticket has an answer instead of a contradiction. The
-  round-1 repair added a third named case and the one-question form to the
-  same paragraph.
+  round-1 repair added a third named case and a one-question form to the
+  same paragraph; the round-2 repair dropped the form and widened the second
+  side by one clause.
 - **R1.3 — a second answer in the same document.** "Decisions about the
   process are themselves ADRs" still reads "Recording process changes the
   same way as technical ones is what keeps it honest" with no reference to
@@ -305,7 +340,8 @@ from the rows and never asserted beside them.
 | Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
 |---|---|---|---|---|
 | 1 | 1 | documents | — | a2ebce6, and 8fe386c from the whole-section read |
-| 2 | — | — | — | — |
+| 2 | 1 | documents | 1 of 1 | baaafd0 |
+| 3 | — | — | — | — |
 
 Post-review check after round 1, run at 4278ca5 before the repair:
 `git status --porcelain` empty; `git worktree list` shows the reviewer's
@@ -348,4 +384,37 @@ Round 1, of 4278ca5:
   nothing; it errs narrow by design and its falsifier names that direction.
   No second-column must-fix.
 
-Round 2 pending.
+Post-review check after round 2, run at fad57bb before the repair:
+`git status --porcelain` empty; `git worktree list` shows the reviewer's
+`A:/projects/wt/review-EM-019-001-001` at fad57bb, detached, as expected
+and still registered at the time of the check, and sibling ticket worktrees
+under `A:/projects/wt/` belonging to other tickets; nothing inside the tree
+under review. No finding against the review.
+
+Round 2, of fad57bb. The one must-fix sits inside round 1's fix, so
+"Repairs of repairs" applied: the repair is a redesign against the class,
+recorded under Falsification as R2.1, not a further adjustment.
+- R2.1 · permits · the one-question form · the question and the prose
+  clauses above it disagreed on a case the prose names: a change to who may
+  review or approve is first side under the prose and "one rule, extended
+  in place" under the question — remedy proposed: carry the prose's three
+  clauses into the question; cost: one clause, no case moves. Must-fix;
+  inside previous fix: yes (a2ebce6, 8fe386c). Redesigned at baaafd0: the
+  question is dropped and the prose is the one statement; class and the
+  thirteen-case result under Falsification.
+- R2.2 · permits · "the ticket file states the rule and its falsifier" ·
+  false for EM-006, EM-007 and EM-010, whose falsifiers EM-014's migration
+  wrote — remedy: qualify, or name EM-014; cost: a clause. Note; repaired at
+  baaafd0 with "or, for a rule that predates ADR-0003, EM-014 states the
+  falsifier". Inside previous fix: yes (a2ebce6).
+- R2.3 · permits · the one-question form · "one rule" against "every one
+  rewritten" left several-but-not-all rules unplaced — remedy: "one rule at
+  a time"; cost: three words. Note; falls out with the question at baaafd0,
+  and the words are in the prose's second side. Inside previous fix: yes
+  (8fe386c).
+- R2.4 · refuses · none · the line removes an obligation; no second-column
+  finding lands on the example pair or the one-question form, so the class
+  signal does not fire — R2.1 is same-column ping-pong, the
+  repairs-of-repairs field. No adjustment recorded beside a signal.
+
+Round 3 pending — the cap.
