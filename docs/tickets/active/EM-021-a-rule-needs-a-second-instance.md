@@ -1,10 +1,12 @@
 ---
 id: EM-021
 title: A rule needs a second instance before it is written
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-021 — A rule needs a second instance before it is written
