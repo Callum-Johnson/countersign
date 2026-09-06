@@ -1,10 +1,12 @@
 ---
 id: EM-010-002
 title: ADR-0002 lags the model on what the reviewer receives
-status: ready
+status: in-progress
 tier: trivial
 complexity: S
 dependencies: [EM-010]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-010-002 — ADR-0002 lags the model on what the reviewer receives
