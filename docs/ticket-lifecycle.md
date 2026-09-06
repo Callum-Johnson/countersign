@@ -64,7 +64,9 @@ and picks up something else.
 Blocking is a **success path**, not a failure. An agent that blocks has
 correctly identified that it does not have enough information — which is
 precisely the judgement that is hardest to elicit, and the alternative is an
-invented interpretation that looks like progress.
+invented interpretation that looks like progress. A question the project's
+rules reserve to another party blocks the same way, however clear its
+answer; the contributor policy's §3 states the rule.
 
 *Falsifier:* stated with the rule in the contributor policy's §3 and not
 restated here.
