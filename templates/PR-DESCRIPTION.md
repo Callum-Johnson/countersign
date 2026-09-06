@@ -45,6 +45,16 @@ criterion, what a reader would do differently because of it.
 - <claim> — mutant: <what was changed>; red: <N> of <M> tests
 - <claim> — non-discriminating: <label>; would need <input or fixture>
 
+For each review finding repaired, `<n>.<k>` as numbered in Review: the
+class — the question that enumerates the finding and its siblings — and
+each sibling with its test and red count; or the words `repair of the
+instance` (contributor policy §6). Where the change has no suite, each
+sibling says what a reader would do differently, as the line above says
+for a claim.
+- R<n>.<k> — class: <question>; siblings: <a> (<test>, red <N> of <M>),
+  <b> (<test>, red <N> of <M>)
+- R<n>.<k> — repair of the instance
+
 ### Out of scope (per ticket)
 Confirm nothing in this PR exceeds the ticket's scope:
 - <list anything notable that was tempting but deferred>
@@ -72,10 +82,10 @@ round. The total is derived from the rows and never asserted beside them
 Findings, per round, each in one of the two columns the tier review model
 names ("What a review reports"). A tightening remedy carries its cost in
 the same line.
-- R1 · permits · <what the change permits that the ticket refuses> —
+- R1.1 · permits · <what the change permits that the ticket refuses> —
   remedy: <x>; cost, if the remedy tightens a control: <which ordinary
   changes now pay it, measured where it can be>
-- R1 · refuses · <what the change refuses that honest work needs> —
+- R1.2 · refuses · <what the change refuses that honest work needs> —
   remedy: <x>
 ```
 

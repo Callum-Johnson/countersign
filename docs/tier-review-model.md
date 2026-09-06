@@ -256,8 +256,8 @@ where nobody applied them.
 
 **Repairs of repairs.** When a round's must-fixes are mostly inside the
 previous round's fix, the next step is not another per-finding repair but a
-redesign of the fix against its class — the class obligation EM-009 adds to
-the falsification gate, referenced here and not restated. On OMN-021, 29 of
+redesign of the fix against its class — the class obligation in the
+contributor policy's §6, referenced here and not restated. On OMN-021, 29 of
 the 46 must-fixes, derived from the per-round figures in its Review section,
 were defects in a fix rather than in the original work.
 

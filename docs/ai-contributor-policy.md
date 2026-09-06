@@ -157,6 +157,27 @@ every reading of it. That is not caution — it is unreviewable code.
   not omitted. The gate and its two special cases are in
   `docs/quality-gates.md`; this is a pre-report duty, not something review is
   expected to catch.
+- A review finding is repaired at its class. For each finding repaired, the
+  description names **the class** — the question which, asked of the whole
+  change, produces this finding and its siblings: "what does the interpreter
+  load" is a class, "`.py` files at the root" is an instance — and **the
+  siblings** that question enumerates, each with the test that pins it and the
+  count of tests that go red under its wrong implementation, one case per
+  rival as the gate already requires. A repair that names no class says
+  **repair of the instance**, in those words. That is permitted — some
+  findings are singular — and it is a claim the reviewer can check: the next
+  round finding a sibling is then a finding against the repair's own claim. A
+  class with no finite enumeration — "what could a user type" — is recorded as
+  the third condition of "When review ends" in `docs/tier-review-model.md`
+  records a list: best-effort, with the coverage stated. Where the change has
+  no suite, each sibling says what a reader would do differently, as the
+  template says for a claim. The form is in `templates/PR-DESCRIPTION.md`, and
+  the reason a test pins a claim rather than a mechanism is with the gate in
+  `docs/quality-gates.md`.
+  **Retired when:** over a stated population of critical-tier tickets, repairs
+  declared "repair of the instance" draw a sibling finding in the next round
+  no more often than repairs that named a class; the enumeration then costs a
+  suite run per sibling and prevents nothing.
 - Every measured number in the description names, **in the same sentence**,
   the baseline it was measured against: the commit, the branch, the date, or
   the population counted. A number without its baseline is indistinguishable
