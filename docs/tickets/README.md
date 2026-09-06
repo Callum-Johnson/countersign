@@ -32,7 +32,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-008 | done | critical | A decision reserved to another party is handled as ambiguity |
 | EM-009 | done | critical | A review finding is repaired at its class, falsified per sibling |
 | EM-010 | done | critical | A review answers two questions; over-tightening is a finding |
-| EM-010-002 | ready | trivial | ADR-0002 lags the model on what the reviewer receives |
+| EM-010-002 | done | trivial | ADR-0002 lags the model on what the reviewer receives |
 | EM-011 | done | critical | Review runs in its own worktree; the tree is checked afterwards |
 | EM-012 | done | critical | Trivial changes are batched into one ticket |
 | EM-012-001 | ready | critical | The tier model does not say how trivial is distinguished from standard |

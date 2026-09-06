@@ -90,3 +90,23 @@ rather than wrong; the decision should be revisited if that changes.
 ## Migration
 
 N/A. Applies from ADR-0001 forward.
+
+---
+
+## Annotation — added 2026-09-06 under EM-010-002
+
+> This section is not part of the decision as recorded. Everything above
+> the horizontal line is the original text, and the status is unchanged.
+
+Two sentences above are now narrower than the rule they decided. The
+Decision says the reviewer is "given the ticket and the diff but not the
+executor's reasoning", and the Rationale says "A reviewer reading only the
+ticket and the diff". Since EM-010 the tier review model's reviewer section
+says the reviewer is given the ticket, the diff, the evidence and the two
+questions of "What a review reports"; and since EM-011 it says the
+reviewer works in a worktree of its own and never writes to the tree under
+review. The decision — independence means not sharing the reasoning that
+produced the work — stands; the description of what independence receives
+grew, and the model is the authority on it. Routed here from the
+independent reviews of EM-010 (finding 7 of round 1) and EM-011 (finding
+R1.9 of round 1).
