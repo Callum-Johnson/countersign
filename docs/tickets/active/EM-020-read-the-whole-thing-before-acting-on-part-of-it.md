@@ -51,7 +51,11 @@ The executor had read the ticket in parts.
 And a third form, mechanical. Repairs that re-flowed text produced ragged
 paragraphs and over-long lines that the next round flagged; the words
 "ragged", "re-flow", "long line" and "orphan line" appear 22 times in the
-closed records, by `grep -hoiE` over `docs/tickets/done/` at 5d94db7. No
+closed records at 5d94db7, by
+`grep -hoiE "ragged|re-?flow|over-?long|long line|[0-9]+.character line|orphan line"`
+over every file `git ls-tree` lists under `docs/tickets/done/` at that
+commit. A different pattern gives a different count; the pattern is the
+figure's baseline. No
 document states a wrap convention. The initial commit arrived wrapped at 80
 columns — the longest line of the policy at 38a7e61 is 80 characters, by
 `awk '{print length($0)}' | sort -n | tail -1` — and every edit since has

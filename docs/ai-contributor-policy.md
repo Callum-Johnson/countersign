@@ -311,7 +311,8 @@ Confirmed before the first edit of any session:
 - [ ] I have read my ticket in full, including acceptance criteria, and its
       Context, Files and Behaviour agree with one another; where they did
       not, I blocked under §3 before writing anything. This is the reading
-      the tier review model asks for after a repair, applied at claim.
+      `docs/tier-review-model.md`, "When review ends", asks for after a
+      repair, applied at claim.
 - [ ] I have read the design sections my ticket references.
 - [ ] I have read any external references the ticket cites.
 - [ ] I have claimed the ticket by the documented procedure.
