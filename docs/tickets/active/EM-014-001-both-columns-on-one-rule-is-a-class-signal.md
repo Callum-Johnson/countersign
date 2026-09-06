@@ -1,10 +1,12 @@
 ---
 id: EM-014-001
 title: Both columns on one rule in consecutive rounds is a class signal
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: [EM-007, EM-009, EM-010]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-014-001 — Both columns on one rule in consecutive rounds is a class signal
