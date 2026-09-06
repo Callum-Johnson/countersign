@@ -1,12 +1,13 @@
 ---
 id: EM-012-001-001
 title: The batch entry's supporting answer is still the standard-tier answer
-status: in-progress
+status: done
 tier: trivial
 complexity: S
 dependencies: [EM-012-001]
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-012-001-001 — The batch entry's supporting answer is still the standard-tier answer
@@ -62,4 +63,40 @@ Trivial: one clause completed; no procedure changes.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-012-001-001 — The batch entry's supporting answer is still the
+standard-tier answer
+
+### Tier
+`trivial` — one clause completed to match the rule it cites; no procedure
+changes. Self-merged, per the tier table. Re-tested at claim: the clause
+adds words to a line every batch holder writes, but changes what the line
+must say, not what the holder must do; the executor did not raise it.
+
+### Summary
+The batch rule's second bullet states the two-part answer that supports a
+`trivial` entry.
+
+### Acceptance criteria
+- [x] AC1: the bullet states the two-part answer — `docs/ticket-lifecycle.md`,
+  "Batching trivial work", second bullet.
+- [x] AC2: nothing else in the section changes — `git diff HEAD~2..HEAD --
+  docs/ticket-lifecycle.md` shows one bullet.
+
+### Falsification
+N/A — no behavioural claim. A batch holder writes the answer that actually
+supports `trivial`, not the `standard` answer.
+
+### Out of scope (per ticket)
+Confirmed.
+
+### How to verify
+`grep -n "reads as a contract" docs/ticket-lifecycle.md docs/tier-review-model.md`
+— the same phrase in the rule and in the entry line.
+
+### Risks / follow-ups
+None.
+
+### Review
+N/A — trivial tier.
+
