@@ -41,7 +41,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-014 | done | critical | A rule states its own falsifier; a control can be retired |
 | EM-014-001 | done | critical | Both columns on one rule in consecutive rounds is a class signal |
 | EM-015 | ready | trivial | The README states two commit counts for one project |
-| EM-016 | ready | critical | Bound the brief a contributor must read |
+| EM-016 | active | critical | Bound the brief a contributor must read |
 | EM-017 | done | trivial | Batch — trivial changes, 2026-09-06 |
 | EM-018 | ready | standard | The templates cite files this repository does not publish |
 | EM-007-002 | blocked | critical | A process-document change is trivial by the test and critical by ADR-0002 |

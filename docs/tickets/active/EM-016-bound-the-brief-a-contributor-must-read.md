@@ -1,10 +1,12 @@
 ---
 id: EM-016
 title: Bound the brief a contributor must read
-status: ready
+status: in-progress
 tier: critical
 complexity: M
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-016 — Bound the brief a contributor must read
