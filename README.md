@@ -78,8 +78,9 @@ commit, so the workflow cannot drift out of sync without leaving evidence.
 
 **4. Risk tier is decided by a test, not a feeling.** *Could an existing caller
 or a seeded roll notice this change without opting in?* Yes means critical and
-a second reviewer. No means standard. Touching an important file is a prompt to
-run the test, not an automatic escalation.
+a second reviewer. No means standard — or trivial, where nothing a program
+executes or a caller reads as a contract is touched. Touching an important file
+is a prompt to run the test, not an automatic escalation.
 
 **5. Four gates are machine-checked; the fifth is countersigned where the
 work is.** Lint, format, strict type-checking and tests run identically on a
