@@ -97,45 +97,46 @@ are trying to reconstruct why a change was made months later.
 
 **Retired when:** child tickets raised under this rule are, over a stated
 population, closed unworked as not wanted at a rate that shows the ticket file
-is ceremony and a line in the pull-request body would have served. The rate
-that would show it is the maintainer's to name.
+is ceremony and a line in the pull-request body would have served. One in
+five over the project's first fifty such tickets is the default rate, named
+as a default.
 
 ## 5. Forbidden actions
 
 Universal. They apply on every ticket whether or not the ticket restates them.
 
 - **Do not skip pre-commit hooks.** If a hook fails, fix the cause.
-  *Retired when:* the gate runs only in CI and no local hook exists, so there
+  **Retired when:** the gate runs only in CI and no local hook exists, so there
   is nothing to skip. This is the one falsifier for this rule; the quality
   gates restate the rule and reference this line.
 - **Do not amend or rewrite commits already pushed** to a shared branch.
-  *Retired when:* the branch model makes every pushed branch single-author
+  **Retired when:** the branch model makes every pushed branch single-author
   until merge, so no one else's history can be rewritten.
 - **Do not force-push to the main branch** under any circumstances.
-  *Retired when:* the project's history model changes such that the rule
+  **Retired when:** the project's history model changes such that the rule
   protects nothing — there is no observed failure that retires it; its
   falsifier is on the cost side.
 - **Do not commit secrets, credentials, or licensed source material.**
   Verify before staging.
-  *Retired when:* a pre-commit scanner blocks every commit containing key
+  **Retired when:** a pre-commit scanner blocks every commit containing key
   material or a listed term, and has done so on a stated population of
   commits; a later control then covers what this rule was added for.
 - **Do not quote or paraphrase large blocks of third-party text** in code or
   comments. Reference by section identifier instead.
-  *Retired when:* the project holds a licence to the third-party text that
+  **Retired when:** the project holds a licence to the third-party text that
   permits reproduction, at which point the rule protects nothing.
 - **Do not add backwards-compatibility shims** for code written in the same
   session. If you change a signature, update the callers.
-  *Retired when:* the project ships a signature to callers outside the
+  **Retired when:** the project ships a signature to callers outside the
   repository within a session, so that updating the callers is not in the
   executor's power.
 - **Do not add feature flags or environment toggles** unless the ticket asks
   for one.
-  *Retired when:* the project's release process requires a flag on every
+  **Retired when:** the project's release process requires a flag on every
   change, so that every ticket asks and the rule is noise.
 - **Do not write speculative abstractions** for hypothetical future needs.
   Three similar lines beat a premature interface.
-  *Retired when:* a project's review record shows, over a stated population,
+  **Retired when:** a project's review record shows, over a stated population,
   that similar lines left unabstracted under this rule were later unified at
   a higher cost than an interface at the second occurrence would have been.
 
@@ -195,6 +196,9 @@ it exists to prevent.
 ---
 
 ## Why a checklist rather than instructions
+
+*Not a rule.* This section explains the one above and constrains nothing; it
+carries no falsifier.
 
 Instructions describe intent and are easy to satisfy nominally. A checklist
 produces a verifiable claim: an agent that has not read the design sections

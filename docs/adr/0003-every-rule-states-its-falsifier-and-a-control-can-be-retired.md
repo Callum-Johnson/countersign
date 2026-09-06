@@ -1,6 +1,6 @@
 # ADR-0003: Every rule states its falsifier, and a control can be retired
 
-- **Status:** accepted
+- **Status:** proposed
 - **Date:** 2026-09-06
 - **Deciders:** maintainer, on the executor's implementation of EM-014
 - **Related:** EM-014 (this decision); EM-006 (the falsification gate it
@@ -44,7 +44,8 @@ closed are not affected; each states the falsifier for the rule it adds when
 it is worked, and its pull-request description says so. They are: EM-008,
 EM-009, EM-011, EM-012, EM-014-001. EM-001-001, in `blocked/`, adds a gate
 script and is treated the same way if it is unblocked. EM-005-001,
-EM-006-001, EM-007-001 and EM-015 add no rule.
+EM-006-001, EM-007-001, EM-010-002 and EM-015 in `ready/`, and EM-004 and
+EM-013 in `blocked/`, add no rule.
 
 ## Rationale
 
