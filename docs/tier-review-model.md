@@ -34,6 +34,12 @@ If none hold, the tier is `standard`. In one line:
 > **Could an existing caller, or a seeded run, notice this change without
 > opting in? If yes, `critical`. If no, `standard`.**
 
+**Retired when:** a change every clause passed as `standard` is found by
+review to have changed an existing caller's outcome, more than once over a
+stated population — the test's coverage is then shorter than its claim — or
+the changes it classes `critical` are shown, over a stated population, never
+to have drawn a must-fix at independent review.
+
 ---
 
 ## The tiers
@@ -46,6 +52,10 @@ If none hold, the tier is `standard`. In one line:
 
 Gates are mandatory at every tier. There is no tier that skips the machine
 checks — the tier governs *human and peer* review, not automated review.
+
+**Retired when:** `standard`-tier work spot-checked by a reviewer draws must-
+fix findings at a rate comparable to `critical`-tier review yield, over a
+stated population; the tier that skips review then skips something.
 
 ---
 
@@ -64,6 +74,12 @@ hook joining existing ones at a boundary, a new type nothing reads yet — stays
 This distinction matters more than it looks. A model that escalates on file
 paths trains contributors to treat escalation as noise, and an escalation
 everyone ignores is worse than none.
+
+**Retired when:** changes to the listed modules that the test classed
+`standard` are found by review to have altered existing behaviour, more than
+once over a stated population; the test's clauses are then not catching what a
+path trigger would, and the argument against the trigger is weaker than its
+cost.
 
 ---
 
@@ -87,6 +103,11 @@ control and therefore cannot be done by the party the control is on.
 This is the oldest idea in the document and the one that transfers furthest:
 the party subject to a control does not get to remove it.
 
+**Retired when:** the project has no reviewer distinct from the executor and
+cannot obtain one, so the asymmetry has no second party to rest on. In this
+repository ADR-0002 is the current answer to that, and the rule retires here
+only if that answer is withdrawn.
+
 ---
 
 ## Why "another agent, human or AI"
@@ -104,6 +125,11 @@ summary of wrong work is the characteristic AI failure mode.
 
 What it does not substitute for is accountability. The independence is real;
 the judgement is still mine.
+
+**Retired when:** independent review of `critical`-tier work returns no must-
+fix over a stated population of tickets. The current count against that is the
+source wave's six of six and this repository's own record, which are in the
+case study and the closed tickets.
 
 ---
 
@@ -160,6 +186,11 @@ scale because a scale asks the reviewer to rank a hole against an
 over-tightening, which reintroduces the judgement the two questions exist to
 separate. The reviewer answers both; what to do about the answers is the
 executor's and the maintainer's.
+
+**Retired when:** second-column findings over a stated population of critical-
+tier reviews are all notes and never must-fixes, or every tightening finding's
+cost line reads "cannot be measured"; the second question then finds nothing
+that blocks, and the cost rule produces no measurement.
 
 ---
 
@@ -237,3 +268,108 @@ the commit that repaired it. **The total is derived from the rows and never
 asserted beside them.** OMN-021's own total drifted three times — its Review
 section records "sixteen", "thirty-five" and "twenty-nine" — while it was
 asserted rather than derived.
+
+**Retired when:** a ticket blocked at the cap whose maintainer, reading the
+record, orders a further round that finds a rule defect — the cap's own
+falsifier, stated in the ticket that landed it — or the per-round record is
+shown, over a stated population, never to have been read by anyone deciding
+what to do next.
+
+---
+
+## Retiring a control
+
+EM-006 demands of every test that it name the wrong implementation it rules
+out, and "When review ends" demands of every review that it say what a
+converged review looks like. This section makes the demand of a rule. A rule
+that cannot say what evidence would retire it is an unpinned rule, in exactly
+the sense that a test with a zero red count is an unpinned test: it is
+there, it is passed, and it constrains nothing that can be checked. A control
+set that can only grow is over-tightening by construction, whatever its
+review brief says.
+
+**Every rule states its falsifier.** Each rule in the documents under
+`docs/` carries a line introduced by **Retired when:**, naming the evidence
+that would show the rule refuses honest work or no longer catches what it
+was added to catch — stated so that a reviewer could recognise it: a
+measured cost, a class of change it blocks that the project needs, a failure
+mode it was added for that a later control now covers. A rule whose
+falsifier cannot be stated says so, in the words **no falsifier stated**, in
+the same place. That is permitted, for the reason "repair of the instance"
+is permitted under the falsification gate: it is a claim a reviewer can see
+and hold the author to, where silence is not. A rule that says "no falsifier
+stated" is the rule most worth a second look.
+
+A falsifier may be a cost rather than a failure, and most are. "Do not
+force-push to the main branch" has no observed failure that retires it; its
+falsifier is on the cost side — retired when the project's history model
+changes such that the rule protects nothing. A cost-side falsifier is not a
+weaker form.
+
+A rule stated in two documents carries one falsifier, stated where the rule
+is stated in full and referenced from the other. The hooks rule — hooks may
+not be skipped — is stated in the contributor policy's forbidden actions and
+again in the quality gates; its falsifier lives with the policy.
+
+**Where a second-column finding goes.** "What a review reports" gives a
+review the means to find that a rule refuses honest work. This is where the
+finding goes.
+
+- A second-column finding that matches the stated falsifier of a rule
+  **already in `docs/` at the change's baseline** is handled by extending the
+  second condition of "When review ends" from the round to the finding: the
+  finding lies inside a limit the rule itself recorded, so it goes to a ticket
+  that owns it, raised if it does not exist, and that one must-fix is
+  discharged by raising it. That ticket is a **retirement ticket**, critical
+  tier under the process-surface clause of the operative test. It produces a
+  decision record, per the decision-record process, carrying the rule's text
+  as it stood and the finding that matched, and the rule leaves the document.
+  Retired rules are kept in the record for the reason superseded decision
+  records are kept: what was tried and why it stopped is most of the value.
+- A second-column finding that matches the falsifier of a rule **the change
+  under review itself adds** is a must-fix on the change, repaired in the
+  round like any other. The defective rule does not ship and then get
+  retired; it does not ship.
+- **Amendment with record.** Where the match is technical and the correction
+  small — a word, a scope, a threshold — the retirement ticket may amend the
+  rule in place instead of removing it, provided the decision record carries
+  the old text, the matching finding, and the new text. The record is the
+  control; the removal is not. A ticket choosing amendment says in its
+  pull-request description why the match was technical. Retirement is the
+  default because an amended rule keeps its place and its authority with
+  readers, and the amendment is invisible to anyone who did not read the
+  diff; a retired rule leaves a gap a reader can see and a record a reader
+  can find.
+- A second-column finding that does **not** match the stated falsifier is a
+  finding against the falsifier as much as against the rule. Either the rule
+  is refusing something its author did not foresee, in which case the
+  falsifier was too narrow and is widened by the retirement ticket the
+  finding raises, as an amendment with record — one whose record carries
+  the old and new falsifier text and the finding, and says why the finding
+  was not foreseen rather than why a match was technical — or the finding
+  is wrong. The
+  review says which it found; what follows is the executor's and the
+  maintainer's, as "What a review reports" says.
+- A retirement ticket is not worked by the executor whose work the rule
+  refused. The party subject to a control does not get to remove it, and
+  raising the ticket is as far as that party goes.
+
+**Who this binds.** A ticket that adds a rule states the rule's falsifier in
+its Behaviour section, and a ticket that does not is not ready, in the sense
+the ticket template uses that word. The obligation applies to tickets raised
+after the ticket that landed this section closed; rule-adding tickets that
+were already in `ready/` then are exempt, and each states the falsifier for
+the rule it adds when it is worked, saying so in its pull-request
+description. The exempt tickets are named in the decision record that landed
+this section, not here.
+
+**Retired when:** twenty rules carry stated falsifiers, ten second-column
+findings have been recorded against rules that carry one, and none has
+matched. That would show the falsifiers are decorative — written to satisfy
+this section, not to be recognised — and a decorative falsifier is the defect
+this section exists to remove. The first count is read from the Retired-when
+lines in `docs/`, and is already past twenty at landing, so the condition is
+the second. That is read from the Review sections of closed critical-tier
+tickets, which record each finding's column; the rule a finding landed on is
+readable once the per-round record carries it, which EM-014-001 adds, and
+until then by re-reading the findings.

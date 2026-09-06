@@ -33,6 +33,9 @@ makes drift visible. A ticket whose field and directory disagree is a
 workflow error you can find with a script, and a contributor that half-completed
 a transition leaves evidence rather than a silent inconsistency.
 
+**Retired when:** a tool derives one of the two from the other at every move
+and the second copy cannot disagree; the check then checks nothing.
+
 ## Claiming
 
 1. Branch, with a name beginning with the ticket identifier.
@@ -48,6 +51,10 @@ That is deliberately a crude lock. It costs one wasted claim commit, requires
 no coordination service, and cannot fail in a way that silently permits two
 agents to work the same ticket — which is the failure that actually matters.
 
+**Retired when:** two agents are shown to have worked the same ticket without
+a conflict — the lock failed silently, which it is designed not to do — or the
+project adopts a coordination service that makes the file move redundant.
+
 ## Blocking
 
 An agent that cannot proceed adds a comment prefixed `BLOCKER:` stating what
@@ -58,6 +65,9 @@ Blocking is a **success path**, not a failure. An agent that blocks has
 correctly identified that it does not have enough information — which is
 precisely the judgement that is hardest to elicit, and the alternative is an
 invented interpretation that looks like progress.
+
+*Falsifier:* stated with the rule in the contributor policy's §3 and not
+restated here.
 
 ## Closing
 
@@ -70,6 +80,10 @@ invented interpretation that looks like progress.
 The description lives in the ticket file, not only in a code-forge interface.
 The repository has to remain the record: forge metadata is not portable, not
 greppable offline, and not guaranteed to outlive the host.
+
+**Retired when:** the forge's metadata is exported into the repository
+automatically on every close, so the description is in the record without
+being appended.
 
 ## Lineage
 
@@ -85,6 +99,11 @@ siblings of one parent, so two agents working different tickets cannot collide
 on identifiers. It also means every ticket answers "why does this exist?"
 without anyone having to remember.
 
+**Retired when:** lineage reaches a depth the project's tooling cannot carry,
+or provenance is recorded in frontmatter and read in every place the id
+appears — commit messages, branch names, comments — which the lineage decision
+record in `examples/adr/` rejected because it is not.
+
 Three things the scheme does not say for itself, each found in use:
 
 **A ticket raised by a review is created on the branch under review** — by
@@ -99,6 +118,10 @@ files. Creating the ticket where the review is means the sibling listing that
 yields the next id is the listing the id will land in, and a duplicate becomes
 a merge conflict, which is the crude lock this lifecycle already relies on,
 rather than a silent second file.
+
+**Retired when:** the merge tool compares ids rather than paths — a merge
+driver that conflicts on a duplicate id under any slug — so that placement no
+longer decides whether a collision is seen.
 
 **The next id comes from history, not the tree.** An id, once created, is
 spent. A ticket raised and later deleted, absorbed or renamed leaves no file
@@ -116,6 +139,9 @@ the fourteenth was taken, worked and closed before anyone noticed. A reused id
 is not renumbered afterwards; the newer ticket records the reuse and points at
 the older use.
 
+**Retired when:** the project forbids deleting a ticket file — tickets are
+only ever moved — so that the tree is the history and reads the same.
+
 **A fixed commit-subject length does not compose with lineage ids.** No
 subject-length rule is published here. A project that brings one should
 choose, because a fourth-generation id such as `PRJ-284-001-001-001` takes
@@ -125,3 +151,6 @@ including by merge commits on the default branch. Two conventions that cannot
 both be followed are worse than either alone: the one enforced by nothing is
 the one dropped, and it is dropped silently. Exempt the id prefix from the
 count, or drop the limit, but decide.
+
+*Not a rule.* This paragraph states a hazard and refuses no convention; it
+carries no falsifier.
