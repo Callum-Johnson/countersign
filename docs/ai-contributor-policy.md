@@ -85,8 +85,8 @@ population of tickets. The rule then costs more honest work than it stops.
 
 If anything in the ticket is ambiguous, **stop**. Add a comment to the ticket
 file prefixed `BLOCKER:`, stating what is unclear — or which question is
-reserved — and what you would need in order to proceed. Commit it, move the ticket to the blocked state, and pick up
-something else.
+reserved — and what you would need in order to proceed. Commit it, move the
+ticket to the blocked state, and pick up something else.
 
 Do not invent an interpretation. Do not pick the reading that makes the ticket
 easiest. Do not proceed with a note in the pull request saying you assumed
