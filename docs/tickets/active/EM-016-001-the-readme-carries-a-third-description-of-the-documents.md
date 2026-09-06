@@ -1,10 +1,12 @@
 ---
 id: EM-016-001
 title: The README's document table is a third description the same-commit rule does not bind
-status: ready
+status: in-progress
 tier: trivial
 complexity: S
 dependencies: [EM-016]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-016-001 — The README carries a third description of the documents
