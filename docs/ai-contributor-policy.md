@@ -23,7 +23,7 @@ row names where the rule is. What you must read before your first edit is
 | How do I claim, block, batch and close work, and how are tickets numbered? | `docs/ticket-lifecycle.md` — the mechanics; §3 above states when to block |
 | What must be true before I report this change done? | this document, §6 |
 | What tier is my change, who reviews it, what does a review report, when does it end, and how does a rule leave? | `docs/tier-review-model.md` |
-| What must pass before merge, and what does the falsification gate ask of me? | `docs/quality-gates.md` |
+| Which machine checks must pass, and what does the falsification gate ask of me? | `docs/quality-gates.md` |
 | Is this decision a record, and what does that record carry? | `docs/adr-process.md` |
 | What shape does a ticket, a pull-request description or a decision record take? | `templates/` |
 | What has this repository already decided, and on what reasoning? | `docs/adr/` |
@@ -32,20 +32,28 @@ row names where the rule is. What you must read before your first edit is
 **Keeping the map true.** The map and the indexes it governs are wrong when
 they name something that is not there, omit something that is, or send a
 question to a place that no longer settles it. Those are the three ways to
-be wrong, and each has a trigger:
+be wrong, and each has a trigger.
 
-- A document added to, removed from or renamed under `docs/` or
-  `templates/` updates the map, in the same commit.
+This rule governs every document the map names, and any document added
+under `docs/` or `templates/` that states rules a contributor follows. A
+document that records work rather than states rules — a ticket, a decision
+record, a case study — is not governed, which is why the rows name what
+they do rather than everything in the repository. Where a row names a
+directory, that row is what the rule keeps true, not one row per file
+beneath it. Whether a new document states rules is the executor's judgement
+and cannot be avoided: a rule that governed only what the map already names
+could never catch a document the map is missing, which is the omission it
+most needs to catch.
+
+- A governed document added, removed or renamed updates the map, in the
+  same commit.
 - A change that moves where a question is settled — a rule leaving one
   document for another, a document's scope narrowing — updates the row that
   names it, in the same commit.
-- A section added to, removed from or renamed in a document that carries an
-  index updates that index, in the same commit. It updates the map only
-  where it changes the question a row settles, which most section changes
-  do not.
-
-A document with no row is not governed by this rule, which is why the rows
-name what they do rather than everything in the repository.
+- A section added to, removed from or renamed in a governed document that
+  carries an index updates that index, in the same commit. It updates the
+  map only where it changes the question a row settles, which most section
+  changes do not.
 
 This is the directory/status invariant's argument applied to the documents:
 two descriptions that must agree make drift visible at no cost, and a map

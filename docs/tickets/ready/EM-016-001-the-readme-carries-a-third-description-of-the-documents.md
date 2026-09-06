@@ -44,10 +44,12 @@ brought up to date and placed under an existing rule.
 
 - Each row of the README's table describes what that document settles as it
   now stands.
-- The table is named in the map's rows, or the map's rule is extended to
-  reach it, so that it is bound like the others. Which of the two is the
-  implementer's judgement; the requirement is that it stops being a third
-  description nothing keeps true.
+- The table is named in the map's rows, so that it is bound like the
+  others and stops being a third description nothing keeps true. Extending
+  the map's rule instead would edit a rule in
+  `docs/ai-contributor-policy.md`, which is a process-surface change and
+  not this ticket's; if the implementer judges the rule needs extending,
+  that is a separate ticket at `critical` tier.
 - No rule is stated in the README that is not stated in the document the
   row names.
 
@@ -55,15 +57,18 @@ brought up to date and placed under an existing rule.
 
 1. AC1: every row of `README.md`'s "Start here" table matches what its
    document settles at close.
-2. AC2: the table is bound by the same-commit rule in
-   `docs/ai-contributor-policy.md`, "Which document settles what", by
-   whichever of the two routes the implementer takes.
+2. AC2: the table is named in the map's rows, and so bound by the
+   same-commit rule in `docs/ai-contributor-policy.md`, "Which document
+   settles what".
 3. AC3: the README states no rule the named document does not.
 
 ## Out of scope
 
 - Any other part of `README.md`, including the core ideas.
-- Any change to the map or the index themselves.
+- Any change to the map's rule, or to the index. Adding the row the map
+  needs is not a change to the rule.
+- Extending the same-commit rule's wording. That is `critical` work and its
+  own ticket.
 
 ## References
 
@@ -73,7 +78,10 @@ brought up to date and placed under an existing rule.
 ## Notes
 
 Trivial by the operative test as EM-012-001 leaves it: a table of links in
-a document no program executes and no caller reads as a contract. The tier
+a document no program executes and no caller reads as a contract, plus one
+row added to a table. The tier is argued for that work only, which is why
+the rule-extension route is out of scope above; a ticket that edited the
+rule would be `critical` and the executor may raise but never lower. The tier
 question EM-007-002 owns applies here as it does to every documentation
 ticket on this board.
 
