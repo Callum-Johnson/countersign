@@ -12,26 +12,44 @@ expensive and visible rather than cheap and silent.
 
 ## Which document settles what
 
-A map, so that a reader with a question opens one document rather than
-five. The table states no rule; each row names where the rule is. What you
-must read before your first edit is §7's checklist, not this table.
+A map, so that a reader with a question goes to the place that settles it
+rather than searching five documents for it. The table states no rule; each
+row names where the rule is. What you must read before your first edit is
+§7's checklist, not this table.
 
 | Question | Where it is settled |
 |---|---|
 | What may I do, what may I not, and what do I do when I cannot proceed? | this document |
-| How do I claim, block, batch and close work, and how are tickets numbered? | `docs/ticket-lifecycle.md` |
+| How do I claim, block, batch and close work, and how are tickets numbered? | `docs/ticket-lifecycle.md` — the mechanics; §3 above states when to block |
+| What must be true before I report this change done? | this document, §6 |
 | What tier is my change, who reviews it, what does a review report, when does it end, and how does a rule leave? | `docs/tier-review-model.md` |
 | What must pass before merge, and what does the falsification gate ask of me? | `docs/quality-gates.md` |
 | Is this decision a record, and what does that record carry? | `docs/adr-process.md` |
 | What shape does a ticket, a pull-request description or a decision record take? | `templates/` |
+| What has this repository already decided, and on what reasoning? | `docs/adr/` |
 | What is withheld from this repository, and why? | `DISCLOSURE.md` |
 
-**Keeping the map true.** A section added to, removed from or renamed in
-any document above is reflected here, and in that document's own index
-where it has one, in the same commit. This is the directory/status
-invariant's argument applied to the documents: two descriptions that must
-agree make drift visible at no cost, and a map that has gone stale sends a
-reader to the wrong place with confidence.
+**Keeping the map true.** The map and the indexes it governs are wrong when
+they name something that is not there, omit something that is, or send a
+question to a place that no longer settles it. Those are the three ways to
+be wrong, and each has a trigger:
+
+- A document added to, removed from or renamed under `docs/` or
+  `templates/` updates the map, in the same commit.
+- A change that moves where a question is settled — a rule leaving one
+  document for another, a document's scope narrowing — updates the row that
+  names it, in the same commit.
+- A section added to, removed from or renamed in a document that carries an
+  index updates that index, in the same commit. It updates the map only
+  where it changes the question a row settles, which most section changes
+  do not.
+
+A document with no row is not governed by this rule, which is why the rows
+name what they do rather than everything in the repository.
+
+This is the directory/status invariant's argument applied to the documents:
+two descriptions that must agree make drift visible at no cost, and a map
+that has gone stale sends a reader to the wrong place with confidence.
 
 **Retired when:** a review finds this map, or an index it governs, stale
 more than once over a stated population of merged changes — the

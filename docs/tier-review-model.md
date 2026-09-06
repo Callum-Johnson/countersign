@@ -10,12 +10,14 @@ a yes/no answer.
 
 ## What is in this document
 
-An index. Each section below states its own rules; this restates none. A
-critical-tier reviewer works from "What a review reports" and "When review
-ends", and reaches the others when a finding turns on them.
+An index. Each section below states its own rules; this restates none. A critical-tier reviewer works from "What a review reports", "When review
+ends" and "Retiring a control", is bound by "Separation of duties" whether
+or not it opens that section, and reaches the rest when a finding turns on
+them.
 
 | Section | What it settles |
 |---|---|
+| What is in this document | This index, and the sections a reviewer works from |
 | The operative test | Which tier a change is |
 | The tiers | What each tier requires, and what `trivial` may batch |
 | The scrutiny list, and why it is not a trigger | Why a file path is a cue and not an escalation |
