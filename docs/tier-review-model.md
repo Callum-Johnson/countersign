@@ -160,6 +160,35 @@ finding removes one. The scrutiny-list section above already says why that is
 a defect: a control the controlled party ignores is not a control, and a
 review that only ever tightens produces controls that get ignored.
 
+**Both columns on one rule in consecutive rounds is a class signal.** The
+two columns have a failure mode of their own: round one finds, in the first
+column, that a rule lets something through, and tightens it; round two
+finds, in the second, that the tightening refuses honest work, and loosens
+it; round three tightens it again. Each finding is correct on its own
+terms and the loop never disagrees with itself. So: when a first-column
+finding on a rule in one round is followed in the next round by a
+second-column finding on the same rule that lies inside the previous
+round's fix, the next step is a redesign of the rule against its class —
+the class obligation in the contributor policy's §6 — and not a third
+adjustment. The reviewer names the signal; the executor does the redesign.
+Two findings on one rule that are not inside each other's fix are two
+unrelated adjustments and do not fire it, whatever columns they fall in;
+the distinction is read from two fields the per-round record already
+carries — the column, and whether the finding sits inside the previous
+fix — and adds no new judgement. This is the single-rule complement of the
+repairs-of-repairs signal in "When review ends", which fires on the
+proportion of a round: that one fires when ping-pong is most of what the
+round found, this one when one rule is ping-ponging inside a round that is
+otherwise finding new things. Its cost is one field per finding in the
+record — the rule the finding landed on — and findings exceed must-fixes:
+the round that raised this rule returned 22 findings and 1 must-fix, per
+the ticket that raised it.
+
+**Retired when:** three rules sent to redesign by this signal each produced
+a redesign whose effect the per-round record shows to be the same as the
+third adjustment the reviewer had already proposed — the signal costing a
+round and buying nothing, three times.
+
 The evidence is OMN-021 on the control-plane project that implements this
 process mechanically. Its pull-request description's over-tightening
 paragraph records four over-tightenings and names three with the round that
