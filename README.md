@@ -81,12 +81,13 @@ or a seeded roll notice this change without opting in?* Yes means critical and
 a second reviewer. No means standard. Touching an important file is a prompt to
 run the test, not an automatic escalation.
 
-**5. Four gates are machine-checked, and the fifth is countersigned.** Lint,
-format, strict type-checking and tests run identically on a contributor's
-machine and in CI; an agent cannot talk its way past a failing one, and
-skipping hooks is a forbidden action. The fifth gate, falsification, is a
-count the executor reports and a reviewer verifies — the one gate an agent
-could talk past, which is why it is the reviewer's to check.
+**5. Four gates are machine-checked; the fifth is countersigned where the
+work is.** Lint, format, strict type-checking and tests run identically on a
+contributor's machine and in CI; an agent cannot talk its way past a failing
+one, and skipping hooks is a forbidden action. The fifth gate, falsification,
+is a count the executor reports at every tier and a reviewer verifies where
+the tier summons one — the one gate an agent could talk past, which is why
+the count is written down.
 
 ---
 
