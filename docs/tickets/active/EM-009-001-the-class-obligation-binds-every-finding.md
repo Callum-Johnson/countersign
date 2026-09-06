@@ -1,10 +1,12 @@
 ---
 id: EM-009-001
 title: The class obligation binds every repaired finding and was priced on must-fixes
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-009-001 — The class obligation binds every repaired finding
