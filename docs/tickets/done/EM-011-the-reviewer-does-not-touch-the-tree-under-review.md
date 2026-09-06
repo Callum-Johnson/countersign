@@ -1,10 +1,13 @@
 ---
 id: EM-011
 title: Review runs in its own worktree, and the tree under review is checked afterwards
-status: ready
+status: done
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-011 — The reviewer does not touch the tree
@@ -150,4 +153,112 @@ project's comment rather than this ticket.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-011 — The reviewer does not touch the tree
+
+### Tier
+`critical` — process-surface change (clause 5): it constrains how review
+is conducted and adds a check to the executor's sequence.
+
+**Independent review obtained**, per ADR-0002: a separate agent, given the
+ticket, the diff and the two questions, and not the executor's reasoning,
+reviewed the change in three rounds, read-only. Findings are under
+Review; the tree was checked clean after each round — which is this
+ticket's own rule, applied to its own review.
+
+### Summary
+The quality gates gain "Review isolation" beside the identical-script
+rule: review, including the falsification gate's mutation, runs in a
+worktree the reviewer creates, owns and removes; the tree under review is
+read, never written; the executor checks status and the worktree list
+after the review returns and before any repair, and anything found is a
+finding against the review; the start-up-import mechanism as the example,
+in engineering terms, with its class; and why the check is the executor's.
+The tier model's reviewer section says in one sentence where the reviewer
+works. The rule carries a Retired-when line, stated under ADR-0003's
+exemption clause, which this description says so per that clause.
+
+### Acceptance criteria
+- [x] AC1: review runs in the reviewer's own worktree and the tree under
+  review is not written — `docs/quality-gates.md`, "Review isolation", the
+  bold sentence in its second paragraph.
+- [x] AC2: the post-review check named, and anything found a finding
+  against the review — the third paragraph.
+- [x] AC3: the start-up-import mechanism in engineering terms with its
+  class — the fourth paragraph: an interpreter that imports a module of a
+  fixed name at start-up, a zero exit, two gates that examined nothing, and
+  the one gate that reads files as text.
+- [x] AC4: the tier model's reviewer section says where the reviewer works
+  in one sentence and references the gates — `docs/tier-review-model.md`,
+  "Why 'another agent, human or AI'", the sentence before the closing
+  paragraph.
+- [x] AC5: independent review — see Review.
+
+### Falsification
+N/A — no behavioural claim. What a reader does differently, per criterion:
+- AC1: a reviewer creates a worktree before applying a mutant, instead of
+  applying it in place.
+- AC2: an executor runs status and the worktree list before the next gate
+  run, and records what it finds against the review rather than cleaning
+  it up silently.
+- AC3: a reader recognises the class — any file the toolchain loads before
+  it examines anything — and not only the one filename.
+- AC4: a reader of the tier model knows the constraint exists and where it
+  is.
+
+This repository's own practice under the rule: every review in this wave
+was conducted by an agent instructed to be read-only in the main tree,
+which the rule permits for a review that writes nothing, and the executor
+ran the post-review check after every round; each closed record says so.
+No review in the wave left anything in the tree.
+
+### Out of scope (per ticket)
+Confirmed: the check is not mechanised; the falsification gate's
+mutation-and-count is unchanged, only its location constrained; what the
+reviewer receives is unchanged.
+
+### Review
+| Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
+|---|---|---|---|---|
+| 1 | 3 (of 9 findings) | documents: the incident attributed to "the source project", which the document defines as another project (must-fix); the module unnamed where the ticket asked for the class and the file (must-fix); the rule's admitted no-fallback case unstated (must-fix); "asks a reviewer" against the gate's own text; the check blind to ignored paths; "register" undefined; where a finding against the review sits in the record; the opening sentence; EM-010-002 one item short | — | e436b0b, 41518d0 |
+| 2 | 2 (of 3 findings) | documents: the reach sentence named the wrong project again (must-fix); the fallback declared a read-only review unavailable (must-fix); a hyphen broken by the re-flow | 2 of 2 | d89982c, 3047ad3 |
+| 3 | 0 (of 0) | — | — | — |
+
+Derived total: 5 must-fix over three rounds.
+Round 1 by column and rule — permits: R1.1, the incident's source
+(remedy: OMN-021 on the control-plane project, rounds 12 and 13, the
+policy-module comment); R1.2, the class-and-file requirement (remedy:
+`sitecustomize` named once, reach left to that project's record); R1.3,
+the gate's own allocation of duties (remedy: the gate hands the reviewer a
+count to verify); R1.4, the check's scope (recorded, not taken: including
+ignored paths is a tightening that costs every project a baseline of
+expected ignored entries). Refuses: R1.5, the rule's no-fallback case
+(remedy: a reviewer that must run the suite and cannot create a worktree
+makes the review unavailable in ADR-0002's sense — a loosening); R1.6,
+"register" (remedy: the worktrees the executor created, a clone elsewhere
+not refused); R1.7, where a finding against the review sits (remedy: its
+own line after the round's row, outside the must-fix count and the
+columns); R1.8, the opening sentence; R1.9, routed to EM-010-002 as a note.
+Round 2's two must-fixes were both inside round-1 remedies: the reach
+sentence reintroduced "the source project", and the fallback as first
+written declared every read-only review in place unavailable, which would
+have declared this review unavailable. Both were one clause. Round 3 found
+nothing.
+Post-review tree check after each round: `git status --porcelain` empty,
+`git worktree list` showing only the main tree.
+
+### How to verify
+1. `grep -n "^## " docs/quality-gates.md` — "Review isolation" follows the
+   identical-script rule.
+2. `git diff f3a7b6c..HEAD --stat` — two documents and ticket housekeeping.
+3. `wc -w` at the baseline and at close: quality gates 1,672 to 2,229 and tier model 3,485 to 3,516, as the reviewer measured at c4a5f38 and 3047ad3.
+
+### Risks / follow-ups
+- Per review round the cost is a worktree and its environment, minutes and
+  disk under the no-global-mutation constraint, as the ticket's Costs
+  section says. On this repository, with no suite, it is nothing; the
+  reviews here were read-only in place.
+- The rule has no fallback for a checkout where a worktree cannot be
+  created. The ticket's Refuses section says so; the landed text does not
+  add one.
+

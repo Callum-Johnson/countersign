@@ -40,11 +40,14 @@ brought up to date with the rule it recorded.
 
 ### Behaviour
 
-- ADR-0002 is annotated in place, under a dated heading at the end, as
-  EM-006 annotated ADR-0038: the annotation states that EM-010 widened what
-  the reviewer receives, quotes the two sentences as they stood, and points
-  at the model's section. The original text above the annotation is
-  unchanged and the status stays `accepted`.
+- ADR-0002 is annotated in place, under a dated heading at the end, as EM-006
+  annotated ADR-0038: the annotation states that EM-010 widened what the
+  reviewer receives, quotes the two sentences as they stood, and points at the
+  model's section. It also notes that EM-011 constrained where the reviewer
+  works — a worktree of its own — which the ADR's "given the ticket and the
+  diff" does not mention; routed here from EM-011's round-1 review, finding
+  R1.9. The original text above the annotation is unchanged and the status
+  stays `accepted`.
 
 ## Acceptance criteria
 
