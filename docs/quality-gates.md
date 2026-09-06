@@ -135,6 +135,25 @@ distinction is the point. On the source project every instance was found at
 review, and each cost a full review round of rework. Putting the count in the
 report means the reviewer verifies a number rather than derives one.
 
+**A test pins a claim, not a mechanism.** A test that asserts a helper was
+called, or that a case is absent from a list, defends the executor's belief
+about how the code works, and turns red when the belief is corrected rather
+than when a caller is let down. The assertion names what the change
+guarantees to a caller; the docstring names the claim. The example, from
+the source project's review record: a test asserting that a directory name
+matched nothing on a list, with a comment explaining why the absence was
+correct, on a list whose purpose was to match it — a test written to defend
+a defect. Such a test passes the coverage rule and passes this gate as
+stated, because the wrong implementation it rules out is real. What it
+fails is the gate's purpose, which is that a red test means a claim was
+violated. The gate's companion for the repair of a review finding — name
+the class, falsify per sibling — is stated with the executor's other duties
+in the contributor policy's §6 and not restated here.
+
+**Retired when:** over a stated population, tests that assert a mechanism
+are shown to have caught regressions that claim-level tests missed more
+often than they have blocked a correct change to the mechanism.
+
 **Retired when:** over a stated population of changes every recorded red count
 is non-zero and no reviewer's mutation has found an unpinned claim the
 executor's count missed. The gate then costs a suite run per claim and catches

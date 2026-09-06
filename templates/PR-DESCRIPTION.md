@@ -45,6 +45,13 @@ criterion, what a reader would do differently because of it.
 - <claim> — mutant: <what was changed>; red: <N> of <M> tests
 - <claim> — non-discriminating: <label>; would need <input or fixture>
 
+For each review finding repaired: the class — the question that enumerates
+the finding and its siblings — and each sibling with its test and red
+count; or the words `repair of the instance` (contributor policy §6).
+- R<n> finding <k> — class: <question>; siblings: <a> (<test>, red <N> of
+  <M>), <b> (<test>, red <N> of <M>)
+- R<n> finding <k> — repair of the instance
+
 ### Out of scope (per ticket)
 Confirm nothing in this PR exceeds the ticket's scope:
 - <list anything notable that was tempting but deferred>
