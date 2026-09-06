@@ -1,12 +1,13 @@
 ---
 id: EM-007-001
 title: The lifecycle's list of pull-request description sections is behind the template
-status: in-progress
+status: done
 tier: trivial
 complexity: S
 dependencies: [EM-007]
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-007-001 — The lifecycle's list of pull-request description sections is behind the template
@@ -67,4 +68,39 @@ the executor re-tests the tier at claim and may raise it.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-007-001 — The lifecycle's list of pull-request description sections is
+behind the template
+
+### Tier
+`trivial` — one list replaced by a reference to the list it duplicated;
+no rule or procedure changes. Self-merged, per the tier table.
+
+### Summary
+"Closing", step 1, no longer enumerates the description's sections; it
+names the template as the one list.
+
+### Acceptance criteria
+- [x] AC1: the lifecycle references the template — `docs/ticket-lifecycle.md`,
+  "Closing", step 1, "in the form `templates/PR-DESCRIPTION.md` gives".
+- [x] AC2: no section name in the lifecycle absent from the template —
+  `grep -n "Falsification\|Review\|Risks" docs/ticket-lifecycle.md` finds
+  no enumeration; the step names none.
+
+### Falsification
+N/A — no behavioural claim. A reader of the lifecycle's Closing step goes
+to the template for the sections, and the lifecycle cannot fall behind it
+again.
+
+### Out of scope (per ticket)
+Confirmed: the template is untouched.
+
+### How to verify
+`git diff HEAD~2..HEAD -- docs/ticket-lifecycle.md` — one step reworded.
+
+### Risks / follow-ups
+None.
+
+### Review
+N/A — trivial tier.
+
