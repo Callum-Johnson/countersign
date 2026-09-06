@@ -1,12 +1,13 @@
 ---
 id: EM-018
 title: The templates cite files this repository does not publish
-status: in-progress
+status: done
 tier: standard
 complexity: S
 dependencies: []
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-018 — The templates cite files this repository does not publish
