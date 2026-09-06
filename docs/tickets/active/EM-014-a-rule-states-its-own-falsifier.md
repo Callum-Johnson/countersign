@@ -1,10 +1,12 @@
 ---
 id: EM-014
 title: A rule states its own falsifier, and a control can be retired
-status: ready
+status: in-progress
 tier: critical
 complexity: M
 dependencies: [EM-007, EM-010]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-014 — A rule states its own falsifier, and a control can be retired
