@@ -470,25 +470,35 @@ finding goes.
   refused. The party subject to a control does not get to remove it, and
   raising the ticket is as far as that party goes.
 
-**A rule needs a second instance.** A failure, a cost or a finding met once
-is recorded where it was met — in the ticket's Risks, or as a child ticket
-under the contributor policy's §4 — and is not written into these documents
-as a rule until it is met a second time, in a second ticket or on a second
-project. The ticket that adds the rule names both instances in its Context.
-The first instance is not lost; §4 already keeps it, and the second is what
-promotes it. A rule that prevents an outcome that cannot be undone —
+**A rule needs a second instance.** A failure met once is recorded where it
+was met — as a child ticket under the contributor policy's §4 if it is work,
+or under Risks / follow-ups in the description if it is a cost or an
+observation — and is not written into these documents as a rule until it is
+met a second time, in a second ticket or on a second project, since the
+second instance is what shows the first was not its own context. The ticket
+that adds the rule names its instances in its Context; a name a reader
+cannot open is still a name, quoted with its round or its cost as the wave's
+tickets do. The first instance is not lost: §4 keeps the first kind and the
+description the second, and the second instance is what promotes either. The
+bar governs a rule's entry as a ticket's own subject. It does not reach a
+repair of the change under review, an entry in a list, or an amendment under
+this section. A rule that prevents an outcome that cannot be undone —
 third-party material published, the main branch force-pushed — may be
-written from one instance, and says so. The reason is the brief: every rule
-here is read by every future reviewer on every round, and a rule written
-from one instance is a bet that the instance recurs, paid whether it does or
-not. The wave that landed most of these rules, EM-006 to EM-019-001, would
-not have cleared this bar: nearly every rule in it came from one instance,
-and that is this rule's own instance count.
+written from one instance or from none, and says so. The reason is the
+brief: every rule here is read by every future reviewer on every round, and
+a rule written from one instance is a bet that the instance recurs, paid
+whether it does or not. Of the twelve rule-adding tickets from EM-006 to
+EM-020, seven name one source ticket on one project in their Context —
+EM-007, EM-008, EM-010, EM-011, EM-012, EM-014-001 and EM-016 — counted by
+reading each Context for the source it names. Those seven are this rule's
+instances, and none would have cleared the bar it supplies. The bar binds
+tickets raised after this section's landing ticket closed; a rule-adding
+ticket that names one instance and claims no exception is not ready.
 
 **Retired when:** a failure recorded once and left unruled under this bar
-recurs at a cost greater than carrying the rule would have been, more than
-once over a stated population of closed tickets; the bar is then holding
-back rules that pay for themselves.
+recurs, more than once over a stated population of closed tickets, at a cost
+in review rounds greater than the rule would have cost in words carried on
+every round; the bar is then holding back rules that pay for themselves.
 
 **Who this binds.** A ticket that adds a rule states the rule's falsifier in
 its Behaviour section, and a ticket that does not is not ready, in the sense
