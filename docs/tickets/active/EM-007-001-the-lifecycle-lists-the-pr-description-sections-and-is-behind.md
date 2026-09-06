@@ -1,10 +1,12 @@
 ---
 id: EM-007-001
 title: The lifecycle's list of pull-request description sections is behind the template
-status: ready
+status: in-progress
 tier: trivial
 complexity: S
 dependencies: [EM-007]
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-007-001 — The lifecycle's list of pull-request description sections is behind the template
