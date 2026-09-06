@@ -49,6 +49,9 @@ def thing(x: int, y: int) -> Thing: ...
 
 - Bullet list of behaviours the implementation must produce.
 - Each bullet is independently verifiable.
+- A ticket that adds a rule states the rule's falsifier here — the
+  evidence that would retire it — per the tier review model, "Retiring a
+  control". A rule-adding ticket without one is not ready.
 
 ## Acceptance criteria
 

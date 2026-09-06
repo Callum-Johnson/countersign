@@ -11,7 +11,10 @@ Write an ADR when:
 - A public API shape changes.
 - A previously locked design decision is revised.
 - A new top-level package appears.
-- A workflow rule changes.
+- A workflow rule changes — including a rule retired or amended under
+  `docs/tier-review-model.md`, "Retiring a control". That record carries the
+  rule's text as it stood, the finding that matched its falsifier, and the
+  text that replaces it, if any.
 
 Do **not** write one for:
 
@@ -22,6 +25,8 @@ Do **not** write one for:
 
 The test: if the decision affects multiple tickets or constrains future work,
 it is an ADR. If it affects only the ticket in hand, the ticket is enough.
+
+**Retired when:** a regression a recorded decision would have prevented happens with the record present, more than once over a stated population, or the set of records grows past what a contributor reads before a first edit; the trigger list is then producing records nobody reads.
 
 ## Structure
 
@@ -34,6 +39,8 @@ superseded ADR is marked `superseded by ADR-NNNN` and **kept** — the record is
 the decision history, and deleting the wrong turns destroys most of its value.
 
 See [the template](../templates/ADR.md).
+
+**Retired when:** a section is `N/A` in most records over a stated population — the structure then asks questions the decisions do not have — or decision history is kept somewhere the superseded record is not needed.
 
 ## Why this matters more with AI contributors
 
@@ -61,3 +68,6 @@ reviewer.
 A governance system that cannot be changed becomes a system people route
 around. One that can be changed silently is not a control. Recording process
 changes the same way as technical ones is what keeps it honest.
+
+
+**Retired when:** the tier model ceases to class the process surface as `critical`, at which point this rule's second sentence is false and its first stands alone.
