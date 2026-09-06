@@ -1,12 +1,13 @@
 ---
 id: EM-010-002
 title: ADR-0002 lags the model on what the reviewer receives
-status: in-progress
+status: done
 tier: trivial
 complexity: S
 dependencies: [EM-010]
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-010-002 — ADR-0002 lags the model on what the reviewer receives
@@ -77,4 +78,39 @@ annotated.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-010-002 — ADR-0002 lags the model on what the reviewer receives
+
+### Tier
+`trivial` — a record annotated in place; no rule or procedure changes.
+Self-merged, per the tier table.
+
+### Summary
+ADR-0002 carries a dated annotation at its end naming EM-010's widening of
+the reviewer's brief and EM-011's worktree rule, quoting the two sentences
+as they stood, and pointing at the model. Status unchanged.
+
+### Acceptance criteria
+- [x] AC1: a dated annotation naming EM-010 and the widened brief, with an
+  append-only diff — `git diff HEAD~2..HEAD -- docs/adr/0002-*.md` shows
+  additions only, below a horizontal rule.
+- [x] AC2: the ADR's status is unchanged — `accepted`.
+
+### Falsification
+N/A — no behavioural claim. A reader of ADR-0002 learns the brief it
+describes has grown and where the current description is.
+
+### Out of scope (per ticket)
+Confirmed: not superseded.
+
+### How to verify
+`tail -25 docs/adr/0002-*.md`; `head -5` shows the status line unchanged.
+
+### Risks / follow-ups
+This is the second annotated record after ADR-0038; the pattern is now
+used twice and has no decision record of its own. If it recurs, that is a
+process rule and takes a ticket.
+
+### Review
+N/A — trivial tier.
+
