@@ -106,3 +106,51 @@ and simple, and it was close. Rejected because the id is what appears in
 commit messages, branch names, code comments and client messages -- the places
 a reader meets a ticket without its file to hand. Putting lineage in the id
 puts it everywhere the id already goes.
+
+---
+
+## Annotation — added 2026-09-06 under EM-006
+
+> This section is not part of the decision as recorded. Everything above the
+> rule is the original text. It is added in place rather than by superseding
+> the record because the decision is sound and its operating instructions are
+> incomplete; a reader copying the scheme needs the correction beside it.
+
+The scheme's lookup instruction reads a smaller set than the set an id must be
+unique in. That is one defect with two faces.
+
+**1. The same id under two slugs merges silently.** The id lives in the
+filename and the frontmatter, and git compares paths. `PRJ-900-001-first.md`
+in the main tree and `PRJ-900-001-second.md` on a branch are two files for one
+id, and the branch merges with no conflict. The sibling listing above then
+shows two `-001`s, and the next agent either takes `-002` for what should have
+been `-001`'s second use or claims the same ticket from the other file. The
+mechanism is structural and can be reproduced on demand; it needs no race.
+
+*Placement rule:* a ticket raised by a second-agent review of a branch is
+created **on that branch**, not in the main tree. The sibling listing the next
+id is read from is then the listing the id will land in, and a duplicate
+becomes a path conflict at merge — the same crude lock claiming relies on —
+instead of a silent second file.
+
+**2. An id, once created, is spent, and the tree does not know it.** "The
+highest across the ticket directories" reads the working tree. A ticket
+raised and later deleted, absorbed or renamed leaves no file behind and
+remains named in closed tickets, commit messages and pull-request bodies. On
+the project this record comes from, measured against its default branch when
+EM-006 was raised, fourteen ids had been created and later had their file
+removed, and the next flat id was taken, worked and closed before anyone
+noticed it had been used before — the fourteenth. (On the branch that found
+it the count is thirteen, because there the reused id has a file again.)
+
+*Next-id rule:* the next id comes from **history**, not the tree — the set of
+ticket files ever added:
+
+```sh
+git log --diff-filter=A --name-only --format= -- docs/tickets \
+  | sed -E 's#.*/(PRJ-[0-9]+(-[0-9]+)*)-.*#\1#' | sort -u
+```
+
+A reused id is not renumbered after the fact, consistent with the
+no-retroactive-renumbering rule above. The newer ticket records the reuse and
+points at the older use.

@@ -105,6 +105,17 @@ every reading of it. That is not caution — it is unreviewable code.
 - Tests added for new behaviour. Existing tests pass.
 - Linter, formatter and strict type-checking all clean.
 - Coverage on changed files has not regressed.
+- The falsification gate is discharged: for each behavioural claim, the
+  wrong implementation the change rules out is named, applied, and the count
+  of tests that go red is recorded. A count of zero is reported as a zero,
+  not omitted. The gate and its two special cases are in
+  `docs/quality-gates.md`; this is a pre-report duty, not something review is
+  expected to catch.
+- Every measured number in the description names, **in the same sentence**,
+  the baseline it was measured against: the commit, the branch, the date, or
+  the population counted. A number without its baseline is indistinguishable
+  from an inherited one once written down, and inherited numbers drift — they
+  are restated, incremented and believed by readers who never had the source.
 - For critical-tier work, a second reviewer has approved.
 
 The pull-request description is appended to the ticket file before the ticket

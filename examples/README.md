@@ -11,7 +11,7 @@ and nothing within a published file is redacted.
 
 | File | Why it is here |
 |---|---|
-| [`adr-0038`](adr/adr-0038-tickets-carry-the-lineage-of-the-ticket-that-raised-them.md) | The ticket lineage scheme, decided and recorded as an ADR. The clearest example of the process governing itself. |
+| [`adr-0038`](adr/adr-0038-tickets-carry-the-lineage-of-the-ticket-that-raised-them.md) | The ticket lineage scheme, decided and recorded as an ADR. The clearest example of the process governing itself. Carries a dated annotation at the end, added under EM-006, correcting its lookup instructions; the original text is unchanged. |
 | [`adr-0019`](adr/adr-0019-a-non-committing-validate-endpoint.md) | Adding an endpoint that answers "would this be legal?" without mutating state — a contract decision, reasoned through alternatives. |
 | [`adr-0018`](adr/adr-0018-the-adapter-states-a-cors-policy.md) | A CORS decision that starts by questioning whether the concern belongs to this component at all, and records the negative consequences of the answer honestly. |
 

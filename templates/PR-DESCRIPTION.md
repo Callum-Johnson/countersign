@@ -29,10 +29,19 @@ PRJ-XXX — <ticket title> (also in frontmatter; can be terse)
 <1-3 sentences. What does this change accomplish?>
 
 ### Acceptance criteria
-Copy each AC from the ticket and tick it with evidence:
+Copy each AC from the ticket and tick it with evidence. Every number names
+its baseline in the same sentence (contributor policy §6):
 - [x] AC1: <criterion> — see `tests/unit/test_modifiers.py::test_caps_sv`
 - [x] AC2: <criterion> — see implementation in `core/modifiers.py:42`
 - [ ] AC3: <not done — explain why>
+
+### Falsification
+One line per behavioural claim: the wrong implementation ruled out, and the
+count of tests that go red under it (see "The falsification gate" in the
+quality-gates document). A zero is written as a zero. A test that cannot
+discriminate is listed with its docstring label and what it would take.
+- <claim> — mutant: <what was changed>; red: <N> of <M> tests
+- <claim> — non-discriminating: <label>; would need <input or fixture>
 
 ### Out of scope (per ticket)
 Confirm nothing in this PR exceeds the ticket's scope:
@@ -62,6 +71,9 @@ A PR may not be merged unless all are true:
 7. **Coverage** on changed files is ≥ the prior baseline (no regression).
 8. **No TODO / FIXME / XXX** introduced unless paired with a follow-up
    ticket ID in the comment, e.g. `# TODO(PRJ-042): handle ...`.
-9. **PR description** is complete per the template above.
+9. **PR description** is complete per the template above, and every
+   number in it names its baseline in the same sentence.
 10. **No forbidden actions** taken (see AGENTS.md).
+11. **Falsification gate** discharged and recorded: a red count per
+    behavioural claim, a zero written as a zero.
 

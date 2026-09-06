@@ -84,3 +84,39 @@ The scheme has a practical property: finding the next number means listing the
 siblings of one parent, so two agents working different tickets cannot collide
 on identifiers. It also means every ticket answers "why does this exist?"
 without anyone having to remember.
+
+Three things the scheme does not say for itself, each found in use:
+
+**A ticket raised by a review is created on the branch under review.** The id
+lives in the filename and git compares paths, so one id written under two
+slugs in two places — a review's copy in the main tree, the executor's on the
+branch — is two files for one id, and it merges with no conflict. Nothing in
+the scheme detects it, and two agents can then claim one ticket from different
+files. Creating the ticket where the review is means the sibling listing that
+yields the next id is the listing the id will land in, and a duplicate becomes
+a merge conflict, which is the crude lock this lifecycle already relies on,
+rather than a silent second file.
+
+**The next id comes from history, not the tree.** An id, once created, is
+spent. A ticket raised and later deleted, absorbed or renamed leaves no file
+and remains named in closed tickets, commit messages and pull-request bodies,
+and a read of the tree hands its id out again. Take the next number from the
+set of ticket files ever added — `git log --diff-filter=A --name-only --
+docs/tickets` — not from `ls`. This repository already has one such id:
+`EM-010-001` was created at 3da6c57 and renamed `EM-014-001` at 0947dda, so
+the tree shows no child of EM-010 while the history does, and the next child
+of EM-010 read from the tree would be `-001` again. On the source project the
+count stood at fourteen against its default branch when EM-006 was raised, and
+the fourteenth was taken, worked and closed before anyone noticed. A reused id
+is not renumbered afterwards; the newer ticket records the reuse and points at
+the older use.
+
+**A fixed commit-subject length does not compose with lineage ids.** No
+subject-length rule is published here. A project that brings one should
+choose, because a fourth-generation id such as `PRJ-284-001-001-001` takes
+roughly a third of a 72-character subject before the verb, and on the source
+project a 72-character limit was breached routinely once lineage ran deep,
+including by merge commits on the default branch. Two conventions that cannot
+both be followed are worse than either alone: the one enforced by nothing is
+the one dropped, and it is dropped silently. Exempt the id prefix from the
+count, or drop the limit, but decide.
