@@ -1,10 +1,13 @@
 ---
 id: EM-007-002
 title: A change to a process document is trivial by the operative test and critical by ADR-0002
-status: ready
+status: blocked
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
+blocked_at: 2026-09-06
 ---
 
 # EM-007-002 — Is a change to a process document trivial or critical?
@@ -101,6 +104,21 @@ tickets closed at `trivial`.
 The question is small and its answer is load-bearing: it decides whether
 this repository's own work is reviewable at the cost it has been paying, or
 at several times that cost.
+
+**BLOCKER (2026-09-06):** the executor cannot proceed. The Specification
+above states a question that §3 reserves to the maintainer: which of ADR-0002
+and the operative test governs the tier of a process-document change. Both
+readings are coherent, so this is not ambiguity, and the test §3 states is
+who answers rather than whether the executor could. Answering it in the diff
+— by writing either reading into the model and seeing whether anyone
+objects — is the invention §3 forbids, and it would be the executor choosing
+which tier its own future work carries.
+
+To proceed the executor needs the maintainer's choice among the three
+answers stated above, or a fourth. Answer 1 additionally requires a decision
+about the four tickets already closed at `trivial` on the narrow reading:
+whether the record is corrected, or the closures stand and the rule applies
+from the decision forward.
 
 ## PR Description
 
