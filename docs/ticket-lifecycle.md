@@ -52,8 +52,67 @@ no coordination service, and cannot fail in a way that silently permits two
 agents to work the same ticket — which is the failure that actually matters.
 
 **Retired when:** two agents are shown to have worked the same ticket without
-a conflict — the lock failed silently, which it is designed not to do — or the
-project adopts a coordination service that makes the file move redundant.
+a conflict — the lock failed silently, which it is designed not to do — or
+the project adopts a coordination service that makes the file move
+redundant.
+
+## Batching trivial work
+
+The tier model scales review to risk and nothing else: a `trivial` change
+and a `critical` one pay the same ticket, claim, description, close and
+gate run. On the control-plane project that implements this process
+mechanically, one line added to `.gitignore` cost six commits, two moves
+through the ticket directories, a pull-request description and a gate run
+of about twelve minutes, per the pull-request description of the ticket
+that made it (OMN-025). Nothing was done wrong. A lifecycle whose cheapest
+path costs that trains contributors to commit small things without it, and
+a rule routinely bypassed is worse than none.
+
+A change whose operative test returns `trivial` may therefore be committed
+against an **open batch ticket** instead of a ticket of its own. Every
+other tier keeps its own ticket.
+
+- **The batch is an ordinary ticket** in every other respect: a flat
+  identifier, claimed by the procedure above, held by one agent, in
+  `active/` while held, closed and merged like any other. It is not a
+  standing ticket. A ticket permanently in `active/` makes the board
+  describe work nobody is doing.
+- **Each entry is listed individually**: what changed, the operative test's
+  answer for that entry, and its evidence. The batch is a container for
+  separately justified changes, not one change with several parts. Listing
+  each entry with its own answer makes hiding a non-trivial change a false
+  statement a reviewer can check, rather than an omission nobody can see.
+  That is a mitigation, not a guarantee: a project adopting this accepts
+  that the batch is the least scrutinised path it has.
+- **A change found to be above `trivial` leaves the batch** and takes its
+  own ticket. If it was already committed to the batch, the batch ticket
+  records that as a finding, in those words; it is not quietly moved.
+- **The batch closes on a cap** — a number of entries or an age, whichever
+  comes first — so that it cannot accumulate and so that the gate run at
+  its head stays attributable to a diff small enough to read. Ten entries
+  or seven days is the default, named as a default; the reasoning is that
+  ten `.gitignore`-sized diffs are still one screen, and a week is the
+  longest a board should show a batch as active work.
+- **Only the holder commits to the batch.** An agent wanting a trivial
+  change while another holds the batch opens the next one rather than
+  appending. A shared append-only file conflicts between agents, and the
+  file move is the crude lock this lifecycle already relies on.
+- **Gates run once, on the batch's head**, under the existing rule. That is
+  the whole saving: one run for several entries rather than one each.
+
+**What batching does not save.** It amortises; it does not reduce. The
+first entry in a batch costs exactly what a solo trivial ticket costs, and
+the measured change above had no siblings to batch with — this rule would
+not have made it faster. The saving appears only across several, and a
+project with few trivial changes should expect little. The lever that
+lowers the floor for a lone change is scoping the gates to what the diff
+touches, which is a change to the quality gates and is not decided here.
+
+**Retired when:** over a project's first twenty closed batches, entries are
+found at close to have been above `trivial` more than once — the batch then
+hides what it was said not to hide — or gate scoping lands and a lone
+trivial change costs no more than its diff, at which point a batch saves
+nothing and costs a read.
 
 ## Blocking
 
