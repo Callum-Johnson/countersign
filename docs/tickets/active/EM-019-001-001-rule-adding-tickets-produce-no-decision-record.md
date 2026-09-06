@@ -1,10 +1,12 @@
 ---
 id: EM-019-001-001
 title: Rule-adding tickets produce no decision record, against the trigger list
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-06
 ---
 
 # EM-019-001-001 — Rule-adding tickets produce no decision record
