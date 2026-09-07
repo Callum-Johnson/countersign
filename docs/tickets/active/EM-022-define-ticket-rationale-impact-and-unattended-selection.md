@@ -287,7 +287,7 @@ maintainer records and preserves every existing assurance boundary.
 
 The reproducible PowerShell command in "How to verify" checks each claim in
 the table independently, then replaces every supporting statement for that
-claim in memory. Run after `0b507e8`, it passed 17 baseline checks and
+claim in memory. Run after `2e916fd`, it passed 17 baseline checks and
 rejected 17 mutations; that commit is the baseline for every count in this
 section.
 
@@ -382,4 +382,4 @@ foreach ($claim in $claims) {
 | 3 | 1 | reproducible per-claim falsification evidence | no | `5fe7998` |
 | 4 | 1 | falsification mutations cover claim fragments, not whole compound claims | no | `12796ab` |
 | 5 | 1 | three claim mutations leave alternate supporting wording intact | no | `0b507e8` |
-| 6 | 1 | scheduling-order predicate does not cover `greatest allowed` | no | — |
+| 6 | 1 | scheduling-order predicate does not cover `greatest allowed` | no | `2e916fd` |
