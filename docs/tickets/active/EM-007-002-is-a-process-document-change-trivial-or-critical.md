@@ -1,13 +1,12 @@
 ---
 id: EM-007-002
 title: A change to a process document is trivial by the operative test and critical by ADR-0002
-status: blocked
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
 claimed_by: claude-opus-5
 claimed_at: 2026-09-07
-blocked_at: 2026-09-07
 ---
 
 # EM-007-002 — Is a change to a process document trivial or critical?
@@ -146,7 +145,9 @@ The four tickets closed on this reading therefore stand and need no
 correction. Correcting them was a consequence of answer 1, which was not
 chosen.
 
-**BLOCKER (2026-09-07):** the independent review of 49b5c00 reached, in
+**BLOCKER (2026-09-07) — Discharged (2026-09-07) by the maintainer's answer
+recorded beneath it. The blocker text is left as the record of why the work
+stopped.** The independent review of 49b5c00 reached, in
 finding R1.4, a second question the contributor policy's §3 reserves. It is
 not ambiguity: both answers are coherent, and answering either one in the
 diff would narrow the maintainer's sentence or extend the maintainer's
@@ -199,6 +200,28 @@ What the executor needs in order to proceed: the maintainer's choice among
 those, or a different one, and — under answer 1 — whether EM-018-001's
 closure is corrected or stands. The round-1 record and the repair are in the
 Review section of the description below, which travels with this block.
+
+**Maintainer's decision (2026-09-07): answer 2.** The line does not reach
+such a change: correcting a restatement of a rule or a procedure, in a
+document that is not where the question is settled, to agree with the
+document that settles it, where that document is itself unchanged, is
+`trivial`.
+
+The reasoning recorded with the decision: no rule and no procedure moved.
+The document that settles the question is unchanged, and what a contributor
+is bound to do is unchanged.
+
+The cost the decision accepts, in the terms the answer was offered in: the
+negative list's second entry widens from a duplicated list to any
+restatement, and whether one's own document was the authority is then judged
+by the executor who would prefer `trivial`. The mitigation is the
+separation-of-duties rule and nothing else — an executor may raise a tier
+and may never lower one.
+
+EM-018-001's `standard` closure therefore stands and needs no correction:
+`standard` is above what the line returns, and raising is the executor's to
+do. EM-007-001 keeps its `trivial` closure, as it did under the first
+decision.
 
 ## PR Description
 
