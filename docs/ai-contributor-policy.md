@@ -260,23 +260,36 @@ every reading of it. That is not caution — it is unreviewable code.
   instance", whether it is repaired in the round or at close. That exemption
   is from this bullet only; the class signal in `docs/tier-review-model.md`,
   "What a review reports", asks for the same form on a trigger of its own,
-  which this narrowing does not reach. A class with no finite enumeration —
-  "what could a user type" — is recorded as the third condition of "When
-  review ends" in `docs/tier-review-model.md` records a list: best-effort,
-  with the coverage stated. Where the change has no suite, each sibling says
-  what a reader would do differently, as the template says for a claim. The
-  form is in `templates/PR-DESCRIPTION.md`, and the reason a test pins a claim
-  rather than a mechanism is with the gate in `docs/quality-gates.md`.
+  which this narrowing does not reach. **The rank is the reviewer's, and the
+  record carries it finding by finding.** Every finding line in the Review
+  section says whether the reviewer recorded that finding as blocking merge
+  and, where the finding sits inside the previous round's fix, which finding's
+  repair it sits inside — the two facts this bullet and its falsifier turn on,
+  in the form `templates/PR-DESCRIPTION.md` gives. The executor transcribes
+  both and does not re-rank, exactly as it routes a finding under the second
+  condition of "When review ends" without reclassifying it; a rank the
+  executor can set is a scope the controlled party can set. A finding the
+  reviewer left unranked is repaired at its class as a must-fix is, so that
+  silence never narrows the obligation of the party writing the description.
+  A class with no finite enumeration — "what could a user type" — is recorded
+  the way the third condition of "When review ends" in
+  `docs/tier-review-model.md` records a list: best-effort, with the coverage
+  stated. Where the change has no suite, each sibling says what a reader would
+  do differently, as the template says for a claim. The form is in
+  `templates/PR-DESCRIPTION.md`, and the reason a test pins a claim rather
+  than a mechanism is with the gate in `docs/quality-gates.md`.
   **Retired when:** over a stated population of critical-tier tickets, repairs
   declared "repair of the instance" draw a sibling finding in the next round
   no more often than repairs that named a class — the enumeration then costs a
-  suite run per sibling and prevents nothing — or a repair made for a finding
-  the reviewer did not record as a must-fix draws a finding inside that repair
-  in a later round, more than once over a stated population of closed tickets,
-  which is the exemption above costing the rounds the enumeration exists to
-  save. The second arm is read from the Review tables of closed critical-tier
-  tickets, which record each round's findings, which of them blocked merge,
-  and how many sat inside the previous round's fix.
+  suite run per sibling and prevents nothing — or a finding in a later round
+  sits inside the repair of a finding the reviewer ranked a note, more than
+  once over a stated population of closed tickets, which is the exemption
+  above costing the rounds the enumeration exists to save. The second arm is
+  read from the finding lines of closed critical-tier tickets, each of which
+  carries its rank and, where it sits inside the previous round's fix, the
+  finding whose repair it sits inside; it counts only rounds recorded under
+  this rule, since a note repaired while the obligation still bound it is not
+  evidence about the exemption.
 - Every measured number in the description names, **in the same sentence**,
   the baseline it was measured against: the commit, the branch, the date, or
   the population counted. A number without its baseline is indistinguishable

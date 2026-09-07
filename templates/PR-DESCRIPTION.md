@@ -50,10 +50,14 @@ criterion, what a reader would do differently because of it.
 For each review must-fix repaired, `<n>.<k>` as numbered in Review: the
 class — the question that enumerates the finding and its siblings — and
 each sibling with its test and red count; or the words `repair of the
-instance` (contributor policy §6). A finding the reviewer did not
-record as a must-fix carries no line here. Where the change has no
-suite, each sibling says what a reader would do differently, as the
-line above says for a claim.
+instance` (contributor policy §6). A finding the reviewer ranked a note
+need carry no line here, except where the class signal in
+`docs/tier-review-model.md`, "What a review reports", has fired on the
+rule it landed on: that signal has a trigger of its own, which §6's
+narrowing does not reach, and its form is recorded here whatever the
+ranks of the two findings. Where the change has no suite, each sibling
+says what a reader would do differently, as the line above says for a
+claim.
 - R<n>.<k> — class: <question>; siblings: <a> (<test>, red <N> of <M>),
   <b> (<test>, red <N> of <M>)
 - R<n>.<k> — repair of the instance
@@ -83,16 +87,19 @@ round. The total is derived from the rows and never asserted beside them
 `—` where nothing was repaired; `m` and `n` count must-fixes, not findings.
 
 Findings, per round, each in one of the two columns the tier review model
-names ("What a review reports"), naming the rule it landed on and whether
-it sits inside the previous round's fix, so that the both-columns-on-one-rule
-signal can be read from the record. A tightening remedy carries its cost in
-the same line.
-- R1.1 · permits · <rule> · <what the change permits that the ticket
-  refuses> — remedy: <x>; cost, if the remedy tightens a control: <which
-  ordinary changes now pay it, measured where it can be>; inside previous
-  fix: <yes/no>
-- R1.2 · refuses · <rule> · <what the change refuses that honest work
-  needs> — remedy: <x>; inside previous fix: <yes/no>
+names ("What a review reports"), with the rank the reviewer gave it, the
+rule it landed on, and, where it sits inside the previous round's fix, the
+finding whose repair it sits inside — so that the both-columns-on-one-rule
+signal and the falsifier of the class obligation in contributor policy §6
+can both be read from the record. The rank and the rule are the reviewer's:
+the executor transcribes them and does not re-rank. A tightening remedy
+carries its cost in the same line.
+- R1.1 · permits · must-fix · <rule> · <what the change permits that the
+  ticket refuses> — remedy: <x>; cost, if the remedy tightens a control:
+  <which ordinary changes now pay it, measured where it can be>; inside
+  previous fix: <the R<n>.<k> whose repair it sits inside, or `no`>
+- R1.2 · refuses · note · <rule> · <what the change refuses that honest
+  work needs> — remedy: <x>; inside previous fix: no
 ```
 
 ### Definition of Done (all tiers)
