@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: ready
+status: in-progress
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -9,8 +9,8 @@ delivery: enabling
 why: "Without portable rationale and impact fields, an unattended scheduler cannot distinguish demonstrated blocking work from speculative work."
 complexity: L
 dependencies: []
-claimed_by:
-claimed_at:
+claimed_by: codex
+claimed_at: 2026-09-07
 blocked_at:
 closed_at:
 ---
