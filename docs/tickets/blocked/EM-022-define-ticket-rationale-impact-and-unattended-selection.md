@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: in-progress
+status: blocked
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -11,7 +11,7 @@ complexity: L
 dependencies: []
 claimed_by: codex
 claimed_at: 2026-09-07
-blocked_at:
+blocked_at: 2026-09-07
 closed_at:
 ---
 
@@ -204,6 +204,10 @@ that those claims be split into independently falsifiable claims. This reopens
 the ticket solely to make that evidence repair. A fifth independent review
 remains required before the ticket can close.
 
+BLOCKER: The split-claim repair is `12796ab` and its 17 independent mutations
+pass. The ticket requires maintainer direction for the fifth independent
+review before it can close.
+
 ## PR Description
 
 ### Ticket
@@ -252,8 +256,8 @@ maintainer records and preserves every existing assurance boundary.
 
 The reproducible PowerShell command in "How to verify" checks each claim in
 the table independently, then replaces that claim's required text in memory.
-The command is run after its repair commit; that commit is the baseline for
-every count in this section.
+Run after `12796ab`, it passed 17 baseline checks and rejected 17 mutations;
+that commit is the baseline for every count in this section.
 
 | Claim | Mutant | Red |
 |---|---|---|
@@ -344,4 +348,4 @@ foreach ($claim in $claims) {
 | 1 | 5 | board index; child-ticket lifecycle; template classification; impact ordering; rule falsifiers | — | `91c2bd7` |
 | 2 | 1 | contributor-policy document map | no | `093e430` |
 | 3 | 1 | reproducible per-claim falsification evidence | no | `5fe7998` |
-| 4 | 1 | falsification mutations cover claim fragments, not whole compound claims | no | — |
+| 4 | 1 | falsification mutations cover claim fragments, not whole compound claims | no | `12796ab` |
