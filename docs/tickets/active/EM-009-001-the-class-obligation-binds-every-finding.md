@@ -1,13 +1,12 @@
 ---
 id: EM-009-001
 title: The class obligation binds every repaired finding and was priced on must-fixes
-status: blocked
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
-claimed_by: claude-fable-5-1
-claimed_at: 2026-09-06
-blocked_at: 2026-09-06
+claimed_by: claude-opus-5
+claimed_at: 2026-09-07
 ---
 
 # EM-009-001 — The class obligation binds every repaired finding
@@ -102,6 +101,26 @@ To proceed the executor needs the maintainer's choice among the three
 answers stated above, or a fourth. Answer 1 needs no document change and
 would close this ticket by recording the decision; answers 2 and 3 are an
 amendment with record under "Retiring a control".
+
+**Discharged (2026-09-07).** The maintainer answered the reserved question
+and chose answer 2: the class obligation narrows to must-fixes. A repaired
+finding the reviewer did not record as blocking merge carries nothing —
+neither a class and its siblings nor the words "repair of the instance".
+The `BLOCKER:` text above stands as the record of why the ticket stopped
+and is kept rather than deleted.
+
+The reasoning the maintainer gave, recorded here because the repository is
+the only record there is: under the obligation as it stands, every note
+repaired in this repository’s closed tickets came back declared "repair of
+the instance" with no siblings enumerated, which is the declaration written
+by habit that "Retiring a control" calls decorative.
+
+The risk the maintainer accepted is the one answer 2 states above, and it
+is not hypothetical. Round 2 of EM-009’s own review found a repair made
+for a note — R1.6, the exit for a class with no finite enumeration — which
+named "the stopping rule" without saying where it is, a section name no
+document carries. Under the narrowed obligation that repair would have
+carried nothing.
 
 ## PR Description
 
