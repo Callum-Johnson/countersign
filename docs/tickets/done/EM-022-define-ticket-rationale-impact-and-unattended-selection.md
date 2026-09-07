@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: in-progress
+status: done
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -12,7 +12,7 @@ dependencies: []
 claimed_by: codex
 claimed_at: 2026-09-07
 blocked_at:
-closed_at:
+closed_at: 2026-09-07
 ---
 
 # EM-022 — Define ticket rationale, impact and unattended selection
@@ -279,9 +279,9 @@ maintainer records and preserves every existing assurance boundary.
   lifecycle scope and both new tickets — `README.md`,
   `docs/ai-contributor-policy.md`, "Which document settles what", and
   `docs/tickets/README.md`.
-- [ ] AC7: every substantive new rule has a `Retired when:` line; the sixth
-  review found the scheduling-order predicate accepts a reversed order. The
-  blocker above records the required repair and next review.
+- [x] AC7: every substantive new rule has a `Retired when:` line; the seventh
+  independent review verified the repaired scheduling-order predicate and all
+  seventeen baseline claims and counterfactuals at `47d2887`.
 
 ### Falsification
 
@@ -383,3 +383,4 @@ foreach ($claim in $claims) {
 | 4 | 1 | falsification mutations cover claim fragments, not whole compound claims | no | `12796ab` |
 | 5 | 1 | three claim mutations leave alternate supporting wording intact | no | `0b507e8` |
 | 6 | 1 | scheduling-order predicate does not cover `greatest allowed` | no | `2e916fd` |
+| 7 | 0 | policy, templates, ticket evidence and complete falsification verifier | — | — |
