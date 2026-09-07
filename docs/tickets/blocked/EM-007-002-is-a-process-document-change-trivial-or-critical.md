@@ -1,12 +1,13 @@
 ---
 id: EM-007-002
 title: A change to a process document is trivial by the operative test and critical by ADR-0002
-status: in-progress
+status: blocked
 tier: critical
 complexity: S
 dependencies: []
 claimed_by: claude-opus-5
 claimed_at: 2026-09-07
+blocked_at: 2026-09-07
 ---
 
 # EM-007-002 — Is a change to a process document trivial or critical?
@@ -144,6 +145,60 @@ The reasoning recorded with the decision, in three parts:
 The four tickets closed on this reading therefore stand and need no
 correction. Correcting them was a consequence of answer 1, which was not
 chosen.
+
+**BLOCKER (2026-09-07):** the independent review of 49b5c00 reached, in
+finding R1.4, a second question the contributor policy's §3 reserves. It is
+not ambiguity: both answers are coherent, and answering either one in the
+diff would narrow the maintainer's sentence or extend the maintainer's
+carve-out to a closure the maintainer did not have in front of them. Every
+other repair round 1 asked for raises a tier, which is the executor's to do
+and is done; this one could only lower one.
+
+`templates/TICKET.md`, "How to use this template", is an ordered sequence a
+contributor performs, which the line written into
+`docs/tier-review-model.md` calls a procedure. EM-018-001 rewrote its step 5
+(the branch to commit on) and its step 1 (how the next lineage id is found)
+— 12 insertions and 7 deletions in that file, plus one line added to
+`.gitignore`, read from `git show --numstat 5750d73` — and closed
+`standard`, self-merged, with no independent review. Each of those changes
+brought the template into agreement with `docs/ticket-lifecycle.md`, the
+document that settles the procedure, and the lifecycle itself was not
+touched.
+
+The question: **does the line reach a change that corrects a restatement of
+a rule or a procedure, in a document that is not where the question is
+settled, to agree with the document that settles it, which is itself
+unchanged?**
+
+The answers available, with what each costs:
+
+1. **It reaches, and such a change is `critical`.** A contributor reading
+   the restatement performs the steps it states, so rewriting them changes
+   what a contributor does, whatever another document says. Cost:
+   EM-018-001 is then a closure at a tier the decision contradicts, and
+   whether the record is corrected or the closure stands from 2026-09-07
+   forward is the question answer 1 of the Specification also carried, now
+   asked of a ticket the decision did not name. And EM-007-001 — one of the
+   four closures the decision preserves — is one step from the same shape,
+   having replaced a duplicated list with a reference to it; the second
+   entry of the negative list in "The operative test" would need restating
+   on ground narrow enough to keep EM-007-001 and lose EM-018-001, or it
+   falls with it.
+2. **It does not reach, and such a change is `trivial`.** No rule and no
+   procedure moved: the document that settles the question is unchanged,
+   and what a contributor is bound to do is unchanged. Cost: the negative
+   list's second entry widens from a duplicated list to any restatement,
+   and whether one's own document was "the authority" is then decided by
+   the executor who would prefer `trivial` — ADR-0001's Alternative 3 in
+   the form this ticket's own cost paragraph names.
+3. **Something else**, including a third negative entry drawn narrowly
+   enough to cover EM-007-001 and not EM-018-001, or a reading that reaches
+   the change but leaves closures made before 2026-09-07 alone.
+
+What the executor needs in order to proceed: the maintainer's choice among
+those, or a different one, and — under answer 1 — whether EM-018-001's
+closure is corrected or stands. The round-1 record and the repair are in the
+Review section of the description below, which travels with this block.
 
 ## PR Description
 
