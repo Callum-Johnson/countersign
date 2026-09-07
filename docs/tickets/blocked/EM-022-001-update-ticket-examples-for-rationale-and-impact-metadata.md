@@ -1,17 +1,17 @@
 ---
 id: EM-022-001
 title: Update ticket examples for rationale and impact metadata
-status: ready
+status: blocked
 tier: trivial
 kind: maintenance
 impact: enhancement
 delivery: maintenance
 why: "Without updated examples, adopters can copy ticket forms that omit newly required rationale and impact metadata."
 complexity: S
-dependencies: [EM-022]
+dependencies: []
 claimed_by:
 claimed_at:
-blocked_at:
+blocked_at: 2026-09-07
 closed_at:
 ---
 
@@ -28,6 +28,9 @@ Evidence: the examples under `examples/tickets/` contain the existing
 frontmatter shape and no `## Why this ticket should be worked` section.
 Deferral is acceptable until EM-022 merges because the template continues to
 be the current authoritative form.
+
+BLOCKER: EM-022 must merge before examples can truthfully demonstrate its
+required ticket form. Unblock when that rule is present on the default branch.
 
 ## Context
 

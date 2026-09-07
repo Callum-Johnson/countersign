@@ -10,8 +10,9 @@ merge authority.
 
 ## Eligible impact
 
-List the `impact` values an unattended selector may choose, in the order this
-project permits. A selector may consider no other value.
+List the `impact` values an unattended selector may choose. The lifecycle's
+portable impact order is fixed: a selector always chooses the greatest allowed
+impact first. This policy chooses eligibility, not a replacement order.
 
 - `system-unavailable`
 - <other permitted values, or `N/A`>

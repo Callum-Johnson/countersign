@@ -109,6 +109,10 @@ criteria, the references, and an explicit out-of-scope list.
   the declared impact and its justification do not agree, block for the party
   that owns the ticket to correct the contract.
 
+**Retired when:** the adopting project generates impact from a durable,
+maintainer-owned evidence record and agents cannot write either the generated
+field or its source. The agent then has no impact judgement to substitute.
+
 **Retired when:** a project's closed tickets show out-of-scope work rejected
 at review that the ticket's author, asked afterwards, would have accepted,
 more often than they show scope creep caught — counted over a stated

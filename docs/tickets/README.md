@@ -52,6 +52,8 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-019-001-001-001 | ready | critical | The decision-record test reads wider than the line drawn beneath it |
 | EM-020 | done | critical | Read the whole thing before acting on part of it |
 | EM-021 | done | critical | A rule needs a second instance before it is written |
+| EM-022 | active | critical | Define ticket rationale, impact and unattended selection |
+| EM-022-001 | blocked | trivial | Update ticket examples for rationale and impact metadata |
 | EM-020-001 | blocked | critical | A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded |
 | EM-007-002 | blocked | critical | A process-document change is trivial by the test and critical by ADR-0002 |
 | EM-009-001 | blocked | critical | The class obligation binds every repaired finding |

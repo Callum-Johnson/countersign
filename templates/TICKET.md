@@ -18,6 +18,13 @@ closed_at:             # ISO date, filled when moved to done/
 
 # PRJ-XXX — <ticket title>
 
+`delivery: slice` is the thinnest independently demonstrable end-to-end
+outcome. `delivery: enabling` is work that enables a named slice or capability
+without itself being end-to-end; `delivery: maintenance` preserves an existing
+capability. `impact` states the consequence of deferral, while `kind` states
+the kind of work. None of these fields changes `tier`; use the operative test
+to determine required assurance.
+
 ## Why this ticket should be worked
 
 State the causal case for spending capacity on this work. Name:
@@ -32,6 +39,10 @@ The frontmatter `why` is a concise summary of this section. It is not a
 substitute for the evidence here. A ticket that cannot make this case is not
 ready; it belongs in the adopting project's intake or backlog until the case
 is known.
+
+**Retired when:** a project adopts a durable intake record that carries the
+same causal evidence and is mechanically linked to every ticket, so this
+section duplicates a maintained source of the capacity decision.
 
 ## Context
 
