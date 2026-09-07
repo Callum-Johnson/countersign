@@ -243,7 +243,9 @@ every reading of it. That is not caution — it is unreviewable code.
   not omitted. The gate and its two special cases are in
   `docs/quality-gates.md`; this is a pre-report duty, not something review is
   expected to catch.
-- A review finding is repaired at its class. For each finding repaired, the
+- A review must-fix is repaired at its class — a must-fix being a finding the
+  reviewer records as blocking merge, as "When review ends" in
+  `docs/tier-review-model.md` defines it. For each must-fix repaired, the
   description names **the class** — the question which, asked of the whole
   change, produces this finding and its siblings: "what does the interpreter
   load" is a class, "`.py` files at the root" is an instance — and **the
@@ -252,18 +254,29 @@ every reading of it. That is not caution — it is unreviewable code.
   rival as the gate already requires. A repair that names no class says
   **repair of the instance**, in those words. That is permitted — some
   findings are singular — and it is a claim the reviewer can check: the next
-  round finding a sibling is then a finding against the repair's own claim. A
-  class with no finite enumeration — "what could a user type" — is recorded as
-  the third condition of "When review ends" in `docs/tier-review-model.md`
-  records a list: best-effort, with the coverage stated. Where the change has
-  no suite, each sibling says what a reader would do differently, as the
-  template says for a claim. The form is in `templates/PR-DESCRIPTION.md`, and
-  the reason a test pins a claim rather than a mechanism is with the gate in
-  `docs/quality-gates.md`.
+  round finding a sibling is then a finding against the repair's own claim.
+  **A note carries nothing.** A finding the reviewer did not record as a
+  must-fix owes neither a class and its siblings nor the words "repair of the
+  instance", whether it is repaired in the round or at close. That exemption
+  is from this bullet only; the class signal in `docs/tier-review-model.md`,
+  "What a review reports", asks for the same form on a trigger of its own,
+  which this narrowing does not reach. A class with no finite enumeration —
+  "what could a user type" — is recorded as the third condition of "When
+  review ends" in `docs/tier-review-model.md` records a list: best-effort,
+  with the coverage stated. Where the change has no suite, each sibling says
+  what a reader would do differently, as the template says for a claim. The
+  form is in `templates/PR-DESCRIPTION.md`, and the reason a test pins a claim
+  rather than a mechanism is with the gate in `docs/quality-gates.md`.
   **Retired when:** over a stated population of critical-tier tickets, repairs
   declared "repair of the instance" draw a sibling finding in the next round
-  no more often than repairs that named a class; the enumeration then costs a
-  suite run per sibling and prevents nothing.
+  no more often than repairs that named a class — the enumeration then costs a
+  suite run per sibling and prevents nothing — or a repair made for a finding
+  the reviewer did not record as a must-fix draws a finding inside that repair
+  in a later round, more than once over a stated population of closed tickets,
+  which is the exemption above costing the rounds the enumeration exists to
+  save. The second arm is read from the Review tables of closed critical-tier
+  tickets, which record each round's findings, which of them blocked merge,
+  and how many sat inside the previous round's fix.
 - Every measured number in the description names, **in the same sentence**,
   the baseline it was measured against: the commit, the branch, the date, or
   the population counted. A number without its baseline is indistinguishable

@@ -47,12 +47,13 @@ criterion, what a reader would do differently because of it.
 - <claim> — mutant: <what was changed>; red: <N> of <M> tests
 - <claim> — non-discriminating: <label>; would need <input or fixture>
 
-For each review finding repaired, `<n>.<k>` as numbered in Review: the
+For each review must-fix repaired, `<n>.<k>` as numbered in Review: the
 class — the question that enumerates the finding and its siblings — and
 each sibling with its test and red count; or the words `repair of the
-instance` (contributor policy §6). Where the change has no suite, each
-sibling says what a reader would do differently, as the line above says
-for a claim.
+instance` (contributor policy §6). A finding the reviewer did not
+record as a must-fix carries no line here. Where the change has no
+suite, each sibling says what a reader would do differently, as the
+line above says for a claim.
 - R<n>.<k> — class: <question>; siblings: <a> (<test>, red <N> of <M>),
   <b> (<test>, red <N> of <M>)
 - R<n>.<k> — repair of the instance
