@@ -68,6 +68,77 @@ population, and a maintainer's spot-check of self-merged work is another;
 the line is then drawn in the wrong place, and the sentence retires in
 favour of one drawn from those cases.
 
+**A change to a process document.** A process document states rules a
+contributor follows — the class the contributor policy's map-keeping rule
+governs, and not a document that records work. Two parts of this test point
+opposite ways at one: nothing in a process document is executed by a
+program or read by a caller as a contract, which is the paragraph above
+returning `trivial`, and ADR-0002's Context reads clause 5 as reaching
+every change to one, which returns `critical`. Clause 5 governs, and
+reaches a change to a process document when, and only when, the change
+**adds, alters or retires a rule or a procedure**. A change to a process
+document that does neither is `trivial`.
+
+What that reaches:
+
+- **A rule** — a sentence a contributor must follow, with the parts that
+  decide when it applies: its scope, its threshold, its default, its
+  exemptions, and its **Retired when:** line. Widening or narrowing an
+  existing rule alters it, and so does moving where a question is settled.
+- **A procedure** — an ordered sequence a contributor performs: claiming,
+  blocking, batching, closing, the pre-flight checklist, what a
+  pull-request description carries. Adding, removing or reordering a step
+  alters it, and so does changing what a step produces.
+- **A decision record** — not a process document, since it records a
+  decision rather than states rules, but what it decides constrains future
+  work as a rule does. Writing one, or changing what one decides, is a rule
+  entering or changing by another route, and is `critical` on these same
+  words.
+
+What it does not reach:
+
+- A reference the document states wrongly, corrected: a filename, a section
+  name, a ticket identifier.
+- A list duplicated from another document, replaced by a reference to the
+  list it duplicated, where that list is unchanged.
+- A dated annotation appended to a closed ticket or a decision record that
+  leaves every rule and every decision as it stands.
+- Wording that leaves every rule's conditions and every procedure's steps
+  as they were: a typo, a heading level, a dead link, a re-flow.
+
+Neither list is closed. The words in bold decide; the entries are the cases
+this repository has met, and a change matching no entry is answered by
+asking whether a rule or a procedure moved.
+
+Two closed tickets show the line. EM-012-001 added the sentence above that
+separates `trivial` from `standard`: a rule entered a process document, and
+the ticket closed `critical` with an independent review. EM-007-001
+replaced the enumeration of the description's sections
+in `docs/ticket-lifecycle.md`, "Closing", with a reference to
+`templates/PR-DESCRIPTION.md`, the list it had duplicated: the closing
+procedure kept its steps and no rule moved, and the ticket closed `trivial`
+and self-merged.
+
+The cost of drawing the line here is that it is drawn by the executor, at
+the moment the executor would prefer the answer to be `trivial` — which is
+ADR-0001's Alternative 3, "'substantive' is decided by the person who wants
+the exemption, and the exemption widens", in a different form. Two things
+hold it. The sentence above binds here — where the line is unclear the
+executor may raise and may never lower — and "Separation of duties" leaves
+lowering to the reviewer. And these words are in this document rather than
+in each ticket's Notes, so a `trivial` claim on a process-document change
+is checkable against them by anyone reading the closed ticket, which is
+what the falsifier below counts.
+
+**Retired when:** a change to a process document closed `trivial` under the
+line stated here is found to have added, altered or retired a rule or a
+procedure after all, more than once over a stated population — the closed
+tickets carrying `tier: trivial` in `docs/tickets/done/` are that
+population, and a maintainer's spot-check of self-merged work is how they
+are read. The line is then drawn where the executor wants it rather than
+where these words fall, and it retires in favour of ADR-0002's Context read
+as written: every change to a process document is `critical`.
+
 In one line:
 
 > **Could an existing caller, or a seeded run, notice this change without

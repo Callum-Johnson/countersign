@@ -115,3 +115,37 @@ R1.9 of round 1).
 
 This record was also created carrying `status: accepted` rather than
 `proposed`. ADR-0001's annotation records why both are left as they stand.
+
+## Annotation — added 2026-09-07 under EM-007-002
+
+> Not part of the decision as recorded. The text above the horizontal line
+> is unchanged, and the status stays `accepted`.
+
+The Context sentence "Changes to process documents are process-surface
+changes, which the operative test classifies as critical" is wider than the
+tier this repository has been assigning. Which of that sentence and the
+operative test governs was reserved to the maintainer under the contributor
+policy's §3, and was settled on 2026-09-07 in favour of the test, read
+narrowly: a change to a process document is `critical` when it adds, alters
+or retires a rule or a procedure, and `trivial` when it does not.
+`docs/tier-review-model.md`, "The operative test", now states that line with
+its falsifier and is the authority on it.
+
+What stands: the sentence's conclusion for every change that adds, alters or
+retires a rule or a procedure, and every decision this record makes about
+what critical-tier review requires, who may perform it, and what it
+receives. What narrows is the sentence's reach to process-document changes
+that do neither. The four tickets closed on the narrower reading before it
+was written down — EM-007-001, EM-010-002, EM-012-001-001 and the entries of
+the batch EM-017 — stand and are not reclassified; correcting them was a
+consequence of the wider reading, which was not chosen.
+
+The reasoning recorded with the choice: it matches what those four tickets
+did; it keeps the batch path of `docs/ticket-lifecycle.md`, "Batching
+trivial work", usable here, which the wider reading would have removed,
+because under it nothing in this repository would ever be `trivial`; and its
+acknowledged cost — the line is drawn by the executor at the moment the
+executor would prefer `trivial` — is met by the separation-of-duties rule
+that an executor may raise a tier and may never lower it. Routed here from
+EM-007-002, raised by the independent reviews of EM-007 (finding 12 of round
+2) and EM-012-001 (finding R2.2 of round 2).
