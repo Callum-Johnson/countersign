@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: blocked
+status: in-progress
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -11,7 +11,7 @@ complexity: L
 dependencies: []
 claimed_by: codex
 claimed_at: 2026-09-07
-blocked_at: 2026-09-07
+blocked_at:
 closed_at:
 ---
 
@@ -231,6 +231,13 @@ does not test the `greatest allowed` qualifier. A policy that selected the
 lowest allowed impact would still satisfy it. Correct that predicate and its
 mutant, then obtain maintainer direction for a seventh independent review
 before closing.
+
+### Resolved seventh-review block
+
+On 2026-09-07, the maintainer directed the repair of the
+`greatest allowed` predicate gap and a seventh independent review. This
+reopens the ticket solely for that repair and review; it does not authorise a
+scope change, merge, tier reduction or an exception to any other gate.
 
 ## PR Description
 
