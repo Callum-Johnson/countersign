@@ -90,16 +90,38 @@ finding by finding. The Review tables carried a per-round must-fix count and
 while the finding lines carried the column, the rule, the remedy, the cost
 and whether the finding sat inside the previous round's fix. The executor
 writes the description and transcribes the reviewer's findings into it, so
-the party the obligation sits on could have set its scope — the separation-of-duties failure the
-narrowing exists to avoid. So each finding line in
-`templates/PR-DESCRIPTION.md` now carries the rank the reviewer gave the
-finding, and its inside-the-previous-fix field names the finding whose
-repair it sits inside rather than answering yes or no. The reviewer records
-both; the executor transcribes them and does not re-rank; a finding the
-reviewer left unranked is repaired at its class as a must-fix is, so silence
-cannot narrow the obligation either. The class signal in "What a review
-reports" reads the same two fields it always did — the column, and whether
-the finding sits inside the previous fix — and is unchanged by the addition.
+the party the obligation sits on could have set its scope. The narrowing
+opened that: before it the rank decided nothing, and after it the rank
+decides how much a repair must justify itself, which is the
+separation-of-duties failure this record closes rather than one it avoided.
+So each finding line in `templates/PR-DESCRIPTION.md` now carries the rank
+the reviewer gave the finding, and its inside-the-previous-fix field names
+the finding whose repair it sits inside rather than answering yes or no. The reviewer records
+both; the executor transcribes them and does not re-rank, renumber or merge;
+a finding the reviewer left unranked is repaired at its class as a must-fix
+is, so silence cannot narrow the obligation either. The class signal in "What
+a review reports" reads the same two fields it always did — the column, and
+whether the finding sits inside the previous fix — and is unchanged by the
+addition.
+
+**The template change is a consequence of this narrowing, and it is wider
+than the sentence amended.** A rank on every finding line changes the record
+that every future critical-tier review writes, not only the reviews of
+tickets that touch this rule. The maintainer accepted it on 2026-09-07, on
+the condition that this record state why the narrowing required it and what
+it costs, so that a later reader finds the reason here rather than an
+unexplained extra field. Required, because the narrowed rule's trigger and
+both arms of its falsifier are per-finding facts — the reviewer's rank, and
+the finding whose repair a later finding sits inside — and a rule whose
+trigger the record does not carry can be neither checked nor retired.
+Without the field the only statement of a rank is the executor's prose, and
+the executor is the party the obligation sits on: the narrowing would hand
+it the scope it was narrowed to define. What it costs is one word and one
+finding number per finding line. At 60f39fb the closed records hold 180
+findings over 34 rounds, a mean of 5.29 finding lines per round, read from
+the counting command in Context above with `f/n` printed as well — so about
+five words and five finding numbers per review record, paid from here by
+every critical-tier review.
 
 The rule's text as it stood:
 
@@ -149,11 +171,14 @@ The text that replaces it:
   and, where the finding sits inside the previous round's fix, which finding's
   repair it sits inside — the two facts this bullet and its falsifier turn on,
   in the form `templates/PR-DESCRIPTION.md` gives. The executor transcribes
-  both and does not re-rank, exactly as it routes a finding under the second
-  condition of "When review ends" without reclassifying it; a rank the
-  executor can set is a scope the controlled party can set. A finding the
-  reviewer left unranked is repaired at its class as a must-fix is, so that
-  silence never narrows the obligation of the party writing the description.
+  both and does not re-rank, renumber or merge, exactly as it routes a finding
+  under the second condition of "When review ends" without reclassifying it; a
+  rank the executor can set is a scope the controlled party can set, and an
+  R-number the executor can change is the link the falsifier's second arm and
+  the inside-the-previous-fix field both read. Naming several findings in one
+  repair line is not a merge: the numbers are all there. A finding the reviewer
+  left unranked is repaired at its class as a must-fix is, so that silence
+  never narrows the obligation of the party writing the description.
   A class with no finite enumeration — "what could a user type" — is recorded
   the way the third condition of "When review ends" in
   `docs/tier-review-model.md` records a list: best-effort, with the coverage
@@ -281,9 +306,11 @@ does not supply the permission to change what the rule reaches.
   and the identity of the fix it sat inside, and the record carried neither.
 - **Negative:** every finding line costs one more word for the rank, and its
   inside-the-previous-fix field costs a finding number where it cost `yes`.
-  At 60f39fb that is 180 findings over 34 rounds, on records already
-  written and not rewritten; the cost falls on rounds recorded from here.
-  It buys the two facts the narrowed rule and its falsifier turn on.
+  At 60f39fb that is 180 findings over 34 rounds, a mean of 5.29 finding
+  lines per round, on records already written and not rewritten; the cost
+  falls on rounds recorded from here, and on every critical-tier review from
+  here rather than only on the tickets that touch this rule. It buys the two
+  facts the narrowed rule and its falsifier turn on.
 - **Negative:** a note repaired one branch too shallow is now exempt, which
   is the defect EM-009 was raised for. It is not hypothetical, and the count
   is in the standing-count paragraph above: eleven times over the 34 rounds
@@ -334,7 +361,11 @@ finding-line form and turns its inside-the-previous-fix field from a yes/no
 into the finding whose repair the finding sits inside. The form is stated
 in that template alone: nothing under `docs/` restates it, and the tier
 review model's own use of it — the column and whether the finding sits
-inside the previous fix, for the class signal — is satisfied unchanged. No closed pull-request description is rewritten, and
+inside the previous fix, for the class signal — is satisfied unchanged. That
+template says which repairs owe a class line by naming the rules that ask
+for the form, §6 and the class signal, and not by listing exceptions to a
+prohibition, so a rule that later asks for the form needs no amendment
+there. No closed pull-request description is rewritten, and
 no rule leaves a document. Nothing else states the obligation's trigger:
 `docs/quality-gates.md` and `docs/tier-review-model.md` point at §6 rather
 than restating it.

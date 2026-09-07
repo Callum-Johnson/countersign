@@ -266,11 +266,14 @@ every reading of it. That is not caution — it is unreviewable code.
   and, where the finding sits inside the previous round's fix, which finding's
   repair it sits inside — the two facts this bullet and its falsifier turn on,
   in the form `templates/PR-DESCRIPTION.md` gives. The executor transcribes
-  both and does not re-rank, exactly as it routes a finding under the second
-  condition of "When review ends" without reclassifying it; a rank the
-  executor can set is a scope the controlled party can set. A finding the
-  reviewer left unranked is repaired at its class as a must-fix is, so that
-  silence never narrows the obligation of the party writing the description.
+  both and does not re-rank, renumber or merge, exactly as it routes a finding
+  under the second condition of "When review ends" without reclassifying it; a
+  rank the executor can set is a scope the controlled party can set, and an
+  R-number the executor can change is the link the falsifier's second arm and
+  the inside-the-previous-fix field both read. Naming several findings in one
+  repair line is not a merge: the numbers are all there. A finding the reviewer
+  left unranked is repaired at its class as a must-fix is, so that silence
+  never narrows the obligation of the party writing the description.
   A class with no finite enumeration — "what could a user type" — is recorded
   the way the third condition of "When review ends" in
   `docs/tier-review-model.md` records a list: best-effort, with the coverage
