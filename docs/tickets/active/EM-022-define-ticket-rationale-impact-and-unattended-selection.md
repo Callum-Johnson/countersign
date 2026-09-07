@@ -187,5 +187,98 @@ the ticket record is the decision record described by `docs/adr-process.md`.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket. The implementing agent
-> fills it in before closing the ticket.
+### Ticket
+
+EM-022 — Define ticket rationale, impact and unattended selection
+
+### Tier
+
+Critical. This changes the contributor workflow and the template every
+adopting project uses.
+
+### Summary
+
+Tickets now distinguish risk tier from deferred impact, work kind and delivery
+classification, and carry a concise `why` plus an evidence-bearing causal
+justification. Countersign now defines an optional project-local policy for
+impact-ordered unattended selection; it grants only the action that a
+maintainer records and preserves every existing assurance boundary.
+
+### Acceptance criteria
+
+- [x] AC1: template and contributor policy require the metadata and causal
+  justification — `templates/TICKET.md` and
+  `docs/ai-contributor-policy.md`, §2.
+- [x] AC2: lifecycle defines the impact scale and the tier model preserves
+  assurance independence — `docs/ticket-lifecycle.md`, "Ticket rationale,
+  impact and delivery", and `docs/tier-review-model.md`, "Impact does not
+  set assurance".
+- [x] AC3: the template defines `slice`, `enabling` and `maintenance` without
+  requiring every ticket to be a slice — `templates/TICKET.md` before
+  "Why this ticket should be worked".
+- [x] AC4: the scheduling-policy template requires the authority and ordering
+  facts — `templates/SCHEDULING-POLICY.md`.
+- [x] AC5: unattended selection is limited to claimable, policy-eligible work
+  by canonical impact order and deterministic tie-breaker —
+  `docs/ticket-lifecycle.md`, "Unattended selection".
+- [x] AC6: the README, policy map and ticket board describe the added
+  lifecycle scope and both new tickets — `README.md`,
+  `docs/ai-contributor-policy.md`, "Which document settles what", and
+  `docs/tickets/README.md`.
+- [x] AC7: every substantive new rule has a `Retired when:` line; the
+  falsification evidence below names a counterfactual and result for each
+  machine-checkable behavioural claim.
+
+### Falsification
+
+The in-memory PowerShell `Test-Contract` command, run after commit `093e430`,
+passed 4 of 4 current checks and rejected each counterfactual below; that
+commit is the baseline for every count in this section.
+
+- Required rationale — mutant: replace template frontmatter `why:` with
+  `reason:`; red: 1 of 4 checks.
+- Portable impact vocabulary — mutant: replace `feature-blocking` with
+  `blocked-feature` in the lifecycle; red: 1 of 4 checks.
+- Canonical impact ordering — mutant: replace the scheduling template's
+  eligibility-only statement with permission to replace the impact order;
+  red: 1 of 4 checks.
+- Impact cannot lower assurance — mutant: replace the tier-model prohibition
+  with permission to lower a tier; red: 1 of 4 checks.
+
+The causal-quality and project-authorisation rules are not mechanically
+decidable from Markdown alone. For those claims, the reader changes behaviour:
+they require cited evidence before calling a ticket necessary, and a completed
+maintainer policy before automatic selection. Their cost-side falsifiers are
+recorded beside their rules.
+
+### Out of scope (per ticket)
+
+- No scheduler, parser, dispatch mechanism or merge authority was implemented.
+- No project received unattended authority.
+- Existing real tickets were not reclassified; EM-022-001 records the example
+  update separately.
+
+### How to verify
+
+1. Run `git diff --check main...HEAD`.
+2. Read the four fields and causal-justification section in
+   `templates/TICKET.md` against the legal values in
+   `docs/ticket-lifecycle.md`.
+3. Confirm `templates/SCHEDULING-POLICY.md` fixes impact order while requiring
+   an explicit action boundary and deterministic tie-breaker.
+4. Confirm `docs/tier-review-model.md`, "Impact does not set assurance",
+   preserves the operative tier test.
+
+### Risks / follow-ups
+
+- EM-022-001 is blocked until this rule reaches the default branch; it will
+  align published ticket examples with the new template.
+- OMNISSIAH suggestion SUG-002 records implementation of the deterministic
+  scheduler as separate, unauthorised future work.
+
+### Review
+
+| Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
+|---|---:|---|---|---|
+| 1 | 5 | board index; child-ticket lifecycle; template classification; impact ordering; rule falsifiers | — | `91c2bd7` |
+| 2 | 1 | contributor-policy document map | no | `093e430` |
