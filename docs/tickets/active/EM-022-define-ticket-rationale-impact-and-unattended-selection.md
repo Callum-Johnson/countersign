@@ -231,25 +231,24 @@ maintainer records and preserves every existing assurance boundary.
 
 ### Falsification
 
-The in-memory PowerShell `Test-Contract` command, run after commit `093e430`,
-passed 4 of 4 current checks and rejected each counterfactual below; that
-commit is the baseline for every count in this section.
+The reproducible PowerShell command in "How to verify", run after commit
+`f5779fa`, passed 7 baseline checks and rejected all 7 counterfactuals below;
+that commit is the baseline for every count in this section.
 
-- Required rationale — mutant: replace template frontmatter `why:` with
-  `reason:`; red: 1 of 4 checks.
+- Required metadata and causal justification — mutant: remove template
+  frontmatter `why:`; red: 1 of 1 check.
 - Portable impact vocabulary — mutant: replace `feature-blocking` with
-  `blocked-feature` in the lifecycle; red: 1 of 4 checks.
-- Canonical impact ordering — mutant: replace the scheduling template's
-  eligibility-only statement with permission to replace the impact order;
-  red: 1 of 4 checks.
+  `blocked-feature` in the lifecycle; red: 1 of 1 check.
+- Vertical-slice distinction — mutant: remove the template's enabling-work
+  definition; red: 1 of 1 check.
+- Scheduling-policy authority boundary — mutant: remove its required heading;
+  red: 1 of 1 check.
+- Canonical impact ordering — mutant: remove the eligibility-only statement;
+  red: 1 of 1 check.
 - Impact cannot lower assurance — mutant: replace the tier-model prohibition
-  with permission to lower a tier; red: 1 of 4 checks.
-
-The causal-quality and project-authorisation rules are not mechanically
-decidable from Markdown alone. For those claims, the reader changes behaviour:
-they require cited evidence before calling a ticket necessary, and a completed
-maintainer policy before automatic selection. Their cost-side falsifiers are
-recorded beside their rules.
+  with permission to lower a tier; red: 1 of 1 check.
+- Updated governed-document map — mutant: remove `select` from the lifecycle
+  question in the contributor-policy map; red: 1 of 1 check.
 
 ### Out of scope (per ticket)
 
@@ -261,13 +260,44 @@ recorded beside their rules.
 ### How to verify
 
 1. Run `git diff --check main...HEAD`.
-2. Read the four fields and causal-justification section in
-   `templates/TICKET.md` against the legal values in
-   `docs/ticket-lifecycle.md`.
-3. Confirm `templates/SCHEDULING-POLICY.md` fixes impact order while requiring
-   an explicit action boundary and deterministic tie-breaker.
-4. Confirm `docs/tier-review-model.md`, "Impact does not set assurance",
-   preserves the operative tier test.
+2. Run this non-mutating PowerShell command from the repository root. It reads
+   the current files, asserts seven baseline claims, then asserts that seven
+   in-memory counterfactuals are rejected:
+
+```powershell
+function Require([bool]$condition, [string]$name) {
+    if (-not $condition) { throw "baseline failed: $name" }
+}
+
+$template = Get-Content -Raw templates/TICKET.md
+$lifecycle = Get-Content -Raw docs/ticket-lifecycle.md
+$tier = Get-Content -Raw docs/tier-review-model.md
+$schedule = Get-Content -Raw templates/SCHEDULING-POLICY.md
+$policy = Get-Content -Raw docs/ai-contributor-policy.md
+
+Require ($template -match '(?m)^why:' -and $template.Contains('## Why this ticket should be worked')) 'rationale metadata'
+Require ((@('system-unavailable','multi-feature-blocking','feature-blocking','degraded','enhancement') | Where-Object { -not $lifecycle.Contains($_) }).Count -eq 0) 'impact vocabulary'
+Require ($template.Contains('without itself being end-to-end')) 'vertical-slice distinction'
+Require ($schedule.Contains('## Authorised action boundary')) 'action boundary'
+Require ($schedule.Contains('This policy chooses eligibility, not a replacement order.') -and $lifecycle.Contains('greatest allowed impact first')) 'canonical impact order'
+Require ($tier.Contains('cannot raise or lower the tier') -and $policy.Contains('Do not infer, upgrade or downgrade a ticket')) 'tier independence'
+Require ($policy.Contains('How do I claim, select, block, batch and close work')) 'document map'
+
+$mutants = @(
+    @{ name = 'rationale metadata'; valid = { param($text) $text -match '(?m)^why:' }; text = ($template -replace '(?m)^why:.*\r?\n', '') },
+    @{ name = 'impact vocabulary'; valid = { param($text) $text.Contains('feature-blocking') }; text = ($lifecycle -replace 'feature-blocking', 'blocked-feature') },
+    @{ name = 'vertical-slice distinction'; valid = { param($text) $text.Contains('without itself being end-to-end') }; text = ($template -replace 'without itself being end-to-end', 'as a separate component') },
+    @{ name = 'action boundary'; valid = { param($text) $text.Contains('## Authorised action boundary') }; text = ($schedule -replace '## Authorised action boundary', '## Action boundary') },
+    @{ name = 'canonical impact order'; valid = { param($text) $text.Contains('This policy chooses eligibility, not a replacement order.') }; text = ($schedule -replace 'This policy chooses eligibility, not a replacement order.', 'This policy may replace the impact order.') },
+    @{ name = 'tier independence'; valid = { param($text) $text.Contains('cannot raise or lower the tier') }; text = ($tier -replace 'cannot raise or lower the tier', 'can lower the tier') },
+    @{ name = 'document map'; valid = { param($text) $text.Contains('How do I claim, select, block, batch and close work') }; text = ($policy -replace 'How do I claim, select, block, batch and close work', 'How do I claim, block, batch and close work') }
+)
+
+foreach ($mutant in $mutants) {
+    if (& $mutant.valid $mutant.text) { throw "mutant accepted: $($mutant.name)" }
+    Write-Output "red: $($mutant.name)"
+}
+```
 
 ### Risks / follow-ups
 
