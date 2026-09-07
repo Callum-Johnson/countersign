@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: blocked
+status: in-progress
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -11,7 +11,7 @@ complexity: L
 dependencies: []
 claimed_by: codex
 claimed_at: 2026-09-07
-blocked_at: 2026-09-07
+blocked_at:
 closed_at:
 ---
 
@@ -204,9 +204,12 @@ that those claims be split into independently falsifiable claims. This reopens
 the ticket solely to make that evidence repair. A fifth independent review
 remains required before the ticket can close.
 
-BLOCKER: The split-claim repair is `12796ab` and its 17 independent mutations
-pass. The ticket requires maintainer direction for the fifth independent
-review before it can close.
+### Resolved fifth-review block
+
+The split-claim repair is `12796ab` and its 17 independent mutations pass. On
+2026-09-07, the maintainer directed the fifth independent review. This reopens
+the ticket solely for that review; it does not authorise a scope change, merge,
+tier reduction or an exception to any other gate.
 
 ## PR Description
 
