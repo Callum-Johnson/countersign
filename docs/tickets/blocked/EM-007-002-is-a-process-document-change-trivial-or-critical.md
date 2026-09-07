@@ -619,9 +619,9 @@ Findings of round 1, on 49b5c00:
   lowering, which is not the executor's. **Note, taken.**
 - R1.4 · permits · AC4 and the worked examples · `templates/TICKET.md`'s
   how-to-use steps are an ordered sequence a contributor performs, and
-  EM-018-001 rewrote its step 5 and its step 1 and closed `standard`, so AC4's claim
-  that no ticket is closed at a tier the decision contradicts was
-  unsupported; the maintainer's carve-out named four tickets, not that one —
+  EM-018-001 rewrote its step 5 and its step 1 and closed `standard`, so
+  AC4's claim that no ticket is closed at a tier the decision contradicts
+  was unsupported; the maintainer's carve-out named four tickets, not that one —
   remedy: EM-018-001 is named in AC4, and what the record does about it is
   the question of the `BLOCKER (2026-09-07)` note, because both available
   answers are the maintainer's; inside previous fix: no. **Must-fix,
@@ -654,8 +654,19 @@ Findings of round 1, on 49b5c00:
   **Must-fix, repair of the instance.**
 - R1.8 · note · the line generally · it does leave ordinary work `trivial`
   — six of the seven closures still return `trivial`, and the fourth
-  negative entry holds "a procedure" back. **Note, no change; recorded so
-  that a later round can test whether the repairs above changed it.**
+  negative entry holds "a procedure" back. **Note, taken, and its count
+  moves down by one with the repair of R1.1.** The seven tickets carrying
+  `tier: trivial` in `docs/tickets/done/` at 99e7ae7 are EM-007-001,
+  EM-010-002, EM-012-001-001, EM-016-001, EM-016-001-001, EM-017 and
+  EM-019, read from `grep -l "^tier: trivial" docs/tickets/done/*.md`. Of
+  those, EM-010-002 returns `critical` under the line as repaired, because
+  it annotated ADR-0002 to change how two of its sentences are read — the
+  cost R1.1 states. The note's substance is untouched by that: what holds
+  ordinary work at `trivial` is the fourth negative entry for a wording
+  change and the `trivial` row of "The tiers" for an edit to a ticket file,
+  which is not a process document at all. No recomputed total is asserted
+  here, because the falsifier's population counts changes and not tickets,
+  and EM-017 is a batch.
 - R1.9 · note · beyond the maintainer · the maintainer's answer was one
   sentence and the change decided more than that sentence, in the direction
   that lowers — taken as the class of the round; see **The class this round
