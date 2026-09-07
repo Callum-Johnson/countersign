@@ -102,11 +102,22 @@ criteria, the references, and an explicit out-of-scope list.
   rejection, however good the change.
 - One ticket at a time per agent. Do not claim several in parallel.
 - Do not start a ticket whose dependencies are unfinished.
+- A new ticket carries `kind`, `impact`, `delivery` and a concise `why` in
+  its frontmatter, plus the causal justification the ticket template names.
+  Those facts describe why it deserves capacity; they do not alter its tier.
+- Do not infer, upgrade or downgrade a ticket's impact from its prose. Where
+  the declared impact and its justification do not agree, block for the party
+  that owns the ticket to correct the contract.
 
 **Retired when:** a project's closed tickets show out-of-scope work rejected
 at review that the ticket's author, asked afterwards, would have accepted,
 more often than they show scope creep caught — counted over a stated
 population of tickets. The rule then costs more honest work than it stops.
+
+**Retired when:** over a stated population of new tickets, the required
+justification is routinely copied from the title or fails to distinguish work
+accepted by a maintainer from work they reject as speculative. The fields then
+cost authoring time without making the capacity decision inspectable.
 
 ## 3. Ambiguity is escalated, never resolved by invention
 

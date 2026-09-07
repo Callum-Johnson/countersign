@@ -20,6 +20,7 @@ opens that section, and reaches the rest when a finding turns on them.
 | What is in this document | This index, and the sections a reviewer works from |
 | The operative test | Which tier a change is |
 | The tiers | What each tier requires, and what `trivial` may batch |
+| Impact does not set assurance | Why consequence of deferral and change risk remain separate |
 | The scrutiny list, and why it is not a trigger | Why a file path is a cue and not an escalation |
 | Separation of duties | Who may move a tier, and in which direction |
 | Why "another agent, human or AI" | Who reviews, what they receive, and where they work |
@@ -104,6 +105,26 @@ the rule is in `docs/ticket-lifecycle.md`, "Batching trivial work".
 **Retired when:** `standard`-tier work spot-checked by a reviewer draws must-
 fix findings at a rate comparable to `critical`-tier review yield, over a
 stated population; the tier that skips review then skips something.
+
+---
+
+## Impact does not set assurance
+
+`impact` states the consequence of deferring a ticket; `kind` and `delivery`
+state what the work is and how it contributes to delivery. None of them says
+whether the implementation changes an existing contract, changes existing
+behaviour, changes ordering or determinism, or touches the process surface.
+They therefore cannot raise or lower the tier, and an impact-ordered selector
+cannot bypass a gate, review or required human authorisation.
+
+A small `system-unavailable` fix can be urgent and still be standard-tier; a
+new `enhancement` can alter an existing contract and be critical-tier. The
+operative test decides the assurance in both cases.
+
+**Retired when:** a stated population shows that impact classification either
+predicts the operative test's result closely enough to make the second field
+redundant, or repeatedly causes an executor to misclassify the tier. The two
+dimensions then fail to provide independent information.
 
 ---
 

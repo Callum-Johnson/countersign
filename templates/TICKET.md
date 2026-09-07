@@ -3,6 +3,10 @@ id: PRJ-XXX
 title: <short imperative title>
 status: ready          # ready | in-progress | blocked | done
 tier: standard         # trivial | standard | critical
+kind: defect            # defect | feature | maintenance | research | governance
+impact: enhancement     # see docs/ticket-lifecycle.md, "Ticket rationale, impact and delivery"
+delivery: slice         # slice | enabling | maintenance
+why: "Without this work, <outcome> cannot <result>."
 phase:                 # optional; a phase of the adopting project's own DESIGN.md, if it keeps one
 complexity: M          # S (<1 day) | M (1-3 days) | L (3-7 days) | XL (split this)
 dependencies: []       # list of ticket ids, e.g. [PRJ-001, PRJ-003]
@@ -13,6 +17,21 @@ closed_at:             # ISO date, filled when moved to done/
 ---
 
 # PRJ-XXX — <ticket title>
+
+## Why this ticket should be worked
+
+State the causal case for spending capacity on this work. Name:
+
+- the affected outcome, user or system;
+- what deferring the ticket prevents or degrades;
+- evidence for that claim, such as an observed fault, failing test, accepted
+  dependency or cited plan; and
+- when deferral is acceptable, if it is.
+
+The frontmatter `why` is a concise summary of this section. It is not a
+substitute for the evidence here. A ticket that cannot make this case is not
+ready; it belongs in the adopting project's intake or backlog until the case
+is known.
 
 ## Context
 
@@ -149,9 +168,11 @@ See `docs/ai-contributor-policy.md` and `docs/ticket-lifecycle.md`
 2. Fill in every section. **Empty sections are not acceptable** — write
    `N/A` explicitly if a section genuinely does not apply (rare).
 3. Set `tier` per the operative test in `docs/tier-review-model.md`.
-4. Set `dependencies` to the list of ticket IDs that must be in `done/`
+4. Set `kind`, `impact`, `delivery` and `why` per
+   `docs/ticket-lifecycle.md`, "Ticket rationale, impact and delivery".
+5. Set `dependencies` to the list of ticket IDs that must be in `done/`
    before this can start.
-5. Commit on a branch whose name begins with the ticket identifier, per
+6. Commit on a branch whose name begins with the ticket identifier, per
    `docs/ticket-lifecycle.md`, "Claiming" — for a ticket raised while
    working another, the originating ticket's branch, which is where
    "Lineage" creates one raised by a review. Never directly to the default
