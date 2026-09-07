@@ -1,13 +1,12 @@
 ---
 id: EM-009-001
 title: The class obligation binds every repaired finding and was priced on must-fixes
-status: blocked
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
 claimed_by: claude-opus-5
 claimed_at: 2026-09-07
-blocked_at: 2026-09-08
 ---
 
 # EM-009-001 — The class obligation binds every repaired finding
@@ -178,6 +177,18 @@ pointing at it, so a reader of the blocker needs nothing else:
 Derived from the rows: 3 + 2 + 1 = six must-fixes over three rounds, of which
 2 + 1 = three sat inside the previous round's fix. Round 3's `—` in the last
 column is nothing repaired, which is the point of the block.
+
+**Discharged (2026-09-08).** The maintainer read the record above and
+ordered a fourth review round. R3.1 is taken in it, and the two notes R3.2
+and R3.3 are carried with it; the ticket returns to `active/` and a fresh
+reviewer reviews the new head. The `BLOCKER (2026-09-08):` text above stands
+as the record of why the ticket stopped and is kept rather than deleted, with
+the per-round table it carries.
+
+The order is itself the evidence "When review ends" asks for: its cap retires
+when a ticket blocked at the cap has its maintainer order a further round that
+finds a rule defect. Whether round 4 finds one is what the round decides; the
+order is recorded here so that the evidence is readable either way.
 
 ## PR Description
 
