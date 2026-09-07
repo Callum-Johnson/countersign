@@ -163,9 +163,10 @@ findings. The occasion is stated because `trivial` summons no reviewer of
 its own, and a falsifier whose check nobody is obliged to make is checked
 by nobody, which is the decorative falsifier "Retiring a control" exists to
 remove. A reviewer on that occasion has this paragraph open already, since
-it is what makes the change under review `critical`. The line is then drawn where the executor wants it rather than
-where these words fall, and it retires in favour of ADR-0002's Context
-read as written: every change to a process document is `critical`.
+it is what makes the change under review `critical`. The line is then
+drawn where the executor wants it rather than where these words fall, and
+it retires in favour of ADR-0002's Context read as written: every change to
+a process document is `critical`.
 
 In one line:
 
