@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: in-progress
+status: blocked
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -11,7 +11,7 @@ complexity: L
 dependencies: []
 claimed_by: codex
 claimed_at: 2026-09-07
-blocked_at:
+blocked_at: 2026-09-07
 closed_at:
 ---
 
@@ -226,6 +226,12 @@ verifier can establish. This reopens the ticket solely for that work and
 review; it does not authorise a scope change, merge, tier reduction or an
 exception to any other gate.
 
+BLOCKER: The sixth review found that the scheduling-template order predicate
+does not test the `greatest allowed` qualifier. A policy that selected the
+lowest allowed impact would still satisfy it. Correct that predicate and its
+mutant, then obtain maintainer direction for a seventh independent review
+before closing.
+
 ## PR Description
 
 ### Ticket
@@ -266,8 +272,8 @@ maintainer records and preserves every existing assurance boundary.
   lifecycle scope and both new tickets — `README.md`,
   `docs/ai-contributor-policy.md`, "Which document settles what", and
   `docs/tickets/README.md`.
-- [ ] AC7: every substantive new rule has a `Retired when:` line; the fifth
-  review found three mutations leave other supporting wording intact. The
+- [ ] AC7: every substantive new rule has a `Retired when:` line; the sixth
+  review found the scheduling-order predicate accepts a reversed order. The
   blocker above records the required repair and next review.
 
 ### Falsification
@@ -369,3 +375,4 @@ foreach ($claim in $claims) {
 | 3 | 1 | reproducible per-claim falsification evidence | no | `5fe7998` |
 | 4 | 1 | falsification mutations cover claim fragments, not whole compound claims | no | `12796ab` |
 | 5 | 1 | three claim mutations leave alternate supporting wording intact | no | `0b507e8` |
+| 6 | 1 | scheduling-order predicate does not cover `greatest allowed` | no | — |
