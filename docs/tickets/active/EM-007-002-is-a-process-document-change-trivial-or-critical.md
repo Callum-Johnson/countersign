@@ -1,13 +1,12 @@
 ---
 id: EM-007-002
 title: A change to a process document is trivial by the operative test and critical by ADR-0002
-status: blocked
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
-claimed_by: claude-fable-5-1
-claimed_at: 2026-09-06
-blocked_at: 2026-09-06
+claimed_by: claude-opus-5
+claimed_at: 2026-09-07
 ---
 
 # EM-007-002 — Is a change to a process document trivial or critical?
@@ -105,7 +104,9 @@ The question is small and its answer is load-bearing: it decides whether
 this repository's own work is reviewable at the cost it has been paying, or
 at several times that cost.
 
-**BLOCKER (2026-09-06):** the executor cannot proceed. The Specification
+**BLOCKER (2026-09-06) — discharged 2026-09-07 by the decision below. The
+text is left as the record of why the work stopped.** The executor cannot
+proceed. The Specification
 above states a question that §3 reserves to the maintainer: which of ADR-0002
 and the operative test governs the tier of a process-document change. Both
 readings are coherent, so this is not ambiguity, and the test §3 states is
@@ -119,6 +120,30 @@ answers stated above, or a fourth. Answer 1 additionally requires a decision
 about the four tickets already closed at `trivial` on the narrow reading:
 whether the record is corrected, or the closures stand and the rule applies
 from the decision forward.
+
+**Maintainer's decision (2026-09-07): answer 2.** The narrow reading
+governs, and is written down. A change to a process document is `critical`
+when it adds, alters or retires a rule or a procedure, and `trivial` when it
+does not.
+
+The reasoning recorded with the decision, in three parts:
+
+- It matches what four closed tickets already did. EM-007-001, EM-010-002,
+  EM-012-001-001 and the entries of the batch EM-017 each recorded the
+  narrow reading in their own Notes and closed at `trivial` on it.
+- It keeps the batching path `docs/ticket-lifecycle.md`, "Batching trivial
+  work", added usable on this repository. Answer 1 would have removed it,
+  because under answer 1 nothing here would ever be `trivial`.
+- The acknowledged cost stands and is accepted: the line between "alters a
+  rule" and "does not" is drawn by the executor, at the moment the executor
+  would like the answer to be `trivial`. The mitigation is the
+  separation-of-duties rule — an executor may raise a tier and may never
+  lower it — and the written line is what a reviewer holds a `trivial`
+  claim against.
+
+The four tickets closed on this reading therefore stand and need no
+correction. Correcting them was a consequence of answer 1, which was not
+chosen.
 
 ## PR Description
 
