@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: blocked
+status: in-progress
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -11,7 +11,7 @@ complexity: L
 dependencies: []
 claimed_by: codex
 claimed_at: 2026-09-07
-blocked_at: 2026-09-07
+blocked_at:
 closed_at:
 ---
 
@@ -185,12 +185,16 @@ process-surface clause. It adds rules under existing decisions rather than
 changing the process's form, review authority or decision-record procedure;
 the ticket record is the decision record described by `docs/adr-process.md`.
 
-BLOCKER: Three independent review rounds reached Countersign's review cap.
-Rounds one through three found 5, 1 and 1 must-fixes respectively; the third
-repair is `5fe7998`. A fourth review would be required before the change could
-close, but `docs/tier-review-model.md`, "When review ends", requires a block
-for maintainer direction after the cap. Direction is needed on whether to
-redesign the rule set, narrow the ticket or authorise another review round.
+### Resolved review-cap block
+
+Three independent review rounds reached Countersign's review cap. Rounds one
+through three found 5, 1 and 1 must-fixes respectively; the third repair is
+`5fe7998`.
+
+On 2026-09-07, the maintainer directed a fourth independent review of the
+final evidence. This reopens the ticket solely for that review. It does not
+authorise a scope change, merge, tier reduction or an exception to any other
+gate.
 
 ## PR Description
 
