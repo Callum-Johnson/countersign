@@ -48,7 +48,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-018 | done | standard | The templates cite files this repository does not publish |
 | EM-019 | done | trivial | Three figures in EM-016's closed description were predicted, not measured |
 | EM-019-001 | done | critical | A reported figure is read from a command, not written by its author |
-| EM-019-001-001 | active | critical | Rule-adding tickets produce no decision record, against the trigger list |
+| EM-019-001-001 | done | critical | Rule-adding tickets produce no decision record, against the trigger list |
 | EM-019-001-001-001 | ready | critical | The decision-record test reads wider than the line drawn beneath it |
 | EM-020 | done | critical | Read the whole thing before acting on part of it |
 | EM-021 | done | critical | A rule needs a second instance before it is written |

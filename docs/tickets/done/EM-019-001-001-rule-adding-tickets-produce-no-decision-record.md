@@ -1,12 +1,13 @@
 ---
 id: EM-019-001-001
 title: Rule-adding tickets produce no decision record, against the trigger list
-status: in-progress
+status: done
 tier: critical
 complexity: S
 dependencies: []
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-06
+closed_at: 2026-09-06
 ---
 
 # EM-019-001-001 — Rule-adding tickets produce no decision record
@@ -259,6 +260,8 @@ suite, so each sibling says what a reader does differently:
   it on the first side; a reader with a change touching several rules but
   not all finds "one rule at a time" and places each under its decision.
 - R2.2 — repair of the instance.
+- R3.2 — repair of the instance; a note taken at close (f1d945b, re-flowed
+  at e5ced7a), inside no must-fix, so the class form does not apply.
 - R2.3 — sibling of R2.1, above; it falls out with the question.
 
 ### Out of scope (per ticket)
@@ -299,7 +302,7 @@ suite, so each sibling says what a reader does differently:
 
 ### Risks / follow-ups
 - **Cost of the addition.** `docs/adr-process.md` grows from 563 words at
-  ce59c8f to 1043 at baaafd0, from `git show ce59c8f:docs/adr-process.md |
+  ce59c8f to 1048 at e5ced7a, from `git show ce59c8f:docs/adr-process.md |
   wc -w` and `wc -w < docs/adr-process.md` run at baaafd0; the diff is 41
   insertions and 0 deletions from `git diff --stat ce59c8f..baaafd0 --
   docs/adr-process.md`. That is the brief EM-016 set out to bound growing by
@@ -341,7 +344,10 @@ from the rows and never asserted beside them.
 |---|---|---|---|---|
 | 1 | 1 | documents | — | a2ebce6, and 8fe386c from the whole-section read |
 | 2 | 1 | documents | 1 of 1 | baaafd0 |
-| 3 | — | — | — | — |
+| 3 | 0 | documents | — | — (note R3.2 taken at close: f1d945b, e5ced7a) |
+
+Must-fix total, derived from the rows: 1 + 1 + 0 = 2. Review ended under
+"When review ends" condition 1: round 3 found no must-fix.
 
 Post-review check after round 1, run at 4278ca5 before the repair:
 `git status --porcelain` empty; `git worktree list` shows the reviewer's
@@ -417,4 +423,37 @@ recorded under Falsification as R2.1, not a further adjustment.
   signal does not fire — R2.1 is same-column ping-pong, the
   repairs-of-repairs field. No adjustment recorded beside a signal.
 
-Round 3 pending — the cap.
+Post-review check after round 3, run at e5ced7a after the note repair:
+`git status --porcelain` empty; `git worktree list` shows the reviewer's
+`A:/projects/wt/review-EM-019-001-001` at 6bd5baf, detached, as expected
+and still registered at the time of the check, and sibling ticket worktrees
+under `A:/projects/wt/` belonging to other tickets; nothing inside the tree
+under review. No finding against the review.
+
+Round 3, of 6bd5baf — the cap. No must-fix; review complete under
+condition 1.
+- R3.1 · permits · the section's test sentence ("if the decision affects
+  multiple tickets or constrains future work, it is an ADR") · still
+  literally reaches every rule added under an existing decision; the gloss
+  "The section's test above reads the same way" is what decides, so a
+  reader who stops at the test gets the wider answer — remedy: reword the
+  test; cost: none, not a tightening. Note; inside previous fix: yes; inside
+  a recorded limit — EM-019-001-001-001 owns the wording.
+- R3.2 · permits · "or, for a rule that predates ADR-0003, EM-014 states
+  the falsifier" · true in substance — EM-014's migration added 38
+  Retired-when lines, none reading "no falsifier stated" — but the text
+  lives in the documents, and EM-014's file carries the count and method,
+  not the text — remedy: "EM-014's migration wrote the falsifier, which the
+  document carries"; cost: none. Note; inside previous fix: yes (baaafd0).
+  Taken at close, f1d945b; repair of the instance.
+- R3.3 · refuses · the paragraph's repository-specific names (EM-014, the
+  seven, EM-021) in a document adopters read · an adopter cannot open
+  EM-014; consistent with established practice (the model names EM-006,
+  OMN-021, 5d94db7), so not a defect — remedy: none; cost: the recorded
+  563 → 1048 words, reproduced. Note; inside previous fix: partly.
+- R3.4 · permits · none · R2.1's class is closed: no "one question" / "as
+  a set" / "every one rewritten" residue remains; precedence between a
+  first-side clause and "extended in place one rule at a time" is carried
+  by "sits under the decision that put that step there". Note.
+- Thirteen-case check by the reviewer against the prose as it stands:
+  every placement matches the table under R2.1; none moves.
