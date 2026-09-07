@@ -110,8 +110,22 @@ What it does not reach:
   section name, a ticket identifier — where the corrected reference names
   what the document already pointed at, so no question moves to a
   different place.
-- A list duplicated from another document, replaced by a reference to the
-  list it duplicated, where that list is unchanged.
+- A restatement of a rule or a procedure, in a document that is not where
+  the question is settled, brought back into agreement with the document
+  that settles it — corrected, or replaced outright by a reference to it —
+  where that document is unchanged. Nothing moved: the sentences rewritten
+  are a restatement of the rule or the procedure and not the rule or the
+  procedure itself, which is where it is settled, and what a contributor is
+  bound to do is what the settling document says, which is as it was.
+  **The document that settles a question** is the one that states the rule
+  or the procedure in full and that the others defer to. The map in
+  `docs/ai-contributor-policy.md` answers that here, one document per
+  question; where a project keeps no map, it is the document the
+  restatement itself defers to, by naming it or by citing it as the
+  authority. Where two documents state the same rule and neither defers to
+  the other, neither settles the question, this entry does not apply, and
+  the change is answered by the bold words above — which raises, and is
+  the direction an executor may take alone.
 - A dated annotation appended to a closed ticket or a decision record that
   leaves every rule as it stands and changes how no decision is read.
 - Wording that leaves every rule's conditions and every procedure's steps
@@ -123,17 +137,27 @@ asking whether a rule or a procedure moved. The two lists are not open to
 the same party: an entry to the first raises, and an executor may add one,
 while an entry to the second takes a change out of the bold words, which
 is lowering, and lowering belongs to the reviewer and the maintainer under
-"Separation of duties" below. An executor that thinks the second list is
-missing an entry raises a ticket for it and pays the round.
+"Separation of duties" below. Widening an entry the second list already
+carries is the same act by another route and belongs to the same party. An
+executor that thinks the second list is missing an entry, or that one of
+its entries is drawn too narrowly, raises a ticket for it and pays the
+round.
 
-Two closed tickets show the line. EM-012-001 added the sentence above that
+Three closed tickets show the line. EM-012-001 added the sentence above that
 separates `trivial` from `standard`: a rule entered a process document, and
-the ticket closed `critical` with an independent review. EM-007-001
-replaced the enumeration of the description's sections
-in `docs/ticket-lifecycle.md`, "Closing", with a reference to
+the ticket closed `critical` with an independent review. Two are on the
+other side, and both are restatements corrected against an authority that
+did not move. EM-007-001 replaced the enumeration of the description's
+sections in `docs/ticket-lifecycle.md`, "Closing", with a reference to
 `templates/PR-DESCRIPTION.md`, the list it had duplicated: the closing
 procedure kept its steps and no rule moved, and the ticket closed `trivial`
-and self-merged.
+and self-merged. EM-018-001 rewrote two steps of `templates/TICKET.md`,
+"How to use this template" — which branch the work is committed on, and how
+the next lineage id is found — so that they say what
+`docs/ticket-lifecycle.md` already said; the lifecycle was not touched, so
+what a contributor is bound to do did not change. It closed `standard`, and
+that closure stands: `standard` is above what this line returns, and an
+executor may raise.
 
 The cost of drawing the line here is that it is drawn by the executor, at
 the moment the executor would prefer the answer to be `trivial` — which is
@@ -148,9 +172,17 @@ what the falsifier below counts.
 
 **Retired when:** a change to a process document closed `trivial` under
 the line stated here is found to have added, altered or retired a rule or
-a procedure after all, more than once over the population below. **The
-population** is those changes and not the tickets that carry them: a batch
-ticket holds many, per `docs/ticket-lifecycle.md`, "Batching trivial
+a procedure after all, more than once over the population below.
+**Including** a change closed `trivial` as a restatement corrected against
+an unchanged settling document, where a contributor is afterwards found to
+have performed the restatement rather than the document that settles the
+question, so that correcting it changed what a contributor does. That case
+is named because the restatement entry takes a change out of the bold words
+on a judgement the executor makes about its own work — which document was
+the authority — and a falsifier silent about the entry that lowers furthest
+is not checked at it.
+**The population** is those changes and not the tickets that carry them: a
+batch ticket holds many, per `docs/ticket-lifecycle.md`, "Batching trivial
 work", and each entry is counted on its own. It is empty when this line
 lands — no change has closed under a line that did not exist — and it
 grows from the closed tickets carrying `tier: trivial` in
@@ -159,10 +191,13 @@ critical-tier change to a process document: the reviewer reads the
 process-document changes closed `trivial` under this line, listed from
 `grep -l "^tier: trivial" docs/tickets/done/*.md` with a batch ticket's
 entries read one at a time, and records what it finds with the round's
-findings. The occasion is stated because `trivial` summons no reviewer of
-its own, and a falsifier whose check nobody is obliged to make is checked
-by nobody, which is the decorative falsifier "Retiring a control" exists to
-remove. A reviewer on that occasion has this paragraph open already, since
+findings. Changes closed under the restatement entry are in that population
+with the rest and are read on that same occasion, so the entry that lowers
+furthest is checked where every other one is; there is nowhere else it is
+checked at all. The occasion is stated because `trivial` summons no
+reviewer of its own, and a falsifier whose check nobody is obliged to make
+is checked by nobody, which is the decorative falsifier "Retiring a
+control" exists to remove. A reviewer on that occasion has this paragraph open already, since
 it is what makes the change under review `critical`. The line is then
 drawn where the executor wants it rather than where these words fall, and
 it retires in favour of ADR-0002's Context read as written: every change to

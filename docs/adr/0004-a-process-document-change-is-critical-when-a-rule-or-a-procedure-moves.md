@@ -3,7 +3,9 @@
 - **Status:** proposed
 - **Date:** 2026-09-07
 - **Deciders:** maintainer, on the question EM-007-002 reserved
-- **Related:** EM-007-002 (this decision); ADR-0002, whose Context sentence
+- **Related:** EM-007-002 (this decision, and the edge decided with it);
+  EM-018-001 and EM-007-001, the worked examples on the `trivial` side;
+  ADR-0002, whose Context sentence
   this narrows in reach; ADR-0001 (adopting the tier model here);
   `docs/tier-review-model.md`, "The operative test" and "Separation of
   duties"; `docs/adr-process.md`, "When to write one"
@@ -34,6 +36,20 @@ record and the model that record governs, and because one of its answers
 removes a control from the party the control is on. Three answers were set
 out with their costs, and the maintainer answered on 2026-09-07.
 
+One edge of that answer was not settled by it, and the independent review of
+this change reached it in round 1 as finding R1.4: does the line reach a
+change that corrects a restatement of a rule or a procedure, in a document
+that is not where the question is settled, to agree with the document that
+settles it, which is itself unchanged? `templates/TICKET.md`, "How to use
+this template", is a procedure by the line above, and EM-018-001 rewrote two
+of its steps to agree with `docs/ticket-lifecycle.md`, which it did not
+touch, and closed `standard` with no independent review. EM-007-001, one of
+the four closures the first answer preserves, is one step from the same
+shape. The edge went back under §3 for the same reason the first question
+did — both available answers are the maintainer's, and the executor could
+only lower a tier by answering it — and the maintainer answered on
+2026-09-07. Both answers are recorded here, on the same date.
+
 ## Decision
 
 A change to a process document is `critical` when it adds, alters or
@@ -54,9 +70,26 @@ The four tickets closed on the narrow reading before it was written down
 stand and are not reclassified. Correcting them was a consequence of the
 answer that was not chosen.
 
+**The edge, decided 2026-09-07:** the line does not reach a change that
+corrects a restatement of a rule or a procedure, in a document that is not
+where the question is settled, to agree with the document that settles it,
+where that document is itself unchanged. Such a change is `trivial`. No rule
+and no procedure moved, because the document that settles the question is
+unchanged and what a contributor is bound to do is unchanged.
+
+The second entry of the negative list in `docs/tier-review-model.md`, "The
+operative test", carries that answer, and says what "the document that
+settles it" means — the document that states the rule or the procedure in
+full and that the others defer to, which the contributor policy's map
+answers here and the restatement's own deference answers on a project with
+no map. EM-018-001 and EM-007-001 are the worked examples on that side of
+the line. EM-018-001's `standard` closure stands and is not corrected:
+`standard` is above what the line returns, and an executor may raise.
+EM-007-001 keeps its `trivial` closure.
+
 ## Rationale
 
-Three reasons were recorded with the answer.
+Three reasons were recorded with the answer to the reserved question.
 
 It matches what four closed tickets already did. The reading was the
 repository's practice; the defect was that it lived in four ticket Notes
@@ -75,6 +108,23 @@ which an executor may raise a tier and may never lower one, and the fact
 that the line is now in a document, so a `trivial` claim on a
 process-document change is checkable by anyone reading the closed ticket.
 
+**The edge.** One reason was recorded with the second answer: no rule and no
+procedure moved. What binds a contributor is the document where the question
+is settled; a restatement elsewhere is a copy of that rule or that
+procedure, and correcting the copy against an unchanged original leaves what
+a contributor is bound to do exactly where it was.
+
+Its cost was stated with the answer and accepted rather than denied, and it
+is larger than the first decision's. The negative list's second entry widens
+from a duplicated list to any restatement, and whether one's own document
+was the authority is then judged by the executor who would prefer `trivial`
+— the same failure ADR-0001's Alternative 3 names, now reached by a second
+route. One thing holds it, and it is a rule and not a mechanism:
+"Separation of duties", under which an executor may raise a tier and may
+never lower one. The falsifier below the line names this case in its own
+terms, so the evidence that would retire it is evidence anyone can look for
+rather than an argument about which document was the authority.
+
 ## Consequences
 
 - **Positive:** the question has one answer, in the document that settles
@@ -91,15 +141,22 @@ process-document change is checkable by anyone reading the closed ticket.
   made of process documents summon an independent reviewer, and reviews of
   process documents run long. The round cap in `docs/tier-review-model.md`,
   "When review ends", applies.
+- **Negative:** the edge decided on 2026-09-07 widens the exemption. A
+  contributor may now correct any restatement of a rule or a procedure at
+  `trivial`, on its own judgement about which document was the authority,
+  where before the entry reached only a duplicated list replaced by a
+  reference to it. A contributor who reads the restatement and not the
+  document that settles the question does something different after such a
+  change, and pays for it with no review; that is the case the falsifier
+  names and counts.
 - **Neutral:** `docs/adr-process.md`, "Decisions about the process are
   themselves ADRs", still says changing the process is a process-surface
   change the operative test classes as `critical`, which now reads wider
   than the model. Reconciling it is EM-007-002-002.
-- **Neutral:** one edge of the line is not settled by this record and is
-  before the maintainer on EM-007-002: whether correcting a restatement of
-  a rule or a procedure, in a document that is not where the question is
-  settled, to agree with an unchanged document that is, moves a procedure.
-  EM-018-001 is that shape and closed `standard`.
+- **Neutral:** EM-018-001's `standard` closure stands under the edge
+  decision and is not corrected, and EM-007-001 keeps its `trivial`
+  closure. Both are named in "The operative test" as the worked examples on
+  that side of the line.
 
 ## Alternatives considered
 
@@ -130,12 +187,48 @@ is not readable by a contributor before a first edit, cannot be held
 against a `trivial` claim, and carries no falsifier — which is what let the
 conflict survive two independent reviews.
 
+The edge decided on 2026-09-07 had two alternatives of its own.
+
+### Alternative 4: the line reaches a corrected restatement
+
+A contributor reading the restatement performs the steps it states, so
+rewriting them changes what a contributor does, whatever another document
+says. Rejected because the document that settles the question did not move
+and nothing a contributor is bound to do changed. Its cost, had it been
+taken: EM-018-001 would be a closure at a tier this record contradicts, and
+whether the closure is corrected or stands from 2026-09-07 forward would be
+a further question of the same kind; and EM-007-001, one of the four
+closures the first decision preserves, sits one step from the same shape.
+
+### Alternative 5: a third negative entry, drawn to keep EM-007-001 and lose EM-018-001
+
+An entry narrow enough to hold a duplicated list replaced by a reference,
+and not a step rewritten to agree with the lifecycle. Rejected because no
+principle separates the two: both correct a copy against an unchanged
+original, and a line drawn between them would be drawn by where two closed
+tickets happened to land rather than by what moved. A rule that can only be
+stated as a list of the cases already met is the reading this record
+rejected in Alternative 3.
+
 ## Migration
 
 No rule text leaves any document. `docs/tier-review-model.md`, "The
 operative test", gains the line and its falsifier; ADR-0002 gains a dated
 annotation below a horizontal rule, with its text above the rule and its
 status unchanged. The four closures stand and are not touched.
+
+The edge decision widens the second entry of that section's negative list
+from a duplicated list replaced by a reference to any restatement corrected
+against an unchanged settling document, names EM-018-001 beside EM-007-001
+as the worked examples on that side, and adds the case to the line's
+falsifier and to the occasion on which the falsifier is checked. No closed
+ticket is reclassified and no other document changes. This record carries
+both answers rather than a second record carrying the edge: the second
+answer settles an edge of the line this record states, from the same
+reserved question, answered by the same party on the same date, and this
+record is `proposed` and lands with the change, so nothing accepted is being
+amended. Splitting them would put half of one decision in a file a reader of
+the other would have to be told about.
 
 Two follow-ups are raised rather than worked here: EM-007-002-001, that the
 section's one-line summary carries clauses 1 to 4 and not clause 5, and
