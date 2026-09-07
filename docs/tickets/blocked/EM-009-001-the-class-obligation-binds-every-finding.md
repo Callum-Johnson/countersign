@@ -1,12 +1,13 @@
 ---
 id: EM-009-001
 title: The class obligation binds every repaired finding and was priced on must-fixes
-status: in-progress
+status: blocked
 tier: critical
 complexity: S
 dependencies: []
 claimed_by: claude-opus-5
 claimed_at: 2026-09-07
+blocked_at: 2026-09-08
 ---
 
 # EM-009-001 — The class obligation binds every repaired finding
@@ -122,6 +123,62 @@ named "the stopping rule" without saying where it is, a section name no
 document carries. Under the narrowed obligation that repair would have
 carried nothing.
 
+**BLOCKER (2026-09-08):** the ticket has taken its three review rounds and
+blocks at the cap that "When review ends" sets in `docs/tier-review-model.md`.
+Round 3 recorded one must-fix, and it is not repaired here.
+
+R3.1: the Review finding-line paragraph of `templates/PR-DESCRIPTION.md`
+admits two ranks, `must-fix` and `note`, where §6 gives rank three states —
+the third being a finding the reviewer left unranked, which round 1's repair
+made "repaired at its class as a must-fix is". So the record cannot express a
+state the same template elsewhere names as owing a class line; an executor
+transcribing an unranked finding must write a rank nobody gave; and writing
+`note` there both narrows the obligation that finding is bound by and feeds
+§6's falsifier a rank nobody set. The remedy is to name `unranked` as a third
+value in that parenthetical and to say the executor transcribes the absence
+rather than resolving it. **That is one word, and it adds no per-review
+duty.** It is deliberately not applied: applying it would be a fourth round,
+which the cap reserves to the maintainer. The cost is stated here so the
+maintainer can weigh the remedy without reading the template.
+
+**What the maintainer is asked to decide.** Order a fourth round, which would
+take R3.1 and carry the two notes R3.2 and R3.3 with it; or dispose of the
+ticket another way — route R3.1 to a child ticket and close on the record as
+it stands, accept the record unchanged, or answer differently. The question is
+the maintainer's because the cap makes it so, not because the finding is
+unclear.
+
+**The trend the decision turns on.** Must-fixes ran 3, 2, 1 across the three
+rounds — six in total, derived from the per-round table below and not asserted
+beside it. Three of those six sat inside a previous round's fix: both of round
+2's, inside round 1's repair, and round 3's single one, inside round 2's. The
+falling count and the redesign that round 2's class signal produced are the
+argument for one more round; that half the must-fixes are still repairs of
+repairs is the argument against it.
+
+**Evidence the cap's own falsifier asks for.** "When review ends" retires the
+cap when a ticket blocked at it has its maintainer order a further round that
+finds a rule defect. On 2026-09-07 the maintainer ordered fourth rounds on two
+sibling tickets, and one of those rounds then found three further defects.
+That is evidence toward the falsifier, and it is recorded here so this
+decision is taken with it in view rather than against a cap read as a
+formality.
+
+The per-round record travels with the block, as "When review ends" requires,
+because the pull-request description it would otherwise live in is not written
+until close. It repeats the table in the Review section below rather than
+pointing at it, so a reader of the blocker needs nothing else:
+
+| Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
+|---|---|---|---|---|
+| 1 | 3 (of 8 findings) | documents: §6's narrowed trigger turned on a per-finding rank the record did not carry (must-fix); the falsifier's new second arm named evidence the record could not produce (must-fix); the template's flat prohibition forbade the line the class signal demands (must-fix); nothing obliges a reviewer to rank; ADR-0004's second arm without a standing count; the same template sentence prohibiting where §6 owes; the authority for narrowing the rule unnamed in ADR-0004; an ungrammatical carried-forward sentence blessed by the whole-bullet re-wrap | — | 8e87a58 |
+| 2 | 2 (of 5 findings) | documents: the template's two finding-line exemplars fixed the rank as a literal, one per column, so the record's sole statement of its own form modelled rank as following column (must-fix); the same template exempted a note's repair from the class form except where the class signal had fired, unscoped in time, so every later note on that rule owed the form for the rest of the review (must-fix); §6 barring re-ranking but not renumbering or merging, which breaks the finding number the new field and the falsifier's second arm read; ADR-0004 crediting the narrowing with avoiding a separation-of-duties failure the narrowing created; "The record." in `docs/tier-review-model.md` one field further behind | 2 of 2 | f8880b5 |
+| 3 | 1 (of 3 findings) | documents: the template's Review finding-line paragraph admits two ranks where §6 gives rank three states, so the record cannot express the unranked finding the same template names as owing a class line (must-fix); §6's clause that naming several findings in one repair line is not a merge was not carried into the template; nothing makes an asking rule discoverable, so the template's inventory of the rules that ask can go stale silently | 1 of 1 | — |
+
+Derived from the rows: 3 + 2 + 1 = six must-fixes over three rounds, of which
+2 + 1 = three sat inside the previous round's fix. Round 3's `—` in the last
+column is nothing repaired, which is the point of the block.
+
 ## PR Description
 
 ### Ticket
@@ -197,14 +254,19 @@ the previous round's fix, the finding whose repair it sits inside.
   recorded with the template change in ADR-0004. The closing commit adds this ticket to that directory and
   changes what the command counts, which is why the population is named as
   the closed tickets at 60f39fb rather than left to move.
-- [ ] AC4: rounds 1 and 2 are complete and round 3 is pending. The
-  independent review of a586c67 returned 3 must-fixes over 8 findings,
+- [ ] AC4: all three rounds are complete and the ticket blocks at the cap.
+  The independent review of a586c67 returned 3 must-fixes over 8 findings,
   repaired at 8e87a58; the review of 24d81a8 returned 2 must-fixes over 5
-  findings, both inside round 1's fix, repaired at f8880b5. The class signal
-  in "What a review reports" fired on R2.2, and the repair is a redesign
-  against its class rather than the adjustment the reviewer recorded beside
-  the signal. Both rounds are in Review below. The branch is left checked out
-  for the next round, which is the third and last before the cap.
+  findings, both inside round 1's fix, repaired at f8880b5; the review of
+  3282adf returned 1 must-fix over 3 findings, inside round 2's fix and
+  repaired by nothing. The class signal in "What a review reports" fired on
+  R2.2, and the repair is a redesign against its class rather than the
+  adjustment the reviewer recorded beside the signal. All three rounds are in
+  Review below. Round 3's must-fix, R3.1, lies inside no limit this ticket
+  records, so no condition of "When review ends" ended the loop and the cap
+  did: the ticket blocks to the maintainer with its review record attached,
+  and this criterion stays unticked because the change is not finished. The
+  branch is left checked out.
 
 **What the wider population bought, measured.** Four closed tickets at
 60f39fb record repairs in §6's form — EM-009, EM-016, EM-019-001 and
@@ -584,10 +646,18 @@ repair was found needing work.
 |---|---|---|---|---|
 | 1 | 3 (of 8 findings) | documents: §6's narrowed trigger turned on a per-finding rank the record did not carry (must-fix); the falsifier's new second arm named evidence the record could not produce (must-fix); the template's flat prohibition forbade the line the class signal demands (must-fix); nothing obliges a reviewer to rank; ADR-0004's second arm without a standing count; the same template sentence prohibiting where §6 owes; the authority for narrowing the rule unnamed in ADR-0004; an ungrammatical carried-forward sentence blessed by the whole-bullet re-wrap | — | 8e87a58 |
 | 2 | 2 (of 5 findings) | documents: the template's two finding-line exemplars fixed the rank as a literal, one per column, so the record's sole statement of its own form modelled rank as following column (must-fix); the same template exempted a note's repair from the class form except where the class signal had fired, unscoped in time, so every later note on that rule owed the form for the rest of the review (must-fix); §6 barring re-ranking but not renumbering or merging, which breaks the finding number the new field and the falsifier's second arm read; ADR-0004 crediting the narrowing with avoiding a separation-of-duties failure the narrowing created; "The record." in `docs/tier-review-model.md` one field further behind | 2 of 2 | f8880b5 |
-| 3 | <n> | <where> | <m of n> | <commit> |
+| 3 | 1 (of 3 findings) | documents: the template's Review finding-line paragraph admits two ranks where §6 gives rank three states, so the record cannot express the unranked finding the same template names as owing a class line (must-fix); §6's clause that naming several findings in one repair line is not a merge was not carried into the template; nothing makes an asking rule discoverable, so the template's inventory of the rules that ask can go stale silently | 1 of 1 | — |
 
-Round 3 pending — the cap. The total is derived from the rows and is not
-asserted beside them.
+Derived from the rows above and not asserted beside them: 3 + 2 + 1 = **six**
+must-fixes over the three rounds, of which none in round 1, 2 of 2 in round 2
+and 1 of 1 in round 3 — **three** — sat inside the previous round's fix.
+
+No condition of "When review ends" was satisfied in any of the three rounds,
+and round 3 is the cap. The ticket blocks to the maintainer with this record
+attached. The blocker is above, immediately before `## PR Description`, and
+carries the per-round table appended under it as "When review ends" requires,
+since the pull-request description that table would otherwise live in is not
+written until close.
 
 **The class.** Round 1's three must-fixes were not three sentences to patch.
 The question that produces them, asked of the whole change: **on what fields
@@ -765,5 +835,77 @@ maintained against an adversary. Round 2 of a cap of three: if round 3 records
 a must-fix, the ticket blocks to the maintainer with this record attached.
 
 Post-review tree check after round 2, made before the first edit of the round:
+`git status --porcelain` empty, `git worktree list` showing only worktrees
+this ticket's executor did not create.
+
+**Round 3's independent verification, recorded before its findings.** The
+reviewer tested the redesign rather than accepting it, and reports it genuine.
+Deriving the owed set from §6 and the class signal alone reaches exactly what
+the template implies; a note's repair owes nothing because no rule asks; a
+fourth rule would be absorbed by asking rather than needing a scope written by
+hand; and §6's saving clause is general rather than hand-scoped. The class
+signal survives the redesign: the column, the rule and the inside-previous-fix
+field still carry it, and the template demands the line "whatever the two
+findings' ranks", so the case where both findings are notes still works. R2.1
+is properly taken — both finding-line exemplars now carry `<rank>` and the
+full placeholders. Five figures this description states were reproduced, each
+by its own command:
+
+- `34 40 180`, and the mean `5.29412` that rounds to the 5.29 stated above,
+  from AC3's command with `f/n` printed as well:
+
+      grep -rh "^| [0-9] | [0-9]* (of [0-9]" docs/tickets/done/*.md \
+        | sed -E 's/^\| [0-9]+ \| ([0-9]+) \(of ([0-9]+).*/\1 \2/' \
+        | awk '{m+=$1; f+=$2; n++} END {print n, m, f, f/n}'
+
+- the 11 lines the replaced sentence ran, from `git show
+  24d81a8:templates/PR-DESCRIPTION.md | sed -n '/^For each review must-fix
+  repaired/,/^claim.$/p' | wc -l`.
+- the 23 lines the statement that replaced it runs now, from `sed -n '/^For
+  each repair a line here/,/costs a later reader nothing.$/p'
+  templates/PR-DESCRIPTION.md | wc -l`.
+- the 46 repair lines in `docs/tickets/done/`, of which 3 answer for several
+  findings at once and each names every number, from `grep -rh "^- R[0-9]"
+  docs/tickets/done/*.md | wc -l` and the same grep piped to `grep -cvE "^-
+  R[0-9]+\.[0-9]+ "`.
+
+- R3.1 · permits · must-fix · `templates/PR-DESCRIPTION.md`, the Review
+  finding-line paragraph, "with the rank the reviewer gave it (`must-fix` or
+  `note` …)" · the field admits two values where §6 gives rank three states —
+  must-fix, note, and left unranked, which "is repaired at its class as a
+  must-fix is". So the record cannot say a finding was unranked: the executor
+  transcribing one must write a value the reviewer never gave, and `note`
+  narrows the obligation that finding is bound by and feeds §6's falsifier's
+  second arm — "sits inside the repair of a finding the reviewer ranked a
+  note" — a rank nobody set. The same template names "the repair of a finding
+  the reviewer left unranked" as owing a line, so the file contemplates a
+  state its own record form cannot express, which is ADR-0004's own stated
+  defect: "a rule whose trigger the record does not carry can be neither
+  checked nor retired" — remedy: name `unranked` as the third value in that
+  parenthetical and say the executor transcribes the absence rather than
+  resolving it; cost: one word, and no new per-review duty; inside previous
+  fix: R2.1, whose remedy was "the prose above them naming the two values"
+- R3.2 · refuses · note · the same template, "does not re-rank, renumber or
+  merge" · §6's clause that naming several findings in one repair line is not
+  a merge was not carried across, and the multi-finding repair line lives in
+  this template — 3 of the 46 repair lines in `docs/tickets/done/` at 60f39fb
+  are that form — remedy: carry the clause; inside previous fix: R2.3
+- R3.3 · permits · note · the same template, "Two rules ask as this is written
+  … an inventory, not the test" · nothing makes an asking rule discoverable,
+  so the inventory can go stale silently — remedy: none that tightens
+  anything; recorded for whichever ticket adds a third asking rule; inside
+  previous fix: R2.2
+
+No condition of "When review ends" was met by round 3. It found a must-fix;
+R3.1 lies inside no limit this ticket records, since round 1's R1.4 brought
+silence into scope and round 2's repair closed the value set; and it adds no
+entry to an enumeration maintained against an adversary. Round 3 of a cap of
+three, so the ticket blocks to the maintainer with this record attached —
+which "When review ends" states is a success path in exactly the sense of the
+contributor policy's §3, the executor having identified that the loop is not
+converging rather than taking another round that looks like progress. Nothing
+in round 3 was repaired, and the table's last column says so.
+
+Post-review tree check after round 3, made before the first edit of the round:
 `git status --porcelain` empty, `git worktree list` showing only worktrees
 this ticket's executor did not create.
