@@ -50,6 +50,16 @@ did — both available answers are the maintainer's, and the executor could
 only lower a tier by answering it — and the maintainer answered on
 2026-09-07. Both answers are recorded here, on the same date.
 
+Writing that answer down took two attempts. Round 2 of the independent
+review returned two must-fixes on the entry that carries it, one in each
+column: it permitted the removal of text unique to the restatement, and it
+refused every such correction on a project that keeps no map. Round 1's
+finding on the same entry had been a first-column finding, so the class
+signal in `docs/tier-review-model.md`, "What a review reports", fired, and
+the entry was redesigned rather than adjusted a third time. The maintainer's
+answer is unchanged by that; what changed is the test the entry states for
+recognising the case the answer names.
+
 ## Decision
 
 A change to a process document is `critical` when it adds, alters or
@@ -78,12 +88,16 @@ and no procedure moved, because the document that settles the question is
 unchanged and what a contributor is bound to do is unchanged.
 
 The second entry of the negative list in `docs/tier-review-model.md`, "The
-operative test", carries that answer, and says what "the document that
-settles it" means — the document that states the rule or the procedure in
-full and that the others defer to, which the contributor policy's map
-answers here and the restatement's own deference answers on a project with
-no map. EM-018-001 and EM-007-001 are the worked examples on that side of
-the line. EM-018-001's `standard` closure stands and is not corrected:
+operative test", carries that answer, and states the test it turns on:
+**containment**, read from the change and from the documents as they stand.
+A corrected restatement is `trivial` when nothing left the documents and
+nothing entered them — every question the rewritten sentences answered is
+still answered in full by a document the change does not touch, and the
+sentences now say nothing that document did not already say. Deference and
+the contributor policy's map are how the untouched document is found; they
+are evidence, and neither is required. EM-018-001 and EM-007-001 are the
+worked examples on that side of the line, and both pass containment in both
+directions. EM-018-001's `standard` closure stands and is not corrected:
 `standard` is above what the line returns, and an executor may raise.
 EM-007-001 keeps its `trivial` closure.
 
@@ -114,16 +128,41 @@ is settled; a restatement elsewhere is a copy of that rule or that
 procedure, and correcting the copy against an unchanged original leaves what
 a contributor is bound to do exactly where it was.
 
+**Why the entry tests containment rather than authority.** The first two
+attempts at writing that reason down both asked which document had the
+authority, and independent review found a defect in each: round 1's entry
+was too narrow, reaching only a duplicated list, and round 2 found the
+widened entry defective in both directions at once. It permitted the
+removal of text unique to the restatement, because a paragraph called a
+restatement could be deleted whole; and it refused ordinary work on any
+adopting project that keeps no map, because where nothing defers no
+document settles the question and every such correction returned
+`critical`. Both defects have one source: the entry decided a tier from a
+relationship between two documents, and that relationship is not a fact the
+change carries. It had to be inferred, and where the inference failed the
+entry either lowered too far or raised everything.
+
+The maintainer's reason does not need the relationship. "What a contributor
+is bound to do is as it was" is a claim about the documents before and
+after, and it is answerable from the change: does every question the
+rewritten sentences answered still have a document, untouched by this
+change, that states it in full, and does the correction carry anything that
+document did not already say. Containment answers both, from the diff and a
+read of one other document. Deference and the map survive as the fastest
+way to find that document, which is what they were always doing.
+
 Its cost was stated with the answer and accepted rather than denied, and it
-is larger than the first decision's. The negative list's second entry widens
-from a duplicated list to any restatement, and whether one's own document
-was the authority is then judged by the executor who would prefer `trivial`
-— the same failure ADR-0001's Alternative 3 names, now reached by a second
-route. One thing holds it, and it is a rule and not a mechanism:
+is larger than the first decision's. The negative list's second entry
+reaches any restatement and not only a duplicated list, and the containment
+read is made by the executor who would prefer `trivial` — ADR-0001's
+Alternative 3 reached by a second route. What containment adds against that
+is that the read is checkable: two documents at one commit, which a later
+reader can repeat, where "which document was the authority" was an argument
+nobody could settle. One rule and not a mechanism holds the rest:
 "Separation of duties", under which an executor may raise a tier and may
-never lower one. The falsifier below the line names this case in its own
-terms, so the evidence that would retire it is evidence anyone can look for
-rather than an argument about which document was the authority.
+never lower one. The falsifier below the line names the containment failure
+in its own terms, on the occasion that supplies it, and names separately
+the contributor-behaviour failure that occasion cannot supply.
 
 ## Consequences
 
@@ -143,12 +182,22 @@ rather than an argument about which document was the authority.
   "When review ends", applies.
 - **Negative:** the edge decided on 2026-09-07 widens the exemption. A
   contributor may now correct any restatement of a rule or a procedure at
-  `trivial`, on its own judgement about which document was the authority,
-  where before the entry reached only a duplicated list replaced by a
-  reference to it. A contributor who reads the restatement and not the
-  document that settles the question does something different after such a
-  change, and pays for it with no review; that is the case the falsifier
-  names and counts.
+  `trivial`, where before the entry reached only a duplicated list replaced
+  by a reference to it. A contributor who reads the restatement and not the
+  document that states the rule in full does something different after such
+  a change, and pays for it with no review; that is the second case the
+  falsifier names, counted where it surfaces rather than on the reviewer's
+  occasion, because no reading of closed changes produces it.
+- **Positive:** the containment test costs a read of one other document and
+  returns the same answer on a project that keeps no map as on this one. It
+  also refuses what the relationship test permitted: text unique to the
+  edited document cannot be removed at `trivial` by calling the paragraph
+  around it a restatement, because the question that text answered is then
+  answered in full nowhere.
+- **Negative:** a change closed `trivial` under this line now marks itself
+  in its pull-request description, so that the falsifier's population can be
+  listed. That is a sentence per closure, and a closure that omits it is
+  outside the population the reviewer reads.
 - **Neutral:** `docs/adr-process.md`, "Decisions about the process are
   themselves ADRs", still says changing the process is a process-surface
   change the operative test classes as `critical`, which now reads wider
@@ -187,7 +236,8 @@ is not readable by a contributor before a first edit, cannot be held
 against a `trivial` claim, and carries no falsifier — which is what let the
 conflict survive two independent reviews.
 
-The edge decided on 2026-09-07 had two alternatives of its own.
+The edge decided on 2026-09-07 had two alternatives of its own, and
+the round-2 review of the entry that carries it recorded a third.
 
 ### Alternative 4: the line reaches a corrected restatement
 
@@ -210,6 +260,25 @@ tickets happened to land rather than by what moved. A rule that can only be
 stated as a list of the cases already met is the reading this record
 rejected in Alternative 3.
 
+### Alternative 6: keep the relationship test and adjust it again
+
+Let deference answer where no map exists anywhere, and where nothing defers
+let the executor record which document it treated as settling and take
+`trivial`. This is the adjustment the independent review of round 2
+recorded beside the class signal it named, and deliberately did not
+propose, per `docs/tier-review-model.md`, "What a review reports". Refused
+because it is a third adjustment to the same clause on the same question,
+and the signal that fired says the repair is a redesign against the class
+rather than a further adjustment. It also leaves the first-column defect
+standing: a recorded judgement about which document was settling still
+permits the removal of text unique to the restatement, since which document
+was the authority says nothing about what left the documents. The class
+signal's own falsifier — recorded with it in "What a review reports" —
+counts redesigns whose effect turns out to be the same as the adjustment
+refused; this redesign is one of the cases that falsifier will read, and it
+differs from this alternative in that it refuses the removal of unique text
+and needs no recorded judgement at all.
+
 ## Migration
 
 No rule text leaves any document. `docs/tier-review-model.md`, "The
@@ -219,10 +288,15 @@ status unchanged. The four closures stand and are not touched.
 
 The edge decision widens the second entry of that section's negative list
 from a duplicated list replaced by a reference to any restatement corrected
-against an unchanged settling document, names EM-018-001 beside EM-007-001
-as the worked examples on that side, and adds the case to the line's
-falsifier and to the occasion on which the falsifier is checked. No closed
-ticket is reclassified and no other document changes. This record carries
+against a document, untouched by the same change, that states the rule or
+the procedure in full; states containment in both directions as the test;
+names EM-018-001 beside EM-007-001 as the worked examples on that side, with
+the containment read for each; and adds the containment failure to the
+line's falsifier on the occasion that supplies it, with the
+contributor-behaviour failure counted separately where it surfaces. A change
+closed `trivial` under the line marks itself in its pull-request
+description, which is what makes the falsifier's population listable. No
+closed ticket is reclassified and no other document changes. This record carries
 both answers rather than a second record carrying the edge: the second
 answer settles an edge of the line this record states, from the same
 reserved question, answered by the same party on the same date, and this
