@@ -51,7 +51,7 @@ only lower a tier by answering it — and the maintainer answered on
 2026-09-07. Both answers are recorded here, on the same date.
 
 Writing that answer down took two attempts. Round 2 of the independent
-review returned two must-fixes on the entry that carries it, one in each
+review, on 2026-09-08, returned two must-fixes on the entry that carries it, one in each
 column: it permitted the removal of text unique to the restatement, and it
 refused every such correction on a project that keeps no map. Round 1's
 finding on the same entry had been a first-column finding, so the class
