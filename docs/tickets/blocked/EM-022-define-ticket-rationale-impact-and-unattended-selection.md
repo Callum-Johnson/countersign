@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: in-progress
+status: blocked
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -11,7 +11,7 @@ complexity: L
 dependencies: []
 claimed_by: codex
 claimed_at: 2026-09-07
-blocked_at:
+blocked_at: 2026-09-07
 closed_at:
 ---
 
@@ -196,6 +196,11 @@ final evidence. This reopens the ticket solely for that review. It does not
 authorise a scope change, merge, tier reduction or an exception to any other
 gate.
 
+BLOCKER: The authorised fourth review found that the persisted falsification
+command checks only fragments of several compound behavioural claims. Correct
+the verifier so every named claim is falsified as a whole, then obtain
+maintainer direction for a fifth independent review before closing.
+
 ## PR Description
 
 ### Ticket
@@ -236,9 +241,10 @@ maintainer records and preserves every existing assurance boundary.
   lifecycle scope and both new tickets — `README.md`,
   `docs/ai-contributor-policy.md`, "Which document settles what", and
   `docs/tickets/README.md`.
-- [x] AC7: every substantive new rule has a `Retired when:` line; the
-  falsification evidence below names a counterfactual and result for each
-  machine-checkable behavioural claim.
+- [ ] AC7: every substantive new rule has a `Retired when:` line; the fourth
+  review found the persisted falsification evidence tests fragments rather
+  than every whole compound claim. The blocker above records the required
+  repair and next review.
 
 ### Falsification
 
@@ -324,3 +330,4 @@ foreach ($mutant in $mutants) {
 | 1 | 5 | board index; child-ticket lifecycle; template classification; impact ordering; rule falsifiers | — | `91c2bd7` |
 | 2 | 1 | contributor-policy document map | no | `093e430` |
 | 3 | 1 | reproducible per-claim falsification evidence | no | `5fe7998` |
+| 4 | 1 | falsification mutations cover claim fragments, not whole compound claims | no | — |
