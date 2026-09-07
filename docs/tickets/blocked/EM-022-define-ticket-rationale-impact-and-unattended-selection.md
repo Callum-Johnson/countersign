@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: in-progress
+status: blocked
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -11,7 +11,7 @@ complexity: L
 dependencies: []
 claimed_by: codex
 claimed_at: 2026-09-07
-blocked_at:
+blocked_at: 2026-09-07
 closed_at:
 ---
 
@@ -211,6 +211,12 @@ The split-claim repair is `12796ab` and its 17 independent mutations pass. On
 the ticket solely for that review; it does not authorise a scope change, merge,
 tier reduction or an exception to any other gate.
 
+BLOCKER: The fifth review found that the evidence, human-authority and
+canonical-order mutants leave other wording that still establishes each named
+guarantee. Either make each mutant falsify the guarantee as a whole or narrow
+the table claims to the precise fragments tested, then obtain maintainer
+direction for a sixth independent review before closing.
+
 ## PR Description
 
 ### Ticket
@@ -251,9 +257,9 @@ maintainer records and preserves every existing assurance boundary.
   lifecycle scope and both new tickets — `README.md`,
   `docs/ai-contributor-policy.md`, "Which document settles what", and
   `docs/tickets/README.md`.
-- [x] AC7: every substantive new rule has a `Retired when:` line; the
-  falsification evidence below splits compound assertions into independently
-  falsified claims. A fifth independent review must verify this repair.
+- [ ] AC7: every substantive new rule has a `Retired when:` line; the fifth
+  review found three mutations leave other supporting wording intact. The
+  blocker above records the required repair and next review.
 
 ### Falsification
 
@@ -352,3 +358,4 @@ foreach ($claim in $claims) {
 | 2 | 1 | contributor-policy document map | no | `093e430` |
 | 3 | 1 | reproducible per-claim falsification evidence | no | `5fe7998` |
 | 4 | 1 | falsification mutations cover claim fragments, not whole compound claims | no | `12796ab` |
+| 5 | 1 | three claim mutations leave alternate supporting wording intact | no | — |
