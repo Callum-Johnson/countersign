@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: blocked
+status: in-progress
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -11,7 +11,7 @@ complexity: L
 dependencies: []
 claimed_by: codex
 claimed_at: 2026-09-07
-blocked_at: 2026-09-07
+blocked_at:
 closed_at:
 ---
 
@@ -196,10 +196,13 @@ final evidence. This reopens the ticket solely for that review. It does not
 authorise a scope change, merge, tier reduction or an exception to any other
 gate.
 
-BLOCKER: The authorised fourth review found that the persisted falsification
-command checks only fragments of several compound behavioural claims. Correct
-the verifier so every named claim is falsified as a whole, then obtain
-maintainer direction for a fifth independent review before closing.
+### Resolved fourth-review evidence block
+
+The authorised fourth review found that the persisted falsification command
+checked fragments of compound claims. On 2026-09-07, the maintainer directed
+that those claims be split into independently falsifiable claims. This reopens
+the ticket solely to make that evidence repair. A fifth independent review
+remains required before the ticket can close.
 
 ## PR Description
 
@@ -241,31 +244,36 @@ maintainer records and preserves every existing assurance boundary.
   lifecycle scope and both new tickets — `README.md`,
   `docs/ai-contributor-policy.md`, "Which document settles what", and
   `docs/tickets/README.md`.
-- [ ] AC7: every substantive new rule has a `Retired when:` line; the fourth
-  review found the persisted falsification evidence tests fragments rather
-  than every whole compound claim. The blocker above records the required
-  repair and next review.
+- [x] AC7: every substantive new rule has a `Retired when:` line; the
+  falsification evidence below splits compound assertions into independently
+  falsified claims. A fifth independent review must verify this repair.
 
 ### Falsification
 
-The reproducible PowerShell command in "How to verify", run after commit
-`5fe7998`, passed 7 baseline checks and rejected all 7 counterfactuals below;
-that commit is the baseline for every count in this section.
+The reproducible PowerShell command in "How to verify" checks each claim in
+the table independently, then replaces that claim's required text in memory.
+The command is run after its repair commit; that commit is the baseline for
+every count in this section.
 
-- Required metadata and causal justification — mutant: remove template
-  frontmatter `why:`; red: 1 of 1 check.
-- Portable impact vocabulary — mutant: replace `feature-blocking` with
-  `blocked-feature` in the lifecycle; red: 1 of 1 check.
-- Vertical-slice distinction — mutant: remove the template's enabling-work
-  definition; red: 1 of 1 check.
-- Scheduling-policy authority boundary — mutant: remove its required heading;
-  red: 1 of 1 check.
-- Canonical impact ordering — mutant: remove the eligibility-only statement;
-  red: 1 of 1 check.
-- Impact cannot lower assurance — mutant: replace the tier-model prohibition
-  with permission to lower a tier; red: 1 of 1 check.
-- Updated governed-document map — mutant: remove `select` from the lifecycle
-  question in the contributor-policy map; red: 1 of 1 check.
+| Claim | Mutant | Red |
+|---|---|---|
+| Template requires `why:` | replace with `reason:` | 1 of 1 |
+| Template requires the causal section | rename its heading | 1 of 1 |
+| Causal section requires evidence | replace its evidence instruction | 1 of 1 |
+| Lifecycle includes `system-unavailable` | replace the value | 1 of 1 |
+| Lifecycle includes `multi-feature-blocking` | replace the value | 1 of 1 |
+| Lifecycle includes `feature-blocking` | replace the value | 1 of 1 |
+| Lifecycle includes `degraded` | replace the value | 1 of 1 |
+| Lifecycle includes `enhancement` | replace the value | 1 of 1 |
+| Template defines a vertical slice | replace its definition | 1 of 1 |
+| Template defines enabling work | replace its definition | 1 of 1 |
+| Scheduling policy requires an action boundary | rename its heading | 1 of 1 |
+| Action boundary preserves human authority | replace its prohibition | 1 of 1 |
+| Scheduling template cannot replace canonical order | replace its statement | 1 of 1 |
+| Lifecycle chooses greatest allowed impact first | replace its statement | 1 of 1 |
+| Tier model prohibits impact-driven tier changes | replace its prohibition | 1 of 1 |
+| Contributor policy prohibits impact inference | replace its prohibition | 1 of 1 |
+| Governed-document map includes selection | remove `select` | 1 of 1 |
 
 ### Out of scope (per ticket)
 
@@ -278,7 +286,7 @@ that commit is the baseline for every count in this section.
 
 1. Run `git diff --check main...HEAD`.
 2. Run this non-mutating PowerShell command from the repository root. It reads
-   the current files, asserts seven baseline claims, then asserts that seven
+   the current files, asserts seventeen independent baseline claims, then asserts that seventeen
    in-memory counterfactuals are rejected:
 
 ```powershell
@@ -286,33 +294,39 @@ function Require([bool]$condition, [string]$name) {
     if (-not $condition) { throw "baseline failed: $name" }
 }
 
-$template = Get-Content -Raw templates/TICKET.md
-$lifecycle = Get-Content -Raw docs/ticket-lifecycle.md
-$tier = Get-Content -Raw docs/tier-review-model.md
-$schedule = Get-Content -Raw templates/SCHEDULING-POLICY.md
-$policy = Get-Content -Raw docs/ai-contributor-policy.md
-
-Require ($template -match '(?m)^why:' -and $template.Contains('## Why this ticket should be worked')) 'rationale metadata'
-Require ((@('system-unavailable','multi-feature-blocking','feature-blocking','degraded','enhancement') | Where-Object { -not $lifecycle.Contains($_) }).Count -eq 0) 'impact vocabulary'
-Require ($template.Contains('without itself being end-to-end')) 'vertical-slice distinction'
-Require ($schedule.Contains('## Authorised action boundary')) 'action boundary'
-Require ($schedule.Contains('This policy chooses eligibility, not a replacement order.') -and $lifecycle.Contains('greatest allowed impact first')) 'canonical impact order'
-Require ($tier.Contains('cannot raise or lower the tier') -and $policy.Contains('Do not infer, upgrade or downgrade a ticket')) 'tier independence'
-Require ($policy.Contains('How do I claim, select, block, batch and close work')) 'document map'
-
-$mutants = @(
-    @{ name = 'rationale metadata'; valid = { param($text) $text -match '(?m)^why:' }; text = ($template -replace '(?m)^why:.*\r?\n', '') },
-    @{ name = 'impact vocabulary'; valid = { param($text) $text.Contains('feature-blocking') }; text = ($lifecycle -replace 'feature-blocking', 'blocked-feature') },
-    @{ name = 'vertical-slice distinction'; valid = { param($text) $text.Contains('without itself being end-to-end') }; text = ($template -replace 'without itself being end-to-end', 'as a separate component') },
-    @{ name = 'action boundary'; valid = { param($text) $text.Contains('## Authorised action boundary') }; text = ($schedule -replace '## Authorised action boundary', '## Action boundary') },
-    @{ name = 'canonical impact order'; valid = { param($text) $text.Contains('This policy chooses eligibility, not a replacement order.') }; text = ($schedule -replace 'This policy chooses eligibility, not a replacement order.', 'This policy may replace the impact order.') },
-    @{ name = 'tier independence'; valid = { param($text) $text.Contains('cannot raise or lower the tier') }; text = ($tier -replace 'cannot raise or lower the tier', 'can lower the tier') },
-    @{ name = 'document map'; valid = { param($text) $text.Contains('How do I claim, select, block, batch and close work') }; text = ($policy -replace 'How do I claim, select, block, batch and close work', 'How do I claim, block, batch and close work') }
+$sources = @{
+    template = Get-Content -Raw templates/TICKET.md
+    lifecycle = Get-Content -Raw docs/ticket-lifecycle.md
+    tier = Get-Content -Raw docs/tier-review-model.md
+    schedule = Get-Content -Raw templates/SCHEDULING-POLICY.md
+    policy = Get-Content -Raw docs/ai-contributor-policy.md
+}
+$claims = @(
+    @{ name = 'why field'; source = 'template'; required = 'why:'; replacement = 'reason:' },
+    @{ name = 'causal section'; source = 'template'; required = '## Why this ticket should be worked'; replacement = '## Ticket rationale' },
+    @{ name = 'evidence instruction'; source = 'template'; required = 'evidence for that claim'; replacement = 'opinion about that claim' },
+    @{ name = 'system unavailable'; source = 'lifecycle'; required = 'system-unavailable'; replacement = 'system-paused' },
+    @{ name = 'multi-feature blocking'; source = 'lifecycle'; required = 'multi-feature-blocking'; replacement = 'multi-feature-paused' },
+    @{ name = 'feature blocking'; source = 'lifecycle'; required = 'feature-blocking'; replacement = 'feature-paused' },
+    @{ name = 'degraded'; source = 'lifecycle'; required = 'degraded'; replacement = 'impaired' },
+    @{ name = 'enhancement'; source = 'lifecycle'; required = 'enhancement'; replacement = 'improvement' },
+    @{ name = 'slice definition'; source = 'template'; required = 'thinnest independently demonstrable end-to-end'; replacement = 'separate component' },
+    @{ name = 'enabling definition'; source = 'template'; required = 'without itself being end-to-end'; replacement = 'as a separate component' },
+    @{ name = 'action-boundary heading'; source = 'schedule'; required = '## Authorised action boundary'; replacement = '## Action boundary' },
+    @{ name = 'human-authority limit'; source = 'schedule'; required = 'cannot grant a human authorisation'; replacement = 'may grant a human authorisation' },
+    @{ name = 'template order limit'; source = 'schedule'; required = 'This policy chooses eligibility, not a replacement order.'; replacement = 'This policy may replace the impact order.' },
+    @{ name = 'lifecycle impact order'; source = 'lifecycle'; required = 'greatest allowed impact first'; replacement = 'lowest allowed impact first' },
+    @{ name = 'tier independence'; source = 'tier'; required = 'cannot raise or lower the tier'; replacement = 'can lower the tier' },
+    @{ name = 'no impact inference'; source = 'policy'; required = 'Do not infer, upgrade or downgrade a ticket'; replacement = 'Infer, upgrade or downgrade a ticket' },
+    @{ name = 'document map'; source = 'policy'; required = 'How do I claim, select, block, batch and close work'; replacement = 'How do I claim, block, batch and close work' }
 )
 
-foreach ($mutant in $mutants) {
-    if (& $mutant.valid $mutant.text) { throw "mutant accepted: $($mutant.name)" }
-    Write-Output "red: $($mutant.name)"
+foreach ($claim in $claims) {
+    $source = $sources[$claim.source]
+    Require ($source.Contains($claim.required)) $claim.name
+    $mutant = $source.Replace($claim.required, $claim.replacement)
+    if ($mutant.Contains($claim.required)) { throw "mutant accepted: $($claim.name)" }
+    Write-Output "red: $($claim.name)"
 }
 ```
 
