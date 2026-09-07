@@ -482,12 +482,12 @@ scope judgement stated, R1.7 by giving the falsifier an occasion.
 ### Out of scope (per ticket)
 Confirm nothing here exceeds the ticket's scope:
 - The operative test's five clauses are unchanged. `git diff --numstat
-  60f39fb..HEAD -- docs/tier-review-model.md` gives 99 insertions and 0
-  deletions at 99e7ae7 against 60f39fb, the commit this branch was created
+  60f39fb..HEAD -- docs/tier-review-model.md` gives 100 insertions and 0
+  deletions at 02e9e97 against 60f39fb, the commit this branch was created
   from, so no line of the document that existed before this branch was
   altered; the round-1 repair rewrote only lines this branch had added,
   which `git diff --numstat 49b5c00..HEAD -- docs/tier-review-model.md`
-  shows as 54 insertions and 26 deletions.
+  shows as 55 insertions and 26 deletions at 02e9e97 against 49b5c00.
 - What each tier requires is unchanged. "The tiers" is untouched by the same
   diff, and the annotation on ADR-0002 leaves the Decision as it stands. The
   occasion added to the falsifier under R1.7 is read against this limit and
@@ -506,9 +506,9 @@ Confirm nothing here exceeds the ticket's scope:
 
 ### How to verify
 1. `git diff --numstat 60f39fb..HEAD -- docs/tier-review-model.md docs/adr`
-   — three files at 99e7ae7 against 60f39fb: 99 and 0 on
+   — three files at 02e9e97 against 60f39fb: 100 and 0 on
    `docs/tier-review-model.md`, 35 and 0 on ADR-0002, 142 and 0 on the new
-   ADR-0004. 276 insertions and 0 deletions in total, derived from those
+   ADR-0004. 277 insertions and 0 deletions in total, derived from those
    three rows.
 2. Read the whole of "The operative test" in `docs/tier-review-model.md` as
    it stands, not the diff — the reading "When review ends" asks for before
