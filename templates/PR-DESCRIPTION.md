@@ -50,9 +50,13 @@ criterion, what a reader would do differently because of it.
 For each repair a line here is owed of, `<n>.<k>` as numbered in Review:
 the class — the question that enumerates the finding and its siblings —
 and each sibling with its test and red count; or the words `repair of
-the instance` (contributor policy §6). Where the change has no suite,
-each sibling says what a reader would do differently, as the line above
-says for a claim.
+the instance` (contributor policy §6). A class the question does not
+finitely enumerate — "what could a user type" — is the third form §6
+gives, and is neither of the two above: the siblings are best-effort and
+the line states the coverage, the way the third condition of "When review
+ends" in `docs/tier-review-model.md` records a list. Where the change has
+no suite, each sibling says what a reader would do differently, as the
+line above says for a claim.
 
 Which repairs owe a line is settled by the rules that ask for this form,
 each of which says which repairs it asks it of. Read those rules rather
@@ -72,6 +76,9 @@ asked the class question anyway and found siblings may record them,
 which costs a later reader nothing.
 - R<n>.<k> — class: <question>; siblings: <a> (<test>, red <N> of <M>),
   <b> (<test>, red <N> of <M>)
+- R<n>.<k> — class: <question>, not finitely enumerable; siblings,
+  best-effort: <a> (<test>, red <N> of <M>); coverage: <what the
+  enumeration reaches and what it does not>
 - R<n>.<k> — repair of the instance
 
 ### Out of scope (per ticket)
@@ -100,21 +107,41 @@ round. The total is derived from the rows and never asserted beside them
 
 Findings, per round, each in one of the two columns the tier review model
 names ("What a review reports"), with the rank the reviewer gave it
-(`must-fix` or `note`, which does not follow from the column: whether a
-finding blocks merge does not depend on which question found it), the
-rule it landed on, and, where it sits inside the previous round's fix, the
-finding whose repair it sits inside — so that the both-columns-on-one-rule
-signal and the falsifier of the class obligation in contributor policy §6
-can both be read from the record. The rank, the number and the rule are the
-reviewer's: the executor transcribes them and does not re-rank, renumber or
-merge. A tightening remedy carries its cost in the same line.
+(`must-fix`, `note`, or `unranked` where the reviewer gave none — three
+values, because contributor policy §6 gives rank three states and repairs
+an unranked finding at its class as a must-fix is; and rank does not
+follow from the column: whether a finding blocks merge does not depend on
+which question found it), the rule it landed on, and, where it sits inside
+the repair of a finding from an earlier round, the finding whose repair it
+sits inside — so that the both-columns-on-one-rule signal and the
+falsifier of the class obligation in contributor policy §6 can both be
+read from the record. The field is named for the case that produced it,
+the previous round, and takes a finding from any earlier round: §6's
+falsifier counts a finding in any later round where the signal and the
+round table above ask about the round before, and the finding's own number
+says which round it came from, so one field answers all three.
+
+The rank, the number and the rule are the reviewer's: the executor
+transcribes them and does not re-rank, renumber or merge — and naming
+several findings in one repair line is not a merge, since the numbers are
+all there. **An absence is transcribed as an absence.** Where the reviewer
+gave no rank the line reads `unranked`; where the reviewer recorded that a
+finding sits inside an earlier fix without naming which, the line reads
+`yes, unnamed`. The executor writes neither a rank nor a finding number
+the reviewer did not give, because a value the executor supplies is a
+value the party the obligation sits on has set. A line reading `yes,
+unnamed` still answers the class signal, which asks whether; §6's
+falsifier cannot count it, and that is the cost of the reviewer's silence
+rather than something the description may resolve. A tightening remedy
+carries its cost in the same line.
 - R1.1 · permits · <rank> · <rule> · <what the change permits that the
   ticket refuses> — remedy: <x>; cost, if the remedy tightens a control:
   <which ordinary changes now pay it, measured where it can be>; inside
-  previous fix: <the R<n>.<k> whose repair it sits inside, or `no`>
+  previous fix: <the R<n>.<k> whose repair it sits inside, `yes, unnamed`,
+  or `no`>
 - R1.2 · refuses · <rank> · <rule> · <what the change refuses that honest
   work needs> — remedy: <x>; inside previous fix: <the R<n>.<k> whose
-  repair it sits inside, or `no`>
+  repair it sits inside, `yes, unnamed`, or `no`>
 ```
 
 ### Definition of Done (all tiers)

@@ -104,6 +104,24 @@ a review reports" reads the same two fields it always did — the column, and
 whether the finding sits inside the previous fix — and is unchanged by the
 addition.
 
+**Both fields carry every state their rules name.** A field that cannot hold
+a state one of its readers names is the defect the paragraph below states —
+a rule whose trigger the record does not carry can be neither checked nor
+retired — and that defect in the record's own form would be the narrowing
+paying for itself with an unreadable falsifier. So the rank takes three
+values and not two: `must-fix`, `note`, and `unranked` where the reviewer
+gave none, which §6 repairs at its class as it repairs a must-fix. The inside-the-previous-fix field names a finding from
+any earlier round and not only the round before, because the falsifier's
+second arm counts a finding in any later round while its first arm and the
+class signal ask about the next round alone, and the finding's number says
+which round it came from; and it takes `yes, unnamed` for the reviewer who
+records that a finding sits inside an earlier fix without saying which, which
+answers the class signal's "whether" and which the second arm cannot count.
+The executor supplies neither a rank nor a finding number the reviewer left
+out, for the reason the rank is the reviewer's at all. None of this changes
+what a line costs: `unranked` is one word where `note` is one word, and a
+finding number replaces `no` in the same field.
+
 **The template change is a consequence of this narrowing, and it is wider
 than the sentence amended.** A rank on every finding line changes the record
 that every future critical-tier review writes, not only the reviews of
@@ -168,17 +186,29 @@ The text that replaces it:
   which this narrowing does not reach. **The rank is the reviewer's, and the
   record carries it finding by finding.** Every finding line in the Review
   section says whether the reviewer recorded that finding as blocking merge
-  and, where the finding sits inside the previous round's fix, which finding's
-  repair it sits inside — the two facts this bullet and its falsifier turn on,
-  in the form `templates/PR-DESCRIPTION.md` gives. The executor transcribes
-  both and does not re-rank, renumber or merge, exactly as it routes a finding
-  under the second condition of "When review ends" without reclassifying it; a
-  rank the executor can set is a scope the controlled party can set, and an
-  R-number the executor can change is the link the falsifier's second arm and
-  the inside-the-previous-fix field both read. Naming several findings in one
-  repair line is not a merge: the numbers are all there. A finding the reviewer
-  left unranked is repaired at its class as a must-fix is, so that silence
-  never narrows the obligation of the party writing the description.
+  and, where the finding sits inside the repair of a finding from an earlier
+  round, which finding's repair it sits inside — the two facts this bullet and
+  its falsifier turn on, in the form `templates/PR-DESCRIPTION.md` gives. An
+  earlier round and not only the round before, because the falsifier's second
+  arm counts a finding in any later round where its first arm and the class
+  signal ask about the next round alone, and the finding's own number says
+  which round it came from, so one field answers all three. The executor
+  transcribes both and does not re-rank, renumber or merge, exactly as it
+  routes a finding under the second condition of "When review ends" without
+  reclassifying it; a rank the executor can set is a scope the controlled party
+  can set, and an R-number the executor can change is the link the falsifier's
+  second arm and the inside-the-previous-fix field both read. Naming several
+  findings in one repair line is not a merge: the numbers are all there. A
+  finding the reviewer left unranked is repaired at its class as a must-fix is,
+  so that silence never narrows the obligation of the party writing the
+  description. **An absence is recorded as an absence.** The line says the rank
+  was not given rather than carrying one the reviewer did not give, and says
+  that a finding sits inside an earlier fix the reviewer did not identify
+  rather than naming one; a value the executor supplies where the reviewer was
+  silent is a value the party the obligation sits on has set. A finding whose
+  fix is unnamed still answers the class signal, which asks whether, and the
+  second arm below cannot count it — the cost of the silence, and not something
+  the description may resolve.
   A class with no finite enumeration — "what could a user type" — is recorded
   the way the third condition of "When review ends" in
   `docs/tier-review-model.md` records a list: best-effort, with the coverage
@@ -208,8 +238,8 @@ The falsifier that replaces it, its second arm added by this decision:
   once over a stated population of closed tickets, which is the exemption
   above costing the rounds the enumeration exists to save. The second arm is
   read from the finding lines of closed critical-tier tickets, each of which
-  carries its rank and, where it sits inside the previous round's fix, the
-  finding whose repair it sits inside; it counts only rounds recorded under
+  carries its rank and, where it sits inside the repair of a finding from an
+  earlier round, that finding; it counts only rounds recorded under
   this rule, since a note repaired while the obligation still bound it is not
   evidence about the exemption.
 ```
@@ -304,6 +334,8 @@ does not supply the permission to change what the rule reaches.
   ranked `note`. Two such lines, in rounds recorded under this rule, retire
   the exemption. Before this decision the arm named the rank of a finding
   and the identity of the fix it sat inside, and the record carried neither.
+  A line reading `yes, unnamed` is the one the arm still cannot count, and
+  it says so on its face rather than passing as a `no`.
 - **Negative:** every finding line costs one more word for the rank, and its
   inside-the-previous-fix field costs a finding number where it cost `yes`.
   At 60f39fb that is 180 findings over 34 rounds, a mean of 5.29 finding
@@ -358,7 +390,11 @@ EM-009-001 amends §6 and the matching paragraph of
 `templates/PR-DESCRIPTION.md` in one commit, so that the two descriptions of
 the obligation agree, and the same commit adds the rank to that template's
 finding-line form and turns its inside-the-previous-fix field from a yes/no
-into the finding whose repair the finding sits inside. The form is stated
+into the finding whose repair the finding sits inside, in any earlier round.
+The same template carries §6's three forms of a repair line — a class with
+its siblings, a class with no finite enumeration recorded best-effort with
+its coverage stated, and the words "repair of the instance" — so that the
+record's form holds every state the rule names. The form is stated
 in that template alone: nothing under `docs/` restates it, and the tier
 review model's own use of it — the column and whether the finding sits
 inside the previous fix, for the class signal — is satisfied unchanged. That
