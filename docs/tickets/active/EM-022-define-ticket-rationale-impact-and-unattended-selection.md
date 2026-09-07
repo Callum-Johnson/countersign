@@ -281,7 +281,7 @@ that commit is the baseline for every count in this section.
 |---|---|---|
 | Template requires `why:` | replace with `reason:` | 1 of 1 |
 | Template requires the causal section | rename its heading | 1 of 1 |
-| Causal section requires evidence | replace its evidence instruction | 1 of 1 |
+| Causal section preserves both evidence requirements | replace both requirements | 1 of 1 |
 | Lifecycle includes `system-unavailable` | replace the value | 1 of 1 |
 | Lifecycle includes `multi-feature-blocking` | replace the value | 1 of 1 |
 | Lifecycle includes `feature-blocking` | replace the value | 1 of 1 |
@@ -290,8 +290,8 @@ that commit is the baseline for every count in this section.
 | Template defines a vertical slice | replace its definition | 1 of 1 |
 | Template defines enabling work | replace its definition | 1 of 1 |
 | Scheduling policy requires an action boundary | rename its heading | 1 of 1 |
-| Action boundary preserves human authority | replace its prohibition | 1 of 1 |
-| Scheduling template cannot replace canonical order | replace its statement | 1 of 1 |
+| Action boundary preserves both human-authority limits | replace both limits | 1 of 1 |
+| Scheduling template fixes all order restrictions | replace all three statements | 1 of 1 |
 | Lifecycle chooses greatest allowed impact first | replace its statement | 1 of 1 |
 | Tier model prohibits impact-driven tier changes | replace its prohibition | 1 of 1 |
 | Contributor policy prohibits impact inference | replace its prohibition | 1 of 1 |
@@ -324,30 +324,30 @@ $sources = @{
     policy = Get-Content -Raw docs/ai-contributor-policy.md
 }
 $claims = @(
-    @{ name = 'why field'; source = 'template'; required = 'why:'; replacement = 'reason:' },
-    @{ name = 'causal section'; source = 'template'; required = '## Why this ticket should be worked'; replacement = '## Ticket rationale' },
-    @{ name = 'evidence instruction'; source = 'template'; required = 'evidence for that claim'; replacement = 'opinion about that claim' },
-    @{ name = 'system unavailable'; source = 'lifecycle'; required = 'system-unavailable'; replacement = 'system-paused' },
-    @{ name = 'multi-feature blocking'; source = 'lifecycle'; required = 'multi-feature-blocking'; replacement = 'multi-feature-paused' },
-    @{ name = 'feature blocking'; source = 'lifecycle'; required = 'feature-blocking'; replacement = 'feature-paused' },
-    @{ name = 'degraded'; source = 'lifecycle'; required = 'degraded'; replacement = 'impaired' },
-    @{ name = 'enhancement'; source = 'lifecycle'; required = 'enhancement'; replacement = 'improvement' },
-    @{ name = 'slice definition'; source = 'template'; required = 'thinnest independently demonstrable end-to-end'; replacement = 'separate component' },
-    @{ name = 'enabling definition'; source = 'template'; required = 'without itself being end-to-end'; replacement = 'as a separate component' },
-    @{ name = 'action-boundary heading'; source = 'schedule'; required = '## Authorised action boundary'; replacement = '## Action boundary' },
-    @{ name = 'human-authority limit'; source = 'schedule'; required = 'cannot grant a human authorisation'; replacement = 'may grant a human authorisation' },
-    @{ name = 'template order limit'; source = 'schedule'; required = 'This policy chooses eligibility, not a replacement order.'; replacement = 'This policy may replace the impact order.' },
-    @{ name = 'lifecycle impact order'; source = 'lifecycle'; required = 'greatest allowed impact first'; replacement = 'lowest allowed impact first' },
-    @{ name = 'tier independence'; source = 'tier'; required = 'cannot raise or lower the tier'; replacement = 'can lower the tier' },
-    @{ name = 'no impact inference'; source = 'policy'; required = 'Do not infer, upgrade or downgrade a ticket'; replacement = 'Infer, upgrade or downgrade a ticket' },
-    @{ name = 'document map'; source = 'policy'; required = 'How do I claim, select, block, batch and close work'; replacement = 'How do I claim, block, batch and close work' }
+    @{ name = 'why field'; source = 'template'; valid = { param($text) $text -match '(?m)^why:' }; mutate = { param($text) $text -replace '(?m)^why:.*\r?\n', '' } },
+    @{ name = 'causal section'; source = 'template'; valid = { param($text) $text.Contains('## Why this ticket should be worked') }; mutate = { param($text) $text.Replace('## Why this ticket should be worked', '## Ticket rationale') } },
+    @{ name = 'evidence requirements'; source = 'template'; valid = { param($text) $text.Contains('evidence for that claim') -and $text.Contains('substitute for the evidence here') }; mutate = { param($text) $text.Replace('evidence for that claim', 'opinion about that claim').Replace('substitute for the evidence here', 'optional commentary') } },
+    @{ name = 'system unavailable'; source = 'lifecycle'; valid = { param($text) $text.Contains('system-unavailable') }; mutate = { param($text) $text.Replace('system-unavailable', 'system-paused') } },
+    @{ name = 'multi-feature blocking'; source = 'lifecycle'; valid = { param($text) $text.Contains('multi-feature-blocking') }; mutate = { param($text) $text.Replace('multi-feature-blocking', 'multi-feature-paused') } },
+    @{ name = 'feature blocking'; source = 'lifecycle'; valid = { param($text) $text.Contains('feature-blocking') }; mutate = { param($text) $text.Replace('feature-blocking', 'feature-paused') } },
+    @{ name = 'degraded'; source = 'lifecycle'; valid = { param($text) $text.Contains('degraded') }; mutate = { param($text) $text.Replace('degraded', 'impaired') } },
+    @{ name = 'enhancement'; source = 'lifecycle'; valid = { param($text) $text.Contains('enhancement') }; mutate = { param($text) $text.Replace('enhancement', 'improvement') } },
+    @{ name = 'slice definition'; source = 'template'; valid = { param($text) $text.Contains('thinnest independently demonstrable end-to-end') }; mutate = { param($text) $text.Replace('thinnest independently demonstrable end-to-end', 'separate component') } },
+    @{ name = 'enabling definition'; source = 'template'; valid = { param($text) $text.Contains('without itself being end-to-end') }; mutate = { param($text) $text.Replace('without itself being end-to-end', 'as a separate component') } },
+    @{ name = 'action-boundary heading'; source = 'schedule'; valid = { param($text) $text.Contains('## Authorised action boundary') }; mutate = { param($text) $text.Replace('## Authorised action boundary', '## Action boundary') } },
+    @{ name = 'human-authority limits'; source = 'schedule'; valid = { param($text) $text.Contains('human-authorisation requirements') -and $text.Contains('cannot grant a human authorisation') }; mutate = { param($text) $text.Replace('human-authorisation requirements', 'human-authorisation exceptions').Replace('cannot grant a human authorisation', 'may grant a human authorisation') } },
+    @{ name = 'template order restrictions'; source = 'schedule'; valid = { param($text) $text.Contains('portable impact order is fixed') -and $text.Contains('impact first. This policy chooses eligibility, not a replacement order.') }; mutate = { param($text) $text.Replace('portable impact order is fixed', 'portable impact order is optional').Replace('impact first. This policy chooses eligibility, not a replacement order.', 'impact last. This policy may replace the impact order.') } },
+    @{ name = 'lifecycle impact order'; source = 'lifecycle'; valid = { param($text) $text.Contains('greatest allowed impact first') }; mutate = { param($text) $text.Replace('greatest allowed impact first', 'lowest allowed impact first') } },
+    @{ name = 'tier independence'; source = 'tier'; valid = { param($text) $text.Contains('cannot raise or lower the tier') }; mutate = { param($text) $text.Replace('cannot raise or lower the tier', 'can lower the tier') } },
+    @{ name = 'no impact inference'; source = 'policy'; valid = { param($text) $text.Contains('Do not infer, upgrade or downgrade a ticket') }; mutate = { param($text) $text.Replace('Do not infer, upgrade or downgrade a ticket', 'Infer, upgrade or downgrade a ticket') } },
+    @{ name = 'document map'; source = 'policy'; valid = { param($text) $text.Contains('How do I claim, select, block, batch and close work') }; mutate = { param($text) $text.Replace('How do I claim, select, block, batch and close work', 'How do I claim, block, batch and close work') } }
 )
 
 foreach ($claim in $claims) {
     $source = $sources[$claim.source]
-    Require ($source.Contains($claim.required)) $claim.name
-    $mutant = $source.Replace($claim.required, $claim.replacement)
-    if ($mutant.Contains($claim.required)) { throw "mutant accepted: $($claim.name)" }
+    Require (& $claim.valid $source) $claim.name
+    $mutant = & $claim.mutate $source
+    if (& $claim.valid $mutant) { throw "mutant accepted: $($claim.name)" }
     Write-Output "red: $($claim.name)"
 }
 ```
