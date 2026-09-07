@@ -273,9 +273,10 @@ maintainer records and preserves every existing assurance boundary.
 ### Falsification
 
 The reproducible PowerShell command in "How to verify" checks each claim in
-the table independently, then replaces that claim's required text in memory.
-Run after `12796ab`, it passed 17 baseline checks and rejected 17 mutations;
-that commit is the baseline for every count in this section.
+the table independently, then replaces every supporting statement for that
+claim in memory. Run after `0b507e8`, it passed 17 baseline checks and
+rejected 17 mutations; that commit is the baseline for every count in this
+section.
 
 | Claim | Mutant | Red |
 |---|---|---|
@@ -367,4 +368,4 @@ foreach ($claim in $claims) {
 | 2 | 1 | contributor-policy document map | no | `093e430` |
 | 3 | 1 | reproducible per-claim falsification evidence | no | `5fe7998` |
 | 4 | 1 | falsification mutations cover claim fragments, not whole compound claims | no | `12796ab` |
-| 5 | 1 | three claim mutations leave alternate supporting wording intact | no | — |
+| 5 | 1 | three claim mutations leave alternate supporting wording intact | no | `0b507e8` |
