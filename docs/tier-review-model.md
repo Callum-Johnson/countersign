@@ -69,15 +69,24 @@ the line is then drawn in the wrong place, and the sentence retires in
 favour of one drawn from those cases.
 
 **A change to a process document.** A process document states rules a
-contributor follows — the class the contributor policy's map-keeping rule
-governs, and not a document that records work. Two parts of this test point
-opposite ways at one: nothing in a process document is executed by a
-program or read by a caller as a contract, which is the paragraph above
-returning `trivial`, and ADR-0002's Context reads clause 5 as reaching
-every change to one, which returns `critical`. Clause 5 governs, and
-reaches a change to a process document when, and only when, the change
-**adds, alters or retires a rule or a procedure**. A change to a process
-document that does neither is `trivial`.
+contributor follows, or procedures a contributor performs. What it is
+named and where it sits do not decide: a file at a project's root stating
+the rules its contributors work under is one, and so is a document under
+`docs/` or `templates/` that states rules or procedures. Every document
+the contributor policy's map names is treated as one as well, whether or
+not it states rules. The two tests are read together and neither takes
+anything out of the class, because where the line is unclear the executor
+may raise and may never lower. A document that records work rather than
+stating rules or procedures — a ticket, a case study — is not one unless
+the map names it; a decision record is reached by the third entry below.
+
+Two parts of this test point opposite ways at a process document: nothing
+in one is executed by a program or read by a caller as a contract, which
+is the paragraph above returning `trivial`, and ADR-0002's Context reads
+clause 5 as reaching every change to one, which returns `critical`.
+Clause 5 governs, and reaches a change to a process document when, and
+only when, the change **adds, alters or retires a rule or a procedure**. A
+change to a process document that does neither is `trivial`.
 
 What that reaches:
 
@@ -89,26 +98,33 @@ What that reaches:
   blocking, batching, closing, the pre-flight checklist, what a
   pull-request description carries. Adding, removing or reordering a step
   alters it, and so does changing what a step produces.
-- **A decision record** — not a process document, since it records a
-  decision rather than states rules, but what it decides constrains future
-  work as a rule does. Writing one, or changing what one decides, is a rule
-  entering or changing by another route, and is `critical` on these same
-  words.
+- **A decision record** — in the class because the map names `docs/adr/`,
+  though it records a decision rather than stating rules; what it decides
+  constrains future work as a rule does. Writing one, or changing what one
+  decides, is a rule entering or changing by another route, and is
+  `critical` on these same words.
 
 What it does not reach:
 
-- A reference the document states wrongly, corrected: a filename, a section
-  name, a ticket identifier.
+- A reference the document states wrongly, corrected — a filename, a
+  section name, a ticket identifier — where the corrected reference names
+  what the document already pointed at, so no question moves to a
+  different place.
 - A list duplicated from another document, replaced by a reference to the
   list it duplicated, where that list is unchanged.
 - A dated annotation appended to a closed ticket or a decision record that
-  leaves every rule and every decision as it stands.
+  leaves every rule as it stands and changes how no decision is read.
 - Wording that leaves every rule's conditions and every procedure's steps
   as they were: a typo, a heading level, a dead link, a re-flow.
 
 Neither list is closed. The words in bold decide; the entries are the cases
 this repository has met, and a change matching no entry is answered by
-asking whether a rule or a procedure moved.
+asking whether a rule or a procedure moved. The two lists are not open to
+the same party: an entry to the first raises, and an executor may add one,
+while an entry to the second takes a change out of the bold words, which
+is lowering, and lowering belongs to the reviewer and the maintainer under
+"Separation of duties" below. An executor that thinks the second list is
+missing an entry raises a ticket for it and pays the round.
 
 Two closed tickets show the line. EM-012-001 added the sentence above that
 separates `trivial` from `standard`: a rule entered a process document, and
@@ -130,14 +146,26 @@ in each ticket's Notes, so a `trivial` claim on a process-document change
 is checkable against them by anyone reading the closed ticket, which is
 what the falsifier below counts.
 
-**Retired when:** a change to a process document closed `trivial` under the
-line stated here is found to have added, altered or retired a rule or a
-procedure after all, more than once over a stated population — the closed
-tickets carrying `tier: trivial` in `docs/tickets/done/` are that
-population, and a maintainer's spot-check of self-merged work is how they
-are read. The line is then drawn where the executor wants it rather than
-where these words fall, and it retires in favour of ADR-0002's Context read
-as written: every change to a process document is `critical`.
+**Retired when:** a change to a process document closed `trivial` under
+the line stated here is found to have added, altered or retired a rule or
+a procedure after all, more than once over the population below. **The
+population** is those changes and not the tickets that carry them: a batch
+ticket holds many, per `docs/ticket-lifecycle.md`, "Batching trivial
+work", and each entry is counted on its own. It is empty when this line
+lands — no change has closed under a line that did not exist — and it
+grows from the closed tickets carrying `tier: trivial` in
+`docs/tickets/done/`. **Checked at** every independent review of a
+critical-tier change to a process document: the reviewer reads the
+process-document changes closed `trivial` under this line, listed from
+`grep -l "^tier: trivial" docs/tickets/done/*.md` with a batch ticket's
+entries read one at a time, and records what it finds with the round's
+findings. The occasion is stated because `trivial` summons no reviewer of
+its own, and a falsifier whose check nobody is obliged to make is checked
+by nobody, which is the decorative falsifier "Retiring a control" exists to
+remove. A reviewer on that occasion has this paragraph open already, since
+it is what makes the change under review `critical`. The line is then drawn where the executor wants it rather than
+where these words fall, and it retires in favour of ADR-0002's Context
+read as written: every change to a process document is `critical`.
 
 In one line:
 

@@ -129,7 +129,8 @@ policy's §3, and was settled on 2026-09-07 in favour of the test, read
 narrowly: a change to a process document is `critical` when it adds, alters
 or retires a rule or a procedure, and `trivial` when it does not.
 `docs/tier-review-model.md`, "The operative test", now states that line with
-its falsifier and is the authority on it.
+its falsifier and is the authority on it, and ADR-0004 is the record of the
+decision.
 
 What stands: the sentence's conclusion for every change that adds, alters or
 retires a rule or a procedure, and every decision this record makes about
