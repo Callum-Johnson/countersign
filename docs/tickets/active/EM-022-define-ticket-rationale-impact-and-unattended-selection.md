@@ -1,7 +1,7 @@
 ---
 id: EM-022
 title: Define ticket rationale, impact and unattended selection
-status: blocked
+status: in-progress
 tier: critical
 kind: governance
 impact: multi-feature-blocking
@@ -11,7 +11,7 @@ complexity: L
 dependencies: []
 claimed_by: codex
 claimed_at: 2026-09-07
-blocked_at: 2026-09-07
+blocked_at:
 closed_at:
 ---
 
@@ -216,6 +216,15 @@ canonical-order mutants leave other wording that still establishes each named
 guarantee. Either make each mutant falsify the guarantee as a whole or narrow
 the table claims to the precise fragments tested, then obtain maintainer
 direction for a sixth independent review before closing.
+
+### Resolved sixth-review block
+
+On 2026-09-07, the maintainer directed the final repair and sixth independent
+review. The repair makes each disputed mutant remove every supporting statement
+for its documented guarantee, and names only the documentary guarantees the
+verifier can establish. This reopens the ticket solely for that work and
+review; it does not authorise a scope change, merge, tier reduction or an
+exception to any other gate.
 
 ## PR Description
 
