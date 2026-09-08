@@ -302,13 +302,14 @@ Derived from the rows: 6 + 2 + 1 = nine must-fixes over the three rounds, of
 which 2 + 1 = three sat inside the previous round's fix. Round 3's `—` in the
 last column is nothing repaired, which is the point of the block.
 
-**Maintainer's order (2026-09-08): a fourth review round.** The first of the
-two dispositions the block set out. Round 4 takes R3.1 — repaired at its class,
-since the sentence it lands on is a separation-of-duties defect and the class
-obligation in the contributor policy's §6 binds the repair — and carries the
-four notes R3.2 to R3.5 with it. Nothing about the record changes: the three
-rounds stand as recorded, the cap stands at three, and the round is ordered
-rather than taken.
+**Maintainer's order (2026-09-08): a fourth review round.** The table above
+is as it stood at the block; the Review section below carries the repair the
+ordered round produced. The first of the two dispositions the block set out.
+Round 4 takes R3.1 — repaired at its class, since the sentence it lands on is
+a separation-of-duties defect and the class obligation in the contributor
+policy's §6 binds the repair — and carries the four notes R3.2 to R3.5 with
+it. Nothing about the record changes: the three rounds stand as recorded, the
+cap stands at three, and the round is ordered rather than taken.
 
 The cap's own **Retired when:** line in `docs/tier-review-model.md`, "When
 review ends", retires the cap when a ticket blocked at it has its maintainer
@@ -336,10 +337,12 @@ narrowing the maintainer's own sentence, and the ticket blocked on it; the
 maintainer answered it on 2026-09-07. The repair that answer made possible
 is 8cf72a3. Round 2 ran on that head and returned two must-fixes and three
 notes, both must-fixes inside round 1's fix, with the class signal named on
-one of them; the redesign that answers them is d867af9. Two of the three
-rounds `docs/tier-review-model.md`, "When review ends", allows have been
-used, and round 3 is the cap: a must-fix there blocks this ticket to the
-maintainer with its review record attached.
+one of them; the redesign that answers them is d867af9. Round 3 ran on
+a82d795, returned one must-fix and four notes, and repaired nothing: the
+ticket blocked at the three-round cap on 2026-09-08 with its review record
+attached, which is what "When review ends" asks of a review that has not
+converged. The maintainer ordered a fourth round the same day. The repair
+that round produced is 53125cb, and round 4's review is pending on it.
 
 ### Summary
 The question this ticket carried was reserved to the maintainer under the
@@ -389,12 +392,15 @@ a contributor having followed a restatement, with the falsifier saying
 plainly that nobody is obliged to go looking for it. And the population is
 now listable — a change closed `trivial` under this line marks itself in its
 description, and the command greps that sentence — where before the command
-listed every `trivial` closure in `docs/tickets/done/`, 7 files at d867af9
+listed every `trivial` closure in `docs/tickets/done/`, 7 files at 53125cb
 read from `grep -l "^tier: trivial" docs/tickets/done/*.md | wc -l`, of which
-none closed under this line. The marker sentence returns 0 files at d867af9
+none closed under this line. The marker sentence returns 0 files at 53125cb
 from `grep -rl "closed trivial under the process-document line"
 docs/tickets/done/ | wc -l`, which is the population the line's own words say
-is empty at landing, now readable as empty rather than asserted.
+is empty at landing, now readable as empty rather than asserted. Round 3's
+R3.4 found that the marker is written by the party the line is on, so the
+falsifier now counts a closure found to have taken the line without the
+sentence, whatever that closure turns out to have altered.
 
 **Widening an entry is adding one.** The paragraph on who may add to which
 list said an entry to the negative list is lowering and belongs to the
@@ -491,8 +497,90 @@ them: the reviewer recorded that the entry refuses the class of work the
 decision exists to keep cheap, and the executor wrote the widening that
 finding names and no more. The paragraph did not say how a reviewer performs
 that act, which the whole-section read caught and d867af9 fixed; without
-that sentence a second-column must-fix on any negative-list entry would force
-a block rather than a repair.
+that sentence a second-column must-fix on an entry this change adds would
+force a block rather than a repair. Round 3 found that the sentence as
+d867af9 left it reached every entry and not only those, and 53125cb bounds
+it — see **The class round 3 repaired** below.
+
+**The class round 3 repaired.** R3.1 lands on the sentence added at d867af9
+for how a reviewer performs a widening, and it is a separation-of-duties
+defect rather than a wording defect: as written the route reached a
+second-column must-fix against **any** entry of the negative list, so a
+future executor whose own work a standing entry refused could have widened
+that entry inside the round. That is the act "Retiring a control" reserves
+to a retirement ticket, which the same section says "is not worked by the
+executor whose work the rule refused". The class the contributor policy's
+§6 asks for — the question which, asked of the whole change, produces R3.1
+and its siblings: *which routes does this change give an executor to change
+a control that constrains it?*
+
+The whole change was swept for such routes. Each is named below with whether
+it is bounded correctly; the change has no suite, so each says what a reader
+does differently. Two were not bounded, and both are repaired at 53125cb.
+
+1. **Adding an entry to the *reaches* list.** Open to the executor and
+   bounded correctly: an entry there raises, and raising is self-imposed
+   cost under "Separation of duties". A reader that meets a case the bold
+   words reach writes the entry alone.
+2. **Adding an entry to the negative list.** Lowers, and closed to the
+   executor: it belongs to the reviewer and the maintainer. A reader that
+   wants one raises a ticket and pays a round. Bounded correctly.
+3. **Widening an entry the negative list already carries.** Named as the
+   same act by another route and left with the same party, at 8cf72a3, so
+   the asymmetry cannot be walked around by editing an entry instead of
+   writing one. Bounded correctly.
+4. **The in-round widening a review's second-column must-fix authorises.**
+   **Not bounded, and repaired.** The route now reaches only an entry the
+   change under review itself adds, for the reason "Retiring a control"
+   gives for a rule the change adds — the defective entry does not ship and
+   then get widened; it does not ship. A reader holding a second-column
+   must-fix against an entry that stood in the document at the change's
+   baseline now writes no widening in the round: it goes to the ticket and
+   the round the preceding sentence names, which is the retirement ticket
+   "Retiring a control" routes such a finding to. Raises against the
+   sentence as d867af9 left it. The trailing citation goes with it: it now
+   cites the principle for a rule the change adds, where before it cited
+   "Retiring a control" on a finding *matching* a falsifier, which is
+   bullet 2's case and not this one.
+5. **Who works that ticket.** The paragraph sent an executor to a ticket
+   and a round and stopped there, so a reader could raise the ticket and
+   then work it. **Not bounded, and repaired in the same sentence:** the
+   ticket is the retirement ticket, and that section adds who works it —
+   not the executor whose work the entry refused. A reader that raises one
+   now reads, at the point of raising, that it is not its own to work.
+   Raises.
+6. **The marker sentence that puts a closure in the falsifier's
+   population.** Written by the party the line is on, which is R3.4: a
+   closure that took the line and omitted the sentence was outside the read
+   that would catch it. **Not bounded, and repaired:** a closure found to
+   have taken this line without the sentence counts toward the same "more
+   than once", counted where it surfaces, whatever that closure altered. A
+   reader that omits it does not thereby leave the population. Raises —
+   toward retiring the line in favour of ADR-0002's Context read as
+   written.
+7. **The containment read.** Answered by the executor on its own work. Not
+   a route to change a control but to apply one leniently, and it is the
+   cost the maintainer accepted on 2026-09-07: held by the rule that an
+   executor may raise and never lower, by these words sitting in a document
+   rather than in ticket Notes, and by the falsifier that counts a misread.
+   Bounded as far as a rule and not a mechanism can be; unchanged by this
+   round, and stated as a cost in the document by R3.5's repair.
+8. **The falsifier's occasion.** Discharged by the reviewer of a
+   critical-tier process-document change, which is not the party the line is
+   on. The residual — a change the executor closes `trivial` summons no
+   reviewer of its own — is named in the falsifier and in "The tiers", and
+   is not a route this change opens. Bounded correctly.
+9. **The line's own falsifier.** The **Retired when:** line retires the line
+   in favour of ADR-0002's Context read as written, which raises: an
+   executor gains nothing by triggering it. Bounded correctly.
+10. **The dated-annotation entry.** A reader could change how a decision
+    record is read and call the change an annotation; round 1's R1.1
+    narrowed the entry so that an annotation changing how a decision is read
+    is `critical`. Bounded correctly, in round 1.
+
+Routes 4, 5 and 6 all tighten, so all three were the executor's to write:
+"Separation of duties" gives an executor the raising direction and denies it
+the lowering one, which is the same asymmetry the round-1 class turned on.
 
 **Whether a decision record is owed: yes.** Round 1 disagreed with the
 answer this description gave at 49b5c00, and the disagreement holds when the
@@ -544,7 +632,7 @@ ADR-0004 is `proposed` and lands with this change, so nothing accepted is
 being amended by carrying it. Splitting the two would put half of one
 decision in a file a reader of the other would have to be told about, which
 is the failure `docs/adr-process.md`'s own Retired-when line names — records
-nobody reads. `docs/adr/` therefore still holds four records at d867af9
+nobody reads. `docs/adr/` therefore still holds four records at 53125cb
 against three at 60f39fb, by the command above; the edge adds a section to
 one rather than a fifth file.
 
@@ -681,19 +769,22 @@ ticket waits.
 ### Acceptance criteria
 - [x] AC1: `docs/tier-review-model.md` states when a change to a process
   document is `critical` and when it is `trivial` — the paragraph beginning
-  **A change to a process document** in "The operative test", at d867af9.
+  **A change to a process document** in "The operative test", at 53125cb.
   The line is one sentence: `critical` when the change adds, alters or
   retires a rule or a procedure, `trivial` when it does not. What surrounds
   it is what makes the sentence usable without asking — what a process
   document is, the two definitions, the two lists with the note that neither
   is closed and who may add to or widen which, and three closed tickets, one
-  on the `critical` side and two on the `trivial` side.
+  on the `critical` side and two on the `trivial` side. After the round the
+  maintainer ordered on 2026-09-08, the who-may-add paragraph also says when
+  a widening happens inside a round and when it takes a ticket: only an entry
+  the change under review itself adds is widened in the round.
 - [x] AC2: the statement and ADR-0002 agree, and the record is annotated
   rather than amended — see the annotation dated 2026-09-07 under
   EM-007-002 at the end of
   `docs/adr/0002-critical-tier-review-in-a-single-maintainer-repository.md`,
   the third annotation on that record, read from `grep -c "^## Annotation"
-  docs/adr/0002-*.md` at d867af9 against two at 60f39fb. What agrees is the
+  docs/adr/0002-*.md` at 53125cb against two at 60f39fb. What agrees is the
   Decision, which is untouched and says nothing about which changes are
   `critical`. What was wider than the practice is one Context sentence, and
   the annotation records its narrowed reach, what stands, the reasoning, and
@@ -714,9 +805,13 @@ ticket waits.
   can list rather than a filter stated in words — a change closed `trivial`
   under this line marks itself in its description, and `grep -rl "closed
   trivial under the process-document line" docs/tickets/done/` returns 0
-  files at d867af9, against the 7 that `grep -l "^tier: trivial"
+  files at 53125cb, against the 7 that `grep -l "^tier: trivial"
   docs/tickets/done/*.md` returns there, none of which closed under a line
-  that lands with this ticket. New with the maintainer's answer of 2026-09-07
+  that lands with this ticket. New with the round the maintainer ordered on
+  2026-09-08, per R3.4: the marker is written by the party the line is on, so
+  a closure found to have taken the line without the sentence counts toward
+  the same "more than once", whatever that closure turns out to have
+  altered. New with the maintainer's answer of 2026-09-07
   and reworked at round 2, per R2.4: the falsifier names the widened entry's
   own failure as a containment misread, which the stated occasion supplies,
   and states the contributor-behaviour failure separately, counted from a
@@ -743,18 +838,21 @@ ticket waits.
   — an annotation that changes how a decision is read — costs a round from
   here on; the closure itself stands, since the decision governs closures
   from 2026-09-07 forward.
-- [ ] AC5: all three rounds have run, are recorded below in two columns, and
-  the ticket blocks at the cap. Round 1 returned six must-fixes and three
+- [ ] AC5: four rounds are recorded below in two columns, three run and the
+  fourth pending. Round 1 returned six must-fixes and three
   notes, and the repair of its last open finding is 8cf72a3. Round 2 returned
   two must-fixes and three notes, both must-fixes on one negative-list entry
   and both inside round 1's fix, with the class signal named on R2.2; the
   redesign that answers them is d867af9, and the adjustment the reviewer
   recorded beside the signal is refused, in the Review section and in
   ADR-0004's Alternative 6. Round 3, on a82d795, returned one must-fix and
-  four notes, and repaired nothing: R3.1 lies inside no limit this ticket
+  four notes and repaired nothing: R3.1 lies inside no limit this ticket
   records, so no condition of "When review ends" ended the loop and the cap of
-  three rounds did. This criterion stays unticked because the change is not
-  finished. The branch is left checked out.
+  three rounds did. The maintainer ordered a fourth round on 2026-09-08, and
+  the repair it produced is 53125cb: R3.1 at the class **The class round 3
+  repaired** states, with the ten routes that question enumerates, and the
+  four notes taken with it. This criterion stays unticked because round 4's
+  review is pending on 53125cb. The branch is left checked out.
 
 ### Falsification
 N/A — a documentation change with no suite. Per acceptance criterion, what a
@@ -788,10 +886,13 @@ reader does differently:
   failure is stated as a containment misread, which the occasion supplies,
   and the reviewer lists the population by grepping the sentence a closure
   writes about itself rather than reading every `trivial` closure in the
-  directory — 0 files against 7 at d867af9, by the two commands in the
-  Summary. The contributor-behaviour failure is still counted, from a
-  `BLOCKER:` or a review finding, and the falsifier now says nobody is
-  obliged to hunt for it rather than implying a check it does not have.
+  directory — 0 files against 7 at 53125cb, by the two commands in the
+  Summary. After the ordered fourth round a reviewer also counts a closure
+  that took the line and left the sentence out, so a contributor cannot leave
+  the population by omitting it. The contributor-behaviour failure is still
+  counted, from a `BLOCKER:` or a review finding, and the falsifier now says
+  nobody is obliged to hunt for it rather than implying a check it does not
+  have.
 - AC4 — a maintainer reading the record sees why four closures stand, sees
   what was asked about the fifth and what was answered, and sees that no
   closure is corrected. A contributor correcting a restatement against an
@@ -802,12 +903,13 @@ reader does differently:
   where before that contributor got `critical` from the bold words. A
   contributor who deletes a paragraph unique to the document it sits in gets
   `critical`, whatever the paragraph is called.
-- AC5 — a reviewer of round 3 reads round 1's nine finding lines and round
-  2's five, each with its column, the rule it landed on and whether it sits
-  inside the previous round's fix; the two class statements beside them; the
-  adjustment the round-2 reviewer recorded and the record of its refusal; and
-  can test whether the redesign is a redesign or the refused adjustment under
-  another name.
+- AC5 — a reviewer of round 4 reads round 1's nine finding lines, round 2's
+  five and round 3's five, each with its column, the rule it landed on and
+  whether it sits inside the previous round's fix; the three class statements
+  beside them; the adjustment the round-2 reviewer recorded and the record of
+  its refusal; and can test whether the redesign is a redesign or the refused
+  adjustment under another name, and whether the route sweep of round 3's
+  class missed a route.
 
 Round 1's six must-fixes are repaired at the class stated above, in the
 form the contributor policy's §6 asks for: the class question, the siblings
@@ -827,18 +929,34 @@ stated occasion supplies and moving the contributor-behaviour failure to the
 occasion that does supply it, R2.5 by making a closure mark itself so that
 the population is a set a reader can list.
 
+Round 3's single must-fix is repaired at the class **The class round 3
+repaired** states — *which routes does this change give an executor to change
+a control that constrains it?* — with the ten routes that question enumerates
+and what a reader does differently for each, since the change has no suite.
+Two of the ten were unbounded: R3.1's, and the one R3.4's note names, which
+is a sibling of the class rather than a separate repair. R3.2, R3.3 and R3.5
+fall outside the class and are taken as instances, in those words — R3.2 by
+saying in the entry what it permits where two documents disagree and where
+that case is counted, R3.3 by defining "in full" as text containment and
+naming the rewritten sentences pre-state in one half of the test and
+post-state in the other, R3.5 by stating the containment read as a cost in
+the cost paragraph where the costs are stated.
+
 ### Out of scope (per ticket)
 Confirm nothing here exceeds the ticket's scope:
 - The operative test's five clauses are unchanged. `git diff --numstat
-  60f39fb..HEAD -- docs/tier-review-model.md` gives 184 insertions and 0
-  deletions at d867af9 against 60f39fb, the commit this branch was created
+  60f39fb..HEAD -- docs/tier-review-model.md` gives 209 insertions and 0
+  deletions at 53125cb against 60f39fb, the commit this branch was created
   from, so no line of the document that existed before this branch was
-  altered; the round-1 repair, the repair after the maintainer's answer and
-  the round-2 redesign rewrote only lines this branch had added, which `git
-  diff --numstat 49b5c00..HEAD -- docs/tier-review-model.md`
-  shows as 151 insertions and 38 deletions at d867af9 against 49b5c00, and
+  altered; the round-1 repair, the repair after the maintainer's answer, the
+  round-2 redesign and the round-3 repair rewrote only lines this branch had
+  added, which `git diff --numstat 49b5c00..HEAD -- docs/tier-review-model.md`
+  shows as 176 insertions and 38 deletions at 53125cb against 49b5c00, and
   `git diff --numstat 8cf72a3..HEAD -- docs/tier-review-model.md` shows as
-  105 and 56 for the round-2 redesign alone against 8cf72a3.
+  130 and 56 at 53125cb against 8cf72a3. The round-3 repair alone is 48
+  insertions and 23 deletions on that document and 44 and 12 on ADR-0004,
+  from `git diff --numstat d867af9..53125cb -- docs/tier-review-model.md
+  docs/adr`.
 - What each tier requires is unchanged. "The tiers" is untouched by the same
   diff, and the annotation on ADR-0002 leaves the Decision as it stands. The
   occasion added to the falsifier under R1.7 is read against this limit and
@@ -852,7 +970,10 @@ Confirm nothing here exceeds the ticket's scope:
   That binds a change closing under this rule and nothing else; it adds no
   section to `templates/PR-DESCRIPTION.md`, which lists the sections a
   description carries and not the sentences each must contain, and the
-  template is untouched.
+  template is untouched. The round-3 repair is read against the same limit
+  and stays inside it: it says which party performs a widening of this
+  paragraph's own list, and when, and it adds nothing to what `critical`
+  requires of a change outside this rule.
 - Tempting and deferred: the one-line summary at the foot of the section
   carries clauses 1 to 4 and not clause 5, so a contributor who reads only
   the summary gets `trivial` for a rule change. That is a defect this change
@@ -862,15 +983,15 @@ Confirm nothing here exceeds the ticket's scope:
 
 ### How to verify
 1. `git diff --numstat 60f39fb..HEAD -- docs/tier-review-model.md docs/adr`
-   — three files at d867af9 against 60f39fb: 184 and 0 on
-   `docs/tier-review-model.md`, 35 and 0 on ADR-0002, 309 and 0 on the new
-   ADR-0004. 528 insertions and 0 deletions in total, derived from those
+   — three files at 53125cb against 60f39fb: 209 and 0 on
+   `docs/tier-review-model.md`, 35 and 0 on ADR-0002, 341 and 0 on the new
+   ADR-0004. 585 insertions and 0 deletions in total, derived from those
    three rows.
 2. Read the whole of "The operative test" in `docs/tier-review-model.md` as
    it stands, not the diff — the reading "When review ends" asks for before
    a repair is handed back, done before this description was written, again
    after the maintainer's answer was written in, and again after the round-2
-   redesign. Round 1's reading
+   redesign, and again after the round-3 repair. Round 1's reading
    found three defects, fixed in the same commit: the
    decision-record entry still said a record was "not a process document",
    which contradicts the definition above it now that map-named documents
@@ -889,16 +1010,23 @@ Confirm nothing here exceeds the ticket's scope:
    and bounds the executor to what the finding names; and the cost paragraph
    stated the hazard the maintainer accepted without saying what containment
    adds against it, which is that two documents at one commit can be read
-   again by someone else.
+   again by someone else. The reading at 53125cb, in the round the maintainer
+   ordered on 2026-09-08, read the whole of "The operative test" and the
+   whole of ADR-0004 as they now stand. It found no defect beside the repair
+   and one imprecision inside it, fixed in the same commit: the repair had
+   said a baseline finding goes to a retirement ticket "as an amendment with
+   record", where "Retiring a control" makes retirement the default and
+   amendment the option, so it now says the ticket is where widening an entry
+   is an amendment with record.
 3. `grep -c "^## " docs/tier-review-model.md` — 9 at 60f39fb and 9 at
-   d867af9, against the nine rows of the document's index, so no section was
+   53125cb, against the nine rows of the document's index, so no section was
    added, removed or renamed.
 4. `git show 60f39fb:docs/ai-contributor-policy.md | md5sum` against the
-   same command at d867af9 — identical, `c98a10b7`, so the map is untouched.
+   same command at 53125cb — identical, `c98a10b7`, so the map is untouched.
    The redesign demotes that map from the entry's test to evidence, which
    changes what the entry says about the map and not the map itself.
 5. `git ls-tree --name-only <commit> docs/adr/ | wc -l` — 3 at 60f39fb and 4
-   at d867af9. ADR-0004 carries `status: proposed`; `templates/ADR.md` step
+   at 53125cb. ADR-0004 carries `status: proposed`; `templates/ADR.md` step
    3 and ADR-0003's own line move it to `accepted` at the closing commit,
    which has not been made.
 6. Check the four closures the decision leaves standing: `grep -n -i "rule
@@ -910,18 +1038,19 @@ Confirm nothing here exceeds the ticket's scope:
    still pass in both directions. EM-007-001's removed enumeration — ticket,
    tier, summary, criteria with evidence, out-of-scope confirmation,
    verification steps, risks and follow-ups — is a strict subset of the
-   sections `grep -n "^### " templates/PR-DESCRIPTION.md` lists at d867af9,
+   sections `grep -n "^### " templates/PR-DESCRIPTION.md` lists at 53125cb,
    and the reference it left behind states nothing the template did not.
    EM-018-001's two questions are both stated in full by the untouched
    lifecycle, and the rewritten steps say nothing it did not. No closure is
-   reclassified by the redesign: the 7 files `grep -l "^tier: trivial"
-   docs/tickets/done/*.md` lists at d867af9 are the same 7 the round-1
-   repair was read against, and none of them closed under this line.
-7. `git log --format='%s%n%b' 60f39fb..HEAD` — thirteen commits at d867af9,
+   reclassified by the redesign or by the round-3 repair: the 7 files `grep
+   -l "^tier: trivial" docs/tickets/done/*.md` lists at 53125cb are the same
+   7 the round-1 repair was read against, and none of them closed under this
+   line.
+7. `git log --format='%s%n%b' 60f39fb..HEAD` — seventeen commits at 53125cb,
    each ending in the co-authorship trailer, counted with `git log
    --oneline 60f39fb..HEAD | wc -l` and `git log --format='%b'
-   60f39fb..HEAD | grep -c "Co-Authored-By: Claude Opus 5"`, which give 13
-   and 13; the commit after it carries this description, and ends in it too.
+   60f39fb..HEAD | grep -c "Co-Authored-By: Claude Opus 5"`, which give 17
+   and 17; the commit after it carries this description, and ends in it too.
 8. Directory and status agree: the ticket is in `docs/tickets/active/` with
    `status: in-progress`, and the board row says `in-progress`.
 
@@ -952,19 +1081,19 @@ Confirm nothing here exceeds the ticket's scope:
   words. Neither was edited, and neither contradicts the new line; a
   reviewer finding that one of them now reads wider than the paragraph has a
   finding, and it would be repaired in the round.
-- Cost of the round-1 repair, re-measured at d867af9: the EM-010-002 shape
+- Cost of the round-1 repair, re-measured at 53125cb: the EM-010-002 shape
   costs a round from here on, which is 1 of the 7 tickets carrying `tier:
   trivial` in `docs/tickets/done/`, read from `grep -l "^tier: trivial"
   docs/tickets/done/*.md | wc -l`; and every independent review of a
   critical-tier process-document change carries one extra read, against 19
   of the 29 closed tickets in `docs/tickets/done/` carrying `tier: critical`
-  at d867af9, read from `grep -l "^tier: critical" docs/tickets/done/*.md |
+  at 53125cb, read from `grep -l "^tier: critical" docs/tickets/done/*.md |
   wc -l` and `ls docs/tickets/done/*.md | wc -l`. The population that read
-  covers is empty at d867af9, now readable as empty rather than asserted:
+  covers is empty at 53125cb, now readable as empty rather than asserted:
   `grep -rl "closed trivial under the process-document line"
-  docs/tickets/done/ | wc -l` gives 0 at d867af9. None of the four figures
-  moved with the redesign of d867af9, which touched no ticket file in
-  `done/`.
+  docs/tickets/done/ | wc -l` gives 0 at 53125cb. None of the four figures
+  moved with the redesign of d867af9 or the repair at 53125cb, neither of
+  which touched a ticket file in `done/`.
 - Cost of the round-2 redesign, stated with the findings it repairs. A
   containment read costs a read of one other document per corrected
   restatement, where the entry at 8cf72a3 cost a judgement about which
@@ -972,9 +1101,10 @@ Confirm nothing here exceeds the ticket's scope:
   later reader, which the judgement was not. A partial restatement carrying
   anything extra returns `critical` and costs a round; so does a paragraph
   unique to the document it sits in, removed. Neither reclassifies any of
-  the 7 `tier: trivial` closures at d867af9 by the command above, because
+  the 7 `tier: trivial` closures at 53125cb by the command above, because
   none of them closed under this line and the two worked examples pass
-  containment in both directions. Against that, the case R2.2 named — an
+  containment in both directions, re-read at 53125cb against "in full" as
+  the round-3 repair defines it. Against that, the case R2.2 named — an
   adopting project with no map, correcting a restatement that cites nothing
   — costs no round where it cost one at 8cf72a3, and neither does the case
   where two documents state the same rule and neither cites the other. That
@@ -990,12 +1120,35 @@ Confirm nothing here exceeds the ticket's scope:
   in the round.
 - Cost of the maintainer's second answer, accepted with it and stated in
   ADR-0004: the exemption widens from a duplicated list to any restatement,
-  and the executor judges which document was the authority on its own work.
-  Nothing mechanical holds that; the separation-of-duties rule does, and the
-  falsifier names the failure so it can be counted rather than argued. The
-  direction of the risk is the one the repository has just been shown to run
-  — round 1's six must-fixes were all in the lowering direction — which is
-  why the widened entry is the entry the falsifier names.
+  and the read that decides it is made by the executor on its own work. After
+  the round-2 redesign that read is containment and not a judgement about
+  which document was the authority, and R3.5 is why this bullet now says so:
+  the read is a cost as well as a check. It costs a read of the untouched
+  document per corrected restatement; a correction carrying anything that
+  document does not already say returns `critical` and pays a round; and
+  where two documents state one question in full and disagree, containment
+  passes while a reader of the corrected document is bound differently after
+  it, which is the widest thing the entry permits and what the falsifier's
+  second limb counts. "The operative test" now states that cost in its cost
+  paragraph, where a contributor reads it, rather than only here and in
+  ADR-0004. Nothing mechanical holds the rest; the separation-of-duties rule
+  does, and the falsifier names the failure so it can be counted rather than
+  argued. The direction of the risk is the one the repository has just been
+  shown to run — round 1's six must-fixes were all in the lowering direction
+  — which is why the widened entry is the entry the falsifier names.
+- Cost of the round-3 repair, stated with the findings it repairs. A future
+  second-column must-fix against an entry standing in `docs/` at the change's
+  baseline now pays a round: it goes to a ticket rather than being written in
+  the round. The population that pays it is 0 today, because the whole
+  negative list lands in this change — 209 insertions and 0 deletions on
+  `docs/tier-review-model.md` at 53125cb against 60f39fb, read from `git diff
+  --numstat 60f39fb..53125cb -- docs/tier-review-model.md` — so none of the
+  19 `tier: critical` closures in `docs/tickets/done/` at 53125cb can carry
+  one, by the command in the bullet above. The countable omission R3.4's
+  repair adds costs nothing to a closure that writes its marker sentence, and
+  widens the falsifier for one that does not, which is the direction that
+  raises. Neither reclassifies any closure: the 7 `tier: trivial` closures at
+  53125cb are unchanged by both.
 
 ### Review
 
@@ -1017,19 +1170,27 @@ with each, is in the Summary above under **The class this round repaired**.
 |---|---|---|---|---|
 | 1 | 6 | The process-document rule in `docs/tier-review-model.md`, "The operative test": its definition sentence, its negative list and its falsifier; the decision-record reasoning in this description; `docs/adr-process.md`; the AC4 claim | — | 99e7ae7 |
 | 2 | 2 | The second entry of the negative list in `docs/tier-review-model.md`, "The operative test" — both must-fixes on that one entry — and its **Retired when:** line, where the three notes sit | 2 of 2 | d867af9 |
-| 3 | 1 | The same rule in `docs/tier-review-model.md`, "The operative test": the who-may-add paragraph, whose permits-direction route reaches any negative-list entry and not only one the change adds (must-fix); entry 2's two-documents carve-out, whose stated reason fails in the case it carves out; the phrase "states that question's rule or procedure in full", which reads two ways; the self-marking population of the **Retired when:** line; and this description's cost paragraph, which never states containment's read as a cost | 1 of 1 | — |
+| 3 | 1 | The same rule in `docs/tier-review-model.md`, "The operative test": the who-may-add paragraph, whose permits-direction route reaches any negative-list entry and not only one the change adds (must-fix); entry 2's two-documents carve-out, whose stated reason fails in the case it carves out; the phrase "states that question's rule or procedure in full", which reads two ways; the self-marking population of the **Retired when:** line; and this description's cost paragraph, which never states containment's read as a cost | 1 of 1 | 53125cb |
 
 Derived from the rows above and not asserted beside them: 6 + 2 + 1 =
 **nine** must-fixes over the three rounds, of which none in round 1, 2 of 2 in
 round 2 and 1 of 1 in round 3 — **three** — sat inside the previous round's
 fix.
 
+**Round 4 review pending** on 53125cb. Round 3's row carries that commit
+because the repair a round produces is recorded on that round's row; round 4
+gets a row of its own when the round returns, and no count is asserted for it
+here.
+
 No condition of "When review ends" was satisfied in any of the three rounds,
-and round 3 is the cap. The ticket blocks to the maintainer with this record
-attached. The blocker is above, immediately before `## PR Description`, and
-carries the per-round table appended under it as "When review ends" requires,
-since the pull-request description that table would otherwise live in is not
-written until close.
+and round 3 was the cap: the ticket blocked to the maintainer with this record
+attached on 2026-09-08. The blocker is above, immediately before `## PR
+Description`, and carries the per-round table appended under it as "When
+review ends" requires, since the pull-request description that table would
+otherwise live in is not written until close; that copy is as it stood at the
+block. The maintainer ordered a fourth round on 2026-09-08, and this round is
+that order. The cap is unchanged by it, and so is the record of the three
+rounds.
 
 Findings of round 1, on 49b5c00:
 
@@ -1279,6 +1440,23 @@ process-document change, and this round is one. `grep -rl "closed trivial
 under the process-document line" docs/tickets/done/` returned 0: the population
 is empty, and there was nothing to read.
 
+**The class of round 3**, in the form "What a review reports" asks for:
+*which routes does this change give an executor to change a control that
+constrains it?* R3.1 is the instance the reviewer found, and it is a
+separation-of-duties defect: the sentence it lands on let an executor widen,
+inside the round, an entry that had refused its own work. The whole change
+was swept for routes of that shape. Ten were found and are enumerated in the
+Summary above under **The class round 3 repaired**, each with whether it is
+bounded correctly and what a reader does differently: adding to the *reaches*
+list; adding to the negative list; widening an entry already there; the
+in-round widening a second-column must-fix authorises; who works the ticket
+that widening otherwise takes; the marker sentence that puts a closure in the
+falsifier's population; the containment read itself; the falsifier's
+occasion; the line's own **Retired when:**; and the dated-annotation entry.
+Two were not bounded — the fourth, which is R3.1, and the sixth, which is
+R3.4's note — and both are repaired at 53125cb. All three of the repairs
+tighten, so all three were the executor's to write.
+
 Findings of round 3, on a82d795:
 
 - R3.1 · permits · "The operative test", the who-may-add paragraph, the
@@ -1299,9 +1477,12 @@ Findings of round 3, on a82d795:
   since the whole list lands in this change — 184 insertions and 0 deletions,
   read from `git diff --numstat 60f39fb..d867af9 -- docs/tier-review-model.md`
   — so none of the 19 `tier: critical` closures in `docs/tickets/done/` can
-  carry one; inside previous fix: yes (R2.2's, beside it). **Must-fix, not
-  repaired: the ticket blocks at the cap and the remedy is the maintainer's to
-  order.**
+  carry one, re-measured at the repair as 209 and 0 from `git diff --numstat
+  60f39fb..53125cb -- docs/tier-review-model.md` with the same 19 closures;
+  inside previous fix: yes (R2.2's, beside it). **Must-fix, repaired at the
+  class in the round the maintainer ordered on 2026-09-08 — see The class
+  round 3 repaired, whose sweep of the whole change for routes of this shape
+  found ten and two unbounded.**
 - R3.2 · permits · negative list entry 2, "Where two state it in full and
   neither cites the other, either is the untouched document" · where the two
   documents disagree, a reader of the edited document *is* bound differently
@@ -1309,24 +1490,47 @@ Findings of round 3, on a82d795:
   bound to do is as it was — does not hold in the one case the entry carves
   out; the falsifier's second limb counts that case and the entry does not say
   so — remedy: one clause, in the entry or in the cost paragraph; inside
-  previous fix: yes (R2.2). **Note, recorded and not taken; taking it would be
-  a fourth round.**
+  previous fix: yes (R2.2). **Note, taken:** the entry now says that where the
+  two disagree containment still passes while a reader who had been following
+  the corrected document is bound differently after it, that the reason the
+  entry rests on holds for the documents and not for that reader, and that
+  this is what the falsifier's second limb counts. The cost bullet in Risks
+  and ADR-0004's Consequences say the same. Nothing is reclassified: the case
+  returned `trivial` before the clause and returns `trivial` after it, and
+  what changed is that the entry states what it is permitting.
 - R3.3 · permits · "states that question's rule or procedure in full" · the
   phrase carries two readings, text-containment and topic-coverage, and only
   the first keeps "what is unique to it is not a copy" coherent; "the
   rewritten sentences" is used pre-state in one bullet and post-state in the
   other — remedy: define "in full" as saying everything the removed text said;
-  inside previous fix: yes (R2.1). **Note, recorded and not taken.**
+  inside previous fix: yes (R2.1). **Note, taken:** "in full" is now text
+  containment — the untouched document says everything the text the change
+  removes said, and not merely that it covers the same subject — and the two
+  halves of the test name the sentences as they answered before the change and
+  as they say after it. ADR-0004's Decision carries the same definition. It
+  raises: the topic-coverage reading was the looser of the two.
 - R3.4 · permits · the **Retired when:** line, the self-marking population ·
   the marker sentence is written by the party the control is on, so a closure
   wrongly claiming `trivial` that omits it is outside the read, and the
   falsifier does not make the omission itself countable — remedy: one
-  sentence; inside previous fix: yes (R2.5). **Note, recorded and not taken.**
+  sentence; inside previous fix: yes (R2.5). **Note, taken as a sibling of the
+  round's class**, since a marker the controlled party may omit is a route of
+  exactly the shape R3.1 names: a closure found to have taken this line
+  without the sentence now counts toward the same "more than once", counted
+  where it surfaces, whatever that closure altered. Cost: nothing to a closure
+  that writes its sentence; the falsifier is wider for one that does not,
+  which is the direction that raises.
 - R3.5 · refuses · this description's cost paragraph · containment's read is
   named but never as a cost; it is stated only in ADR-0004 and under Risks /
   follow-ups — remedy: state it as a cost where the costs are stated; inside
   previous fix: not recorded by the reviewer, and transcribed here as the
-  absence it is rather than resolved. **Note, recorded and not taken.**
+  absence it is rather than resolved. **Note, taken in both places:** the cost
+  paragraph of "The operative test" now states the containment read as a cost
+  — a read of the untouched document per corrected restatement, and `critical`
+  and a round for a correction carrying anything that document did not already
+  say — beside what it already said the read is worth; and the Risks bullet
+  naming the second answer's cost is restated in the redesign's terms, where
+  it still described the authority judgement the redesign replaced.
 
 After the round, on its own lines:
 
@@ -1358,3 +1562,23 @@ After the round, on its own lines:
   and detached, and this tree was not written to. Nothing untracked, nothing
   modified, so there is no finding against the review to record beside the
   round's row.
+- **Post-review check re-run before the first edit of the ordered round
+  (2026-09-08)**, per the same rule, at 73ff02c and before the unblock:
+  `git status --porcelain` returned no output and `git worktree list` showed
+  the same twelve worktrees, none created by this ticket's executor and none
+  left behind by the review, with `A:/projects/wt/review-EM-007-002` still at
+  a82d795 and detached. Nothing untracked, nothing modified, so there is no
+  finding against the review to record beside round 3's row.
+- **The whole-section read at 53125cb**, per "When review ends", "The repair
+  is read whole before it is handed back": the whole of "The operative test"
+  and the whole of ADR-0004 were read as they now stand. Nothing was found
+  beside the repair, and one imprecision inside it was fixed in the same
+  commit — step 2 of How to verify describes it.
+- **The reviewer's observation about the class signal's wording stays with
+  the maintainer.** Round 3 recorded, as fact and not as a proposal, that the
+  signal in "What a review reports" did not fire on R3.1 and why, and that a
+  second instance of the same gap exists on another project, so the bar in "A
+  rule needs a second instance" is met. The blocker above carries it. The
+  order of 2026-09-08 is for a round taking R3.1 and the four notes, and
+  names no rule; whether a rule is written, and in what words, is the
+  maintainer's to direct, so nothing is written for it here.
