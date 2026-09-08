@@ -96,13 +96,14 @@ decides how much a repair must justify itself, which is the
 separation-of-duties failure this record closes rather than one it avoided.
 So each finding line in `templates/PR-DESCRIPTION.md` now carries the rank
 the reviewer gave the finding, and its inside-the-previous-fix field names
-the finding whose repair it sits inside rather than answering yes or no. The reviewer records
-both; the executor transcribes them and does not re-rank, renumber or merge;
-a finding the reviewer left unranked is repaired at its class as a must-fix
-is, so silence cannot narrow the obligation either. The class signal in "What
-a review reports" reads the same two fields it always did — the column, and
-whether the finding sits inside the previous fix — and is unchanged by the
-addition.
+the finding whose repair it sits inside rather than answering yes or no. The
+reviewer records both; the executor transcribes them and does not re-rank,
+renumber or merge; a finding the reviewer left unranked is repaired at its
+class as a must-fix is, so silence cannot narrow the obligation either. The
+class signal in "What a review reports" reads the same two fields it always
+did — the column, and whether the finding sits inside the previous fix — and
+its trigger is untouched; which values of the second field it can read is
+settled in the paragraph below.
 
 **Both fields carry every state their rules name.** A field that cannot hold
 a state one of its readers names is the defect the paragraph below states —
@@ -110,17 +111,24 @@ a rule whose trigger the record does not carry can be neither checked nor
 retired — and that defect in the record's own form would be the narrowing
 paying for itself with an unreadable falsifier. So the rank takes three
 values and not two: `must-fix`, `note`, and `unranked` where the reviewer
-gave none, which §6 repairs at its class as it repairs a must-fix. The inside-the-previous-fix field names a finding from
-any earlier round and not only the round before, because the falsifier's
-second arm counts a finding in any later round while its first arm and the
-class signal ask about the next round alone, and the finding's number says
-which round it came from; and it takes `yes, unnamed` for the reviewer who
-records that a finding sits inside an earlier fix without saying which, which
-answers the class signal's "whether" and which the second arm cannot count.
-The executor supplies neither a rank nor a finding number the reviewer left
-out, for the reason the rank is the reviewer's at all. None of this changes
-what a line costs: `unranked` is one word where `note` is one word, and a
-finding number replaces `no` in the same field.
+gave none, which §6 repairs at its class as it repairs a must-fix. The
+inside-the-previous-fix field names a finding from any earlier round and not
+only the round before, because the falsifier's second arm counts a finding in
+any later round while every other rule that reads the field asks about the
+round before, and the finding's number says which round it came from; the
+four rules that read it are listed once, in `templates/PR-DESCRIPTION.md`, so
+that no second list of them can drift from the first. Where the reviewer
+records that a finding sits inside an earlier fix without saying which the
+field carries that, and where the reviewer writes something else again it
+carries the reviewer's words: only a line naming a finding, or reading `no`,
+is countable by any of the four, since the second arm needs the earlier
+finding's rank and the other three need the round, which only the number
+gives. The executor supplies neither a rank nor a finding number the reviewer
+left out, for the reason the rank is the reviewer's at all. What a finding
+line costs is unchanged — `unranked` is one word where `note` is one word,
+and a finding number replaces `no` in the same field — and what the round
+table costs is one count per row, of the must-fix lines that name no finding
+and so sit neither in its `m of n` cell nor out of it.
 
 **The template change is a consequence of this narrowing, and it is wider
 than the sentence amended.** A rank on every finding line changes the record
@@ -135,10 +143,11 @@ trigger the record does not carry can be neither checked nor retired.
 Without the field the only statement of a rank is the executor's prose, and
 the executor is the party the obligation sits on: the narrowing would hand
 it the scope it was narrowed to define. What it costs is one word and one
-finding number per finding line. At 60f39fb the closed records hold 180
-findings over 34 rounds, a mean of 5.29 finding lines per round, read from
-the counting command in Context above with `f/n` printed as well — so about
-five words and five finding numbers per review record, paid from here by
+finding number per finding line, and one further number on each round row.
+At 60f39fb the closed records hold 180 findings over 34 rounds, a mean of
+5.29 finding lines per round, read from the counting command in Context
+above with `f/n` printed as well — so about five words and five finding
+numbers per review record, plus one number per round row, paid from here by
 every critical-tier review.
 
 The rule's text as it stood:
@@ -190,25 +199,30 @@ The text that replaces it:
   round, which finding's repair it sits inside — the two facts this bullet and
   its falsifier turn on, in the form `templates/PR-DESCRIPTION.md` gives. An
   earlier round and not only the round before, because the falsifier's second
-  arm counts a finding in any later round where its first arm and the class
-  signal ask about the next round alone, and the finding's own number says
-  which round it came from, so one field answers all three. The executor
-  transcribes both and does not re-rank, renumber or merge, exactly as it
-  routes a finding under the second condition of "When review ends" without
-  reclassifying it; a rank the executor can set is a scope the controlled party
-  can set, and an R-number the executor can change is the link the falsifier's
-  second arm and the inside-the-previous-fix field both read. Naming several
-  findings in one repair line is not a merge: the numbers are all there. A
-  finding the reviewer left unranked is repaired at its class as a must-fix is,
-  so that silence never narrows the obligation of the party writing the
-  description. **An absence is recorded as an absence.** The line says the rank
-  was not given rather than carrying one the reviewer did not give, and says
-  that a finding sits inside an earlier fix the reviewer did not identify
-  rather than naming one; a value the executor supplies where the reviewer was
-  silent is a value the party the obligation sits on has set. A finding whose
-  fix is unnamed still answers the class signal, which asks whether, and the
-  second arm below cannot count it — the cost of the silence, and not something
-  the description may resolve.
+  arm counts a finding in any later round where every other rule that reads
+  the field asks about the round before, and the finding's own number says
+  which round it came from, so one field answers them all. Which rules read
+  it is listed once, in `templates/PR-DESCRIPTION.md`, so that no second list
+  of them can drift from the first. The executor transcribes both and does not
+  re-rank, renumber or merge, exactly as it routes a finding under the second
+  condition of "When review ends" without reclassifying it; a rank the
+  executor can set is a scope the controlled party can set, and an R-number
+  the executor can change is the link the falsifier's second arm and the
+  inside-the-previous-fix field both read. Naming several findings in one
+  repair line is not a merge: the numbers are all there. A finding the
+  reviewer left unranked is repaired at its class as a must-fix is, so that
+  silence never narrows the obligation of the party writing the description.
+  **An absence is recorded as an absence.** The line says the rank was not
+  given rather than carrying one the reviewer did not give, and says that a
+  finding sits inside an earlier fix the reviewer did not identify rather than
+  naming one; a value the executor supplies where the reviewer was silent is a
+  value the party the obligation sits on has set. **Only a line naming a
+  finding, or one reading `no`, is countable.** Any other value the reviewer
+  wrote is counted by none of the rules that read the field: the second arm
+  needs the earlier finding's rank, and every other reader needs the round,
+  which only the number gives. Such a line is reported and left as it was
+  written — the cost of the silence, and not something the description may
+  resolve.
   A class with no finite enumeration — "what could a user type" — is recorded
   the way the third condition of "When review ends" in
   `docs/tier-review-model.md` records a list: best-effort, with the coverage
@@ -251,6 +265,23 @@ under this amendment, because a note repaired while the obligation still
 bound it carried the class question already and so says nothing about the
 exemption. No such round exists at 60f39fb: the count is zero over zero
 rounds, and the first ticket closed under this rule starts it.
+
+**Beside it goes the count the arm cannot reach.** A finding line whose
+inside-the-previous-fix field names no finding is countable by none of that
+field's four readers, and a standing zero reported without it would let a
+starved arm read as a quiet one — the unnamed answer is the cheap one, and
+the party that gains from the arm never firing is the party writing the
+record. So both counts are stated, and both are zero over zero rounds
+recorded under this amendment. The record as it stood is what makes the
+second count worth reporting: of the 5 finding lines carrying that field in
+`docs/tickets/done/` at 60f39fb, 1 names a finding or reads `no` and 4 do
+not — one bare `yes`, two `yes` with commit hashes, and one `partly` — from
+`grep -rh "inside previous fix" docs/tickets/done/*.md | wc -l` and the same
+grep piped to `grep -cE "inside previous fix: (no|R[0-9]+[.][0-9]+)"`, run
+at that commit on a directory EM-009-001's branch does not touch. Those five
+predate the field's present form and none was written under this rule, so
+they measure how often a reviewer answers without naming and not how often
+the arm will be starved.
 
 The pattern the arm watches for was not rare under the rule as it stood.
 Over the 34 rounds recorded at 60f39fb, eleven findings in a round after the
@@ -334,15 +365,20 @@ does not supply the permission to change what the rule reaches.
   ranked `note`. Two such lines, in rounds recorded under this rule, retire
   the exemption. Before this decision the arm named the rank of a finding
   and the identity of the fix it sat inside, and the record carried neither.
-  A line reading `yes, unnamed` is the one the arm still cannot count, and
-  it says so on its face rather than passing as a `no`.
+  A line that names no finding — `yes, unnamed`, or whatever else the
+  reviewer wrote — is one no reader of the field can count, and it says so
+  on its face rather than passing as a `no`; the round table reports how
+  many such lines a round holds, and this record states their standing count
+  beside the arm's own.
 - **Negative:** every finding line costs one more word for the rank, and its
   inside-the-previous-fix field costs a finding number where it cost `yes`.
   At 60f39fb that is 180 findings over 34 rounds, a mean of 5.29 finding
   lines per round, on records already written and not rewritten; the cost
   falls on rounds recorded from here, and on every critical-tier review from
-  here rather than only on the tickets that touch this rule. It buys the two
-  facts the narrowed rule and its falsifier turn on.
+  here rather than only on the tickets that touch this rule. Each round row
+  costs one number besides — the count of must-fix lines naming no finding,
+  written even when it is zero. It buys the two facts the narrowed rule and
+  its falsifier turn on.
 - **Negative:** a note repaired one branch too shallow is now exempt, which
   is the defect EM-009 was raised for. It is not hypothetical, and the count
   is in the standing-count paragraph above: eleven times over the 34 rounds
@@ -391,6 +427,9 @@ EM-009-001 amends §6 and the matching paragraph of
 the obligation agree, and the same commit adds the rank to that template's
 finding-line form and turns its inside-the-previous-fix field from a yes/no
 into the finding whose repair the finding sits inside, in any earlier round.
+That template carries the only list of the four rules that read the field, so
+that no second list of them can drift from it, and the round table's count of
+the must-fix lines that name none.
 The same template carries §6's three forms of a repair line — a class with
 its siblings, a class with no finite enumeration recorded best-effort with
 its coverage stated, and the words "repair of the instance" — so that the

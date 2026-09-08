@@ -101,9 +101,18 @@ round. The total is derived from the rows and never asserted beside them
 | Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
 |---|---|---|---|---|
 | 1 | <n> | <where> | — | <commit> |
-| 2 | <n> | <where> | <m of n> | <commit> |
+| 2 | <n> | <where> | <m of n, k unnamed> | <commit> |
 
 `—` where nothing was repaired; `m` and `n` count must-fixes, not findings.
+`m` counts only must-fix lines whose inside-previous-fix field names a
+finding from the round before, and `k` reports beside it the must-fix
+lines that name no finding: those sit neither in `m` nor out of it, and
+"Repairs of repairs" in `docs/tier-review-model.md` reads this cell to
+decide whether a redesign is owed, so a cell that swallowed them would let
+the party the obligation sits on hold a round below "mostly". `k` is
+written even when it is zero, for the reason the falsification gate writes
+a zero red count as a zero: a count omitted is indistinguishable from a
+count nobody took. Round 1 has no round before it, and its cell reads `—`.
 
 Findings, per round, each in one of the two columns the tier review model
 names ("What a review reports"), with the rank the reviewer gave it
@@ -116,10 +125,14 @@ the repair of a finding from an earlier round, the finding whose repair it
 sits inside — so that the both-columns-on-one-rule signal and the
 falsifier of the class obligation in contributor policy §6 can both be
 read from the record. The field is named for the case that produced it,
-the previous round, and takes a finding from any earlier round: §6's
-falsifier counts a finding in any later round where the signal and the
-round table above ask about the round before, and the finding's own number
-says which round it came from, so one field answers all three.
+the previous round, and takes a finding from any earlier round. **Four
+rules read it, and this is the only list of them**, so that no second list
+can drift from this one: the second arm of §6's falsifier, which counts a
+finding in any later round; the first arm of that falsifier and the class
+signal in `docs/tier-review-model.md`, "What a review reports", which ask
+about the next round alone; and the round table above, which counts the
+round before. The finding's own number says which round it came from, so
+one field answers all four.
 
 The rank, the number and the rule are the reviewer's: the executor
 transcribes them and does not re-rank, renumber or merge — and naming
@@ -127,21 +140,28 @@ several findings in one repair line is not a merge, since the numbers are
 all there. **An absence is transcribed as an absence.** Where the reviewer
 gave no rank the line reads `unranked`; where the reviewer recorded that a
 finding sits inside an earlier fix without naming which, the line reads
-`yes, unnamed`. The executor writes neither a rank nor a finding number
-the reviewer did not give, because a value the executor supplies is a
-value the party the obligation sits on has set. A line reading `yes,
-unnamed` still answers the class signal, which asks whether; §6's
-falsifier cannot count it, and that is the cost of the reviewer's silence
-rather than something the description may resolve. A tightening remedy
-carries its cost in the same line.
+`yes, unnamed`; where the reviewer wrote something that is neither of
+those nor a finding number — a hedge such as `partly` — the line carries
+the reviewer's own words. The executor writes neither a rank nor a finding
+number the reviewer did not give, because a value the executor supplies is
+a value the party the obligation sits on has set. **A line is countable
+only where it names a finding or reads `no`.** Any other value is counted
+by none of the four rules above: the second arm needs the earlier
+finding's rank, and the other three need the round, which only the number
+gives. Such a line is reported — on the finding line, and in the count `k`
+beside the round table's `m of n` — and left as the reviewer wrote it,
+which is the cost of the reviewer's silence rather than something the
+description may resolve. A tightening remedy carries its cost in the same
+line.
 - R1.1 · permits · <rank> · <rule> · <what the change permits that the
   ticket refuses> — remedy: <x>; cost, if the remedy tightens a control:
   <which ordinary changes now pay it, measured where it can be>; inside
-  previous fix: <the R<n>.<k> whose repair it sits inside, `yes, unnamed`,
-  or `no`>
+  previous fix: <the R<n>.<k> whose repair it sits inside, `no`, `yes,
+  unnamed`, or the reviewer's own words>
 - R1.2 · refuses · <rank> · <rule> · <what the change refuses that honest
   work needs> — remedy: <x>; inside previous fix: <the R<n>.<k> whose
-  repair it sits inside, `yes, unnamed`, or `no`>
+  repair it sits inside, `no`, `yes, unnamed`, or the reviewer's own
+  words>
 ```
 
 ### Definition of Done (all tiers)

@@ -267,25 +267,30 @@ every reading of it. That is not caution — it is unreviewable code.
   round, which finding's repair it sits inside — the two facts this bullet and
   its falsifier turn on, in the form `templates/PR-DESCRIPTION.md` gives. An
   earlier round and not only the round before, because the falsifier's second
-  arm counts a finding in any later round where its first arm and the class
-  signal ask about the next round alone, and the finding's own number says
-  which round it came from, so one field answers all three. The executor
-  transcribes both and does not re-rank, renumber or merge, exactly as it
-  routes a finding under the second condition of "When review ends" without
-  reclassifying it; a rank the executor can set is a scope the controlled party
-  can set, and an R-number the executor can change is the link the falsifier's
-  second arm and the inside-the-previous-fix field both read. Naming several
-  findings in one repair line is not a merge: the numbers are all there. A
-  finding the reviewer left unranked is repaired at its class as a must-fix is,
-  so that silence never narrows the obligation of the party writing the
-  description. **An absence is recorded as an absence.** The line says the rank
-  was not given rather than carrying one the reviewer did not give, and says
-  that a finding sits inside an earlier fix the reviewer did not identify
-  rather than naming one; a value the executor supplies where the reviewer was
-  silent is a value the party the obligation sits on has set. A finding whose
-  fix is unnamed still answers the class signal, which asks whether, and the
-  second arm below cannot count it — the cost of the silence, and not something
-  the description may resolve.
+  arm counts a finding in any later round where every other rule that reads
+  the field asks about the round before, and the finding's own number says
+  which round it came from, so one field answers them all. Which rules read
+  it is listed once, in `templates/PR-DESCRIPTION.md`, so that no second list
+  of them can drift from the first. The executor transcribes both and does not
+  re-rank, renumber or merge, exactly as it routes a finding under the second
+  condition of "When review ends" without reclassifying it; a rank the
+  executor can set is a scope the controlled party can set, and an R-number
+  the executor can change is the link the falsifier's second arm and the
+  inside-the-previous-fix field both read. Naming several findings in one
+  repair line is not a merge: the numbers are all there. A finding the
+  reviewer left unranked is repaired at its class as a must-fix is, so that
+  silence never narrows the obligation of the party writing the description.
+  **An absence is recorded as an absence.** The line says the rank was not
+  given rather than carrying one the reviewer did not give, and says that a
+  finding sits inside an earlier fix the reviewer did not identify rather than
+  naming one; a value the executor supplies where the reviewer was silent is a
+  value the party the obligation sits on has set. **Only a line naming a
+  finding, or one reading `no`, is countable.** Any other value the reviewer
+  wrote is counted by none of the rules that read the field: the second arm
+  needs the earlier finding's rank, and every other reader needs the round,
+  which only the number gives. Such a line is reported and left as it was
+  written — the cost of the silence, and not something the description may
+  resolve.
   A class with no finite enumeration — "what could a user type" — is recorded
   the way the third condition of "When review ends" in
   `docs/tier-review-model.md` records a list: best-effort, with the coverage
