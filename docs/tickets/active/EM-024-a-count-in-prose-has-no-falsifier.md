@@ -219,8 +219,8 @@ one an author can propose without resolving it.
 
 **Tier raised from `standard` to `critical` by the executor on 2026-09-08**,
 under "Separation of duties" in `docs/tier-review-model.md`: this change adds a
-rule to a process document, and `docs/adr-process.md`, "What \"a workflow rule
-changes\" reaches", states that a rule added to a process document is a
+rule to a process document, and `docs/adr-process.md`, "What a workflow rule
+changes reaches", states that a rule added to a process document is a
 process-surface change under the operative test either way — clause 5. Only a
 reviewer may lower it.
 
