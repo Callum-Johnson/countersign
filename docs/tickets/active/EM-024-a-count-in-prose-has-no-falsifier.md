@@ -226,4 +226,269 @@ reviewer may lower it.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-024 — A count written into prose has no falsifier and drifts silently
+
+### Tier
+`critical` — raised from the author's proposed `standard` by the executor on
+2026-09-08, under "Separation of duties": the change adds a rule to a process
+document, and `docs/adr-process.md` states that a rule added to a process
+document is a process-surface change under the operative test either way,
+which is clause 5. The one-line reason is in the ticket's Notes. Only a
+reviewer may lower it.
+
+**Independent review not yet obtained.** The executor does not review its own
+work. Under ADR-0002 an independent pass is required before this merges; the
+Review section below is empty because no round has run.
+
+**No decision record is owed.** `docs/adr-process.md`, "What a workflow rule
+changes reaches", puts a rule added inside a document, under an existing
+decision, on the second side of the line: it stays in the document with its
+falsifier and its ticket is its record. This rule is added inside
+`docs/quality-gates.md` under the falsification gate's existing decision that
+the executor pins claims before reporting, and extends policy §6 in place. It
+is the same shape as EM-011's and EM-021's, which the section names as
+producing no record.
+
+### Summary
+`docs/quality-gates.md` gains a section beside the falsification gate: a count
+that describes the tree lives in a test that measures it, prose names the test
+rather than restating the number, and the count therefore has exactly one site.
+Where the count's subject includes the sentence stating it, the instrument
+excludes prose — a text search returns the sentence. Policy §6's measured-number
+bullet is extended, not replaced, and says so. The section states what a reader
+does, what the degraded form is on a project with no suite, what it does not
+reach, and its falsifier with the population named.
+
+### Acceptance criteria
+
+- [x] **AC1: the maintainer's answer is recorded in this ticket before the
+  design is built.** The ticket's section "The maintainer's answer" quotes it
+  in full and dates it 2026-09-08. It was committed at `cedb7a8`, before the
+  rule commit `19cbb74`; `git log --oneline --reverse 8abf61a..HEAD` shows the
+  order.
+  *What a reader does differently:* a reader of the ticket sees which of the
+  three options the rule implements, and on what reasoning, without asking the
+  maintainer or inferring it from the diff.
+
+- [x] **AC2: the rule states its falsifier and the population it is measured
+  over.** `docs/quality-gates.md`, "A count that describes the tree lives in a
+  test", closes with a **Retired when:** line: over the next fifty closed
+  tickets on a project that has adopted the section, no reproduction of a
+  number a record asserts about the tree finds one wrong. Fifty is written as
+  a default and named as one; the line states in terms that the whole evidence
+  is a single day, 2026-09-08, on a single project, and that the first adopting
+  project's fifty closed tickets replace the figure. Fifty is not a measured
+  number and is not offered as one.
+  *What a reader does differently:* a maintainer can retire the section on
+  evidence rather than on taste, and can see, before adopting it, that the
+  evidence base is one day and not a history.
+
+- [x] **AC3: the four instances are cited as the second-instance evidence,
+  each naming the ticket and the finding.** They are the bulleted entries in
+  the ticket's Context, unchanged from the raise. A fifth, judged in class, is
+  added as the paragraph that follows them. The enumeration, rather than a
+  count of it, is read from
+  `grep -n '^- \*\*OMN\|^\*\*A fifth instance' docs/tickets/active/EM-024-a-count-in-prose-has-no-falsifier.md`
+  at `91798f3`, which returns:
+
+  ```
+  27:- **OMN-024, finding R4.2.** A boolean's count read "seven" where it is nine
+  33:- **OMN-022-002, finding R7.4.** A finding line said "18 sites" where the file
+  38:- **OMN-022-003, finding R7.3.** A Risks paragraph asserted a cost "beyond the
+  42:- **OMN-020-001.** An acceptance-criterion note said "seven tests are
+  62:**A fifth instance, surfaced after this ticket was raised, and judged in
+  ```
+
+  This description states no count of them, and neither does the new section.
+  The list is their one site, which is what the section asks; a reader derives
+  the number from the lines above. Which of the citations can be reproduced
+  from a tree, and which are names a reader cannot open, is under Risks.
+  *What a reader does differently:* a reader judges whether the second-instance
+  bar was cleared by reading the instances, instead of taking the ticket's word
+  for a number.
+
+- [x] **AC4: the answer says what happens to a count duplicated across sites,
+  and what instrument settles a count whose subject includes the sentence
+  stating it.** Two paragraphs of the new section, in those terms.
+  Duplication: "One site, and every other mention names the site rather than
+  the number", with OMN-024's four sites named and the note that the repairing
+  round re-created the claim it was repairing; under the section a number found
+  in a second place is a defect on its face, visible without measuring
+  anything. Self-reference: "Where the count's subject includes the sentence
+  stating it, the instrument excludes prose", stating that a text search
+  returns the sentence, that restricting the search to source paths does not
+  fix it because a docstring is under `src/` too, and that a parser settles it
+  because to a parser a docstring is a string constant and never a call.
+  *What a contributor does differently:* a contributor with a count writes it
+  once and points at it, and repairs it in one place rather than three; a
+  contributor with a claim of absence over its own tree reaches for a parser
+  first, instead of spending the three rounds OMN-024 spent.
+
+- [x] **AC5: no existing rule is silently widened; a replacement is recorded as
+  such.** §6's measured-number bullet is **extended, not replaced**. The added
+  text says so in the bullet itself — "carries a further obligation, which
+  extends this bullet and does not replace it ... This bullet is unchanged and
+  still reaches every measured number, counts included." The diff shows no
+  deletion in §6: `git diff 8abf61a..19cbb74 -- docs/ai-contributor-policy.md`
+  reports 11 changed lines, of which the two deletions are the map row and the
+  bullet line the insertion re-flows, and `git diff --stat 8abf61a..19cbb74 --
+  docs/ai-contributor-policy.md` is the command. Nothing else in `docs/` is
+  narrowed or widened: the new section states its own scope limits in "What
+  this section does not reach", which defers the question of which numbers are
+  measured at all back to §6 rather than re-deciding it.
+  *What a reader does differently:* a reader of §6 who has read it before finds
+  the bullet they remember, plus a sentence telling them what was added and
+  that the old obligation is undiminished.
+
+### Measured figures, each with its command
+Every command below was run at `19cbb74`, the last commit that changes what any
+of them counts, against the baseline `8abf61a`, this branch's point off `main`.
+The two commits after it — the tier raise and its typo fix — and this
+description's own commit touch only the ticket file and the board, which none
+of these figures counts.
+
+| Figure | Command | Result |
+|---|---|---|
+| quality gates, words before | `git show 8abf61a:docs/quality-gates.md \| wc -w` | 2229 |
+| quality gates, words after | `git show 19cbb74:docs/quality-gates.md \| wc -w` | 3153 |
+| policy, words before | `git show 8abf61a:docs/ai-contributor-policy.md \| wc -w` | 3266 |
+| policy, words after | `git show 19cbb74:docs/ai-contributor-policy.md \| wc -w` | 3357 |
+| PR template, words before | `git show 8abf61a:templates/PR-DESCRIPTION.md \| wc -w` | 876 |
+| PR template, words after | `git show 19cbb74:templates/PR-DESCRIPTION.md \| wc -w` | 931 |
+| README, words before | `git show 8abf61a:README.md \| wc -w` | 1044 |
+| README, words after | `git show 19cbb74:README.md \| wc -w` | 1052 |
+| rule-bearing files changed | `git diff --stat 8abf61a..19cbb74 -- README.md docs/ai-contributor-policy.md docs/quality-gates.md templates/PR-DESCRIPTION.md \| tail -1` | 4 files changed, 95 insertions(+), 5 deletions(-) |
+
+The rule costs this repository 1,078 words across four documents, by
+subtraction from the rows above and asserted nowhere else.
+
+`EM-024`, `§6`, `AC3`, `8abf61a`, `19cbb74`, `91798f3` and the line numbers in
+the AC3 block name things or locate them rather than measure a population, and
+are outside §6's measured-number bullet by the test that bullet states.
+
+### The gate this repository has
+**It has none, and this section says so rather than implying a check that does
+not exist.** The four machine gates in `docs/quality-gates.md` are the process
+this repository publishes for adopting projects; this repository ships Markdown
+and has no runner for any of them. At `91798f3`:
+
+| Question | Command | Result |
+|---|---|---|
+| Python sources? | `git ls-files \| grep -Ec '\.py$'` | 0 |
+| Any script or config a gate could run? | `git ls-files \| grep -Eic '\.(ya?ml\|toml\|sh\|cfg\|ini)$\|(^\|/)(Makefile\|justfile\|\.pre-commit-config\.yaml)$'` | 0 |
+| CI configuration? | `git ls-files \| grep -c '^\.github/'` | 0 |
+| What is tracked at the top level? | `git ls-files \| cut -d/ -f1 \| sort -u` | `.gitignore`, `DISCLOSURE.md`, `LICENSE`, `README.md`, `case-studies`, `docs`, `examples`, `templates` |
+
+There is no `scripts/` directory. `ruff`, `mypy` and `pytest` have nothing here
+to run against, and reporting them as passed would be false.
+
+The one mechanical check this repository does have is the directory/status
+invariant, and it was run. The command, at `91798f3`:
+
+```sh
+for f in docs/tickets/*/*.md; do
+  d=$(basename $(dirname "$f"))
+  s=$(grep -m1 '^status:' "$f" | sed 's/status: //')
+  case "$d:$s" in
+    ready:ready|active:in-progress|blocked:blocked|done:done) ;;
+    *) echo "MISMATCH $f dir=$d status=$s" ;;
+  esac
+done
+```
+
+It printed nothing over the 41 ticket files that `ls docs/tickets/*/*.md | wc
+-l` counts at that commit, which is the invariant holding. EM-024 is
+`status: in-progress` in `docs/tickets/active/`, and EM-024-001 is
+`status: ready` in `docs/tickets/ready/`.
+
+### Falsification
+N/A — this change makes no behavioural claim, and there is no suite. What a
+reader or contributor does differently is stated per acceptance criterion
+above, which is the form `templates/PR-DESCRIPTION.md` gives for a change with
+no behavioural claim.
+
+No review finding has been repaired, because no review has run; the class form
+policy §6 asks for applies from the first round onward.
+
+### Out of scope (per ticket)
+Confirmed, one line each:
+
+- **The four control-plane tickets themselves.** None was opened for editing;
+  the control-plane repository was read only, to reproduce two citations.
+- **Any general rule about duplicated prose.** The new section refuses this in
+  terms: two sentences saying the same thing are a matter of style until one of
+  them is a number about the tree. §5's bar on speculative abstraction is the
+  reason, and the section's "What this section does not reach" paragraph is
+  where the line is drawn for a later reader.
+- **Retrospectively auditing every number in either project's records.** None
+  was audited. One instance in this repository was found while reading the
+  document the new section binds, and was raised as EM-024-001 under §4 rather
+  than fixed here; that ticket is explicitly not a sweep and says so.
+
+Also confirmed: the rule was not made a review obligation. The maintainer's
+answer chose the structural option over that one, and `docs/tier-review-model.md`,
+"What a review reports", is untouched — `git diff --stat 8abf61a..HEAD --
+docs/tier-review-model.md` reports no change.
+
+### How to verify
+1. Read `docs/quality-gates.md`, "A count that describes the tree lives in a
+   test", in full — it is one section and states its own scope, its degraded
+   form and its falsifier.
+2. `git diff 8abf61a..19cbb74 -- docs/ai-contributor-policy.md` — check that
+   §6's bullet is extended and nothing in it is deleted, and that the map row
+   for the quality gates now sends the question "where does a count that
+   describes the tree live?" to the right document.
+3. `git diff 8abf61a..19cbb74 -- README.md templates/PR-DESCRIPTION.md` — the
+   index line and the two places in the template that already pointed at §6.
+4. Re-run every command in "Measured figures" and in "The gate this repository
+   has". They are the only numbers here.
+5. `git show 91e14c2:docs/tickets/README.md | grep -n "Nothing is blocked"` and
+   `... | grep -n "OMN-022-003 | blocked"`, in the control-plane repository, for
+   the fifth instance's two sites in one file.
+6. Check that this description restates no count that has a list: the instances
+   are enumerated and never totalled, which is the section applied to itself.
+
+### Risks / follow-ups
+- **The degraded form is genuinely weaker, and this repository lives in it.**
+  With no suite, a count's one site is a command in a document, which runs when
+  a reader chooses to run it. Nothing goes red here. The section says so rather
+  than hiding it, but a reader should not read "lives in a test" as something
+  this repository can do.
+- **Three of the five citations could not be reproduced from a tree.** In the
+  control-plane clone available while working this ticket, `main` at `a1d16ff`
+  holds OMN-024, OMN-022-002, OMN-022-003 and OMN-020-001 in `ready/`, and
+  `git grep -n -E "R4\.2|R7\.4|R7\.3" <branch> -- docs/tickets` over the three
+  ticket branches returns nothing: those review records live where the reviews
+  ran and have not landed. The second-instance bar permits this — "a name a
+  reader cannot open is still a name, quoted with its round" — and the citations
+  are quoted with their rounds. What *is* reproducible is recorded: the fifth
+  instance's two sites by the commands in Context, and OMN-022-002's 17 by
+  `git grep -c "cause=" 5e89931 -- src/omnissiah/dispatch/transitions.py`.
+  A reviewer weighing whether the bar was cleared should know which is which.
+- **EM-015 is an adjacent instance that this section deliberately does not
+  reach.** The README's two commit counts for one project are figures about a
+  private project's history that no command in this repository can produce.
+  They are §6's, not this section's, and were left out of the evidence rather
+  than added because they were available. The scope test is the one the section
+  states: does a command over *this* tree settle the number.
+- **EM-024-001 raised**, under §4, for the one instance found in this
+  repository while working: `docs/tier-review-model.md` states "eight" beside
+  the list of the same eight and "thirteen" with no site at all. It is scoped
+  to that sentence and does not decide whether a sweep is worth doing.
+- **The falsifier's population is a default and is unmeasured.** Fifty closed
+  tickets on an adopting project is a figure this project has no evidence for,
+  named as a default for the reason the batch cap's ten-and-seven are, and the
+  first adopting project replaces it.
+- **The tier was raised, not lowered.** If a reviewer judges that a rule added
+  inside an existing document is not clause 5, only the reviewer may lower it,
+  recording the reasoning. EM-007-002 owns the underlying question and is
+  blocked.
+
+### Review
+No round has run. The executor does not review its own work, and this ticket
+remains `in-progress` in `active/` pending an independent pass under ADR-0002.
+
+| Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
+|---|---|---|---|---|
+| — | — | — | — | — |
