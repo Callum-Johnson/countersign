@@ -60,6 +60,17 @@ the entry was redesigned rather than adjusted a third time. The maintainer's
 answer is unchanged by that; what changed is the test the entry states for
 recognising the case the answer names.
 
+Round 3, on 2026-09-08, returned one must-fix and four notes, and the ticket
+blocked at the three-round cap in `docs/tier-review-model.md`, "When review
+ends". The maintainer ordered a fourth round on 2026-09-08. That must-fix
+landed not on the entry carrying the answer but on the paragraph saying which
+party may add to which list: the sentence round 2 added for how a reviewer
+performs a widening reached **any** entry of the negative list, so an executor
+whose own work a standing entry refused could have widened it inside the
+round — the act "Retiring a control" reserves to a retirement ticket that
+executor does not work. Round 4 bounds the route to an entry the change under
+review itself adds. Neither of the maintainer's answers is touched by it.
+
 ## Decision
 
 A change to a process document is `critical` when it adds, alters or
@@ -91,14 +102,17 @@ The second entry of the negative list in `docs/tier-review-model.md`, "The
 operative test", carries that answer, and states the test it turns on:
 **containment**, read from the change and from the documents as they stand.
 A corrected restatement is `trivial` when nothing left the documents and
-nothing entered them — every question the rewritten sentences answered is
-still answered in full by a document the change does not touch, and the
-sentences now say nothing that document did not already say. Deference and
-the contributor policy's map are how the untouched document is found; they
-are evidence, and neither is required. EM-018-001 and EM-007-001 are the
-worked examples on that side of the line, and both pass containment in both
-directions. EM-018-001's `standard` closure stands and is not corrected:
-`standard` is above what the line returns, and an executor may raise.
+nothing entered them — every question the rewritten sentences answered
+before the change is still answered in full by a document the change does
+not touch, and the sentences now say nothing that document did not already
+say. *In full* is text containment: the untouched document says everything
+the removed text said, and not merely that it covers the same subject.
+Deference and the contributor policy's map are how the untouched document
+is found; they are evidence, and neither is required. EM-018-001 and
+EM-007-001 are the worked examples on that side of the line, and both pass
+containment in both directions. EM-018-001's `standard` closure stands and
+is not corrected: `standard` is above what the line returns, and an executor
+may raise.
 EM-007-001 keeps its `trivial` closure.
 
 ## Rationale
@@ -197,7 +211,21 @@ the contributor-behaviour failure that occasion cannot supply.
 - **Negative:** a change closed `trivial` under this line now marks itself
   in its pull-request description, so that the falsifier's population can be
   listed. That is a sentence per closure, and a closure that omits it is
-  outside the population the reviewer reads.
+  outside the population the reviewer reads. The sentence is written by the
+  party the line is on, so the falsifier counts a closure found to have taken
+  the line without it, whatever that closure turns out to have altered.
+- **Negative:** where two documents state one question in full and disagree,
+  correcting either against the other passes containment — the question stays
+  answered in full — while a reader who had been following the corrected
+  document is bound differently afterwards. The reason the entry rests on
+  holds for the documents and not for that reader; the entry says so, and the
+  falsifier's second limb is what counts the case.
+- **Positive:** a review's second-column must-fix widens a negative-list entry
+  inside the round only where the change under review adds that entry, which
+  is the case in which nothing is yet in force to remove. A finding against an
+  entry standing at the baseline goes to the retirement ticket "Retiring a
+  control" routes it to, and that section keeps the ticket away from the
+  executor whose work the entry refused.
 - **Neutral:** `docs/adr-process.md`, "Decisions about the process are
   themselves ADRs", still says changing the process is a process-surface
   change the operative test classes as `critical`, which now reads wider
@@ -295,8 +323,12 @@ the containment read for each; and adds the containment failure to the
 line's falsifier on the occasion that supplies it, with the
 contributor-behaviour failure counted separately where it surfaces. A change
 closed `trivial` under the line marks itself in its pull-request
-description, which is what makes the falsifier's population listable. No
-closed ticket is reclassified and no other document changes. This record carries
+description, which is what makes the falsifier's population listable, and a
+closure found to have taken the line without that sentence is counted by the
+falsifier. The paragraph on who may add to which list bounds the in-round
+widening a review's second-column must-fix authorises to an entry the change
+under review itself adds. No closed ticket is reclassified and no other
+document changes. This record carries
 both answers rather than a second record carrying the edge: the second
 answer settles an edge of the line this record states, from the same
 reserved question, answered by the same party on the same date, and this

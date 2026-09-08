@@ -120,16 +120,18 @@ What it does not reach:
   relationship between the two documents, because that relationship is not a
   fact the change carries.
 
-  Take each question the rewritten sentences answered — which branch the
-  work is committed on, which sections a description carries — and ask both
-  halves of it:
+  Take each question the rewritten sentences answered before the change —
+  which branch the work is committed on, which sections a description
+  carries — and ask both halves of it:
 
   - **Nothing left.** After the change, a document this change does not
-    touch states that question's rule or procedure in full. Text the change
-    removes whose question no untouched document answers in full **retires a
-    rule or a procedure** and is reached by the bold words above, whatever
-    the paragraph around it is called: naming a paragraph a restatement does
-    not make what is unique to it a copy.
+    touch states that question's rule or procedure in full: it says
+    everything the text this change removes said, and not merely that it
+    covers the same subject. Text the change removes whose question no
+    untouched document answers in full **retires a rule or a procedure**
+    and is reached by the bold words above, whatever the paragraph around
+    it is called: naming a paragraph a restatement does not make what is
+    unique to it a copy.
   - **Nothing entered.** Everything the rewritten sentences say after the
     change, that untouched document already said before it. A correction
     carrying anything more **adds a rule or a procedure** and is reached by
@@ -148,10 +150,16 @@ What it does not reach:
   and containment decides. Where two state it in full and neither cites the
   other, either is the untouched document for a correction of the other,
   since what left and what entered can both be answered without knowing
-  which of them had the authority. Where no untouched document states the
-  question in full, the changed document is where the question is settled,
-  this entry does not apply, and the change is answered by the bold words
-  above — which raises, and is the direction an executor may take alone.
+  which of them had the authority. Where the two disagree, containment
+  still passes — every question is still answered in full — while a reader
+  who had been following the corrected document is bound differently after
+  it, so the reason this entry rests on holds for the documents and not for
+  that reader. That is the widest thing the entry permits, and it is what
+  the second failure of the **Retired when:** line below counts. Where no
+  untouched document states the question in full, the changed document is
+  where the question is settled, this entry does not apply, and the change
+  is answered by the bold words above — which raises, and is the direction
+  an executor may take alone.
 - A dated annotation appended to a closed ticket or a decision record that
   leaves every rule as it stands and changes how no decision is read.
 - Wording that leaves every rule's conditions and every procedure's steps
@@ -167,14 +175,20 @@ is lowering, and lowering belongs to the reviewer and the maintainer under
 carries is the same act by another route and belongs to the same party. An
 executor that thinks the second list is missing an entry, or that one of
 its entries is drawn too narrowly, raises a ticket for it and pays the
-round. The reviewer performs the act by recording it: a second-column
-must-fix from an independent review, saying that an entry refuses work the
-line exists to keep cheap, is the reviewer's judgement and not the
-executor's, and the executor writes the widening that finding names — no
-more than it names — with the finding recorded beside it, as "Retiring a
-control" below says of a second-column finding against a rule the change
-under review itself adds. Anything wider than the finding is still a ticket
-and a round.
+round. The reviewer performs the act by recording it, and only against an
+entry the change under review itself adds: a second-column must-fix from an
+independent review, saying that such an entry refuses work the line exists
+to keep cheap, is the reviewer's judgement and not the executor's, and the
+executor writes the widening that finding names — no more than it names —
+with the finding recorded beside it. The reason is the one "Retiring a
+control" below gives for a rule the change under review adds: the defective
+entry does not ship and then get widened; it does not ship. An entry already
+in this document at the change's baseline is not reached by that route,
+whatever column the finding falls in. It goes to the ticket and the round
+the sentence above names — the retirement ticket "Retiring a control" routes
+such a finding to, where widening an entry is an amendment with record — and
+that section adds who works it: not the executor whose work the entry
+refused. Anything wider than the finding is still a ticket and a round.
 
 Three closed tickets show the line. EM-012-001 added the sentence above that
 separates `trivial` from `standard`: a rule entered a process document, and
@@ -205,7 +219,11 @@ is checkable against them by anyone reading the closed ticket, which is
 what the falsifier below counts. The second negative entry, which lowers
 furthest, adds one thing to that: its containment read is two documents at
 one commit, so a later reader repeats it rather than arguing with the
-executor about which document had the authority.
+executor about which document had the authority. That read is also a cost,
+paid by the work this entry exists to keep cheap: correcting a restatement
+now costs a read of the untouched document, and a correction carrying
+anything that document does not already say returns `critical` and pays a
+round.
 
 **Retired when:** a change to a process document closed `trivial` under
 the line stated here is found to have added, altered or retired a rule or
@@ -238,8 +256,15 @@ description, with the sentence *closed trivial under the process-document
 line*, naming the entry it closed under. That sentence is what puts the
 change in the population; without it the population is every `trivial`
 closure in the directory, which is not the same set and grows with the
-directory rather than with this line. **Checked at** every independent
-review of a critical-tier change to a process document: the reviewer lists
+directory rather than with this line. The sentence is written by the party
+this line is on, so a closure that took the line and omitted it is outside
+the read that would catch it. **A closure found to have taken this line
+without the sentence counts toward the same "more than once"**, counted
+where it surfaces as the second failure above is, and it counts whether or
+not that closure altered a rule: a population the controlled party can
+leave by omitting a sentence checks nothing, which is what the occasion
+below was added to fix. **Checked at** every independent review of a
+critical-tier change to a process document: the reviewer lists
 the population with `grep -rl "closed trivial under the process-document
 line" docs/tickets/done/`, reads a batch ticket's entries one at a time,
 and records what it finds with the round's findings. The occasion is
