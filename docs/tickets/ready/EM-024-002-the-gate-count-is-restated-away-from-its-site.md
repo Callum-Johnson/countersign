@@ -11,20 +11,28 @@ dependencies: [EM-024]
 
 ## Context
 
-EM-024 lands `docs/quality-gates.md`, "A count that describes the tree has one
-site that goes red", which asks that a count describing the tree have exactly
-one site, that every other mention name the site rather than the number, and
-that in a repository with no suite the form asked for first is no number at
-all. The round-1 independent review of EM-024 found the section's own commit
-carrying the defect the section forbids, in the document the section lives in
-and in a line that commit had just rewritten.
+EM-024 lands `docs/quality-gates.md`, "A number determined elsewhere has one
+site that goes red", which asks that a number something other than its own
+sentence determines have exactly one site, that every other mention name the
+site rather than the number, and that in a repository with no suite the form
+asked for first is no number at all. The round-1 independent review of EM-024
+found the section's own commit carrying the defect the section forbids, in the
+document the section lives in and in a line that commit had just rewritten.
 
-**The count of machine gates.** Its site is the code block at the top of
-`docs/quality-gates.md`. The block holds four commands:
+**Read this ticket at EM-024's round-3 redesign, not at its round-1 form.** The
+section's scope test changed: it asked what a number counts, which no reader
+could check, and it now asks what determines the number — a list, a table, a
+directory, a command over the tree, another sentence that decides it. The site
+list below was widened accordingly, and the sweep was rebuilt, because the
+round-1 list was one round's *judgement* over a candidate population, and the
+round-2 review found in-class sites it had missed. They are added below.
+
+**The count of machine gates.** Its determiner, and so its one site, is the
+code block at the top of `docs/quality-gates.md`:
 `sed -n '/^.\{3\}sh$/,/^.\{3\}$/p' docs/quality-gates.md | grep -c '^[a-z]'`
-returns 4 at `b732abe`, the last commit that changes any document named in
-Files below. The number four is restated away from that block at every one of
-these sites, read at the same commit from the wrap-tolerant matcher in "The
+returns 4 at `d470681`, the last commit that changes any document named in
+Files below. The number is restated away from that block at every one of these
+sites, read at the same commit from the wrap-tolerant matcher in "The
 instrument" run with a pattern for this count alone —
 `bash /tmp/wrapgrep.sh '[Ff]our (machine checks|gates|above)|the other four'`
 over the same documents:
@@ -34,11 +42,16 @@ README.md:39:four machine checks
 README.md:85:Four gates
 docs/quality-gates.md:17:the other four
 docs/quality-gates.md:18:four above
+docs/quality-gates.md:303:the other four
 docs/tier-review-model.md:93:four machine checks
 ```
 
-The enumeration is the count; no total is stated beside it, which is the
-section applied to this ticket.
+`docs/quality-gates.md:303` is the redesigned section quoting "the other four"
+as an example of the form a restatement takes, not a restatement of the gate
+count, and it is a site for this ticket to leave alone. It is left in the
+output rather than filtered out of it, because a sweep whose output has been
+tidied is a sweep a reader cannot re-run. The enumeration is the count; no
+total is stated beside it, which is the section applied to this ticket.
 
 Two facts make this the ticket's headline rather than a tidy-up. It is
 **OMN-024's exact shape** — the instance EM-024's Context leads with, where
@@ -52,50 +65,121 @@ maintainer rejected, since the record was audited by its author and was wrong
 anyway.
 
 **The sweep.** EM-024's round-1 repair swept this repository mechanically for
-the same class rather than repairing the sites it was handed. The class
-question is: *which sentences in this repository's rule-bearing documents state
-a number that counts something in this tree?* The sites below are the ones that
-round judged in class, each by the section's own test — could the tree move so
-that the number becomes wrong without anyone editing the sentence that states
-it. None is asserted here to be wrong; under the section a number with no site
-is a finding whether or not it is wrong, and measuring each is this ticket's
-work.
+the same class rather than repairing the sites it was handed. Its class
+question was *which sentences in this repository's rule-bearing documents state
+a number that counts something in this tree?*, and answering it required a
+judgement per candidate about what each number was about. The question is now
+the one EM-024's round-3 redesign states: **for each number in these documents,
+what other than its own sentence determines it?** A number with a determiner is
+a copy and belongs to this ticket; a number its own sentence sets is that
+sentence's own and is not. That question is answered by exhibiting the
+determiner, which is why the list below names one per site.
+
+None is asserted here to be wrong; under the section a number whose determiner
+is not named is a finding whether or not the number is wrong, and settling each
+is this ticket's work.
+
+Line numbers below are read at `d470681`, the commit that lands the redesigned
+section; the commands that produce them are in "The instrument".
+
+Found by round 1 and unchanged in status:
 
 - `docs/ai-contributor-policy.md:16` — "rather than searching five documents
-  for it", in the map's own preamble. No site. The map table below it is not
-  a list of five: `git ls-files 'docs/*.md' 'templates/*.md' README.md
-  DISCLOSURE.md | grep -v 'docs/tickets/' | grep -v 'docs/adr/' | wc -l`
-  returns 10 at `b732abe`. This is the sentence the new section's degraded-form
-  paragraph names as its example of the repair — "searching the documents".
-- `docs/ai-contributor-policy.md:332` — "If you cannot tick all seven", beside
-  the §7 checklist that is its site. Adding a checklist item does not touch
-  that line.
+  for it", in the map's own preamble. Determiner: the set of governed
+  documents. The map table below it is not a list of five: `git ls-files
+  'docs/*.md' 'templates/*.md' README.md DISCLOSURE.md | grep -v
+  'docs/tickets/' | grep -v 'docs/adr/' | wc -l` returns 10 at `d470681`. This
+  is the sentence the section's degraded-form paragraph names as its example of
+  the repair — "searching the documents".
+- `docs/ai-contributor-policy.md:335` — "If you cannot tick all seven".
+  Determiner: the §7 checklist beside it. Adding a checklist item does not
+  touch that line.
 - `docs/ticket-lifecycle.md:188` — "Three things the scheme does not say for
-  itself", beside the bolded paragraphs that follow it and are its site.
-- `docs/tier-review-model.md:26` — "The two questions a review answers", in
-  the index row for "What a review reports", which is the section that asks
-  them. An index row restating a count of a list in another section of the
-  same document is the shape twice over.
+  itself". Determiner: the bolded paragraphs that follow it.
+- `docs/tier-review-model.md:26` — "The two questions a review answers", in the
+  index row for "What a review reports". Determiner: that section. An index row
+  restating a count of a list in another section of the same document is the
+  shape twice over.
 - `docs/tier-review-model.md:27` — "The three conditions", in the index row for
-  "When review ends", same shape.
-- `README.md:38` — "Three risk tiers", restating the tier table in
+  "When review ends". Determiner: that section's numbered list.
+- `README.md:38` — "Three risk tiers". Determiner: the tier table in
   `docs/tier-review-model.md`.
 - `docs/tier-review-model.md:359` — "five of five, per the Review tables of the
-  closed tickets". This one names its site in prose and states a baseline, and
-  is the weakest of the set; it is listed because the number is still restated
-  beside a site rather than derived from it.
+  closed tickets". Determiner: those Review tables, which the sentence names.
+  It is the weakest of the set — it names its determiner in prose and states a
+  baseline — and is listed because the number is still restated beside its
+  determiner rather than derived from it.
+
+**Added at EM-024's round-2 review, and the reason they were missed.** Round 2
+found in-class sites this list did not carry, some in files this ticket did not
+name. They are not a longer tail of the same kind. Each bullet says which of
+two failures let it through — the instrument could not see it, or the
+instrument saw it and the judgement step dropped it — and that split is the
+evidence for the redesign. It is measured by the commands in "The instrument"
+below rather than counted here.
+
+- `docs/adr-process.md:50` — "the three that follow show them applied".
+  Determiner: the worked cases that follow in the same section. *Missed by the
+  instrument: the cardinal is used as a pronoun.* This is a file the ticket did
+  not previously name.
+- `templates/TICKET.md:35` — "an adopting project may keep a fifth directory,
+  `backlog/`, for such tickets beyond the four `docs/ticket-lifecycle.md`
+  documents". Determiner: the directory scheme in `docs/ticket-lifecycle.md`.
+  *Missed by the instrument: same form.* Also a file the ticket did not
+  previously name, and the number is load-bearing for the fifth-directory
+  contrast, so this is a candidate for the exception with its argument recorded
+  rather than for removal.
+- `docs/ai-contributor-policy.md:229` — "The last three are there because
+  agents reliably over-engineer". Determiner: the closing bullets of §5.
+  *Missed by the instrument: same form.*
+- `docs/ai-contributor-policy.md:35` — "Those are the three ways to be wrong".
+  Determiner: the ways enumerated in the sentence immediately above.
+  *In the instrument's output and judged out of class* — the number looked like
+  a figure of speech rather than a count of the tree, which is exactly the
+  judgement the redesign removes.
+- `docs/tier-review-model.md:493` — "Those eight are this rule's instances".
+  Determiner: the list of ticket ids in the sentence before it. *In the
+  instrument's output and judged out of class.* **Disposed of in EM-024-001,
+  not here**, because it is a second restatement of the same "eight" that
+  ticket already owns, in the same paragraph, and splitting one paragraph's two
+  copies across two tickets is the duplication failure the section is about.
+
+**Added at EM-024's round-2 review under the redesigned scope test.** These
+were in the round-1 instrument's output and were judged out because they looked
+like stipulated constants rather than counts of the tree. Under the question
+"what determines this number?" they are copies like any other, and they are the
+worked example the section now carries for why the old test could not tell the
+two apart:
+
+- `docs/quality-gates.md:79` — "outside the must-fix count and the two
+  columns", in "Review isolation". Determiner: `docs/tier-review-model.md`,
+  "What a review reports", which is where the columns are stated.
+- `templates/PR-DESCRIPTION.md:90` — "each in one of the two columns the tier
+  review model" defines. Same determiner.
 
 `docs/adr/0003-every-rule-states-its-falsifier-and-a-control-can-be-retired.md`
 carries "the five rule-bearing documents", which is the same shape. It is
 **out of this ticket's population**: a decision record is a record of work and
 not a document that states rules a contributor follows, so the map does not
-govern it, and the new section asks for nothing retrospective. It is named
-here so that a later reader knows it was seen and left.
+govern it, and the section asks for nothing retrospective. It is named here so
+that a later reader knows it was seen and left.
 
-**The instrument.** The sweep read each file with single line breaks treated as
-spaces and matched a cardinal — spelled or in digits — followed within three
-words by a plural noun or by "of", reporting the line each match starts on,
-once per site. Written out, and run from the repository root:
+**The instrument, rebuilt at EM-024's round 3.** The round-1 sweep matched a
+cardinal — spelled or in digits — *followed within three words by a plural noun
+or by "of"*. That trailing requirement is what a count looks like when it is
+first written. It is not what a restatement looks like: by then the noun is
+established and the sentence says "the other four", "the three that follow",
+"those eight". The pattern was therefore blindest to the form the ticket exists
+to find, and the round-2 review found sites of exactly that form. The
+requirement is dropped. **The sweep now matches a number and stops**, and the
+work of deciding whether a candidate is a copy is the determiner question
+above, asked site by site, which is a question with an exhibit rather than a
+judgement.
+
+Both patterns are given, because the difference between them is the measurement
+that justifies the change. The matcher reads each file with single line breaks
+treated as spaces, reporting the line each match starts on. Written out, and
+run from the repository root:
 
 ```sh
 cat > /tmp/wrapgrep.sh <<'SH'
@@ -114,45 +198,66 @@ for f in "$@"; do
 done
 SH
 CARD='([Oo]ne|[Tt]wo|[Tt]hree|[Ff]our|[Ff]ive|[Ss]ix|[Ss]even|[Ee]ight|[Nn]ine|[Tt]en|[Ee]leven|[Tt]welve|[Tt]hirteen|[Ff]ourteen|[Ff]ifteen|[Ss]ixteen|[Ss]eventeen|[Ee]ighteen|[Nn]ineteen|[Tt]wenty|[Tt]hirty|[Ff]orty|[Ff]ifty|[0-9][0-9,]*)'
-bash /tmp/wrapgrep.sh "(^|[^A-Za-z-])${CARD}( [a-z][a-z-]*){0,2} ([a-z][a-z-]*s([^A-Za-z-]|\$)|of )" \
-  README.md DISCLOSURE.md docs/ai-contributor-policy.md docs/quality-gates.md \
-  docs/tier-review-model.md docs/ticket-lifecycle.md docs/adr-process.md \
-  templates/ADR.md templates/PR-DESCRIPTION.md templates/TICKET.md
+DOCS="README.md DISCLOSURE.md docs/ai-contributor-policy.md docs/quality-gates.md
+docs/tier-review-model.md docs/ticket-lifecycle.md docs/adr-process.md
+templates/ADR.md templates/PR-DESCRIPTION.md templates/TICKET.md"
+
+# the sweep this ticket now runs: a number, and nothing required after it
+bash /tmp/wrapgrep.sh "(^|[^A-Za-z-])${CARD}([^A-Za-z-]|\$)" $DOCS
+
+# the round-1 sweep, kept so the difference can be measured
+bash /tmp/wrapgrep.sh "(^|[^A-Za-z-])${CARD}( [a-z][a-z-]*){0,2} ([a-z][a-z-]*s([^A-Za-z-]|\$)|of )" $DOCS
 ```
 
-Appending `| wc -l` to it emits 185 at `b732abe`, which is a candidate
-population and not a finding count: most candidates are figures about
-other projects with their baselines named, or stipulated constants, both of
-which the section's scope paragraph puts out of reach.
+Appending `| wc -l` to each emits, at `d470681`, the last commit that changes
+any of the ten documents named in `DOCS`: **575** for the sweep this ticket now
+runs and **187** for the round-1 sweep it replaces. Both are candidate
+populations and neither is a finding count. The broad figure is large because
+"one" is an article in English far more often than it is a count, and because
+every date, identifier and version in these documents is a number; the
+determiner question is what reduces a candidate to a finding, and it is the
+reader's to ask per site.
 
 **What the instrument does not catch, stated so the sweep is not read as
 complete.** It reads one line joined with the next, so a phrase wrapped across
-one line break is found and a phrase wrapped across two is not. It requires a
-cardinal, so a count written as a word without one — "both", "each of the",
-"a pair of" — is invisible to it, and so is a count spelled with a determiner
-alone. It requires a plural noun or "of" within three words,
-which is why some of the sites named above are absent from the general sweep's
-output: `docs/ai-contributor-policy.md:332` ("tick all seven") was found by
-reading the section, and `docs/quality-gates.md:17` and `:18` ("the other
-four", "the four above") were found only by the count-specific pattern quoted
-at the top of this Context, because no plural noun follows the number in
-either. A cardinal used as a pronoun — "the other four", "the four above" — is
-the general pattern's largest blind spot, and it is the form a document reaches
-for precisely when the noun is already established, which is to say when the
-count is being restated. A reader running the sweep to check this repository
-should run a pattern per count as well. Its population is the rule-bearing documents named in the command and
-no others; it does not read `docs/tickets/`, `docs/adr/`, `case-studies/` or `examples/`.
-And it enumerates candidates only — the judgement of which candidate is a count
-of this tree is a reader's, and this ticket's list is one round's reading of
-it.
+one line break is found and one wrapped across two is not. It requires a
+number, so a count written without one — "both", "each of the", "a pair of" —
+is invisible to it. Its population is the ten documents named in `DOCS` and no
+others; it does not read `docs/tickets/`, `docs/adr/`, `case-studies/` or
+`examples/`. **This enumeration is open, not complete**, and a run of the AC1
+command that reports nothing is evidence about the sites this ticket lists and
+about nothing else.
 
-The wrap blindness is not incidental. The first version of this sweep missed
-`docs/tier-review-model.md:93` entirely, because "the four" ends line 93 and
-"machine checks" begins line 94; and EM-024-001's own locating command missed
-its subject for the same reason. Both are instrument defects rather than
+**Why the round-1 sweep missed what it missed, measured rather than asserted.**
+The five sites round 2 added split two ways against the round-1 pattern, and
+the split is read from its output — `bash /tmp/wrapgrep.sh "<round-1 pattern>"
+$DOCS | grep -c '^<file>:<line>:'` at `d470681`, per site. It returns 0 for
+`docs/adr-process.md:50`, `docs/ai-contributor-policy.md:229` and
+`templates/TICKET.md:35`: the pattern could not see them, because the cardinal
+is used as a pronoun. It returns 1 for `docs/ai-contributor-policy.md:35` and
+for `docs/tier-review-model.md:493`: the pattern saw them and the judgement
+step dropped them. The same command returns 1 for `docs/quality-gates.md:79`
+and 2 for `templates/PR-DESCRIPTION.md:90`, the "two columns" sites, which were
+also seen and dropped. So the instrument accounts for some of the loss and the
+judgement for the rest — which is why EM-024's round-3 redesign changed both
+and not only the pattern.
+
+The same command run with the sweep this ticket now uses returns a non-zero
+count for every site in both groups, and also for `docs/quality-gates.md:17`
+and `:18` and `docs/ai-contributor-policy.md:335`, which round 1 could reach
+only with a pattern written for one count. The instrument's share of the loss
+is closed. The judgement's share is closed by the determiner question, and that
+is EM-024's change rather than this ticket's.
+
+The wrap blindness is not incidental either. The first version of this sweep
+missed `docs/tier-review-model.md:93` entirely, because "the four" ends line 93
+and "machine checks" begins line 94; and EM-024-001's own locating command
+missed its subject for the same reason. Both are instrument defects rather than
 defects in the prose, and `docs/quality-gates.md` says so in "What this section
 does not reach" rather than making a rule of it, because the second-instance
-bar is not cleared by two instances in one round.
+bar is not cleared by two instances in one round. What the section *does* now
+say is the one thing this round has enough evidence for: an instrument for this
+class matches the number and stops.
 
 ## Specification
 
@@ -164,12 +269,15 @@ four machine checks". "Searching the documents", not "searching five
 documents". "The conditions below", not "the three conditions".
 
 Where a site cannot lose its number without losing something a reader needs at
-that point, the number keeps exactly one site — the command that produces it,
-written once with its baseline as §6 requires — and every other mention points
-at that site. The executor states, per site, which of the two it chose and why;
-"the number was needed here" is a claim a reviewer can test.
+that point, the number keeps exactly one site — the command or the list that
+determines it, written once with its baseline as §6 requires — and every other
+mention points at that site. The section now requires the argument rather than
+permitting it: the description records, at that site, **which determiner the
+number copies and why naming it would not serve the reader there**. A site kept
+without that record is a defect on its face, and "the number was needed here"
+with no reason attached is not the record.
 
-Three constraints on the repair:
+Constraints on the repair:
 
 - **`README.md:85` is a core-idea heading**, "Four gates are machine-checked;
   the fifth is countersigned where the work is." Removing the number changes
@@ -188,12 +296,23 @@ Three constraints on the repair:
 ### Files
 
 - `README.md` — the "Start here" rows and core idea 5
-- `docs/quality-gates.md` — the paragraph above "The identical-script rule"
+- `docs/quality-gates.md` — the paragraph above "The identical-script rule",
+  and "Review isolation"
 - `docs/tier-review-model.md` — the index rows, "The tiers", and the
   read-whole paragraph's evidence sentence
-- `docs/ai-contributor-policy.md` — the map's preamble and §7's closing line
-- `docs/ticket-lifecycle.md` — "Lineage", the sentence introducing the three
-  bolded paragraphs
+- `docs/ai-contributor-policy.md` — the map's preamble, "Keeping the map true",
+  §5's closing paragraph and §7's closing line
+- `docs/ticket-lifecycle.md` — "Lineage", the sentence introducing the bolded
+  paragraphs that follow it
+- `docs/adr-process.md` — "When to write one", the sentence introducing the
+  worked cases
+- `templates/TICKET.md` — the Specification section's note on a fifth directory
+- `templates/PR-DESCRIPTION.md` — the Review section's line on the columns
+
+The last three name files this ticket did not list before EM-024's round-2
+review. They are named here rather than left to a later sweep, because an
+enumeration that is short and reads as complete is worse than one declared
+open.
 
 ### Public surface
 
@@ -203,9 +322,12 @@ adopter reads can be checked.
 
 ### Behaviour
 
-- After the change, the sweep command in Context, re-run at the closing commit,
-  reports no site in the list above.
-- The count of machine gates appears in the code block that is its site and
+- After the change, every site in the list above either states no number or
+  states one whose determiner and whose argument for keeping it are on the
+  record. Re-running the sweep is how the sites are re-located; it is not what
+  shows the work is done, because the sweep enumerates candidates and not
+  findings.
+- The count of machine gates appears in the code block that determines it and
   nowhere else, or, where it stays, at one site whose keeping is argued.
 - **This ticket adds no rule, so it states no falsifier.** The rule it applies
   is EM-024's, which carries its own.
@@ -215,28 +337,37 @@ adopter reads can be checked.
 
 ## Acceptance criteria
 
-1. AC1: the sweep command in Context, re-run at the closing commit and quoted
-   with its output, reports none of the sites this ticket's Context lists,
-   except any the description records as deliberately kept with its argument.
+1. AC1: every site this ticket's Context lists is disposed of, and the
+   description says how, one line each: the number removed, or kept at one site
+   with the determiner it copies and the argument for keeping it, or left alone
+   with the reason. The sweep in Context is re-run at the closing commit and
+   quoted with its output, **as the means of re-locating the sites and not as a
+   clean bill** — the sweep enumerates candidates, its population is the ten
+   documents it names, and the description says so at the point where it quotes
+   the output, so that a later reader does not read an empty result as an
+   absence of defects.
 2. AC2: for each site, the description states which repair was taken — the
-   number removed, or one site kept with its command — and why.
+   number removed, or one site kept with its determiner — and why.
 3. AC3: no rule text is changed. The diff shows edits to index rows, evidence
    sentences and prose only, and the description names the `##` section read
    whole for each document touched.
 4. AC4: the instrument's own limits are restated in the description as they
    stand at close, since a later reader will use the AC1 command as evidence of
-   cleanliness and needs to know what it cannot see.
+   cleanliness and needs to know what it cannot see. The description says in
+   terms that the enumeration is open, and names the population the sweep reads.
 
 ## Out of scope
 
-- `docs/tier-review-model.md`'s two "thirteen"s and the "eight" beside its own
-  list. Those are EM-024-001's, which was raised first and folded the second
-  "thirteen" in at EM-024's round-1 review.
+- `docs/tier-review-model.md`'s "thirteen"s and its restatements of the "eight"
+  beside its own list, at `:490` and `:493`. Those are EM-024-001's, which was
+  raised first, folded the second "thirteen" in at EM-024's round-1 review and
+  the second "eight" in at its round-2 review.
 - `README.md`'s two commit counts for one project. Those are EM-015's: they are
   figures about a private project's history that no command in this repository
   can produce, which is why they are a different repair.
-- `docs/quality-gates.md`, "A count that describes the tree has one site that
-  goes red", itself. If the rule is wrong, the finding belongs to EM-024.
+- `docs/quality-gates.md`, "A number determined elsewhere has one site that
+  goes red", itself, including the numbers it quotes as examples of the form it
+  rejects. If the rule is wrong, the finding belongs to EM-024.
 - Decision records, tickets, case studies and examples. The map does not govern
   them and the section asks for nothing retrospective.
 - Any figure about the control-plane project or the source project. Those carry
@@ -244,12 +375,12 @@ adopter reads can be checked.
 
 ## References
 
-- `docs/quality-gates.md`, "A count that describes the tree has one site that
+- `docs/quality-gates.md`, "A number determined elsewhere has one site that
   goes red" — the rule this applies
 - `docs/ai-contributor-policy.md`, "Keeping the map true" — the same-commit
   rule the index repairs are checked against
-- EM-024 — the ticket that landed the rule; its round-1 review is where these
-  sites were found
+- EM-024 — the ticket that landed the rule; its round-1 and round-2 reviews are
+  where these sites were found
 - EM-024-001 — the sibling on the same class, in `docs/tier-review-model.md`
 - EM-015 — the other count defect on this board, on figures no command here can
   produce
@@ -262,6 +393,13 @@ a sibling ticket and this is it; the sweep and the sites beyond the gate count
 are the §6 class obligation discharged on that finding, and they are listed
 here rather than repaired there for the same reason — the ticket EM-024 is the
 rule, not the instances.
+
+**Widened at EM-024's round-2 review and round-3 redesign**, again under §4 and
+again found rather than fixed: the sites round 2 named, the two "two columns"
+sites the redesigned scope test brings in, three files this ticket did not
+list, the rebuilt instrument, and the acceptance criterion that stops a clean
+sweep from reading as a clean bill. Nothing here was repaired in EM-024's tree;
+EM-024 lands the rule and this ticket is still the instances.
 
 Proposed `standard`, matching EM-024-001: the change alters index prose and
 evidence in documents an adopter follows and states no rule. The tier question

@@ -11,13 +11,14 @@ dependencies: [EM-024]
 
 ## Context
 
-EM-024 lands `docs/quality-gates.md`, "A count that describes the tree has one
-site that goes red", which asks that a count describing the tree have one site,
-that the site be one that fails when the tree moves, and that every other
-mention name the site rather than the number. The first thing that section
-binds is this repository, and `docs/tier-review-model.md` carries two
-non-complying sentences, in two different sections, both of which state
-"thirteen".
+EM-024 lands `docs/quality-gates.md`, "A number determined elsewhere has one
+site that goes red", which asks that a number something other than its own
+sentence determines have one site, that the site be one that fails when what it
+counts moves, and that every other mention name the site rather than the
+number. The first thing that section binds is this repository, and
+`docs/tier-review-model.md` carries non-complying sentences in two of its
+sections, both of them stating "thirteen", and one of them restating "eight"
+twice over.
 
 **The first**, in "Retiring a control", in the paragraph beginning "**A rule
 needs a second instance**", reads: "Of the thirteen rule-adding tickets from
@@ -27,9 +28,17 @@ EM-019-001 — counted by reading each Context for the source it names." Two
 counts, two defects, one sentence:
 
 - **"eight" is restated beside its own list.** The enumeration that follows it
-  is the site. The number is a second copy of what the list already says, and
-  the two can disagree the moment a ticket is added to or removed from the
-  list — which is exactly the shape EM-024's Context records four times over.
+  is its determiner and its site. The number is a second copy of what the list
+  already says, and the two can disagree the moment a ticket is added to or
+  removed from the list — which is exactly the shape EM-024's Context records
+  four times over. **And it is restated again three lines later**, at
+  `docs/tier-review-model.md:493`, "Those eight are this rule's instances" —
+  a third copy of one list, in one paragraph. That site was left unraised by
+  EM-024's round-1 sweep and was found by its round-2 independent review; it is
+  folded in here rather than raised separately, for the same reason the second
+  "thirteen" was, and because a repair that corrected one of a paragraph's two
+  copies and left the other standing would be the duplication failure the
+  section is about, committed inside the repair of that failure.
 - **"thirteen" has no site at all.** No list, no command, no test. It is the
   kind of number EM-024 was raised about: a reader who doubts it must
   reconstruct the population "rule-adding tickets from EM-006 to EM-020" by
@@ -63,13 +72,16 @@ not carry a command that does not run.
 
 ## Specification
 
-Both sentences keep their evidence and lose their unpinned numbers. Three
-changes, independently decidable by the executor:
+Both sentences keep their evidence and lose their unpinned numbers. The changes
+below are independently decidable by the executor:
 
-- The enumeration stays and "eight" goes, or "eight" stays and the enumeration
-  moves to a site the sentence points at. The first is the cheaper reading and
-  is what OMN-024's round 3 chose for its own sibling list; the ticket does not
-  mandate it.
+- The enumeration stays and every restatement of "eight" goes, or "eight"
+  stays at one place and the enumeration moves to a site that place points at.
+  The first is the cheaper reading and is what OMN-024's round 3 chose for its
+  own sibling list; the ticket does not mandate it. Whichever is chosen reaches
+  both copies — the one in the sentence that carries the list, and "Those
+  eight" in the sentence after it. Repairing one is the failure this ticket
+  documents.
 - The first "thirteen" either gains, in the same sentence, the command that
   produces it with its baseline — the population is a range of ticket ids, so a
   command over `git log --diff-filter=A --name-only --format= -- docs/tickets`
@@ -91,7 +103,8 @@ are not touched; these are their evidence sentences only.
 ### Files
 
 - `docs/tier-review-model.md`, "Retiring a control" — the paragraph beginning
-  "**A rule needs a second instance**"
+  "**A rule needs a second instance**", both of its restatements of "eight" and
+  its "thirteen"
 - `docs/tier-review-model.md`, "When review ends" — the Retired-when line of
   the paragraph beginning "**The repair is read whole**"
 
@@ -112,9 +125,11 @@ new instruction.
 
 ## Acceptance criteria
 
-1. AC1: the second-instance sentence no longer states "eight" beside the list
-   that enumerates the same eight, or states it with the list named as its one
-   site.
+1. AC1: neither the second-instance sentence nor the sentence after it states a
+   count beside the list that enumerates it; the list is the one site, or the
+   number is stated once with the list named as that site.
+   `grep -n "eight" docs/tier-review-model.md` returns no line restating a count
+   of that list.
 2. AC2: the "thirteen" in that sentence is either produced by a command the
    sentence names, with its baseline in the same sentence, or is gone.
 3. AC3: the "thirteen" in "When review ends" is either produced by a command
@@ -128,15 +143,16 @@ new instruction.
 
 - Every other number in this repository's documents. `README.md`'s two commit
   counts for one project are EM-015's and are not touched here.
-- A sweep of the repository for counts without a site. That sweep was run at
-  EM-024's round-1 review and its findings are EM-024-002's; this ticket is
-  the two sentences named in Files and nothing else.
-- `docs/quality-gates.md`, "A count that describes the tree has one site that
+- A sweep of the repository for numbers whose determiner is not named. That
+  sweep was run at EM-024's round-1 review, rebuilt at its round 3, and its
+  findings are EM-024-002's; this ticket is the sentences named in Files and
+  nothing else.
+- `docs/quality-gates.md`, "A number determined elsewhere has one site that
   goes red", itself. If that section is wrong, the finding belongs to EM-024.
 
 ## References
 
-- `docs/quality-gates.md`, "A count that describes the tree has one site that
+- `docs/quality-gates.md`, "A number determined elsewhere has one site that
   goes red" — the rule this applies
 - EM-024 — the ticket that landed it, and the instances in its Context
 - EM-024-002 — the sibling that owns the counts of this repository's own
@@ -149,5 +165,10 @@ new instruction.
 Raised under the contributor policy's §4 while working EM-024: found, not
 fixed in place. The instance is worth having on the record for a second
 reason — it is the first evidence that the new section catches something in
-this repository, which is the population its falsifier will eventually be read
-over.
+this repository, and a finding recorded under that section is the unit its
+falsifier is read over.
+
+**Widened at EM-024's round-2 review**, under §4 and again found rather than
+fixed: `docs/tier-review-model.md:493` restates "eight" a second time, in the
+paragraph this ticket already owns. Folded in here so that one paragraph's
+copies are repaired together.
