@@ -1,13 +1,12 @@
 ---
 id: EM-009-001
 title: The class obligation binds every repaired finding and was priced on must-fixes
-status: blocked
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
 claimed_by: claude-opus-5
 claimed_at: 2026-09-07
-blocked_at: 2026-09-08
 ---
 
 # EM-009-001 — The class obligation binds every repaired finding
@@ -279,6 +278,25 @@ round 3's own row, and the repair the maintainer ordered, which took it at
 3d22d3b, adds neither a row nor a count of its own, since a row is one
 independent review round. Round 4's `—` in the last column is nothing
 repaired, which is the point of the block.
+
+**Discharged (2026-09-08).** The maintainer read the record above and ordered
+a further review round. What that round takes is the step the round-4 review
+named, and it is not the two patches R5.1 and R5.2 describe: the ten-field
+sweep is re-run against the form the repair produced, and re-run again until a
+pass finds nothing new, with R5.1 and R5.2 taken as part of it and the notes
+R5.3 to R5.6 carried with it. R5.7 is a divergence in the record's own
+numbering and is reconciled where it is recorded, not by a change to a rule.
+The ticket returns to `active/` and a fresh reviewer reviews the new head. The
+`BLOCKER (2026-09-08):` text immediately above stands as the record of why the
+ticket stopped a second time and is kept rather than deleted, with the
+per-round table it carries. That table is the record as it stood at the block
+and is not updated; the Review section below carries the current one.
+
+The order is again the evidence the cap's own falsifier asks for. "When review
+ends" retires the cap when a ticket blocked at it has its maintainer order a
+further round that finds a rule defect; the round ordered on 2026-09-08 found
+three beyond the instance, R1.2's recurrence among them, and this second order
+is recorded here so that the evidence is readable either way.
 
 ## PR Description
 
