@@ -58,6 +58,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-018-001 | done | standard | The ticket template's how-to-use steps disagree with the lifecycle on three points |
 | EM-023 | ready | standard | The next-id command misses an id created by renaming a ticket file |
 | EM-024 | in-progress | critical | A count written into prose has no falsifier and drifts silently |
+| EM-024-001 | ready | standard | The tier model restates a count beside its own list |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
 backdated; ADR-0001 explains why backdating was rejected.
