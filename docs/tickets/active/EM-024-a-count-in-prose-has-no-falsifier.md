@@ -265,9 +265,10 @@ what it does not reach, and its falsifier with the population named. Policy
 §6's measured-number bullet is extended, not replaced, and says so.
 
 **The round-1 review found the rule's own commit carrying the defect the rule
-forbids, in at least five places, one of which that commit had just rewritten.
-That is recorded here as the ticket's strongest evidence rather than as an
-embarrassment; the paragraph is at the end of the Review section.**
+forbids, at every site finding R1.1 below enumerates, one of them a line that
+commit had just rewritten. That is recorded here as the ticket's strongest
+evidence rather than as an embarrassment; the paragraph is at the end of the
+Review section.**
 
 ### Acceptance criteria
 
@@ -746,15 +747,17 @@ have applied and this would have blocked.
 
 **What this round's most important finding is, stated plainly.** The commit
 that added a rule forbidding unmeasured counts in prose carried that exact
-defect in at least five places, one of them a line the same commit rewrote,
-and the ticket that commit raised carried a locating command that returned
-nothing. That is not an embarrassment to be minimised. It is the strongest
-evidence in this ticket that the rule was needed, and it is direct evidence
-against the option the maintainer rejected: the record **was** audited by its
-author — the ticket's own Notes say the fourth control-plane instance was found
-"by an executor auditing its own prose" — and it was still wrong five times
-over. A review obligation asks a reader to look; this round is a measurement of
-what happens when the reader looking is the author, on the one document in the
-world where the author was most alert to this exact defect. The count that
-matters is not five. It is that a mechanical sweep run in an afternoon found
-sites that two careful readings of the same documents did not.
+defect at every site finding R1.1 enumerates, one of them a line the same
+commit rewrote, and the ticket that commit raised carried a locating command
+that returned nothing. That is not an embarrassment to be minimised. It is the
+strongest evidence in this ticket that the rule was needed, and it is direct
+evidence against the option the maintainer rejected: the record **was** audited
+by its author — the ticket's own Notes say the fourth control-plane instance
+was found "by an executor auditing its own prose" — and it was wrong at every
+one of those sites anyway. A review obligation asks a reader to look; this
+round is a measurement of what happens when the reader looking is the author,
+on the one document in the world where the author was most alert to this exact
+defect. What matters is not how many sites there were. It is that a mechanical
+sweep run in an afternoon found sites that two careful readings of the same
+documents did not, and that the sweep's own first version, written by the same
+author on the same afternoon, missed one of them too.
