@@ -24,8 +24,10 @@ and in a line that commit had just rewritten.
 `sed -n '/^.\{3\}sh$/,/^.\{3\}$/p' docs/quality-gates.md | grep -c '^[a-z]'`
 returns 4 at `b732abe`, the last commit that changes any document named in
 Files below. The number four is restated away from that block at every one of
-these sites, read from the sweep command in "The instrument" at the same
-commit:
+these sites, read at the same commit from the wrap-tolerant matcher in "The
+instrument" run with a pattern for this count alone —
+`bash /tmp/wrapgrep.sh '[Ff]our (machine checks|gates|above)|the other four'`
+over the same documents:
 
 ```
 README.md:39:four machine checks
@@ -128,10 +130,17 @@ complete.** It reads one line joined with the next, so a phrase wrapped across
 one line break is found and a phrase wrapped across two is not. It requires a
 cardinal, so a count written as a word without one — "both", "each of the",
 "a pair of" — is invisible to it, and so is a count spelled with a determiner
-alone. It requires a plural noun or "of" within three words, which is why
-`docs/ai-contributor-policy.md:332`, "tick all seven", is in the list above and
-not in the instrument's output: it was found by reading the section, not by the
-sweep. Its population is the rule-bearing documents named in the command and
+alone. It requires a plural noun or "of" within three words,
+which is why some of the sites named above are absent from the general sweep's
+output: `docs/ai-contributor-policy.md:332` ("tick all seven") was found by
+reading the section, and `docs/quality-gates.md:17` and `:18` ("the other
+four", "the four above") were found only by the count-specific pattern quoted
+at the top of this Context, because no plural noun follows the number in
+either. A cardinal used as a pronoun — "the other four", "the four above" — is
+the general pattern's largest blind spot, and it is the form a document reaches
+for precisely when the noun is already established, which is to say when the
+count is being restated. A reader running the sweep to check this repository
+should run a pattern per count as well. Its population is the rule-bearing documents named in the command and
 no others; it does not read `docs/tickets/`, `docs/adr/`, `case-studies/` or `examples/`.
 And it enumerates candidates only — the judgement of which candidate is a count
 of this tree is a reader's, and this ticket's list is one round's reading of

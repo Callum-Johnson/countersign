@@ -479,7 +479,13 @@ differently instead of naming a test and a red count.
   ("Three risk tiers"), and `docs/tier-review-model.md:359` ("five of five").
   One more, `docs/adr/0003-...:100`, is in class and outside the population,
   and is named in EM-024-002 as seen and left. All are raised, none repaired
-  here, per §4.
+  here, per §4. The sweep is partial in a way worth stating rather than
+  burying: the general pattern needs a plural noun or "of" after the cardinal,
+  so a cardinal used as a pronoun — "the other four", "the four above", both in
+  `docs/quality-gates.md` — is invisible to it and was found only by a pattern
+  written for that count. EM-024-002 records that, and it is why its acceptance
+  criteria ask the closing description to restate the instrument's limits
+  rather than let its output read as a clean bill.
   *What a reader does differently:* a reader who wants to know whether this
   repository complies with its own new section runs one command and reads a
   list, instead of taking the executor's word that the sites it was handed were
