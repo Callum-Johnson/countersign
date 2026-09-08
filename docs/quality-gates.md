@@ -212,7 +212,7 @@ or that review let through, those that assert a mechanism are shown to have
 caught regressions that claim-level tests missed more often than they have
 blocked a correct change to the mechanism.
 
-## A count that describes the tree lives in a test
+## A count that describes the tree has one site that goes red
 
 A number that describes the tree is a claim in exactly the sense the gate
 above uses: how many sites match, how many callers a function has, how many
@@ -220,12 +220,32 @@ tests are Windows-only, how many entries a list holds. Written into a
 sentence it is an unpinned claim. The tree moves, the sentence does not, and
 nothing goes red — prose that says seven where the tree holds nine reads
 exactly like prose that is right. The rule sits with the gate because a count
-with a test is a pinned claim, and the paragraph above is what pinning means.
+with a site that goes red is a pinned claim, and the paragraph above is what
+pinning means.
 
-**Such a count lives in a test that measures it, and prose that needs the
-number names the test rather than restating the number.** The test is the
-count's one site. It goes red when the tree moves, which is the falsifier the
-sentence never had.
+**Such a count has exactly one site, and that site is one that goes red when
+the tree moves.** Where the project has a suite, that site is a test that
+measures the count, and prose that needs the number names the test rather
+than restating it. The test going red is the falsifier the sentence never
+had. Where no such site is available the count is not written at all, which
+is the paragraph on projects without a suite, below. The rule is the two
+properties — one site, and a site that fails — and a test is how a project
+with a suite supplies them, not the rule itself.
+
+**Which numbers this reaches.** A number is in scope when the tree could move
+so that the number becomes wrong without anyone editing the sentence that
+states it. A count of the files a search matches, the callers a function has,
+the tickets a directory holds or the entries a list carries is in scope, and
+so is a proportion or a percentage over any of those, since a proportion is a
+count divided by a count and drifts when either does. A number that cannot go
+wrong that way is out. A stipulated constant is out: a cap on review rounds, a
+default population in a falsifier, a batch entry limit are figures a document
+decides rather than measures, and moving one means editing the sentence that
+sets it. A duration, a version and a date are out. A number that names rather
+than measures — a ticket id, a section number, an ordinal — is already outside
+§6's measured-number bullet and is not brought back in here. The test is the
+tree's and not the token's: the same word in a cap and in a count of
+directories is two different claims, and only the second one drifts.
 
 **One site, and every other mention names the site rather than the number.**
 A rule that says only "measure it" reproduces the defect it repairs: a count
@@ -235,7 +255,8 @@ lived in a description's member, in a later bullet of the same description, in
 a test's docstring and in that test's failure message, and the round that
 repaired it re-created the claim it was repairing. Under this section a number
 found in a second place is a defect on its face, which a reader can see
-without measuring anything.
+without measuring anything. What that clause costs where nothing goes red is
+stated below rather than left implied.
 
 **Where the count's subject includes the sentence stating it, the instrument
 excludes prose.** A count over a tree is usually a count over a tree that also
@@ -245,9 +266,10 @@ line that a search for `GateRunner(` returns. Restricting the search to source
 paths does not fix it, because the prose lives in the source as well — a
 docstring is under `src/` too. An instrument that can settle such a claim
 reads the tree as the language rather than as text: to a parser a docstring is
-a string constant and never a call. OMN-024 spent three rounds establishing
-that. It is a property of the class and not of that ticket, so it is stated
-here once, where the next reader of a claim of absence will meet it.
+a string constant and never a call. OMN-024 established that over the rounds
+its record carries. It is a property of the class and not of that ticket, so
+it is stated here once, where the next reader of a claim of absence will meet
+it.
 
 **What a reader does differently.** The contributor policy's §6 already binds
 the writer, and a writer bound by it was wrong in every instance the ticket
@@ -263,33 +285,62 @@ list in the ticket is their one site, which is what this section asks.
 
 **Where the project has no suite that can hold the test.** This repository is
 such a project — it ships documents, and the counts in them describe ticket
-files and rule lines. The rule degrades rather than lapsing. The count keeps
-one site, which is then the command that produces it, written once with its
-baseline as §6 requires, and every other mention points at that site. Say that
-this form is weaker, because it is: a command in a document runs when a reader
-chooses to run it, and nothing goes red in between. The strongest form
-available without a suite is to write no number at all — where the record is a
-list, the list is the count and a reader derives it, which is the repair
-OMN-024's own round 3 adopted for its list of siblings.
+files and rule lines. The rule does not lapse and it does not quietly become a
+promise. A command written into a document is a site, but it is not a site
+that goes red: it runs when a reader chooses to run it, and between one
+reading and the next nothing happens. So the form this section asks for first,
+where nothing can fail, is the one with no number to defend. **Where the
+record is a list, the list is the count and the reader derives it; where it is
+a search, the sentence names the search.** Searching the documents, not
+searching five of them. The conditions below, not the three conditions. That
+is the repair OMN-024's own round 3 adopted for its list of siblings, and in a
+repository of documents most counts describe the documents' own structure and
+read better without the number. Where a number must be written anyway — a
+figure a reader needs at the point of reading, which no list supplies — it
+keeps one site, which is then the command that produces it, written once with
+its baseline as §6 requires, and every other mention points at that site.
 
-**What this section does not reach.** A count that describes the tree, and
-nothing else. Which numbers are measured at all is settled by §6's
-measured-number bullet and is not re-decided here; of the numbers that bullet
-reaches, this section reaches those that count something in the tree, and not
-a duration, a version or a date. It is not a rule about duplicated prose:
-two sentences that say the same thing are a matter of style until one of them
-is a number about the tree, at which point they can disagree and only one is
-right. And it asks for nothing retrospective — records written before it are
-not audited under it.
+**What the degraded form costs, said rather than implied.** For a number
+written anyway, the one-site clause is enforceable only by a reader who looks:
+nothing goes red, so a second copy is found by whoever happens to read both
+places. That is the shape of the review obligation this section was chosen
+over, reappearing on any project without a runner, and a section that admits
+its form is weaker without admitting which weaker thing it becomes has not
+admitted much. **It does not add that obligation.** No reviewer is asked to
+reproduce the numbers a record asserts, and `docs/tier-review-model.md`, "What
+a review reports", is untouched by this section. The answer to the degraded
+case is the paragraph above — write no number, and there is no second copy for
+a reader to have to find — and where a number is written anyway the weakness
+is this section's to own rather than the reader's to make up for.
 
-**Retired when:** over the next fifty closed tickets on a project that has
-adopted this section, no reproduction of a number a record asserts about the
-tree finds one wrong; the section then costs a test or a command per count
-and catches nothing a reader would have caught anyway. Fifty is a default,
-named as one, and the population is stated because the whole evidence for
-this section is a single day, 2026-09-08, on a single project, in the
-instances the ticket that added it names in its Context. The first adopting
-project's fifty closed tickets replace the figure.
+**What this section does not reach.** A count that describes the tree, on the
+test stated above, and nothing else. Which numbers are measured at all is
+settled by §6's measured-number bullet and is not re-decided here. It is not a
+rule about duplicated prose: two sentences that say the same thing are a
+matter of style until one of them is a number about the tree, at which point
+they can disagree and only one is right. It says nothing about how a count is
+found in a document — a phrase a search should have matched but missed because
+it wraps across a line break is a defect in the searcher's instrument, not in
+this rule, and the second-instance bar in `docs/tier-review-model.md` is not
+cleared for a rule about it. And it asks for nothing retrospective — records
+written before it are not audited under it.
+
+**Retired when:** over fifty reproductions of a number a record asserts about
+the tree, on a project that has adopted this section, no reproduction finds
+one wrong; the section then costs a test or a command per count and catches
+nothing a reader would have caught anyway. The population is reproductions and
+not closed tickets, because a closed ticket in which nobody re-measured
+anything is silence rather than evidence, and a retirement read from closed
+tickets would fire hardest on the projects following this section least. A
+reproduction counts towards the population when it is recorded — which number,
+and whether it held — and the natural place is a line beside the round's
+findings; a project that records none never reaches a population, which is the
+right answer for a control nobody has tested. This section asks for no
+reproduction; it says only what one already made is worth once it is written
+down. Fifty is a default, named as one, and the population is named at all
+because the whole evidence for this section is a single day, 2026-09-08, on a
+single project, in the instances the ticket that added it names in its
+Context. The first adopting project's fifty reproductions replace the figure.
 
 ## Formatting is machine-applied
 

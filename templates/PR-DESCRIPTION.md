@@ -33,9 +33,10 @@ Copy each AC from the ticket and tick it with evidence. Every measured
 number names its baseline in the same sentence and is read from a command
 the description names, run after the last commit that changes it
 (contributor policy §6). A number that counts something in the tree names
-the test that is its one site, and is not restated anywhere else in the
-description (quality gates, "A count that describes the tree lives in a
-test"):
+its one site — the test that measures it, or, where the project has no
+suite, the command — and is not restated anywhere else in the description;
+where a list or a search would serve, no number is written (quality gates,
+"A count that describes the tree has one site that goes red"):
 - [x] AC1: <criterion> — see `tests/unit/test_modifiers.py::test_caps_sv`
 - [x] AC2: <criterion> — see implementation in `core/modifiers.py:42`
 - [ ] AC3: <not done — explain why>

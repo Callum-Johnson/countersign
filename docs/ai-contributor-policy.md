@@ -289,12 +289,14 @@ every reading of it. That is not caution — it is unreviewable code.
   falsification gate's demand applied to figures — a number nobody re-ran is
   unpinned, and naming its baseline makes it look pinned. A measured number
   that counts something in the tree carries a further obligation, which
-  extends this bullet and does not replace it: the count lives in a test that
-  measures it, prose names the test rather than restating the number, and the
-  count has one site — `docs/quality-gates.md`, "A count that describes the
-  tree lives in a test", which states that section's own falsifier and what it
-  does not reach. This bullet is unchanged and still reaches every measured
-  number, counts included.
+  extends this bullet and does not replace it: the count has one site, that
+  site is one that goes red when the tree moves, and prose names the site
+  rather than restating the number — a test where the project has a suite, and
+  where it has none, no number at all. `docs/quality-gates.md`, "A count that
+  describes the tree has one site that goes red", states which numbers that
+  reaches, what the form without a suite costs, that section's own falsifier
+  and what it does not reach. This bullet is unchanged and still reaches every
+  measured number, counts included.
   **Retired when:** over a stated population of closed tickets, figures
   reported under this rule are found wrong as often as the figures reported
   before it; the rule then costs a command per class of figure and catches
