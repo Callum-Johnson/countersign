@@ -57,7 +57,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-009-001 | blocked | critical | The class obligation binds every repaired finding |
 | EM-018-001 | done | standard | The ticket template's how-to-use steps disagree with the lifecycle on three points |
 | EM-023 | ready | standard | The next-id command misses an id created by renaming a ticket file |
-| EM-024 | in-progress | critical | A count written into prose has no falsifier and drifts silently |
+| EM-024 | blocked | critical | A count written into prose has no falsifier and drifts silently |
 | EM-024-001 | ready | standard | The tier model restates a count beside its own list |
 | EM-024-002 | ready | standard | The gate count is restated away from its site, and it is not alone |
 
