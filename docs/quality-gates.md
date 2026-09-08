@@ -212,6 +212,85 @@ or that review let through, those that assert a mechanism are shown to have
 caught regressions that claim-level tests missed more often than they have
 blocked a correct change to the mechanism.
 
+## A count that describes the tree lives in a test
+
+A number that describes the tree is a claim in exactly the sense the gate
+above uses: how many sites match, how many callers a function has, how many
+tests are Windows-only, how many entries a list holds. Written into a
+sentence it is an unpinned claim. The tree moves, the sentence does not, and
+nothing goes red — prose that says seven where the tree holds nine reads
+exactly like prose that is right. The rule sits with the gate because a count
+with a test is a pinned claim, and the paragraph above is what pinning means.
+
+**Such a count lives in a test that measures it, and prose that needs the
+number names the test rather than restating the number.** The test is the
+count's one site. It goes red when the tree moves, which is the falsifier the
+sentence never had.
+
+**One site, and every other mention names the site rather than the number.**
+A rule that says only "measure it" reproduces the defect it repairs: a count
+written in several places is corrected where the reader was looking and left
+standing everywhere else. On the control-plane project's OMN-024 one count
+lived in a description's member, in a later bullet of the same description, in
+a test's docstring and in that test's failure message, and the round that
+repaired it re-created the claim it was repairing. Under this section a number
+found in a second place is a defect on its face, which a reader can see
+without measuring anything.
+
+**Where the count's subject includes the sentence stating it, the instrument
+excludes prose.** A count over a tree is usually a count over a tree that also
+holds the documents describing it, and a text search cannot tell the two
+apart: the sentence claiming that no call to `GateRunner(` remains is itself a
+line that a search for `GateRunner(` returns. Restricting the search to source
+paths does not fix it, because the prose lives in the source as well — a
+docstring is under `src/` too. An instrument that can settle such a claim
+reads the tree as the language rather than as text: to a parser a docstring is
+a string constant and never a call. OMN-024 spent three rounds establishing
+that. It is a property of the class and not of that ticket, so it is stated
+here once, where the next reader of a claim of absence will meet it.
+
+**What a reader does differently.** The contributor policy's §6 already binds
+the writer, and a writer bound by it was wrong in every instance the ticket
+that added this section names in its Context, all of them on one day, on one
+project. None was found by a gate; the ones that were found at all were found
+because a reviewer or an executor chose to re-measure something the record
+asserted. This section changes what finding one costs. A reader meeting a
+number about the tree looks for its site, and **a number with no site is a
+finding whether or not it is wrong** — the missing falsifier is visible in the
+sentence, where the wrongness is not. A reviewer who re-measures nothing still
+finds these. That paragraph carries no count of the instances on purpose: the
+list in the ticket is their one site, which is what this section asks.
+
+**Where the project has no suite that can hold the test.** This repository is
+such a project — it ships documents, and the counts in them describe ticket
+files and rule lines. The rule degrades rather than lapsing. The count keeps
+one site, which is then the command that produces it, written once with its
+baseline as §6 requires, and every other mention points at that site. Say that
+this form is weaker, because it is: a command in a document runs when a reader
+chooses to run it, and nothing goes red in between. The strongest form
+available without a suite is to write no number at all — where the record is a
+list, the list is the count and a reader derives it, which is the repair
+OMN-024's own round 3 adopted for its list of siblings.
+
+**What this section does not reach.** A count that describes the tree, and
+nothing else. Which numbers are measured at all is settled by §6's
+measured-number bullet and is not re-decided here; of the numbers that bullet
+reaches, this section reaches those that count something in the tree, and not
+a duration, a version or a date. It is not a rule about duplicated prose:
+two sentences that say the same thing are a matter of style until one of them
+is a number about the tree, at which point they can disagree and only one is
+right. And it asks for nothing retrospective — records written before it are
+not audited under it.
+
+**Retired when:** over the next fifty closed tickets on a project that has
+adopted this section, no reproduction of a number a record asserts about the
+tree finds one wrong; the section then costs a test or a command per count
+and catches nothing a reader would have caught anyway. Fifty is a default,
+named as one, and the population is stated because the whole evidence for
+this section is a single day, 2026-09-08, on a single project, in the
+instances the ticket that added it names in its Context. The first adopting
+project's fifty closed tickets replace the figure.
+
 ## Formatting is machine-applied
 
 The formatter is authoritative and its output is not hand-adjusted. This is

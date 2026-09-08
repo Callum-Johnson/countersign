@@ -59,6 +59,22 @@ is **self-referential** more often than it looks: OMN-024's whole difficulty is
 that the sentences asserting what a search returns are themselves text the
 search reads.
 
+**A fifth instance, surfaced after this ticket was raised, and judged in
+class.** The control-plane project's board, `docs/tickets/README.md`, said
+"Nothing is blocked." in prose while a table higher in the same file carried a
+`blocked` row, and had carried it since `91e14c2`. Both readings are taken at
+that commit: `git show 91e14c2:docs/tickets/README.md | grep -n "Nothing is
+blocked"` returns line 170, and `git show 91e14c2:docs/tickets/README.md |
+grep -n "OMN-022-003 | blocked"` returns line 75. It is the same class rather
+than a different one — zero is a count that describes the tree, the table is
+the site that measures it, and the sentence restated the count instead of
+pointing at the table. It is the first instance in which both sites sit in one
+file, which is the fact worth adding: proximity does not help, because a
+reader with both on one screen still cannot see the disagreement without
+reading the table as data. The prose has since been corrected; the commits
+that touched it are listed by `git log --oneline --all -S'Nothing is blocked'
+-- docs/tickets/README.md`.
+
 The second-instance bar in `docs/ai-contributor-policy.md` — a rule needs a
 second instance before it is written — is met four times over, in one day, on
 one project. This ticket does not claim the bar needs relaxing; it claims it has

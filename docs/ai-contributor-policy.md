@@ -23,7 +23,7 @@ row names where the rule is. What you must read before your first edit is
 | How do I claim, block, batch and close work, and how are tickets numbered? | `docs/ticket-lifecycle.md` — the mechanics; §3 above states when to block |
 | What must be true before I report this change done? | this document, §6 |
 | What tier is my change, who reviews it, what does a review report, when does it end, how does a rule leave, and what does one need before it enters? | `docs/tier-review-model.md` |
-| Which machine checks must pass, what does the falsification gate ask of me, and where does a review run? | `docs/quality-gates.md` |
+| Which machine checks must pass, what does the falsification gate ask of me, where does a count that describes the tree live, and where does a review run? | `docs/quality-gates.md` |
 | Is this decision a record, and what does that record carry? | `docs/adr-process.md` |
 | What shape does a ticket, a pull-request description or a decision record take? | `templates/` |
 | What has this repository already decided, and on what reasoning? | `docs/adr/` |
@@ -287,7 +287,14 @@ every reading of it. That is not caution — it is unreviewable code.
   count beside a correctly named baseline is the most expensive kind of wrong
   number: it survives every check the description carries. This is the
   falsification gate's demand applied to figures — a number nobody re-ran is
-  unpinned, and naming its baseline makes it look pinned.
+  unpinned, and naming its baseline makes it look pinned. A measured number
+  that counts something in the tree carries a further obligation, which
+  extends this bullet and does not replace it: the count lives in a test that
+  measures it, prose names the test rather than restating the number, and the
+  count has one site — `docs/quality-gates.md`, "A count that describes the
+  tree lives in a test", which states that section's own falsifier and what it
+  does not reach. This bullet is unchanged and still reaches every measured
+  number, counts included.
   **Retired when:** over a stated population of closed tickets, figures
   reported under this rule are found wrong as often as the figures reported
   before it; the rule then costs a command per class of figure and catches

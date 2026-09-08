@@ -32,7 +32,10 @@ PRJ-XXX — <ticket title> (also in frontmatter; can be terse)
 Copy each AC from the ticket and tick it with evidence. Every measured
 number names its baseline in the same sentence and is read from a command
 the description names, run after the last commit that changes it
-(contributor policy §6):
+(contributor policy §6). A number that counts something in the tree names
+the test that is its one site, and is not restated anywhere else in the
+description (quality gates, "A count that describes the tree lives in a
+test"):
 - [x] AC1: <criterion> — see `tests/unit/test_modifiers.py::test_caps_sv`
 - [x] AC2: <criterion> — see implementation in `core/modifiers.py:42`
 - [ ] AC3: <not done — explain why>
@@ -112,7 +115,8 @@ A PR may not be merged unless all are true:
 9. **PR description** is complete per the template above; every measured
    number in it names its baseline in the same sentence, and was read from
    a command the description names, run after the last commit that changes
-   it (contributor policy §6).
+   it (contributor policy §6). A count that describes the tree names its one
+   site and appears in no second place (quality gates).
 10. **No forbidden actions** taken (see `docs/ai-contributor-policy.md`, §5).
 11. **Falsification gate** discharged and recorded: a red count per
     behavioural claim, a zero written as a zero.
