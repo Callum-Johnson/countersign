@@ -1,13 +1,12 @@
 ---
 id: EM-007-002
 title: A change to a process document is trivial by the operative test and critical by ADR-0002
-status: blocked
+status: in-progress
 tier: critical
 complexity: S
 dependencies: []
 claimed_by: claude-opus-5
 claimed_at: 2026-09-07
-blocked_at: 2026-09-08
 ---
 
 # EM-007-002 — Is a change to a process document trivial or critical?
@@ -224,7 +223,9 @@ EM-018-001's `standard` closure therefore stands and needs no correction:
 do. EM-007-001 keeps its `trivial` closure, as it did under the first
 decision.
 
-**BLOCKER (2026-09-08):** the ticket has taken its three review rounds and
+**BLOCKER (2026-09-08) — Discharged (2026-09-08) by the maintainer's order
+recorded beneath it. The blocker text is left as the record of why the work
+stopped.** The ticket has taken its three review rounds and
 blocks at the cap that "When review ends" sets in `docs/tier-review-model.md`.
 Round 3 recorded one must-fix, and it is not repaired here.
 
@@ -300,6 +301,21 @@ pointing at it, so a reader of the blocker needs nothing else:
 Derived from the rows: 6 + 2 + 1 = nine must-fixes over the three rounds, of
 which 2 + 1 = three sat inside the previous round's fix. Round 3's `—` in the
 last column is nothing repaired, which is the point of the block.
+
+**Maintainer's order (2026-09-08): a fourth review round.** The first of the
+two dispositions the block set out. Round 4 takes R3.1 — repaired at its class,
+since the sentence it lands on is a separation-of-duties defect and the class
+obligation in the contributor policy's §6 binds the repair — and carries the
+four notes R3.2 to R3.5 with it. Nothing about the record changes: the three
+rounds stand as recorded, the cap stands at three, and the round is ordered
+rather than taken.
+
+The cap's own **Retired when:** line in `docs/tier-review-model.md`, "When
+review ends", retires the cap when a ticket blocked at it has its maintainer
+order a further round that finds a rule defect. This is such an order. Whether
+it counts toward that falsifier turns on what round 4 returns, which is not
+known here; it is recorded so a later reader of the falsifier finds the case
+rather than reconstructing it.
 
 ## PR Description
 
