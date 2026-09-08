@@ -1,10 +1,12 @@
 ---
 id: EM-024
 title: A count written into prose has no falsifier and drifts silently
-status: ready
+status: in-progress
 tier: standard
 complexity: M
 dependencies: []
+claimed_by: claude-opus-5
+claimed_at: 2026-09-08
 ---
 
 # EM-024 — A count in prose has no falsifier
