@@ -56,6 +56,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-007-002 | blocked | critical | A process-document change is trivial by the test and critical by ADR-0002 |
 | EM-009-001 | blocked | critical | The class obligation binds every repaired finding |
 | EM-018-001 | done | standard | The ticket template's how-to-use steps disagree with the lifecycle on three points |
+| EM-023 | ready | standard | The next-id command misses an id created by renaming a ticket file |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
 backdated; ADR-0001 explains why backdating was rejected.
