@@ -2,7 +2,7 @@
 id: EM-024
 title: A count written into prose has no falsifier and drifts silently
 status: in-progress
-tier: standard
+tier: critical
 complexity: M
 dependencies: []
 claimed_by: claude-opus-5
@@ -216,6 +216,13 @@ Proposed `standard`: the change alters an instruction an adopter follows.
 The tier question EM-007-002 owns applies here as to every documentation ticket
 on this board; the executor may raise and never lower, so the higher tier is the
 one an author can propose without resolving it.
+
+**Tier raised from `standard` to `critical` by the executor on 2026-09-08**,
+under "Separation of duties" in `docs/tier-review-model.md`: this change adds a
+rule to a process document, and `docs/adr-process.md`, "What \"a workflow rule
+changes\" reaches", states that a rule added to a process document is a
+process-surface change under the operative test either way — clause 5. Only a
+reviewer may lower it.
 
 ## PR Description
 
