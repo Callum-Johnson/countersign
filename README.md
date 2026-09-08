@@ -36,7 +36,7 @@ a fleet of them from quietly destroying a codebase while doing so.
 | [AI contributor policy](docs/ai-contributor-policy.md) | The rules AI agents work under — what they may and may not do, when to stop and block, what must be true before a change is reported done, the pre-flight checklist — and a map of which document settles what |
 | [Ticket lifecycle](docs/ticket-lifecycle.md) | How work is claimed, batched, blocked and closed, how tickets are numbered, and the directory/status invariant that keeps it honest |
 | [Tier review model](docs/tier-review-model.md) | Three risk tiers and the operative test that assigns them; who reviews, and who may move a tier; what a review reports and when it ends; how a rule leaves the documents, and what one needs before it enters |
-| [Quality gates](docs/quality-gates.md) | The four machine checks that must pass before merge, the falsification gate the executor discharges, where a count that describes the tree lives, and where a review runs |
+| [Quality gates](docs/quality-gates.md) | The four machine checks that must pass before merge, the falsification gate the executor discharges, where a number that something else determines lives, and where a review runs |
 | [ADR process](docs/adr-process.md) | When a decision is a record, what the record carries, and why changes to the process are recorded the same way |
 | [Disclosure policy](DISCLOSURE.md) | What is withheld from this repository, what is published, and the reasoning |
 
