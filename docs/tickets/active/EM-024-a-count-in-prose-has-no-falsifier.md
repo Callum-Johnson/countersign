@@ -235,30 +235,39 @@ EM-024 — A count written into prose has no falsifier and drifts silently
 document, and `docs/adr-process.md` states that a rule added to a process
 document is a process-surface change under the operative test either way,
 which is clause 5. The one-line reason is in the ticket's Notes. Only a
-reviewer may lower it.
+reviewer may lower it, and the round-1 reviewer judged the raise correct
+rather than lowering it.
 
-**Independent review not yet obtained.** The executor does not review its own
-work. Under ADR-0002 an independent pass is required before this merges; the
-Review section below is empty because no round has run.
+**One independent review round has run.** The executor does not review its own
+work; the round-1 record and its repair are in the Review section below. The
+ticket stays `in-progress` in `active/` pending round 2 under ADR-0002.
 
 **No decision record is owed.** `docs/adr-process.md`, "What a workflow rule
 changes reaches", puts a rule added inside a document, under an existing
 decision, on the second side of the line: it stays in the document with its
 falsifier and its ticket is its record. This rule is added inside
 `docs/quality-gates.md` under the falsification gate's existing decision that
-the executor pins claims before reporting, and extends policy §6 in place. It
-is the same shape as EM-011's and EM-021's, which the section names as
-producing no record.
+the executor pins claims before reporting, and extends policy §6 in place. The
+round-1 repair renames and restates that section but adds no rule and moves no
+rule between documents, so it does not change the answer; it is the same shape
+as EM-011's and EM-021's, which the section names as producing no record.
 
 ### Summary
 `docs/quality-gates.md` gains a section beside the falsification gate: a count
-that describes the tree lives in a test that measures it, prose names the test
-rather than restating the number, and the count therefore has exactly one site.
-Where the count's subject includes the sentence stating it, the instrument
-excludes prose — a text search returns the sentence. Policy §6's measured-number
-bullet is extended, not replaced, and says so. The section states what a reader
-does, what the degraded form is on a project with no suite, what it does not
-reach, and its falsifier with the population named.
+that describes the tree has exactly one site, and that site is one that goes
+red when the tree moves — a test where the project has a suite, and where it
+has none, no number at all. Prose names the site rather than restating the
+number. Where the count's subject includes the sentence stating it, the
+instrument excludes prose, because a text search returns the sentence. The
+section states which numbers it reaches by a test rather than by enumeration,
+what a reader does, what the degraded form on a project with no suite costs,
+what it does not reach, and its falsifier with the population named. Policy
+§6's measured-number bullet is extended, not replaced, and says so.
+
+**The round-1 review found the rule's own commit carrying the defect the rule
+forbids, in at least five places, one of which that commit had just rewritten.
+That is recorded here as the ticket's strongest evidence rather than as an
+embarrassment; the paragraph is at the end of the Review section.**
 
 ### Acceptance criteria
 
@@ -266,23 +275,31 @@ reach, and its falsifier with the population named.
   design is built.** The ticket's section "The maintainer's answer" quotes it
   in full and dates it 2026-09-08. It was committed at `cedb7a8`, before the
   rule commit `19cbb74`; `git log --oneline --reverse 8abf61a..HEAD` shows the
-  order.
+  order. The round-1 repair does not revisit it: the answer settled which of
+  the three options the rule implements, and restating that option at the level
+  of its own two properties is not a fourth option. The reasoning is under
+  "The structural finding" in Review.
   *What a reader does differently:* a reader of the ticket sees which of the
   three options the rule implements, and on what reasoning, without asking the
   maintainer or inferring it from the diff.
 
 - [x] **AC2: the rule states its falsifier and the population it is measured
-  over.** `docs/quality-gates.md`, "A count that describes the tree lives in a
-  test", closes with a **Retired when:** line: over the next fifty closed
-  tickets on a project that has adopted the section, no reproduction of a
-  number a record asserts about the tree finds one wrong. Fifty is written as
-  a default and named as one; the line states in terms that the whole evidence
-  is a single day, 2026-09-08, on a single project, and that the first adopting
-  project's fifty closed tickets replace the figure. Fifty is not a measured
-  number and is not offered as one.
+  over.** `docs/quality-gates.md`, "A count that describes the tree has one
+  site that goes red", closes with a **Retired when:** line whose population is
+  **reproductions of a number a record asserts about the tree**, not closed
+  tickets. The round-1 review found the earlier population unobservable —
+  closed tickets are counted, reproductions are not, so a retirement read from
+  closed tickets fires on silence and fires hardest where the section is
+  followed least. The line now says a reproduction counts towards the
+  population when it is recorded, that a project recording none never reaches a
+  population, and — in terms — that the section asks for no reproduction. Fifty
+  is written as a default and named as one, and the line states that the whole
+  evidence is a single day, 2026-09-08, on a single project.
   *What a reader does differently:* a maintainer can retire the section on
-  evidence rather than on taste, and can see, before adopting it, that the
-  evidence base is one day and not a history.
+  evidence rather than on taste, and can see that the evidence base is one day
+  and not a history; and a maintainer who finds the falsifier's population at
+  zero knows the control was never tested, rather than reading zero failures as
+  the control catching nothing.
 
 - [x] **AC3: the four instances are cited as the second-instance evidence,
   each naming the ticket and the finding.** They are the bulleted entries in
@@ -290,7 +307,8 @@ reach, and its falsifier with the population named.
   added as the paragraph that follows them. The enumeration, rather than a
   count of it, is read from
   `grep -n '^- \*\*OMN\|^\*\*A fifth instance' docs/tickets/active/EM-024-a-count-in-prose-has-no-falsifier.md`
-  at `91798f3`, which returns:
+  at `32bcd29` and again at the commit carrying this description, which does
+  not touch the lines it reads; both return:
 
   ```
   27:- **OMN-024, finding R4.2.** A boolean's count read "seven" where it is nine
@@ -300,9 +318,13 @@ reach, and its falsifier with the population named.
   62:**A fifth instance, surfaced after this ticket was raised, and judged in
   ```
 
-  This description states no count of them, and neither does the new section.
-  The list is their one site, which is what the section asks; a reader derives
-  the number from the lines above. Which of the citations can be reproduced
+  The count "four" appears in this description exactly where the template
+  requires the ticket's acceptance criterion to be copied verbatim, which is
+  the line above and the ticket's own AC3. The description asserts no count of
+  the instances on its own account, the evidence block is their one site, and
+  the new section states none. The round-1 review found the earlier wording
+  here — that the description stated no count of them — false against its own
+  heading; this is the correction. Which of the citations can be reproduced
   from a tree, and which are names a reader cannot open, is under Risks.
   *What a reader does differently:* a reader judges whether the second-instance
   bar was cleared by reading the instances, instead of taking the ticket's word
@@ -310,7 +332,8 @@ reach, and its falsifier with the population named.
 
 - [x] **AC4: the answer says what happens to a count duplicated across sites,
   and what instrument settles a count whose subject includes the sentence
-  stating it.** Two paragraphs of the new section, in those terms.
+  stating it.** Two paragraphs of the section, in those terms, plus a third the
+  round-1 review required.
   Duplication: "One site, and every other mention names the site rather than
   the number", with OMN-024's four sites named and the note that the repairing
   round re-created the claim it was repairing; under the section a number found
@@ -319,59 +342,83 @@ reach, and its falsifier with the population named.
   stating it, the instrument excludes prose", stating that a text search
   returns the sentence, that restricting the search to source paths does not
   fix it because a docstring is under `src/` too, and that a parser settles it
-  because to a parser a docstring is a string constant and never a call.
+  because to a parser a docstring is a string constant and never a call. The
+  third, added at round 1: what the duplication clause costs where nothing goes
+  red, which is that it is enforceable only by a reader who looks.
   *What a contributor does differently:* a contributor with a count writes it
   once and points at it, and repairs it in one place rather than three; a
   contributor with a claim of absence over its own tree reaches for a parser
-  first, instead of spending the three rounds OMN-024 spent.
+  first, instead of spending the rounds OMN-024 spent; and a contributor in a
+  repository with no runner knows the clause is weak there and reaches for the
+  form with no number rather than trusting it.
 
 - [x] **AC5: no existing rule is silently widened; a replacement is recorded as
-  such.** §6's measured-number bullet is **extended, not replaced**. The added
-  text says so in the bullet itself — "carries a further obligation, which
-  extends this bullet and does not replace it ... This bullet is unchanged and
-  still reaches every measured number, counts included." The diff shows no
-  deletion in §6: `git diff 8abf61a..19cbb74 -- docs/ai-contributor-policy.md`
-  reports 11 changed lines, of which the two deletions are the map row and the
-  bullet line the insertion re-flows, and `git diff --stat 8abf61a..19cbb74 --
-  docs/ai-contributor-policy.md` is the command. Nothing else in `docs/` is
-  narrowed or widened: the new section states its own scope limits in "What
-  this section does not reach", which defers the question of which numbers are
-  measured at all back to §6 rather than re-deciding it.
+  such.** §6's measured-number bullet is **extended, not replaced**, and says
+  so in the bullet itself: "This bullet is unchanged and still reaches every
+  measured number, counts included." The diff against the branch point shows no
+  deletion in §6 beyond the lines the insertion re-flows —
+  `git diff --stat 8abf61a..b732abe -- docs/ai-contributor-policy.md` is the
+  command.
+  Two changes at round 1 are recorded here as changes rather than left to be
+  found in the diff. **The section was renamed**, from "A count that describes
+  the tree lives in a test" to "A count that describes the tree has one site
+  that goes red", and its rule sentence restated at the level of its two
+  properties; the reasoning is under "The structural finding" in Review. Every
+  reference to the old title moved in the same commit — `git grep -n
+  "describes the tree lives in a test" -- README.md DISCLOSURE.md docs
+  templates` returns nothing at `32bcd29`. The words "lives in a test" survive
+  in this ticket's Specification and in the maintainer's quoted answer, where
+  they are the option as it was written and as it was answered, not a reference
+  to a section title, and are not edited. **The section's scope is now
+  stated as a test rather than an enumeration**: it previously excluded a
+  duration, a version and a date by listing them, which left a contributor
+  unable to place a percentage or a stipulated constant. The test is whether
+  the tree could move so that the number becomes wrong without anyone editing
+  the sentence. That is a narrowing and a widening at once — percentages come
+  in, stipulated constants go out — and both are stated in the section rather
+  than inferred.
+  Nothing else in `docs/` is narrowed or widened, and
+  `docs/tier-review-model.md` is untouched:
+  `git diff --stat 8abf61a..HEAD -- docs/tier-review-model.md` reports no
+  change.
   *What a reader does differently:* a reader of §6 who has read it before finds
   the bullet they remember, plus a sentence telling them what was added and
-  that the old obligation is undiminished.
+  that the old obligation is undiminished; and a reader who knew the section
+  under its old name is told the name changed and why, rather than meeting a
+  section that reads as a different rule.
 
 ### Measured figures, each with its command
-Every command below was run at `19cbb74`, the last commit that changes what any
+Every command below was run at `b732abe`, the last commit that changes what any
 of them counts, against the baseline `8abf61a`, this branch's point off `main`.
-The two commits after it — the tier raise and its typo fix — and this
-description's own commit touch only the ticket file and the board, which none
-of these figures counts.
+The commits after it touch only ticket files and the board, which none of these
+figures counts.
 
 | Figure | Command | Result |
 |---|---|---|
 | quality gates, words before | `git show 8abf61a:docs/quality-gates.md \| wc -w` | 2229 |
-| quality gates, words after | `git show 19cbb74:docs/quality-gates.md \| wc -w` | 3153 |
+| quality gates, words after | `git show b732abe:docs/quality-gates.md \| wc -w` | 3827 |
 | policy, words before | `git show 8abf61a:docs/ai-contributor-policy.md \| wc -w` | 3266 |
-| policy, words after | `git show 19cbb74:docs/ai-contributor-policy.md \| wc -w` | 3357 |
+| policy, words after | `git show b732abe:docs/ai-contributor-policy.md \| wc -w` | 3388 |
 | PR template, words before | `git show 8abf61a:templates/PR-DESCRIPTION.md \| wc -w` | 876 |
-| PR template, words after | `git show 19cbb74:templates/PR-DESCRIPTION.md \| wc -w` | 931 |
+| PR template, words after | `git show b732abe:templates/PR-DESCRIPTION.md \| wc -w` | 957 |
 | README, words before | `git show 8abf61a:README.md \| wc -w` | 1044 |
-| README, words after | `git show 19cbb74:README.md \| wc -w` | 1052 |
-| rule-bearing files changed | `git diff --stat 8abf61a..19cbb74 -- README.md docs/ai-contributor-policy.md docs/quality-gates.md templates/PR-DESCRIPTION.md \| tail -1` | 4 files changed, 95 insertions(+), 5 deletions(-) |
+| README, words after | `git show b732abe:README.md \| wc -w` | 1052 |
+| rule-bearing files changed | `git diff --stat 8abf61a..b732abe -- README.md docs/ai-contributor-policy.md docs/quality-gates.md templates/PR-DESCRIPTION.md \| tail -1` | 4 files changed, 149 insertions(+), 5 deletions(-) |
 
-The rule costs this repository 1,078 words across four documents, by
-subtraction from the rows above and asserted nowhere else.
+The rule costs this repository 1,809 words across those files, by subtraction
+from the rows above and asserted nowhere else. Round 1 added 731 of them, by
+the same subtraction against the same rows at `19cbb74`.
 
-`EM-024`, `§6`, `AC3`, `8abf61a`, `19cbb74`, `91798f3` and the line numbers in
-the AC3 block name things or locate them rather than measure a population, and
-are outside §6's measured-number bullet by the test that bullet states.
+`EM-024`, `§6`, `AC3`, `8abf61a`, `19cbb74`, `b732abe`, `32bcd29` and the line
+numbers in the AC3 block name things or locate them rather than measure a
+population, and are outside §6's measured-number bullet by the test that bullet
+states and outside the new section by the test it states.
 
 ### The gate this repository has
 **It has none, and this section says so rather than implying a check that does
-not exist.** The four machine gates in `docs/quality-gates.md` are the process
-this repository publishes for adopting projects; this repository ships Markdown
-and has no runner for any of them. At `91798f3`:
+not exist.** The machine gates in `docs/quality-gates.md` are the process this
+repository publishes for adopting projects; this repository ships Markdown and
+has no runner for any of them. At `32bcd29`:
 
 | Question | Command | Result |
 |---|---|---|
@@ -380,16 +427,19 @@ and has no runner for any of them. At `91798f3`:
 | CI configuration? | `git ls-files \| grep -c '^\.github/'` | 0 |
 | What is tracked at the top level? | `git ls-files \| cut -d/ -f1 \| sort -u` | `.gitignore`, `DISCLOSURE.md`, `LICENSE`, `README.md`, `case-studies`, `docs`, `examples`, `templates` |
 
-There is no `scripts/` directory. `ruff`, `mypy` and `pytest` have nothing here
-to run against, and reporting them as passed would be false.
+There is no `scripts/` directory, and round 1 added none: the sweep's
+instrument is written out in EM-024-002's Context so that a reader can
+reproduce it, rather than committed as a file this repository does not run.
+`ruff`, `mypy` and `pytest` have nothing here to run against, and reporting
+them as passed would be false.
 
 The one mechanical check this repository does have is the directory/status
-invariant, and it was run. The command, at `91798f3`:
+invariant, and it was run. The command, at `32bcd29`:
 
 ```sh
 for f in docs/tickets/*/*.md; do
   d=$(basename $(dirname "$f"))
-  s=$(grep -m1 '^status:' "$f" | sed 's/status: //')
+  s=$(grep -m1 '^status:' "$f" | sed 's/status: //' | tr -d '\r')
   case "$d:$s" in
     ready:ready|active:in-progress|blocked:blocked|done:done) ;;
     *) echo "MISMATCH $f dir=$d status=$s" ;;
@@ -397,98 +447,296 @@ for f in docs/tickets/*/*.md; do
 done
 ```
 
-It printed nothing over the 41 ticket files that `ls docs/tickets/*/*.md | wc
--l` counts at that commit, which is the invariant holding. EM-024 is
-`status: in-progress` in `docs/tickets/active/`, and EM-024-001 is
+It printed nothing over the ticket files that `ls docs/tickets/*/*.md | wc -l`
+counts at that commit, which is the invariant holding. EM-024 is
+`status: in-progress` in `docs/tickets/active/`, EM-024-001 and EM-024-002 are
 `status: ready` in `docs/tickets/ready/`.
 
 ### Falsification
-N/A — this change makes no behavioural claim, and there is no suite. What a
-reader or contributor does differently is stated per acceptance criterion
-above, which is the form `templates/PR-DESCRIPTION.md` gives for a change with
-no behavioural claim.
+N/A for a behavioural claim — this change makes none, and there is no suite.
+What a reader or contributor does differently is stated per acceptance
+criterion above, which is the form `templates/PR-DESCRIPTION.md` gives for a
+change with no behavioural claim.
 
-No review finding has been repaired, because no review has run; the class form
-policy §6 asks for applies from the first round onward.
+Per repaired review finding, the class and its siblings, in policy §6's form.
+The change has no suite, so each sibling says what a reader would do
+differently instead of naming a test and a red count.
+
+- **R1.1 — class: which sentences in this repository's rule-bearing documents
+  state a number that counts something in this tree?** Not "the gate count",
+  which is the instance. Swept mechanically; the instrument, its output and its
+  blind spots are written out in EM-024-002's Context, and the sweep is quoted
+  there rather than summarised. Siblings beyond the five gate-count sites:
+  `docs/ai-contributor-policy.md:16` ("searching five documents"), `:332`
+  ("tick all seven"), `docs/ticket-lifecycle.md:188` ("Three things the scheme
+  does not say"), `docs/tier-review-model.md:26` and `:27` (index rows
+  restating counts of lists in sections of the same document), `README.md:38`
+  ("Three risk tiers"), and `docs/tier-review-model.md:359` ("five of five").
+  One more, `docs/adr/0003-...:100`, is in class and outside the population,
+  and is named in EM-024-002 as seen and left. All are raised, none repaired
+  here, per §4.
+  *What a reader does differently:* a reader who wants to know whether this
+  repository complies with its own new section runs one command and reads a
+  list, instead of taking the executor's word that the sites it was handed were
+  all of them.
+- **R1.2 — class: which numbers in `docs/tier-review-model.md` state a count of
+  this repository with no site?** `grep -n "thirteen" docs/tier-review-model.md`
+  at `de99c4e`, the last commit that changes that file, returns lines 374 and
+  489: both are in EM-024-001, which now covers both. The wider sweep in R1.1
+  covers the same document for the rest of the class.
+  *What a reader does differently:* a reader of EM-024-001 who repairs the
+  sentence it was raised for does not leave a second copy of the same defect
+  three hundred lines away in the same file.
+- **R1.3 — class: which command written into this branch's ticket files returns
+  nothing when it is run?** Every backticked command in the three ticket files
+  on this branch was extracted and run, except those that address the
+  control-plane repository and cannot be run from here. The one that returned
+  nothing was EM-024-001's, and it is the only one: the AC3 enumeration
+  command, `grep -n "thirteen"`, the gate-block command, the Review-table
+  command at `5d94db7`, the `git ls-files` gate questions, the
+  governed-documents command, the word counts in Measured figures and the
+  ticket-file count all return output at `32bcd29`.
+  *What a reader does differently:* a reader who runs a command a ticket names,
+  in order to check a number the ticket asserts, gets output rather than
+  silence — and silence from a grep reads as "nothing to find", which is the
+  wrong answer given loudly.
+- **R1.4 — class: which claim this description makes about its own text is
+  false?** Two, and they are the same defect: AC3's "this description states no
+  count of them", against "the four instances" in its own heading; and "How to
+  verify" step 3, which said "the two places in the template that already
+  pointed at §6" where `grep -c "§6" templates/PR-DESCRIPTION.md` returns 3 at
+  `b732abe`. Both are repaired above and below. The third self-referential
+  claim, step 6's "this description restates no count that has a list", is now
+  true of the enumeration and is stated as a check a reader runs rather than as
+  a fact the description asserts.
+  *What a reader does differently:* a reader checking the description against
+  itself finds the checks pass, and a description whose self-description is
+  wrong is exactly the failure this ticket is about, one level up.
+- **R1.5 — repair of the instance.** The falsifier's population. The section
+  states one falsifier and it is the one repaired; the sweep for others is
+  the class question "which falsifier in this repository names a population
+  nothing records?", which reaches every rule in `docs/` and is EM-014's
+  subject, not this ticket's. Recorded here as an instance repair, which is a
+  claim round 2 can test.
+- **R1.6 — repair of the instance.** The scope boundary stated as a test rather
+  than an enumeration. One section, one scope paragraph.
+- **R1.7 — class: which number in the new section's own text has no site?**
+  The section was swept with the same instrument as R1.1, over its own line
+  range. What remains is "one", "two" and "one of them" used as enumerative
+  words rather than counts; the seven-and-nine illustration; "five of them" and
+  "the three conditions" quoted as examples of the form the section rejects;
+  OMN-024's round 3, which names a round rather than measuring one; and
+  "fifty", a default named as one in the falsifier. "OMN-024 spent three
+  rounds" is gone — `grep -n "three rounds" docs/quality-gates.md` returns
+  nothing at `32bcd29`.
+  *What a reader does differently:* a reader who applies the section to the
+  section finds it complies, which is the least a rule of this kind can offer.
+- **R1.8 — with R1.4.** Step 3's count.
 
 ### Out of scope (per ticket)
 Confirmed, one line each:
 
 - **The four control-plane tickets themselves.** None was opened for editing;
-  the control-plane repository was read only, to reproduce two citations.
-- **Any general rule about duplicated prose.** The new section refuses this in
+  the control-plane repository was read only, and not at all during round 1.
+- **Any general rule about duplicated prose.** The section refuses this in
   terms: two sentences saying the same thing are a matter of style until one of
   them is a number about the tree. §5's bar on speculative abstraction is the
   reason, and the section's "What this section does not reach" paragraph is
-  where the line is drawn for a later reader.
+  where the line is drawn. Round 1 tested that boundary once more and held it:
+  the wrap blindness that hid two sites from two different greps is recorded in
+  that paragraph as an instrument property and explicitly **not** made a rule,
+  because the second-instance bar is not cleared by two instances in one round.
 - **Retrospectively auditing every number in either project's records.** None
-  was audited. One instance in this repository was found while reading the
-  document the new section binds, and was raised as EM-024-001 under §4 rather
-  than fixed here; that ticket is explicitly not a sweep and says so.
+  was audited. The round-1 sweep reads the rule-bearing documents the map
+  governs — the population the section binds first — and not `docs/tickets/`,
+  `docs/adr/`, `case-studies/` or `examples/`. Its findings are raised as
+  EM-024-002 under §4 and are not repaired here.
 
 Also confirmed: the rule was not made a review obligation. The maintainer's
-answer chose the structural option over that one, and `docs/tier-review-model.md`,
-"What a review reports", is untouched — `git diff --stat 8abf61a..HEAD --
-docs/tier-review-model.md` reports no change.
+answer chose the structural option over that one, the round-1 repair says so in
+the section itself, and `docs/tier-review-model.md`, "What a review reports", is
+untouched — `git diff --stat 8abf61a..HEAD -- docs/tier-review-model.md`
+reports no change.
 
 ### How to verify
-1. Read `docs/quality-gates.md`, "A count that describes the tree lives in a
-   test", in full — it is one section and states its own scope, its degraded
-   form and its falsifier.
-2. `git diff 8abf61a..19cbb74 -- docs/ai-contributor-policy.md` — check that
+1. Read `docs/quality-gates.md`, "A count that describes the tree has one site
+   that goes red", in full — it is one section and states its own scope test,
+   its degraded form, what that form costs, and its falsifier.
+2. `git diff 8abf61a..b732abe -- docs/ai-contributor-policy.md` — check that
    §6's bullet is extended and nothing in it is deleted, and that the map row
-   for the quality gates now sends the question "where does a count that
-   describes the tree live?" to the right document.
-3. `git diff 8abf61a..19cbb74 -- README.md templates/PR-DESCRIPTION.md` — the
-   index line and the two places in the template that already pointed at §6.
-4. Re-run every command in "Measured figures" and in "The gate this repository
-   has". They are the only numbers here.
-5. `git show 91e14c2:docs/tickets/README.md | grep -n "Nothing is blocked"` and
+   for the quality gates sends the question "where does a count that describes
+   the tree live?" to the right document.
+3. `git diff 8abf61a..b732abe -- README.md templates/PR-DESCRIPTION.md` — the
+   index line, and the places in the template that already pointed at §6. The
+   template's mentions of §6 are enumerated by
+   `grep -n "§6" templates/PR-DESCRIPTION.md`; the diff shows which of them the
+   change touched.
+4. `git diff 5a861a9..HEAD` — the round-1 repair on its own, which is the diff
+   round 2 reads.
+5. Re-run every command in "Measured figures", "The gate this repository has"
+   and the Falsification section. They are the only numbers here.
+6. Run the sweep in EM-024-002's Context. It is the instrument this round used;
+   its blind spots are stated beside it, and a reader who wants to know what
+   this repository still owes reads its output rather than this description.
+7. `git show 91e14c2:docs/tickets/README.md | grep -n "Nothing is blocked"` and
    `... | grep -n "OMN-022-003 | blocked"`, in the control-plane repository, for
    the fifth instance's two sites in one file.
-6. Check that this description restates no count that has a list: the instances
-   are enumerated and never totalled, which is the section applied to itself.
+8. Check that this description restates no count that has a list: the instances
+   are enumerated and never totalled, and the gate count's sites are enumerated
+   in EM-024-002 and never totalled, which is the section applied to itself.
 
 ### Risks / follow-ups
 - **The degraded form is genuinely weaker, and this repository lives in it.**
   With no suite, a count's one site is a command in a document, which runs when
-  a reader chooses to run it. Nothing goes red here. The section says so rather
-  than hiding it, but a reader should not read "lives in a test" as something
-  this repository can do.
+  a reader chooses to run it. Nothing goes red here. Round 1 required the
+  section to say what that costs rather than only that it is weaker, and it now
+  does: the one-site clause becomes enforceable only by a reader who looks,
+  which is the shape of the option the maintainer chose against. The section's
+  answer is to prefer no number at all in a repository of documents, which
+  removes the thing a reader would have to find. Where a number is written
+  anyway the weakness stands.
 - **Three of the five citations could not be reproduced from a tree.** In the
   control-plane clone available while working this ticket, `main` at `a1d16ff`
   holds OMN-024, OMN-022-002, OMN-022-003 and OMN-020-001 in `ready/`, and
   `git grep -n -E "R4\.2|R7\.4|R7\.3" <branch> -- docs/tickets` over the three
   ticket branches returns nothing: those review records live where the reviews
   ran and have not landed. The second-instance bar permits this — "a name a
-  reader cannot open is still a name, quoted with its round" — and the citations
-  are quoted with their rounds. What *is* reproducible is recorded: the fifth
-  instance's two sites by the commands in Context, and OMN-022-002's 17 by
-  `git grep -c "cause=" 5e89931 -- src/omnissiah/dispatch/transitions.py`.
+  reader cannot open is still a name, quoted with its round" — and the
+  citations are quoted with their rounds. What *is* reproducible is recorded:
+  the fifth instance's two sites by the commands in Context, and OMN-022-002's
+  17 by `git grep -c "cause=" 5e89931 -- src/omnissiah/dispatch/transitions.py`.
   A reviewer weighing whether the bar was cleared should know which is which.
+- **The ticket's AC3 says "the four instances" and the Context now carries
+  five.** The fifth was added after the raise and judged in class; the
+  acceptance criterion was not rewritten, because the criteria are the author's
+  and the executor does not restate them to suit the work. The criterion is met
+  as written — the four are cited — and the fifth is additional. A later reader
+  who finds the mismatch should read it as the ticket's own instance of the
+  defect it is about, in the one place the executor may not repair it.
 - **EM-015 is an adjacent instance that this section deliberately does not
   reach.** The README's two commit counts for one project are figures about a
   private project's history that no command in this repository can produce.
-  They are §6's, not this section's, and were left out of the evidence rather
-  than added because they were available. The scope test is the one the section
-  states: does a command over *this* tree settle the number.
-- **EM-024-001 raised**, under §4, for the one instance found in this
-  repository while working: `docs/tier-review-model.md` states "eight" beside
-  the list of the same eight and "thirteen" with no site at all. It is scoped
-  to that sentence and does not decide whether a sweep is worth doing.
-- **The falsifier's population is a default and is unmeasured.** Fifty closed
-  tickets on an adopting project is a figure this project has no evidence for,
-  named as a default for the reason the batch cap's ten-and-seven are, and the
-  first adopting project replaces it.
-- **The tier was raised, not lowered.** If a reviewer judges that a rule added
-  inside an existing document is not clause 5, only the reviewer may lower it,
-  recording the reasoning. EM-007-002 owns the underlying question and is
-  blocked.
+  They are §6's, not this section's. The scope test is the one the section
+  states: could a command over *this* tree settle the number.
+- **EM-024-001 and EM-024-002 are raised and unworked.** Between them they hold
+  every instance in this repository that the round-1 sweep judged in class.
+  Neither is a sweep of the whole repository: EM-024-002's population is the
+  rule-bearing documents the map governs, and its instrument's blind spots are
+  written into it so that a later reader does not mistake its output for a
+  clean bill.
+- **The falsifier's population is a default and is unmeasured.** Fifty
+  reproductions on an adopting project is a figure this project has no evidence
+  for, named as a default for the reason the batch cap's ten-and-seven are, and
+  the first adopting project replaces it. The change from closed tickets to
+  reproductions makes the population observable but also makes it slower to
+  accumulate, and on a project that records no reproduction it never
+  accumulates at all. That is stated in the falsifier as the intended
+  behaviour, not hidden as a limitation.
+- **The tier was raised, not lowered.** The round-1 reviewer judged the raise
+  correct. EM-007-002 owns the underlying question and is blocked.
 
 ### Review
-No round has run. The executor does not review its own work, and this ticket
-remains `in-progress` in `active/` pending an independent pass under ADR-0002.
 
 | Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
 |---|---|---|---|---|
-| — | — | — | — | — |
+| 1 | 4 | documents — `README.md`, `docs/quality-gates.md`, `docs/tier-review-model.md`; tickets — EM-024, EM-024-001 | — | `b732abe`, `32bcd29` |
+
+Findings, per round. The round-1 record as handed to the executor gave each
+finding's remedy and its cost but not its column; **the column on each line
+below is the executor's reading of the finding's content, and is marked as
+such**, which is a gap in the record rather than in the review, and one the
+next round can correct from the reviewer's own copy.
+
+- R1.1 · permits *(column read by the executor)* · quality gates, "A count that
+  describes the tree has one site that goes red" · The commit adding the rule
+  restates the machine-gate count away from the code block that is its site, at
+  `README.md:39` and `:85`, `docs/quality-gates.md:17` and `:18`, and
+  `docs/tier-review-model.md:93` — OMN-024's exact shape, and `README.md:39` is
+  a line this commit rewrote — remedy: raise a sibling ticket covering it,
+  taken as EM-024-002 at `32bcd29`; cost of the remedy: none, no control is
+  tightened; inside previous fix: no.
+- R1.2 · permits *(column read by the executor)* · quality gates, same section,
+  applied to `docs/tier-review-model.md` · A second unsited "thirteen" at lines
+  373–374, in the same document and the same class as EM-024-001, left
+  unraised, and drifted: 13 at `5d94db7` against 16 at `60f39fb` by
+  `git grep -l "| Round | Must-fix |" <commit> -- docs/tickets/done | wc -l` —
+  remedy: fold it into EM-024-001, done at `32bcd29`; cost: none; inside
+  previous fix: no.
+- R1.3 · permits *(column read by the executor)* · contributor policy §6, the
+  measured-number bullet · EM-024-001's own locating command returns nothing,
+  because "thirteen rule-adding" wraps across lines 489 and 490 — a ticket
+  about unmeasured claims whose own command does not run is the same defect one
+  level up — remedy: quote the wrapped phrase, done at `32bcd29` by replacing
+  it with `grep -n "thirteen" docs/tier-review-model.md`, which returns both
+  sites; cost: none; inside previous fix: no.
+- R1.4 · permits *(column read by the executor)* · quality gates, same section,
+  applied to this description · The description's AC3 said "This description
+  states no count of them", which is false: "the four instances" appears in its
+  own heading — remedy: reword, done at this commit; cost: none; inside
+  previous fix: no.
+- R1.5 · permits *(column read by the executor)* · quality gates, the section's
+  **Retired when:** line · The falsifier's population is not observable: closed
+  tickets are counted, reproductions are not, because nothing records them, so
+  retirement fires on silence — remedy: name reproductions as the population,
+  taken at `b732abe`; cost of the remedy: one recorded line per review that
+  reproduces a number, and no reproduction is asked for; inside previous fix:
+  no. *Note, not a must-fix; taken.*
+- R1.6 · refuses *(column read by the executor)* · quality gates, "What this
+  section does not reach" · Percentages and stipulated constants are unscoped:
+  the section excluded a duration, a version and a date by enumeration, and a
+  contributor cannot tell whether "three rounds" is a measurement or a constant
+  — remedy: state the scope as a test, taken at `b732abe` as the paragraph
+  "Which numbers this reaches"; cost: percentages come into scope, which is a
+  tightening, and its cost is that a proportion about the tree now needs a
+  site — measured nowhere in this repository, which states no such proportion;
+  inside previous fix: no. *Note, not a must-fix; taken.*
+- R1.7 · permits *(column read by the executor)* · quality gates, the
+  self-reference paragraph · "Three rounds" ships unsited in the rule's own
+  text — remedy: drop the number, taken at `b732abe`; cost: none; inside
+  previous fix: no. *Note, not a must-fix; taken as the reviewer proposed.*
+- R1.8 · permits *(column read by the executor)* · quality gates, same section,
+  applied to this description · "How to verify" step 3 says "two places" where
+  `grep -c "§6" templates/PR-DESCRIPTION.md` returns 3 — remedy: the step now
+  names the grep and does not restate the count, done at this commit; cost:
+  none; inside previous fix: no. *Note, not a must-fix; taken.*
+
+**The structural finding, and the answer.** The reviewer judged the section's
+duplication answer — a number found in a second place is a defect on its face,
+which a reader can see without measuring anything — enforceable only by a
+reader who looks, which in a repository with no gate is the review obligation
+the maintainer explicitly rejected; and that the section admitted the weakness
+without admitting that it lands option 1 in the degraded case. **The finding is
+correct and it is answered here rather than blocked to the maintainer.** The
+reasoning: the reserved question was which of three options, and it was
+answered — structural — and this repair does not revisit it. The maintainer's
+own words give the two properties that make the structural option work: "the
+test goes red when the tree moves", and "there is one site". Those two
+properties are the rule; a test is how a project with a suite supplies them. So
+the section is renamed "A count that describes the tree has one site that goes
+red" and states the rule at that level, with the test as its instance. In a
+documentation repository the site that goes red usually does not exist, and the
+form the section now asks for first is **no number at all** — the list is the
+count, the sentence names the search — which is where the reviewer's own remedy
+for the unsited "three rounds" already pointed, and where most of this
+repository's counts belong, since most of them describe its own document
+structure. What is left is stated rather than implied: where a number is
+written anyway, the one-site clause is enforceable only by a reader who looks,
+that is option 1's shape arriving through the back door, and the section says
+so and adds no review obligation. Restating a chosen option at the level of its
+own reasoning is not choosing a fourth; had it required choosing one, §3 would
+have applied and this would have blocked.
+
+**What this round's most important finding is, stated plainly.** The commit
+that added a rule forbidding unmeasured counts in prose carried that exact
+defect in at least five places, one of them a line the same commit rewrote,
+and the ticket that commit raised carried a locating command that returned
+nothing. That is not an embarrassment to be minimised. It is the strongest
+evidence in this ticket that the rule was needed, and it is direct evidence
+against the option the maintainer rejected: the record **was** audited by its
+author — the ticket's own Notes say the fourth control-plane instance was found
+"by an executor auditing its own prose" — and it was still wrong five times
+over. A review obligation asks a reader to look; this round is a measurement of
+what happens when the reader looking is the author, on the one document in the
+world where the author was most alert to this exact defect. The count that
+matters is not five. It is that a mechanical sweep run in an afternoon found
+sites that two careful readings of the same documents did not.
