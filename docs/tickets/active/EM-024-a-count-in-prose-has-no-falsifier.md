@@ -366,10 +366,14 @@ embarrassment; the paragraph is at the end of the Review section.**
   properties; the reasoning is under "The structural finding" in Review. Every
   reference to the old title moved in the same commit — `git grep -n
   "describes the tree lives in a test" -- README.md DISCLOSURE.md docs
-  templates` returns nothing at `32bcd29`. The words "lives in a test" survive
-  in this ticket's Specification and in the maintainer's quoted answer, where
-  they are the option as it was written and as it was answered, not a reference
-  to a section title, and are not edited. **The section's scope is now
+  templates ':(exclude)docs/tickets'` returns nothing at `f674e67`. The
+  exclusion is not tidying: without it the command returns this sentence,
+  because the sentence claiming the phrase is gone contains the phrase. That is
+  the section's own self-reference clause met in its own description, and it is
+  left visible rather than worked around silently. The words "lives in a test"
+  also survive in this ticket's Specification and in the maintainer's quoted
+  answer, where they are the option as it was written and as it was answered,
+  not a reference to a section title, and are not edited. **The section's scope is now
   stated as a test rather than an enumeration**: it previously excluded a
   duration, a version and a date by listing them, which left a contributor
   unable to place a percentage or a stipulated constant. The test is whether
@@ -699,6 +703,20 @@ next round can correct from the reviewer's own copy.
   `grep -c "§6" templates/PR-DESCRIPTION.md` returns 3 — remedy: the step now
   names the grep and does not restate the count, done at this commit; cost:
   none; inside previous fix: no. *Note, not a must-fix; taken.*
+
+**Against the review, outside the must-fix count and the two columns**, per
+`docs/quality-gates.md`, "Review isolation": the round-1 reviewer's worktree is
+still registered against this repository. `git worktree list` at `f674e67`
+shows `A:/projects/wt/review-EM-024` at `5a861a9`, the commit reviewed, and
+`git -C A:/projects/wt/review-EM-024 status --porcelain` reports nothing, so
+the tree under review was not written to — the executor's own
+`git status --porcelain` is empty at `f674e67`. The rule asks that such a
+worktree be removed before the tree is used again; it is recorded and **not
+removed here**, because the review session may still hold it and this repair
+was instructed not to write outside this tree. Removal belongs to whoever ends
+that session, and this line is what the record owes either way. It is the same
+shape as the round-13 finding on the control-plane project's OMN-021 that the
+"Review isolation" section names.
 
 **The structural finding, and the answer.** The reviewer judged the section's
 duplication answer — a number found in a second place is a defect on its face,
