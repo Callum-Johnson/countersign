@@ -132,6 +132,28 @@ number finds one wrong — the obligation would be costing a step and catching
 nothing. The population must be stated, because the whole evidence for the rule
 is a single day on a single project.
 
+## The maintainer's answer
+
+Given 2026-09-08, in answer to the prior question above, and recorded here
+before the design was built. Quoted rather than summarised.
+
+> **Structural — a count lives in a test.** A count that describes the tree
+> does not live in prose: it lives in a test that measures it, and the prose
+> points at the test. The number then has a falsifier — the test goes red when
+> the tree moves — and the duplication problem disappears, because there is
+> one site.
+
+That is option 2, chosen over the review obligation and over both, on the
+stated reasoning that it is the only option that fixes duplication — which is
+what actually defeated OMN-024, where the count lived in four sites, a repair
+corrected one copy and left three standing, and the round's own repair
+re-created the claim it was repairing.
+
+The answer settles the reserved question and is not the executor's to revisit.
+What it leaves to the executor is where the rule lands, how it states the
+duplication and self-reference clauses the Specification demands of any answer,
+what it says a **reader** does, and what the rule does not reach.
+
 ## Acceptance criteria
 
 1. AC1: the maintainer's answer to the prior question is recorded in this ticket
