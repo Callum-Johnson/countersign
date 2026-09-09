@@ -284,6 +284,68 @@ disposed of in the round-4 entry of the Review section. The ticket returns to
 explicitly ordered, and has not run at the time of writing**; nothing here
 reports its outcome.
 
+**The rule landed on `main` (2026-09-09), and this ticket did not close with
+it.** The maintainer directed a split, quoted rather than summarised:
+
+> **Land the rule, split the record.** Merge `quality-gates.md`, the §6
+> extension and the template now — two passes have verified those and found
+> nothing. Leave the ticket open for its record defects and the two siblings.
+
+The reasoning recorded with it: it puts the rule in force for the records still
+drifting across both repositories, and it unparks OMN-024, which is parked
+behind this ticket in the control-plane project; the rule is clean and the
+record is what will not converge. The maintainer accepted explicitly that this
+is unusual — the ticket and its diff part ways, which
+`docs/ticket-lifecycle.md` does not describe: it has no ticket whose diff lands
+before the ticket closes. That acceptance is recorded here because the
+departure is the maintainer's call and not this executor's reading of the
+lifecycle, which is unamended.
+
+**Where it landed.** The rule-bearing files were put on a branch cut from
+`main`, `land-a-number-determined-elsewhere-has-one-site`, at `f3633da`, and
+merged at `d669ead`, whose subject names the rule and not this ticket's
+closure. `git diff --shortstat 8abf61a d669ead`, with `main` before the merge
+at `8abf61a`, reports 4 files changed, 210 insertions, 5 deletions; the files
+are the four `git diff --name-only 8abf61a d669ead` lists — `README.md`,
+`docs/ai-contributor-policy.md`, `docs/quality-gates.md` and
+`templates/PR-DESCRIPTION.md`. Each is byte-identical to its state at
+`67bb750`, this branch's head: `git diff d669ead 67bb750 --` over those paths
+is empty. Nothing from the ticket-only half of the diff was needed — the map
+row and the README index row the map/index same-commit rule asks for are both
+inside the four, `docs/quality-gates.md` carries no index of its own, and
+`docs/tier-review-model.md` gained, lost and renamed no section, so its index
+is unchanged and correct.
+
+**What is discharged, and what is not.** This ticket's acceptance criteria for
+the rule are discharged by `d669ead`: the rule text they describe is what
+merged, unaltered from the state two passes verified. Its record obligations
+are not discharged, and this ticket stays `in-progress` in `active/` for them.
+
+**What remains here, deliberately unrepaired.** Round 4's must-fixes are left
+standing so the record can be read as it was reviewed, in the same way and for
+the same reason R3.1 was left standing at the block. They share one named
+cause: "The repair is read whole" was not followed, so one copy of a phrase was
+fixed and its twin, in a sub-section the executor did not read, was not. The
+sites, which are this ticket's own record and a sibling's Context and none of
+them in a rule-bearing file:
+
+- This description's "How to verify", step 7 — "the fifth instance's two
+  sites", a count beside the commands in the same step that determine it. Its
+  twin in Risks was dropped at round 4 and this copy was not read.
+- This description's Risks, in the entry on round 2's record reaching this
+  executor incomplete — the claim that the findings arrived with their content
+  and the notes beside them did not. The declaration it pairs with was reworded
+  at round 4 and this copy was not read.
+- EM-024-002's `## Context` — "the ten documents named in `DOCS`", at two
+  sites, a count beside the `DOCS` list that determines it.
+
+Also remaining are the siblings this ticket raised, both `ready`: EM-024-001,
+the tier model restates a count beside its own list; and EM-024-002, the gate
+count is restated away from its site.
+
+OMN-024 in the control-plane project is untouched by this. It is a different
+repository, and unparking it is a separate step.
+
 ## PR Description
 
 ### Ticket
