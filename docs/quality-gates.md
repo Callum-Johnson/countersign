@@ -280,8 +280,13 @@ lived in a description's member, in a later bullet of the same description, in
 a test's docstring and in that test's failure message, and the round that
 repaired it re-created the claim it was repairing. Under this section a number
 found in a second place is a defect on its face, which a reader can see without
-measuring anything: the second copy's determiner is the first. What that clause
-costs where nothing goes red is stated below rather than left implied.
+measuring anything: each copy is a determiner the other restates. Order does not
+have to be established for that to hold — "first" says nothing useful about two
+prose sentences each setting the same constant — so the defect stays decidable
+whichever was written first, and what is open is only which copy becomes the
+site. That is the writer's choice, and it is recorded where the number is kept.
+What that clause costs where nothing goes red is stated below rather than left
+implied.
 
 **Where a number's determiner includes the sentence stating it, the instrument
 excludes prose.** A number about a tree is usually a number about a tree that

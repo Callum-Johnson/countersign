@@ -1,13 +1,12 @@
 ---
 id: EM-024
 title: A count written into prose has no falsifier and drifts silently
-status: blocked
+status: in-progress
 tier: critical
 complexity: M
 dependencies: []
 claimed_by: claude-opus-5
 claimed_at: 2026-09-08
-blocked_at: 2026-09-08
 ---
 
 # EM-024 — A count in prose has no falsifier
@@ -261,6 +260,29 @@ and whether a fourth round is ordered. The notes R3.2 and R3.3, and the
 round-2 notes the round-3 reviewer supplied, are in the Review section with
 their remedies, for the maintainer to weigh alongside it. No recommendation
 is made.
+
+**Discharged (2026-09-09).** The blocker above is left exactly as it was
+written, because it is the record of why the work stopped and of what the
+maintainer was asked; nothing in it is corrected in hindsight. The direction,
+quoted rather than summarised:
+
+> **Order a fourth round: apply R3.1, close.** Point the two prose copies at
+> the table row, drop them, take the two costless notes, then an explicitly
+> ordered fourth independent pass. If that passes clean, EM-024 closes on agent
+> review and OMN-024 unparks.
+
+The reasoning recorded with it: the defect is in the record and not in the
+rule; the remedy is a deletion; the rule has survived two consecutive full
+re-measurements. Ordering a round past the cap is the maintainer's to do and
+was done in those terms — it is not this executor's judgement that the cap
+should move, and `docs/tier-review-model.md`, "When review ends", is unamended.
+
+R3.1 is applied, R3.2 and R3.3 are taken, and what a read of this description's
+whole Review and Risks sections found beyond the copies R3.1 names is
+disposed of in the round-4 entry of the Review section. The ticket returns to
+`in-progress` in `active/`. **The fourth independent pass follows, was
+explicitly ordered, and has not run at the time of writing**; nothing here
+reports its outcome.
 
 ## PR Description
 
@@ -829,27 +851,30 @@ reports no change.
   the kept number now carries its determiner and its argument on the record, so
   what a reader has to find is a missing line rather than a disagreeing copy,
   which is cheaper but is still a reader looking.
-- **Three of the five citations could not be reproduced from a tree.** In the
-  control-plane clone available while working this ticket, `main` at `a1d16ff`
-  holds OMN-024, OMN-022-002, OMN-022-003 and OMN-020-001 in `ready/`, and
-  `git grep -n -E "R4\.2|R7\.4|R7\.3" <branch> -- docs/tickets` over the three
-  ticket branches returns nothing: those review records live where the reviews
+- **The citations for OMN-024's R4.2, OMN-022-002's R7.4 and OMN-022-003's R7.3
+  could not be reproduced from a tree.** In the control-plane clone available
+  while working this ticket, `main` at `a1d16ff` holds OMN-024, OMN-022-002,
+  OMN-022-003 and OMN-020-001 in `ready/`, and
+  `git grep -n -E "R4\.2|R7\.4|R7\.3" <branch> -- docs/tickets` over those
+  tickets' branches returns nothing: those review records live where the reviews
   ran and have not landed. The second-instance bar permits this — "a name a
   reader cannot open is still a name, quoted with its round" — and the
   citations are quoted with their rounds. What *is* reproducible is recorded:
-  the fifth instance's two sites by the commands in Context, and OMN-022-002's
-  17 by `git grep -c "cause=" 5e89931 -- src/omnissiah/dispatch/transitions.py`.
+  the fifth instance's sites by the commands Context gives for them, and
+  OMN-022-002's 17 by
+  `git grep -c "cause=" 5e89931 -- src/omnissiah/dispatch/transitions.py`.
   A reviewer weighing whether the bar was cleared should know which is which.
-- **The ticket's AC3 says "the four instances" and the Context now carries
-  five.** The fifth was added after the raise and judged in class; the
-  acceptance criterion was not rewritten, because the criteria are the author's
+- **The ticket's AC3 says "the four instances" and the Context now carries a
+  fifth.** It was added after the raise and judged in class; the acceptance
+  criterion was not rewritten, because the criteria are the author's
   and the executor does not restate them to suit the work. The criterion is met
-  as written — the four are cited — and the fifth is additional. A later reader
-  who finds the mismatch should read it as the ticket's own instance of the
-  defect it is about, in the one place the executor may not repair it.
+  as written — the instances it names are cited — and the fifth is additional.
+  A later reader who finds the mismatch should read it as the ticket's own
+  instance of the defect it is about, in the one place the executor may not
+  repair it.
 - **EM-015 is an adjacent instance that this section deliberately does not
-  reach, and round 3 made that a test rather than a note.** The README's two
-  commit counts for one project are figures about a private project's history
+  reach, and round 3 made that a test rather than a note.** The commit counts
+  EM-015 names in the README are figures about a private project's history
   that no command in this repository can produce. They are §6's, not this
   section's. Round 1's boundary for them lived only in this Risks list; the
   section now carries it: a number whose determiner is not in this tree has no
@@ -868,12 +893,14 @@ reports no change.
   population is the rule-bearing documents the map governs, its instrument's
   limits are written into it, and its AC1 now says in terms that a quiet sweep
   is evidence about the sites it lists and about nothing else. An enumeration
-  claimed complete and actually short is worse than one declared open, and this
-  is the third ticket in a day on which that has been found.
+  claimed complete and actually short is worse than one declared open, and on
+  this branch alone it has been found on EM-024-001 at R1.2 and on EM-024-002
+  at R2.2, which are the findings a reader opens for it.
 - **The falsifier's population is a default and is unmeasured, and round 3
-  moved it a second time.** Fifty review rounds on an adopting project is a
-  figure this project has no evidence for, named as a default for the reason the
-  batch cap's ten-and-seven are, and the first adopting project replaces it.
+  moved it a second time.** The population the section's **Retired when:** line
+  names is a figure this project has no evidence for, named as a default for the
+  reason `docs/ticket-lifecycle.md`'s batch cap names its own, and the first
+  adopting project replaces it.
   Round 1 moved the population from closed tickets to reproductions, which made
   it observable in principle. Round 2 left the note that it would be **inert in
   fact**: nothing in the section asks anyone to record a reproduction, so on
@@ -903,14 +930,23 @@ reports no change.
   and pipes them through `sort -rn`, at `d470681`; the figures are left in that
   command's output rather than restated here, which is the section applied to
   the sentence that measures it.
-- **Round 2's record reached this executor incomplete.** Three of its six
-  findings arrived with their content; the other three did not, and are not
-  written into the Review section, because inventing plausible finding lines is
-  the failure this ticket is about. Recovering them from the reviewer's own copy
-  is owed, and round 3's review is where it should happen. It happened there:
-  the round-3 reviewer supplied them, and they are in the Review section as
-  R2.4 to R2.6. R3.1 is recorded against this entry's own figures and is not
-  applied.
+  **It came to that, and the maintainer ordered the round rather than the
+  executor taking it.** The order and its reasoning are quoted under
+  "Discharged (2026-09-09)" above; this entry is left as it was written, since
+  it is the prediction the block tested and the prediction held. What it did not
+  anticipate is the disposition the maintainer chose, which was neither "left as
+  it stands" nor a re-argument but a deletion.
+- **Round 2's record reached this executor incomplete.** The findings the
+  Review table's round-2 row counts in its must-fix column arrived with their
+  content; the notes beside them did not, and were not written into the Review
+  section, because inventing plausible finding lines is the failure this ticket
+  is about. Which lines those were is read from round 2's list below, where each
+  one the round-3 reviewer supplied says so on its own line. Recovering them
+  from the reviewer's own copy was owed, and round 3's review is where it
+  happened: the reviewer supplied them, and they are in the Review section as
+  R2.4 to R2.6. R3.1 was recorded against this entry's own figures and is
+  applied at round 4 — the figures are gone and the row and the list are what a
+  reader opens instead.
 
 ### Review
 
@@ -918,7 +954,8 @@ reports no change.
 |---|---|---|---|---|
 | 1 | 4 | documents — `README.md`, `docs/quality-gates.md`, `docs/tier-review-model.md`; tickets — EM-024, EM-024-001 | — | `b732abe`, `32bcd29` |
 | 2 | 3 | rules — `docs/quality-gates.md`, the new section's scope clause, its exception and its instrument; tickets — EM-024-001, EM-024-002 | 3 of 3 | `d470681`, `41fd728`, `261b74e` |
-| 3 | 1 | tickets — EM-024, this description's own Review and Risks | 1 of 1 | — |
+| 3 | 1 | tickets — EM-024, this description's own Review and Risks | 1 of 1 | round 4's row |
+| 4 | — repair only; the ordered pass has not run | tickets — EM-024, EM-024-002; rules — `docs/quality-gates.md`, the duplication clause | — | the commit carrying this row |
 
 The total is derived from the rows and is not asserted beside them, per "The
 record" in `docs/tier-review-model.md`, and the per-round figures are not
@@ -927,10 +964,16 @@ the same figure in its must-fix column and its inside-previous-fix column**, so
 every must-fix sat inside round 1's fix and "Repairs of repairs" fires. What
 that required, and what was done instead of one repair per finding, is under
 "The redesign, and what was refused" below. **Round 3's row reads the same
-way**, so rounds 2 and 3 are consecutive rounds in which every must-fix sat
-inside the previous round's fix; nothing was repaired after round 3, because
-the cap ended the review, and the `BLOCKER:` comment before this description
-records the block.
+way.** Round 3's must-fix stood unrepaired for as long as the ticket was
+blocked, because the cap ended the review and a repair would have been a further
+round; the `BLOCKER:` comment before this description records the block, and
+"Discharged (2026-09-09)" beneath it records the maintainer's order and the
+repair that took it. Round 4 is that repair and not a review: its must-fix cell
+carries no figure, because the pass that would fill it has not run, and its
+"Repaired by" cell names the commit it is written in rather than a hash,
+because a commit cannot carry its own hash — the same self-reference the
+section this ticket adds is about, met here in the one place it cannot be
+worked around. What round 4 repaired is the last block of this section.
 
 Findings, per round. The round-1 record as handed to the executor gave each
 finding's remedy and its cost but not its column; **the column on each line
@@ -938,18 +981,21 @@ below is the executor's reading of the finding's content, and is marked as
 such**, which is a gap in the record rather than in the review, and one a later
 round can correct from the reviewer's own copy.
 
-**A gap in round 2's record, stated rather than papered over.** Round 2 is
-recorded as returning six findings, of which three were must-fixes — the
-reviewer's figures, kept here rather than pointed at because the round-2 record
-is not in this tree and there is nothing for a reader to open instead. The
-findings that were notes reached this executor as content that two Risks
-entries took, not as finding lines, and were not written below, because
-writing plausible finding lines for findings this executor has not read is
-exactly the failure this ticket is about, committed in the record of the
-review that found it. The round-3 reviewer supplied their lines from the
-round-2 record; they stand below as R2.4 to R2.6, each marked as supplied,
-and round 2's row is complete. Round 3's must-fix, R3.1, is recorded against
-the first sentence of this paragraph and is not applied.
+**A gap in round 2's record, stated rather than papered over.** Round 2's
+findings are enumerated below as R2.1 to R2.6, and how many of them were
+must-fixes is the must-fix column of the table's round-2 row, above. Earlier
+rounds of this paragraph restated those figures here and kept them on the
+argument that the round-2 record is not in this tree and there was nothing for
+a reader to open instead. That argument was false — the row and the list are
+both on this page — and R3.1 is the finding that said so; the figures are
+dropped and the row and the list are where they are read. The findings that
+were notes reached this executor as content that the Risks entries R3.4 names
+took, not as finding lines, and were not written below, because writing
+plausible finding lines for findings this executor has not read is exactly the
+failure this ticket is about, committed in the record of the review that found
+it. The round-3 reviewer supplied their lines from the round-2 record; they
+stand below as R2.4 to R2.6, each marked as supplied, and round 2's row is
+complete.
 
 - R1.1 · permits *(column read by the executor)* · quality gates, "A count that
   describes the tree has one site that goes red" · The commit adding the rule
@@ -1019,14 +1065,18 @@ the first sentence of this paragraph and is not applied.
   instrument", and both siblings' Files · The **cardinal-as-pronoun blind spot**
   left in-class sites unraised — `docs/adr-process.md:50`,
   `docs/ai-contributor-policy.md:35` and `:229`, `templates/TICKET.md:35`,
-  `docs/tier-review-model.md:493` — two of them in files neither sibling
-  listed, and EM-024-002's AC1 would have closed as a clean bill with them
-  standing; the reviewer found 44 candidates of that form against 7 raised
-  sites and recorded the population as understated by roughly two-thirds —
-  those figures are the reviewer's, quoted from the round-2 record and not
+  `docs/tier-review-model.md:493` — among them sites in files neither sibling
+  listed, which EM-024-002's Files section, corrected at `41fd728`, now names,
+  and EM-024-002's AC1 would have closed as a clean bill with them
+  standing; the reviewer found 44 candidates of that form against the sites the
+  siblings had raised, which EM-024-001 and EM-024-002 enumerate, and recorded
+  the population as understated by roughly two-thirds — the 44 and the
+  proportion are the reviewer's, quoted from the round-2 record and not
   re-measured here, and they are kept rather than pointed at because that
-  record is not in this tree and they are the only account of how large the
-  miss was; this round's own measurements of the instrument are in EM-024-002's
+  record is not in this tree and nothing in this tree determines them; the
+  raised-site figure that stood beside them **did** have a determiner here, the
+  siblings' own site lists, and it is dropped at round 4 as R3.1's sibling;
+  this round's own measurements of the instrument are in EM-024-002's
   "The instrument" and are not restated here — remedy: reach the form, dispose
   of the sites,
   and stop the sweep reading as a clean bill; taken at `41fd728`, where
@@ -1270,3 +1320,82 @@ derived. The verdict's reading of what the end means is recorded in
 substance: the rule held on every hard case, and what did not converge is the
 record's discipline on its own figures. That is the honest end the paragraph
 above named, and the `BLOCKER:` comment before this description is the block.
+
+**Round 4: the repair the maintainer ordered, and the sweep R3.1 required.**
+The order and the reasoning recorded with it are quoted under "Discharged
+(2026-09-09)" above and are not restated here, and which rounds returned a
+must-fix inside the previous round's fix is the table's inside-previous-fix
+column. R3.1 is applied at the sites it names, and the keep-argument it
+disproved — that the round-2 record is not in this tree and there is nothing for
+a reader to open instead — is deleted rather than softened, because the row and
+the list are both on this page.
+
+R3.1 names a class — numbers in this Review that have an in-tree determiner and
+are kept on a false argument — so the Review and Risks sections were read whole
+against it, per "The repair is read whole". Beyond the copies R3.1 names, what
+the read found and how each was disposed:
+
+- **R3.1's own sibling, "7 raised sites" in R2.2.** Determiner: the site lists
+  in EM-024-001 and EM-024-002. Dropped; the sentence points at them. The 44
+  and the "roughly two-thirds" beside it stay, because their determiner is the
+  round-2 record, which is not in this tree, and the line says so.
+- **"two of them in files neither sibling listed", also in R2.2.** Determiner:
+  EM-024-002's Files section as corrected at `41fd728`. Dropped; the sentence
+  points at it.
+- **"Three of the five citations could not be reproduced from a tree", in
+  Risks.** The figures: the citations are enumerated in Context, and the
+  irreproducible ones are the alternates of the `git grep -n -E` command in the
+  entry's next sentence. Dropped; the entry now names the citations it could not
+  reproduce and the command's own branches.
+- **"the fifth instance's two sites", in the same entry.** Determiner: the
+  commands Context gives for it. Dropped; the sentence points at them.
+- **"the Context now carries five", in the AC3-mismatch entry.** Determiner: the
+  Context enumeration, whose site is the AC3 block's grep. Dropped; the entry
+  names the fifth instead of counting the set. "the four instances" beside it
+  stands: it is AC3 quoted, in quotation marks, and the criterion is the
+  author's text.
+- **"The README's two commit counts for one project", in the EM-015 entry.**
+  Determiner: the README, which EM-015 is raised against. Dropped; the sentence
+  points at EM-015.
+- **"Fifty review rounds" and "the batch cap's ten-and-seven", in the falsifier
+  entry.** Each is a stipulated constant restated away from the sentence that
+  sets it — the section's **Retired when:** line, and the batch cap in
+  `docs/ticket-lifecycle.md`. This is exactly the shape round 3's redesign
+  brought into scope, and it was in this description while the redesign was
+  being defended. Dropped; the entry points at the sentences that set them.
+- **"this is the third ticket in a day", in the siblings entry.** Determiner not
+  in this tree and no command named, so it was §6's and unmeasured. Dropped; the
+  entry now names the tickets and the findings, which a reader can open.
+- **"the must-fix count and the two columns", in the review-isolation
+  paragraph.** Stands. It quotes `docs/quality-gates.md`, "Review isolation",
+  and that clause's own restatement is already a raised in-class site —
+  `docs/quality-gates.md:79` and `templates/PR-DESCRIPTION.md:90` in
+  EM-024-002 — so repairing it here would repair a sibling's site inside this
+  ticket, which §4 forbids. Same disposition for "the three conditions" and
+  "the two columns" in R2.3 and in the redesign paragraphs: they are the
+  reviewer's words and the section's, quoted.
+- **"13 at `5d94db7` against 16 at `60f39fb`" in R1.2, "returns 3" in R1.8, and
+  "17" in the citations entry.** Stand. Each is written beside the command and
+  the commit that determines it, which is the site named in place and what §6
+  asks.
+- **"one day on one project", in the length entry, and the round numbers,
+  commit hashes and `file:line` locators throughout.** Stand. They name or
+  locate rather than measure a population, which is the test the "Measured
+  figures" block already applies to the same forms.
+
+The notes taken with the must-fix, costless and directed by the maintainer,
+are R3.2 and R3.3. **R3.2**: EM-024-002's "The five sites round 2 added" is a
+count beside its own list, which is EM-024-001's headline shape; "five" is
+dropped and the list that follows in that ticket is the site. **R3.3**: the
+duplication clause in `docs/quality-gates.md` said "the second copy's
+determiner is the first", and "first" is undefined for two prose sentences
+each setting a constant. The clause now says that each copy is a determiner
+the other restates, so the defect stays decidable whichever came first, and
+that what is open is only which copy becomes the site — the writer chooses it
+and records the choice. No other text in that section moved.
+
+**The fourth independent pass follows and was explicitly ordered.** It has not
+run at the time of writing, and no outcome for it is recorded here. What it
+should look at first is this round's own diff: R1.4, R1.8 and R3.1 are each
+this description caught by the ticket's own rule, and a repair round whose
+subject is restated figures is the most likely place for the next one.

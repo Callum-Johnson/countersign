@@ -229,7 +229,7 @@ command that reports nothing is evidence about the sites this ticket lists and
 about nothing else.
 
 **Why the round-1 sweep missed what it missed, measured rather than asserted.**
-The five sites round 2 added split two ways against the round-1 pattern, and
+The sites round 2 added split two ways against the round-1 pattern, and
 the split is read from its output — `bash /tmp/wrapgrep.sh "<round-1 pattern>"
 $DOCS | grep -c '^<file>:<line>:'` at `d470681`, per site. It returns 0 for
 `docs/adr-process.md:50`, `docs/ai-contributor-policy.md:229` and
