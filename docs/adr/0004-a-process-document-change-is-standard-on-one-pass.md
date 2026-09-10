@@ -101,6 +101,12 @@ for every line below.
   "a rule added to a process document is a process-surface change under the
   operative test either way." Now: "a process-document change under the
   operative test either way, `standard` on one independent pass."
+- `templates/PR-DESCRIPTION.md`, the `### Review` header. Stood: "Critical
+  tier only; write `N/A` otherwise." Now: "Critical tier, and a change to a
+  process document; write `N/A` otherwise." — the one pass is recorded as
+  one row of the Review table, and a header that refused the section to
+  every tier but `critical` discarded it. Found by the one pass on
+  EM-007-002 (R5.1).
 - ADR-0002, Context. Stood: "Changes to process documents are process-
   surface changes, which the operative test classifies as critical." Not
   amended — an accepted record is not rewritten — but annotated: the
@@ -201,6 +207,11 @@ with their old and new text. ADR-0002 and ADR-0003 gain dated annotations
 below a horizontal rule, with their text above the rule and their status
 unchanged. The record written under the first answer, which this file
 replaces, never merged; its content is in EM-007-002's history at a0adb0b.
+It was rewritten and renamed in place rather than kept as `superseded` or
+marked `withdrawn`, because both of those statuses are for a record that
+was published and this one never left its branch — `docs/adr-process.md`
+does not say what to do with a `proposed` record replaced before it merges,
+and this sentence records the choice made.
 
 No closed ticket is reclassified. EM-007-002 itself is worked under this
 decision, at `standard`, on one pass. EM-007-002-002, which was to reconcile
