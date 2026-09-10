@@ -24,7 +24,7 @@ opens that section, and reaches the rest when a finding turns on them.
 | Separation of duties | Who may move a tier, and in which direction |
 | Why "another agent, human or AI" | Who reviews, what they receive, and where they work |
 | What a review reports | The two questions a review answers, what a tightening must cost, and the class signal |
-| When review ends | The three conditions, the round cap, the per-round record, and the read before a repair is handed back |
+| When review ends | The three conditions, the round cap, the per-round record and its one copy, and the read before a repair is handed back |
 | Retiring a control | The falsifier every rule states, how a rule leaves the documents, and what it needs before it enters |
 
 The rule that keeps this index current is stated once, with the map in
@@ -384,9 +384,8 @@ stronger claim for it than that. Blocking at the cap is a success path in
 exactly the sense of the contributor policy's §3: the executor has correctly
 identified that the loop is not converging, and the alternative is another
 round that looks like progress. The record travels with the block: the per-
-round table is appended to the ticket file under the `BLOCKER:` comment, since
-the pull-request description it would otherwise live in is not written until
-close.
+round table has one copy, in the ticket file's Review section, and the
+`BLOCKER:` comment names the row — **One copy**, below, states the rule.
 
 The cap is not the rule; the conditions are. A cap alone ends a review that
 is still finding rule defects, which is the wrong review to end. The
@@ -439,6 +438,40 @@ record, orders a further round that finds a rule defect — the cap's own
 falsifier, stated in the ticket that landed it — or the per-round record is
 shown, over a stated population, never to have been read by anyone deciding
 what to do next.
+
+**One copy.** The per-round table has exactly one copy in the ticket file, in
+the `## PR Description`'s Review section — written there at the block if the
+description is not yet written, and grown in place afterwards. A `BLOCKER:`
+comment written at the cap, a discharge note, or any summary that needs what
+the table holds **names the row** — "see row 4" where "row 4, three must-fixes,
+all inside the previous fix" would copy it — and carries no figure the table
+determines. Finding lines follow the same rule: one copy, in the Review
+section, and the blocker names `R<n>.<k>` rather than restating the finding.
+A reviewer meeting a second copy of the table, or of a finding line, records
+it as a finding on its face, with no measurement, as `docs/quality-gates.md`,
+"A number determined elsewhere has one site that goes red", treats a number in
+a second place: the table is the site for every number in it, and this
+paragraph is that rule applied to the table. What the rule does not do: it
+does not shorten the blocker beyond the copy; it does not touch what the
+pull-request template asks per finding — a finding still says whether it sits
+inside the previous round's fix, which is the template's field and not a
+restatement; and it asks nothing retrospective, as the gates section asks
+nothing, so a record written before this paragraph landed is read under the
+rule that was in force. The reason is the read-whole rule above and the
+records this paragraph was written from: a copy that must be found by reading
+is a copy that will be missed, and the sentence this paragraph replaces
+mandated the copy. On the control-plane project, OMN-022-002's two copies of
+its table diverged by a row and were reconciled in its round 13; on this
+repository, EM-024's round 4 found a phrase corrected in one sub-section and
+its twin left standing in another the executor had not read.
+
+**Retired when:** over the next fifty closed critical-tier tickets on an
+adopting project, a blocker that names a row rather than copying the table is
+found by the round that reads it to have named the wrong row, more than once
+— the pointer is then no better a site than the copy was. Fifty is a default,
+named as one, and this sentence is where it is set; the population is named at
+all because the whole evidence for this paragraph is the records the ticket
+that landed it names in its Context.
 
 ---
 
