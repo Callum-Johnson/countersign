@@ -148,7 +148,8 @@ See `docs/ai-contributor-policy.md` and `docs/ticket-lifecycle.md`
    include its parent.
 2. Fill in every section. **Empty sections are not acceptable** — write
    `N/A` explicitly if a section genuinely does not apply (rare).
-3. Set `tier` per the operative test in `docs/tier-review-model.md`.
+3. Set `tier` per the operative test in `docs/tier-review-model.md`. A
+   change to a process document is `standard`, and that tier is not raised.
 4. Set `dependencies` to the list of ticket IDs that must be in `done/`
    before this can start.
 5. Commit on a branch whose name begins with the ticket identifier, per

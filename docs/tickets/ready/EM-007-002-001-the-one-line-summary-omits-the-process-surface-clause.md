@@ -2,7 +2,7 @@
 id: EM-007-002-001
 title: The operative test's one-line summary omits the process-surface clause
 status: ready
-tier: critical
+tier: standard
 complexity: S
 dependencies: [EM-007-002]
 ---
@@ -89,10 +89,22 @@ with the clauses it summarises.
 
 ## Notes
 
-Proposed `critical`: the change alters a rule in a process document — the
-summary states the test a contributor runs — which is `critical` by the
-paragraph EM-007-002 adds to this same section. An author may raise and may
-never lower.
+Proposed `critical` when raised, under the paragraph EM-007-002 then added
+to this same section.
+
+**Read against the maintainer's answer to EM-007-002, 2026-09-10.** A change
+to a process document is now `standard` on one independent pass, neither
+`trivial` nor `critical`, and the tier is not raised; the frontmatter says
+`standard` for that reason. What the answer moots: the Context's second and
+third paragraphs, which motivate this ticket from the `critical`/`trivial`
+line, which never landed; and the second half of AC1, since the summary's
+process-document limb is written by EM-007-002 — "A process document is
+`standard`, on one pass, whatever the answer." What stands, and is this
+ticket: the summary's `critical` limb carries clauses 1 to 4 and not clause
+5, so a contributor reading only the summary gets `standard` for a CI
+configuration change and a schema migration, which clause 5 makes
+`critical`. AC1 is read as its first half; AC3's "process-document
+paragraph" is the one EM-007-002 lands; AC4 is the one pass.
 
 ## PR Description
 

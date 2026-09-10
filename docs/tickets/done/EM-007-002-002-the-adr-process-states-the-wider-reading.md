@@ -1,10 +1,11 @@
 ---
 id: EM-007-002-002
 title: The ADR process still says changing the process is critical, which now reads wider than the model
-status: ready
-tier: critical
+status: done
+tier: standard
 complexity: S
 dependencies: [EM-007-002]
+closed_at: 2026-09-10
 ---
 
 # EM-007-002-002 — The ADR process states the wider reading the model no longer holds
@@ -110,10 +111,54 @@ N/A — this repository publishes documents.
 
 ## Notes
 
-Proposed `critical`: the change alters a rule in a process document, which
-is `critical` by the paragraph EM-007-002 adds to the operative test. An
-author may raise and may never lower.
+Proposed `critical` when raised, under the paragraph EM-007-002 then added
+to the operative test.
+
+**Closed unworked, 2026-09-10 — mooted by the maintainer's answer to
+EM-007-002.** The answer of 2026-09-10 makes a change to a process document
+`standard` on one independent pass, neither `trivial` nor `critical`. The
+sentence this ticket was to reconcile — "Changing the process is a
+process-surface change, which the operative test classifies as `critical`"
+— thereby matched its own **Retired when:** line ("the tier model ceases to
+class the process surface as `critical`"), which the Context above found
+unmatched under the first answer. A rule that matches its falsifier is
+amended with record under `docs/tier-review-model.md`, "Retiring a
+control", and EM-007-002 did that: ADR-0004 carries the sentence as it
+stood and the text that replaces it, and `docs/adr-process.md` now says
+`standard` with one independent pass. Nothing is left for this ticket to
+do. AC1 to AC4 are met by EM-007-002's change; AC5, an independent review
+in two columns, is the pass EM-007-002 takes.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-007-002-002 — The ADR process states the wider reading the model no
+longer holds
+
+### Tier
+`standard` — a process-document change, per the answer that mooted it. No
+work was done under this ticket; see Notes.
+
+### Summary
+Closed unworked: the sentence to be reconciled was amended with record by
+EM-007-002, under which the reconciliation this ticket specified no longer
+applies.
+
+### Acceptance criteria
+N/A — no work under this ticket. Notes names where each criterion is met.
+
+### Falsification
+N/A — no change.
+
+### Out of scope (per ticket)
+N/A — no change.
+
+### How to verify
+1. `git log --oneline -1 -- docs/adr-process.md` names the EM-007-002 commit
+   that amended the sentence.
+
+### Risks / follow-ups
+None.
+
+### Review
+N/A — no change under this ticket; the pass is EM-007-002's.

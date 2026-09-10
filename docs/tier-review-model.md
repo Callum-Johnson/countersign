@@ -53,7 +53,8 @@ Run it against your change. **Any one clause means `critical`:**
 
 If none hold, the tier is `standard` — unless nothing a program executes
 and nothing a caller reads as a contract is touched, in which case it is
-`trivial`: documentation, comments, ticket files, data no program loads.
+`trivial`: documentation other than a process document, comments, ticket
+files, data no program loads.
 A program executes code, tests, migrations and CI configuration; a caller
 reads as a contract a schema, an interface, or a data file a program
 loads; anything in either set is at least `standard`. Where the line is
@@ -69,219 +70,56 @@ the line is then drawn in the wrong place, and the sentence retires in
 favour of one drawn from those cases.
 
 **A change to a process document.** A process document states rules a
-contributor follows, or procedures a contributor performs. What it is
-named and where it sits do not decide: a file at a project's root stating
-the rules its contributors work under is one, and so is a document under
-`docs/` or `templates/` that states rules or procedures. Every document
-the contributor policy's map names is treated as one as well, whether or
-not it states rules. The two tests are read together and neither takes
-anything out of the class, because where the line is unclear the executor
-may raise and may never lower. A document that records work rather than
-stating rules or procedures — a ticket, a case study — is not one unless
-the map names it; a decision record is reached by the third entry below.
+contributor follows or procedures a contributor performs: a document under
+`docs/` or `templates/` that does so, every document the contributor
+policy's map names, and a decision record under `docs/adr/`. What a file is
+named and where it sits do not decide, so a file at a project's root stating
+the rules its contributors work under is one. A ticket, a case study or a
+comment records work rather than stating rules and is not one.
 
-Two parts of this test point opposite ways at a process document: nothing
-in one is executed by a program or read by a caller as a contract, which
-is the paragraph above returning `trivial`, and ADR-0002's Context reads
-clause 5 as reaching every change to one, which returns `critical`.
-Clause 5 governs, and reaches a change to a process document when, and
-only when, the change **adds, alters or retires a rule or a procedure**. A
-change to a process document that does neither is `trivial`.
+A change to a process document is **`standard`**, and its review is **one
+independent review pass, closing on that pass**. The reviewer is one who
+did not perform the work, receives what "Why 'another agent, human or AI'"
+says a reviewer receives, and records findings in the two columns of "What
+a review reports" as one row of the Review table; the executor repairs what
+the pass marked must-fix, or routes a finding where "When review ends"
+routes one, and closes. No second pass is taken: the round cap and the
+per-round loop of "When review ends" do not apply, because there is no
+loop. Where the pass is unavailable the ticket says so in its Tier section,
+as ADR-0002 provides.
 
-What that reaches:
+**The tier is not the executor's to raise.** The raise-never-lower rule in
+"Separation of duties" does not reach a change to a process document: it is
+neither `trivial` by the paragraph above, whose documentation clause does not
+carry process documents, nor `critical` by ADR-0002's Context, whose reach
+this paragraph narrows — ADR-0004 is the record, and carries the text it
+replaces. Clause 5 above names a change to the review model itself; the
+review model is a process document, and this paragraph decides its tier. A
+change that touches a process document and also something a program
+executes or a caller reads as a contract is classed by the rest of this test
+on that other thing; this paragraph lowers nothing.
 
-- **A rule** — a sentence a contributor must follow, with the parts that
-  decide when it applies: its scope, its threshold, its default, its
-  exemptions, and its **Retired when:** line. Widening or narrowing an
-  existing rule alters it, and so does moving where a question is settled.
-- **A procedure** — an ordered sequence a contributor performs: claiming,
-  blocking, batching, closing, the pre-flight checklist, what a
-  pull-request description carries. Adding, removing or reordering a step
-  alters it, and so does changing what a step produces.
-- **A decision record** — in the class because the map names `docs/adr/`,
-  though it records a decision rather than stating rules; what it decides
-  constrains future work as a rule does. Writing one, or changing what one
-  decides, is a rule entering or changing by another route, and is
-  `critical` on these same words.
+The reason the tier is fixed rather than movable is a cost that was paid: the
+raise-never-lower rule together with a `critical` default sent every
+documentation ticket into the full review loop — EM-024 ran four independent
+passes on prose — and the loop's cost on documents was disproportionate to
+what it caught. One pass keeps a second reader on every rule change; fixing
+the tier removes the occasion on which the executor chose.
 
-What it does not reach:
-
-- A reference the document states wrongly, corrected — a filename, a
-  section name, a ticket identifier — where the corrected reference names
-  what the document already pointed at, so no question moves to a
-  different place.
-- A restatement of a rule or a procedure, in a document other than the one
-  that states it in full, brought back into agreement with that document —
-  corrected, or replaced outright by a reference to it — where the document
-  that states it in full is not touched by the same change. The test is
-  **containment**: nothing left the documents and nothing entered them, so
-  what a contributor is bound to do is as it was. It is read from the change
-  and from the documents as they now stand, and not from any standing
-  relationship between the two documents, because that relationship is not a
-  fact the change carries.
-
-  Take each question the rewritten sentences answered before the change —
-  which branch the work is committed on, which sections a description
-  carries — and ask both halves of it:
-
-  - **Nothing left.** After the change, a document this change does not
-    touch states that question's rule or procedure in full: it says
-    everything the text this change removes said, and not merely that it
-    covers the same subject. Text the change removes whose question no
-    untouched document answers in full **retires a rule or a procedure**
-    and is reached by the bold words above, whatever the paragraph around
-    it is called: naming a paragraph a restatement does not make what is
-    unique to it a copy.
-  - **Nothing entered.** Everything the rewritten sentences say after the
-    change, that untouched document already said before it. A correction
-    carrying anything more **adds a rule or a procedure** and is reached by
-    the bold words above.
-
-  Both halves hold for every question, or the entry does not apply. A
-  partial restatement is `trivial` to correct and `critical` to extend, and
-  which one a change did is in the diff.
-
-  Finding the untouched document is a read, and deference is evidence
-  rather than the test: a restatement that cites its source names the
-  document to check, and the map in `docs/ai-contributor-policy.md` names
-  it here, one document per question. Neither is needed. A project that
-  keeps no map, and a restatement that cites nothing, are not a bar — the
-  executor reads the documents for one that states the question in full,
-  and containment decides. Where two state it in full and neither cites the
-  other, either is the untouched document for a correction of the other,
-  since what left and what entered can both be answered without knowing
-  which of them had the authority. Where the two disagree, containment
-  still passes — every question is still answered in full — while a reader
-  who had been following the corrected document is bound differently after
-  it, so the reason this entry rests on holds for the documents and not for
-  that reader. That is the widest thing the entry permits, and it is what
-  the second failure of the **Retired when:** line below counts. Where no
-  untouched document states the question in full, the changed document is
-  where the question is settled, this entry does not apply, and the change
-  is answered by the bold words above — which raises, and is the direction
-  an executor may take alone.
-- A dated annotation appended to a closed ticket or a decision record that
-  leaves every rule as it stands and changes how no decision is read.
-- Wording that leaves every rule's conditions and every procedure's steps
-  as they were: a typo, a heading level, a dead link, a re-flow.
-
-Neither list is closed. The words in bold decide; the entries are the cases
-this repository has met, and a change matching no entry is answered by
-asking whether a rule or a procedure moved. The two lists are not open to
-the same party: an entry to the first raises, and an executor may add one,
-while an entry to the second takes a change out of the bold words, which
-is lowering, and lowering belongs to the reviewer and the maintainer under
-"Separation of duties" below. Widening an entry the second list already
-carries is the same act by another route and belongs to the same party. An
-executor that thinks the second list is missing an entry, or that one of
-its entries is drawn too narrowly, raises a ticket for it and pays the
-round. The reviewer performs the act by recording it, and only against an
-entry the change under review itself adds: a second-column must-fix from an
-independent review, saying that such an entry refuses work the line exists
-to keep cheap, is the reviewer's judgement and not the executor's, and the
-executor writes the widening that finding names — no more than it names —
-with the finding recorded beside it. The reason is the one "Retiring a
-control" below gives for a rule the change under review adds: the defective
-entry does not ship and then get widened; it does not ship. An entry already
-in this document at the change's baseline is not reached by that route,
-whatever column the finding falls in. It goes to the ticket and the round
-the sentence above names — the retirement ticket "Retiring a control" routes
-such a finding to, where widening an entry is an amendment with record — and
-that section adds who works it: not the executor whose work the entry
-refused. Anything wider than the finding is still a ticket and a round.
-
-Three closed tickets show the line. EM-012-001 added the sentence above that
-separates `trivial` from `standard`: a rule entered a process document, and
-the ticket closed `critical` with an independent review. Two are on the
-other side, and both pass containment in both directions. EM-007-001
-replaced the enumeration of the description's sections in
-`docs/ticket-lifecycle.md`, "Closing", with a reference to
-`templates/PR-DESCRIPTION.md`, the list it had duplicated: every section it
-removed is a section of the untouched template, and the reference states
-nothing the template did not, so the closing procedure kept its steps. It
-closed `trivial` and self-merged. EM-018-001 rewrote two steps of
-`templates/TICKET.md`, "How to use this template" — which branch the work
-is committed on, and how the next lineage id is found — so that they say
-what `docs/ticket-lifecycle.md` already said; both questions are stated in
-full by the untouched lifecycle and the rewritten steps say nothing it did
-not. It closed `standard`, and that closure stands: `standard` is above
-what this line returns, and an executor may raise.
-
-The cost of drawing the line here is that it is drawn by the executor, at
-the moment the executor would prefer the answer to be `trivial` — which is
-ADR-0001's Alternative 3, "'substantive' is decided by the person who wants
-the exemption, and the exemption widens", in a different form. Two things
-hold it. The sentence above binds here — where the line is unclear the
-executor may raise and may never lower — and "Separation of duties" leaves
-lowering to the reviewer. And these words are in this document rather than
-in each ticket's Notes, so a `trivial` claim on a process-document change
-is checkable against them by anyone reading the closed ticket, which is
-what the falsifier below counts. The second negative entry, which lowers
-furthest, adds one thing to that: its containment read is two documents at
-one commit, so a later reader repeats it rather than arguing with the
-executor about which document had the authority. That read is also a cost,
-paid by the work this entry exists to keep cheap: correcting a restatement
-now costs a read of the untouched document, and a correction carrying
-anything that document does not already say returns `critical` and pays a
-round.
-
-**Retired when:** a change to a process document closed `trivial` under
-the line stated here is found to have added, altered or retired a rule or
-a procedure after all, more than once over the population below.
-**Including** a change closed `trivial` as a corrected restatement whose
-containment read was wrong: a question the rewritten sentences answered
-that no untouched document states in full, or a sentence the correction
-added that the untouched document did not already carry. That case is
-named because the restatement entry lowers furthest, and a falsifier
-silent about the entry that lowers furthest is not checked at it. It is
-named as a containment failure because that is what the occasion below
-supplies — a reader with two documents and one commit — where the entry's
-older wording named a contributor's later behaviour, which no reading of
-closed changes produces.
-**A second failure, counted where it surfaces.** A contributor found to
-have performed a restatement rather than the document that states the rule
-or the procedure in full, so that correcting the restatement changed what
-that contributor does, counts toward the same "more than once". That is
-evidence about what someone did, and the occasion below cannot supply it;
-it is counted from the record where it appears — a `BLOCKER:` raised under
-the contributor policy's §3, or a review finding, that says a contributor
-followed a restatement. Nobody is obliged to go looking for it, and this
-falsifier says so rather than implying a check it does not have.
-**The population** is those changes and not the tickets that carry them: a
-batch ticket holds many, per `docs/ticket-lifecycle.md`, "Batching trivial
-work", and each entry is counted on its own. It is empty when this line
-lands — no change has closed under a line that did not exist. **A change
-closed `trivial` under this line marks itself**, in its pull-request
-description, with the sentence *closed trivial under the process-document
-line*, naming the entry it closed under. That sentence is what puts the
-change in the population; without it the population is every `trivial`
-closure in the directory, which is not the same set and grows with the
-directory rather than with this line. The sentence is written by the party
-this line is on, so a closure that took the line and omitted it is outside
-the read that would catch it. **A closure found to have taken this line
-without the sentence counts toward the same "more than once"**, counted
-where it surfaces as the second failure above is, and it counts whether or
-not that closure altered a rule: a population the controlled party can
-leave by omitting a sentence checks nothing, which is what the occasion
-below was added to fix. **Checked at** every independent review of a
-critical-tier change to a process document: the reviewer lists
-the population with `grep -rl "closed trivial under the process-document
-line" docs/tickets/done/`, reads a batch ticket's entries one at a time,
-and records what it finds with the round's findings. The occasion is
-stated because `trivial` summons no reviewer of its own, and a falsifier
-whose check nobody is obliged to make is checked by nobody, which is the
-decorative falsifier "Retiring a control" exists to remove. A reviewer on
-that occasion has this paragraph open already, since it is what makes the
-change under review `critical`. The line is then drawn where the executor
-wants it rather than where these words fall, and it retires in favour of
-ADR-0002's Context read as written: every change to a process document is
-`critical`.
+**Retired when:** over a stated population of process-document changes
+closed on one pass under this paragraph, a change so closed is later found
+to have changed what a program executes or what a caller reads as a
+contract, more than once — the boundary between a process document and the
+rest of this test was then drawn in the wrong place, and the paragraph
+retires in favour of one drawn from those cases. The population is read from
+the closed tickets whose Tier section names this paragraph.
 
 In one line:
 
 > **Could an existing caller, or a seeded run, notice this change without
 > opting in? If yes, `critical`. If no, `standard` — or `trivial`, where
-> nothing a program executes or a caller reads as a contract is touched.**
+> nothing a program executes or a caller reads as a contract is touched. A
+> process document is `standard`, on one pass, whatever the answer.**
 
 **Retired when:** a change every clause passed as `standard` is found by
 review to have changed an existing caller's outcome, more than once over a
@@ -295,8 +133,8 @@ to have drawn a must-fix at independent review.
 
 | Tier | Typical work | Review | Gates |
 |---|---|---|---|
-| `trivial` | Documentation, comments, data no program loads, ticket edits | None; author self-merges | Mandatory |
-| `standard` | Most feature work — new validators, resolvers, queries, components | None; author self-merges after a complete PR description with evidence per criterion | Mandatory |
+| `trivial` | Documentation other than a process document, comments, data no program loads, ticket edits | None; author self-merges | Mandatory |
+| `standard` | Most feature work — new validators, resolvers, queries, components; every change to a process document | None; author self-merges after a complete PR description with evidence per criterion — except a change to a process document, which takes **one independent review pass** and closes on it, per "The operative test" | Mandatory |
 | `critical` | Anything the operative test catches | One approval from **another agent**, human or AI, who must verify the evidence and run the suite themselves | Mandatory |
 
 Gates are mandatory at every tier. There is no tier that skips the four
@@ -347,7 +185,9 @@ directions:
 
 - **The author proposes** the tier when writing the ticket.
 - **The executor may raise** it — discovering mid-implementation that a change
-  touches an existing contract — and records a one-line reason.
+  touches an existing contract — and records a one-line reason. A change to a
+  process document is the exception: its tier is `standard` and is not
+  raised, per "The operative test".
 - **The executor may never lower it.**
 - **Only the reviewer may lower** a tier the executor raised, and only as far
   as the operative test warrants, recording the reasoning.
@@ -645,8 +485,9 @@ finding goes.
   second condition of "When review ends" from the round to the finding: the
   finding lies inside a limit the rule itself recorded, so it goes to a ticket
   that owns it, raised if it does not exist, and that one must-fix is
-  discharged by raising it. That ticket is a **retirement ticket**, critical
-  tier under the process-surface clause of the operative test. It produces a
+  discharged by raising it. That ticket is a **retirement ticket**,
+  `standard` on one independent pass, as every change to a process document
+  is under "The operative test". It produces a
   decision record, per the decision-record process, carrying the rule's text
   as it stood and the finding that matched, and the rule leaves the document.
   Retired rules are kept in the record for the reason superseded decision
