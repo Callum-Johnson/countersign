@@ -216,4 +216,129 @@ records are sentences and not code, is EM-024's and is already landed.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket.
+### Ticket
+EM-025 — The per-round table has one copy, and the blocker names the row
+
+### Tier
+`standard` — a change to process documents, worked under the paragraph
+beginning **A change to a process document** in "The operative test" of
+`docs/tier-review-model.md`: one independent review pass, closing on that
+pass, and the executor does not raise it. That pass is row 1 of the Review
+table below and has not been taken.
+
+### Summary
+`docs/tier-review-model.md`, "When review ends", no longer appends the
+per-round table under the `BLOCKER:` comment: the table has one copy, in the
+ticket file's Review section, and a blocker, a discharge note or any summary
+that needs what it holds names the row and the finding's `R<n>.<k>` instead
+of restating either. The contributor policy's §3 non-convergence trigger, the
+section's own index row and the pull-request template's `### Review` header
+are brought with it in the same commit. No decision record is owed: this adds
+a rule inside a document under an existing decision, which
+`docs/adr-process.md`, **What "a workflow rule changes" reaches**, puts on the
+second side, with the ticket as its record.
+
+### Acceptance criteria
+Every figure below is read from the command beside it, run at 8b0c3bd — the
+last commit that changes what any of them counts — except AC4's, which is read
+over the branch.
+- [x] AC1: `docs/tier-review-model.md` "When review ends" no longer appends
+  the table under the blocker and instead names the row —
+  `grep -c 'appended to the ticket file under the' docs/tier-review-model.md`
+  returns 0. The sentence now reads: "The record travels with the block: the
+  per-round table has one copy, in the ticket file's Review section, and the
+  `BLOCKER:` comment names the row — **One copy**, below, states the rule."
+- [x] AC2: the rule carries a `Retired when:` line naming its population — the
+  **One copy** paragraph is followed by one whose population is the next fifty
+  closed critical-tier tickets on an adopting project, retiring the rule where
+  a blocker that names a row is found by the round that reads it to have named
+  the wrong row, more than once.
+  `grep -c 'named the wrong row' docs/tier-review-model.md` returns 1.
+- [x] AC3: `templates/PR-DESCRIPTION.md` `### Review` states that the table has
+  one copy —
+  `grep -c 'The table appears once, here' templates/PR-DESCRIPTION.md` returns
+  1, added to the header EM-007-002 amended rather than in place of it, so that
+  the header still says which tiers write the section and how many rows a
+  process-document change has — and §3's blocker guidance points at the row:
+  `grep -c 'the blocker names the rows and the' docs/ai-contributor-policy.md`
+  returns 1.
+- [x] AC4: this ticket's file carries the table header at most once at every
+  commit on the branch. Reading every commit since `main` at 9924809:
+  `for c in $(git rev-list 9924809..HEAD); do git show "$c:docs/tickets/active/EM-025-the-per-round-table-has-one-copy-and-the-blocker-names-the-row.md" 2>/dev/null | grep -c '^| Round | Must-fix |'; done`
+  returns 0 at each commit before this description and 1 at the commit that
+  adds it, and no other value.
+- [x] AC5: the index and the map are consistent with the amended section in the
+  same commit, 8b0c3bd. The "When review ends" row of the index in
+  `docs/tier-review-model.md`, "What is in this document", now reads "The three
+  conditions, the round cap, the per-round record and its one copy, and the
+  read before a repair is handed back" —
+  `grep -c 'the per-round record and its one copy' docs/tier-review-model.md`
+  returns 1. The map in `docs/ai-contributor-policy.md`, "Which document
+  settles what", is unchanged and correct under each of its three triggers: no
+  governed document was added, removed or renamed; no question moved to another
+  document; and the row naming `docs/tier-review-model.md` already settles what
+  a review reports and when it ends, which is where this rule sits.
+
+### Falsification
+N/A — no suite. Per criterion, what a reader does differently:
+- AC1 — an executor blocking at the cap writes the table into the Review
+  section and a pointer under the `BLOCKER:` comment, where the sentence
+  removed told them to write a second table.
+- AC2 — a reviewer meeting a blocker that named the wrong row records the
+  finding against this line rather than against the ticket alone, and a
+  maintainer asking whether the rule has earned its place has a population to
+  count.
+- AC3 — an executor filling the template writes the table once and points at
+  it; an executor reading §3 for what a block carries is not sent to copy the
+  record into the blocker.
+- AC4 — a reader grepping this ticket for the table header finds one site, so
+  the ticket reads as an instance of the rule it lands.
+- AC5 — a reader who reaches "When review ends" from the index is told the
+  section settles where the record's one copy lives, rather than learning it
+  only on reaching the end of the section.
+
+### Out of scope (per ticket)
+- The three drafts the ticket records as refuted — a ceiling on the record's
+  length, citing figures from harness artefacts rather than transcribing them,
+  and pinning `path:line` citations to a commit — are not attempted; nothing in
+  `git diff 9924809..HEAD` touches record length, artefact citation or citation
+  pinning.
+- The records the ticket's Context names are not repaired: no ticket file other
+  than this one is changed. `git diff --stat 9924809..HEAD -- docs/tickets`
+  lists this file alone.
+
+### How to verify
+1. `git diff 9924809..8b0c3bd` — three files: the **One copy** paragraph, its
+   falsifier, the amended sentence and the index row in
+   `docs/tier-review-model.md`; the non-convergence clause in §3 of
+   `docs/ai-contributor-policy.md`; the `### Review` header in
+   `templates/PR-DESCRIPTION.md`.
+2. Read whole, as they stand: "When review ends" in
+   `docs/tier-review-model.md`; §3 of `docs/ai-contributor-policy.md`; and "A
+   number determined elsewhere has one site that goes red" in
+   `docs/quality-gates.md`, which is the rule this one applies to a table.
+3. The instances the rule names. EM-024's is readable from this repository:
+   `git show c6ee58b:docs/tickets/active/EM-024-a-count-in-prose-has-no-falsifier.md | sed -n '324,330p'`
+   records that one copy of a phrase was fixed and its twin, in a sub-section
+   the executor did not read, was not, and `git ls-remote --heads origin` shows
+   that branch on `origin` at c6ee58b. OMN-022-002's is on the control-plane
+   project's `main` at 412e714, line 813, and is not readable from here.
+
+### Risks / follow-ups
+- `templates/PR-DESCRIPTION.md` allows a gitignored `PR.md` at the worktree
+  root as a working draft while a ticket is in flight. The rule binds copies
+  **in the ticket file**, so a draft's table is outside it; an executor who
+  reads the rule more widely will find it says nothing about the draft, and a
+  reviewer who reads it more narrowly will not look there. Nothing here changes
+  the draft's standing.
+- The falsifier's population is closed `critical`-tier tickets, and under "The
+  operative test" a change to a process document is `standard` on one pass. On
+  a repository that ships only process documents that population accrues slowly
+  or not at all, so the evidence that would retire this rule comes from
+  adopting projects carrying `critical`-tier work.
+
+### Review
+Not yet taken: the one independent pass this tier requires is row 1 below.
+
+| Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
+|---|---|---|---|---|
