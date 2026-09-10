@@ -239,9 +239,10 @@ a rule inside a document under an existing decision, which
 second side, with the ticket as its record.
 
 ### Acceptance criteria
-Every figure below is read from the command beside it, run at 8b0c3bd — the
-last commit that changes what any of them counts — except AC4's, which is read
-over the branch.
+Every figure below is read from the command beside it. AC1, AC2, AC3 and AC5
+are read at 8b0c3bd, the last commit that changes what any of them counts; AC4
+is read over the branch; and the figures in Out of scope and How to verify name
+their own ranges.
 - [x] AC1: `docs/tier-review-model.md` "When review ends" no longer appends
   the table under the blocker and instead names the row —
   `grep -c 'appended to the ticket file under the' docs/tier-review-model.md`
@@ -263,10 +264,13 @@ over the branch.
   `grep -c 'the blocker names the rows and the' docs/ai-contributor-policy.md`
   returns 1.
 - [x] AC4: this ticket's file carries the table header at most once at every
-  commit on the branch. Reading every commit since `main` at 9924809:
-  `for c in $(git rev-list 9924809..HEAD); do git show "$c:docs/tickets/active/EM-025-the-per-round-table-has-one-copy-and-the-blocker-names-the-row.md" 2>/dev/null | grep -c '^| Round | Must-fix |'; done`
-  returns 0 at each commit before this description and 1 at the commit that
-  adds it, and no other value.
+  commit on the branch. The closing commit moves the file from `active/` to
+  `done/`, so the path is resolved per commit rather than fixed — a fixed
+  `active/` path would silently read as absent, and so as 0, at the closing
+  commit. Reading every commit since `main` at 9924809:
+  `for c in $(git rev-list 9924809..HEAD); do p=$(git ls-tree -r --name-only "$c" | grep 'EM-025-the-per-round-table'); git show "$c:$p" | grep -c '^| Round | Must-fix |'; done`
+  1 at each commit that carries this description and 0 at each
+  commit before it — never a value above 1.
 - [x] AC5: the index and the map are consistent with the amended section in the
   same commit, 8b0c3bd. The "When review ends" row of the index in
   `docs/tier-review-model.md`, "What is in this document", now reads "The three
@@ -303,16 +307,23 @@ N/A — no suite. Per criterion, what a reader does differently:
   and pinning `path:line` citations to a commit — are not attempted; nothing in
   `git diff 9924809..HEAD` touches record length, artefact citation or citation
   pinning.
-- The records the ticket's Context names are not repaired: no ticket file other
-  than this one is changed. `git diff --stat 9924809..HEAD -- docs/tickets`
-  lists this file alone.
+- The records the ticket's Context names are not repaired: no ticket record
+  other than this one is changed. `git diff --stat 9924809..HEAD -- docs/tickets`,
+  run at the closing commit, lists two files: this ticket's own record, moved
+  from `active/` into `done/`, and `docs/tickets/README.md`, whose board row
+  changes because this ticket's status does. Narrowed to the records
+  themselves,
+  `git diff --stat 9924809..HEAD -- docs/tickets/active docs/tickets/done`
+  lists this record alone.
 
 ### How to verify
-1. `git diff 9924809..8b0c3bd` — three files: the **One copy** paragraph, its
-   falsifier, the amended sentence and the index row in
-   `docs/tier-review-model.md`; the non-convergence clause in §3 of
-   `docs/ai-contributor-policy.md`; the `### Review` header in
-   `templates/PR-DESCRIPTION.md`.
+1. `git diff ad25a53..8b0c3bd` — three files, and they are the rule-bearing
+   ones: the **One copy** paragraph, its falsifier, the amended sentence and
+   the index row in `docs/tier-review-model.md`; the non-convergence clause in
+   §3 of `docs/ai-contributor-policy.md`; the `### Review` header in
+   `templates/PR-DESCRIPTION.md`. From `main`, `git diff 9924809..8b0c3bd`
+   returns five: the same three, plus `docs/tickets/README.md` and this
+   ticket's own record, which `ad25a53` changed when it claimed the ticket.
 2. Read whole, as they stand: "When review ends" in
    `docs/tier-review-model.md`; §3 of `docs/ai-contributor-policy.md`; and "A
    number determined elsewhere has one site that goes red" in
@@ -335,7 +346,10 @@ N/A — no suite. Per criterion, what a reader does differently:
   operative test" a change to a process document is `standard` on one pass. On
   a repository that ships only process documents that population accrues slowly
   or not at all, so the evidence that would retire this rule comes from
-  adopting projects carrying `critical`-tier work.
+  adopting projects carrying `critical`-tier work. Round 1 puts the caveat in
+  its sharper form: ADR-0004 places the round cap outside process-document work
+  altogether, so on this repository the population may not accrue at all, and
+  the falsifier is observable only where `critical`-tier work runs.
 
 ### Review
 Not yet taken: the one independent pass this tier requires is row 1 below.
