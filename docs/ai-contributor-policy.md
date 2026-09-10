@@ -156,7 +156,10 @@ the trigger has had nothing to match.
 
 Non-convergence is a further trigger: a critical-tier review that reaches the
 round cap in `docs/tier-review-model.md`, "When review ends", blocks by this
-same procedure, with its review record attached.
+same procedure, with its review record attached — the per-round table has one
+copy, in the ticket's Review section, and the blocker names the rows and the
+findings it turns on rather than copying them, as that section's **One copy**
+says.
 
 **Retired when:** blocked tickets on a project are, over a stated population,
 routinely unblocked with the reading the executor would have taken. The block

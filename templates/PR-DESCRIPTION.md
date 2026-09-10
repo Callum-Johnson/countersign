@@ -80,6 +80,9 @@ Critical tier, and a change to a process document; write `N/A` otherwise.
 One row per independent review round — a process-document change has one
 (tier review model, "The operative test"). The total is derived from the
 rows and never asserted beside them (tier review model, "When review ends").
+The table appears once, here; a `BLOCKER:` comment written at the cap names
+its row, and a finding's `R<n>.<k>`, rather than copying either (tier review
+model, "When review ends", **One copy**).
 
 | Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
 |---|---|---|---|---|
