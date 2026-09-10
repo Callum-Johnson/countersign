@@ -1,12 +1,13 @@
 ---
 id: EM-025
 title: The per-round table has one copy, and the blocker names the row
-status: in-progress
+status: done
 tier: standard
 complexity: M
 dependencies: []
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-10
+closed_at: 2026-09-10
 ---
 
 # EM-025 — The per-round table has one copy, and the blocker names the row
@@ -308,13 +309,16 @@ N/A — no suite. Per criterion, what a reader does differently:
   `git diff 9924809..HEAD` touches record length, artefact citation or citation
   pinning.
 - The records the ticket's Context names are not repaired: no ticket record
-  other than this one is changed. `git diff --stat 9924809..HEAD -- docs/tickets`,
-  run at the closing commit, lists two files: this ticket's own record, moved
-  from `active/` into `done/`, and `docs/tickets/README.md`, whose board row
-  changes because this ticket's status does. Narrowed to the records
-  themselves,
-  `git diff --stat 9924809..HEAD -- docs/tickets/active docs/tickets/done`
-  lists this record alone.
+  other than this one is changed. `--stat` collapses or splits the move
+  depending on how far the file has drifted, so the figure is read from
+  `git diff --name-status 9924809..HEAD -- docs/tickets`, which at the closing
+  commit lists three entries and no fourth: `M docs/tickets/README.md`, the
+  board row, which changes because this ticket's status does; and
+  `A docs/tickets/done/EM-025-….md` with `D docs/tickets/ready/EM-025-….md`,
+  this ticket's own record arriving in `done/` and leaving the directory it
+  sat in at 9924809. Narrowed to the records themselves,
+  `git diff --name-status 9924809..HEAD -- docs/tickets ':!docs/tickets/README.md'`
+  lists those two entries, both this record, and nothing else.
 
 ### How to verify
 1. `git diff ad25a53..8b0c3bd` — three files, and they are the rule-bearing
@@ -352,7 +356,56 @@ N/A — no suite. Per criterion, what a reader does differently:
   the falsifier is observable only where `critical`-tier work runs.
 
 ### Review
-Not yet taken: the one independent pass this tier requires is row 1 below.
+One independent pass, at `2ca3f72`, closing on it per ADR-0004. It confirms the
+cap's record is complete: **One copy** at `docs/tier-review-model.md:442`
+supplies what the deleted clause supplied, and the maintainer's path is
+`BLOCKER:` → named row → the Review table in the same file. **One copy** exists
+exactly once and its three pointers — `docs/tier-review-model.md:388`,
+`docs/ai-contributor-policy.md:161`, `templates/PR-DESCRIPTION.md:85` — all
+resolve. No governed document still tells an executor to copy the table.
+EM-007-002's `### Review` header is intact and extended, not replaced. Both of
+the executor's corrections check out: `docs/quality-gates.md:383`'s population
+is fifty **review rounds**, its evidence "a single day, 2026-09-08, on a single
+project" at :396; `c6ee58b:327-328` says "in a sub-section". AC4 holds at every
+commit. No decision record is owed, per `docs/adr-process.md:41-44`. The
+falsifier is observable, with the caveat Risks carries. One must-fix, one
+class, two sites; five notes.
 
 | Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
 |---|---|---|---|---|
+| 1 | 1 | this description's own figures | — | c0809e1 |
+
+Findings, round 1:
+- R1.1 · permits · `docs/quality-gates.md`, "A number determined elsewhere has
+  one site that goes red" · Out of scope stated that
+  `git diff --stat 9924809..HEAD -- docs/tickets` "lists this file alone" where
+  the command returned two at 2ca3f72, `docs/tickets/README.md` as well —
+  remedy: the bullet is read from `--name-status`, whose output does not turn
+  on rename-similarity, names every entry the command returns, and gives the
+  narrowing that leaves this record alone; inside previous fix: no
+- R1.2 · permits · same rule · How to verify step 1 stated that
+  `git diff 9924809..8b0c3bd` returns three files where that range returns
+  five — remedy: the step names `ad25a53..8b0c3bd`, which returns three, and
+  says what the wider range adds; inside previous fix: no
+- R1.3 · note · `docs/tier-review-model.md:388` "names the row" against
+  `docs/ai-contributor-policy.md:161` "names the rows and the findings it turns
+  on"; substance agrees and the reviewer asks no remedy — none made.
+- R1.4 · note · the two instances name no commit in their own sentences;
+  the baselines sit in References and How to verify, which is the section's
+  existing practice — no remedy.
+- R1.5 · note · `docs/tickets/done/EM-007-002-…:622` states the superseded
+  mandate in present tense; the Specification's retrospective clause covers it
+  — no remedy.
+- R1.6 · note · OMN-022-002 at `412e714:813` is not readable from this
+  repository; How to verify step 3 already says so — no remedy.
+- Executor's sweep, beyond the two sites handed over: every other sentence in
+  `## PR Description` pairing a command with a count was re-run. AC1, AC2, AC3
+  and AC5's greps return 0, 1, 1, 1 and 1 at 8b0c3bd as stated; step 3's
+  `git ls-remote --heads origin` shows EM-024 on `origin` at c6ee58b as stated.
+  One sibling was found and repaired in c0809e1: AC4's loop pinned the record
+  at a fixed `active/` path, which the closing commit's `git mv` breaks. The
+  sweep also caught one of its own: the first draft of the R1.1 remedy said
+  `--stat` lists two files, which is true at 2ca3f72 and false at the closing
+  commit, because `--stat` collapses the move only while the file stays similar
+  enough; the bullet is now read from `--name-status`. The sweep did not reach
+  Context or Notes, which carry figures of their own.
