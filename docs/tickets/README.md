@@ -53,7 +53,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-020 | done | critical | Read the whole thing before acting on part of it |
 | EM-021 | done | critical | A rule needs a second instance before it is written |
 | EM-020-001 | blocked | critical | A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded |
-| EM-007-002 | in-progress | standard | A process-document change is trivial by the test and critical by ADR-0002 |
+| EM-007-002 | done | standard | A process-document change is trivial by the test and critical by ADR-0002 |
 | EM-007-002-001 | ready | standard | The operative test's one-line summary omits the process-surface clause |
 | EM-007-002-002 | done | standard | The ADR process states the wider reading the model no longer holds |
 | EM-007-002-003 | ready | standard | Clause 5 of the operative test still names a change to the review model as critical |

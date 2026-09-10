@@ -1,12 +1,13 @@
 ---
 id: EM-007-002
 title: A change to a process document is trivial by the operative test and critical by ADR-0002
-status: in-progress
+status: done
 tier: standard
 complexity: S
 dependencies: []
 claimed_by: claude-opus-5
 claimed_at: 2026-09-07
+closed_at: 2026-09-10
 ---
 
 # EM-007-002 — Is a change to a process document trivial or critical?
@@ -458,12 +459,13 @@ EM-007-002 — A change to a process document is trivial by the operative test
 and critical by ADR-0002
 
 ### Tier
-`standard` — this change is to process documents and is worked under its own
-answer: one independent review pass, closing on that pass, and the executor
-does not raise it. Rows 1 to 4 of the Review table are the `critical`-tier
-passes taken under the answer of 2026-09-07, before the tier was fixed; the
-pass this tier requires is row 5, on the head this description names, and it
-is not the executor's to run.
+`standard` — this change is to process documents and is worked under the
+paragraph beginning **A change to a process document** in "The operative
+test" of `docs/tier-review-model.md`, which it lands: one independent review
+pass, closing on that pass, and the executor does not raise it. Rows 1 to 4
+of the Review table are the `critical`-tier passes taken under the answer of
+2026-09-07, before the tier was fixed; the pass this tier requires is row 5,
+taken on 8688715 and repaired at 89f13d4, and this ticket closes on it.
 
 ### Summary
 A change to a process document is `standard`, reviewed in one independent
@@ -481,8 +483,9 @@ process-document change says the same thing.
 - [x] AC2: the statement and ADR-0002 agree — the annotation dated
   2026-09-10 at the end of `docs/adr/0002-*.md` narrows the Context
   sentence's reach, and ADR-0004, Decision, "Text amended under this
-  decision", carries each amended line as it stood and as it now reads, per
-  `docs/adr-process.md`, "When to write one". `docs/adr-process.md`,
+  decision", at 89f13d4 carries each amended line as it stood and as it now
+  reads, the `### Review` header of `templates/PR-DESCRIPTION.md` among
+  them, per `docs/adr-process.md`, "When to write one". `docs/adr-process.md`,
   "Decisions about the process are themselves ADRs", matched its own
   **Retired when:** line and is amended in place under "Retiring a
   control", "Amendment with record"; the match is technical — one tier word
@@ -491,13 +494,14 @@ process-document change says the same thing.
   one pass under this paragraph' docs/tier-review-model.md` returns 1 at
   8eb0f83.
 - [x] AC4: the tickets `grep -L '^tier: standard' docs/tickets/done/*.md`
-  lists at 8eb0f83, less those whose change touched no process document —
-  a read of each — closed at a tier the answer would not now assign. The
-  record leaves every one as it stands: ADR-0004, Decision, last paragraph,
-  and Migration; the answer binds from 2026-09-10 forward.
-- [ ] AC5: written as "critical tier per ADR-0002"; under the answer it is
-  the one independent pass, in two columns, recorded as row 5 of the Review
-  table. Discharged when that pass has run.
+  lists at 89f13d4, less those whose change touched no process document —
+  a read of each — closed at a tier the answer would not now assign; the
+  close adds one `tier: standard` file to `done/`, which that listing
+  excludes. The record leaves every one as it stands: ADR-0004, Decision,
+  last paragraph, and Migration; the answer binds from 2026-09-10 forward.
+- [x] AC5: written as "critical tier per ADR-0002"; under the answer it is
+  the one independent pass, in two columns — row 5 of the Review table, on
+  8688715, one must-fix and five notes, repaired at 89f13d4.
 
 ### Falsification
 N/A — no suite. Per criterion, what a reader does differently:
@@ -514,6 +518,16 @@ N/A — no suite. Per criterion, what a reader does differently:
 - AC5 — the reviewer runs one pass; the executor repairs or routes its
   must-fixes and closes rather than handing back.
 
+For the finding repaired, per contributor policy §6:
+- R5.1 — class: *which document restates, per tier, whether the Review
+  section is written, and still confines it to `critical`?* Siblings: none
+  found — `grep -rn -i 'critical tier only' docs templates README.md | grep
+  -v docs/tickets/` returns the template's header alone at 8688715 and
+  nothing at 89f13d4, and the documents step 2 of "How to verify" names each
+  already said one pass. What a reader does differently: an executor closing
+  a process-document ticket writes the pass into the Review table instead of
+  `N/A`, and the falsifier's population has rows to read.
+
 ### Out of scope (per ticket)
 - The five clauses are unchanged: `git diff 60f39fb..HEAD --
   docs/tier-review-model.md | grep -c '^[-+][0-9]\. \*\*'` returns 0 at
@@ -525,8 +539,12 @@ N/A — no suite. Per criterion, what a reader does differently:
   chose.
 
 ### How to verify
-1. `git diff --stat 60f39fb..HEAD -- docs templates README.md` — every file
-   this branch touches, at 8eb0f83.
+1. `git diff --stat 9758f07..HEAD -- docs templates README.md` — every file
+   this branch changes after `main` was merged into it at 9758f07, so that
+   `main`'s own merged files are not listed. Against `main` itself,
+   `9ae24f9..HEAD`, the list differs by one file each way: the record
+   written under the first answer, deleted here and never on `main`, and
+   this ticket's move out of `blocked/`.
 2. Read whole, as they stand: "The operative test", "The tiers", "Separation
    of duties" and "Retiring a control" in `docs/tier-review-model.md`;
    ADR-0004; the last annotation of ADR-0002 and of ADR-0003; "Decisions
@@ -541,8 +559,9 @@ N/A — no suite. Per criterion, what a reader does differently:
 ### Risks / follow-ups
 - Clause 5 of the operative test still names "a change to the review model
   itself" as `critical`; the paragraph beneath reads the item with itself,
-  and amending the clause's words is outside this ticket. The pass says
-  whether that read holds.
+  and amending the clause's words is outside this ticket. The pass found the
+  read holds only by the paragraph's precedence sentence (R5.2), and the
+  clause is raised as EM-007-002-003, `standard`, in `docs/tickets/ready/`.
 - EM-007-002-001 stands in part, at `standard`: the summary's `critical`
   limb still omits clause 5 for a CI configuration change and a schema
   migration; its process-document limb is written here. Its Notes say which
@@ -577,16 +596,19 @@ this round repaired**.
 | 2 | 2 | The second entry of the negative list in `docs/tier-review-model.md`, "The operative test" — both must-fixes on that one entry — and its **Retired when:** line, where the three notes sit | 2 of 2 | d867af9 |
 | 3 | 1 | The same rule in `docs/tier-review-model.md`, "The operative test": the who-may-add paragraph, whose permits-direction route reaches any negative-list entry and not only one the change adds (must-fix); entry 2's two-documents carve-out, whose stated reason fails in the case it carves out; the phrase "states that question's rule or procedure in full", which reads two ways; the self-marking population of the **Retired when:** line; and this description's cost paragraph, which never states containment's read as a cost | 1 of 1 | 53125cb |
 | 4 | 3 | The same rule in `docs/tier-review-model.md`, "The operative test", every finding inside round 3's own fix: the who-may-add paragraph's closing gloss, which sends a baseline finding to "the retirement ticket … where widening an entry is an amendment with record", a permission "Retiring a control" does not grant (must-fix); the same paragraph's "whatever column the finding falls in. It goes to the ticket and the round", which routes a first-column must-fix to a retirement ticket (must-fix); negative list entry 2's "Where the two disagree, containment still passes", which states the topic-coverage reading the same commit's R3.3 repair excluded, and which ADR-0004 carries at L108 beside the excluding reading at L217 (must-fix); route 6 of round 3's sweep, whose repair widens a count and does not bound the route; the sweep's own coverage; and the fall-through from entry 2 for a typo-fixing correction | 3 of 3 | — |
+| 5 | 1 | `templates/PR-DESCRIPTION.md`, the `### Review` header, which confined the section to `critical` and so discarded the one pass a process-document change is given (must-fix); and five notes: clause 5 of the operative test against the paragraph beneath it; ADR-0004's rewrite and rename while `proposed`; ADR-0002's Context sentence above its annotation; the self-marked population of the paragraph's **Retired when:** line; and step 1 of this description's "How to verify" | — | 89f13d4 |
 
-Derived from the rows above and not asserted beside them: 6 + 2 + 1 + 3 =
-**twelve** must-fixes over the four rounds, of which none in round 1, 2 of 2
-in round 2, 1 of 1 in round 3 and 3 of 3 in round 4 — **six** — sat inside the
-previous round's fix.
+Derived from the rows above and not asserted beside them: 6 + 2 + 1 + 3 + 1 =
+**thirteen** must-fixes over the five rounds, of which none in round 1, 2 of 2
+in round 2, 1 of 1 in round 3, 3 of 3 in round 4 and none in round 5 — **six**
+— sat inside the previous round's fix.
 
 Rows 1 to 4 were taken at `critical` under the answer of 2026-09-07. R4.1 to
 R4.3 are not repaired: the text they land on is replaced at 8eb0f83, per the
 discharge note of 2026-09-10 in Notes. Row 5 is the one pass this ticket's
-tier requires, and is added by that pass.
+tier requires, taken on 8688715; its `—` in the fourth column is that round
+4 repaired nothing for it to sit inside. The ticket closes on row 5; its
+findings are the last block of this section.
 
 Round 4's `—` in the last column is nothing repaired. Its three must-fixes are
 recorded and none is applied: a fifth round is the maintainer's to order, and
@@ -1171,3 +1193,50 @@ After the round, on its own lines:
   and detached, and this tree was not written to. Nothing untracked, nothing
   modified, so there is no finding against the review to record beside round
   4's row.
+
+Findings of round 5, on 8688715:
+
+- R5.1 · refuses · `templates/PR-DESCRIPTION.md`, the `### Review` header ·
+  it read "Critical tier only; write `N/A` otherwise", which discards the
+  one pass a process-document change now gets — "The operative test" records
+  that pass "as one row of the Review table", and the contributor policy's
+  §6 requires that it "has run and is recorded" — remedy: the header reads
+  "Critical tier, and a change to a process document; write `N/A`
+  otherwise", and ADR-0004 lists the template among its amended lines; cost:
+  none, the remedy loosens; inside previous fix: no. **Must-fix, repaired at
+  89f13d4; the class and its sibling sweep are in Falsification.**
+- R5.2 · note · "The operative test", clause 5 · "a change to the review
+  model itself" under "Any one clause means `critical`" still contradicts
+  the new paragraph, reconciled only by the paragraph's precedence sentence;
+  the clauses are out of this ticket's scope — **note, routed**: raised as
+  EM-007-002-003 under the contributor policy's §4, `standard`, in
+  `docs/tickets/ready/` at 89f13d4. Inside previous fix: no.
+- R5.3 · note · ADR-0004, its status · the record was rewritten and renamed
+  while `proposed` and branch-only, and the process is silent on that case,
+  keeping a *superseded* record and offering `withdrawn` — **note, taken**:
+  ADR-0004, Migration, records the choice in one sentence at 89f13d4. Inside
+  previous fix: no.
+- R5.4 · note · ADR-0002, Context · its sentence still says `critical`
+  above the annotation that narrows it — **note, deliberately not taken**:
+  the annotation is the form `docs/adr-process.md` requires for an accepted
+  record, and rewriting the sentence is what it forbids. Inside previous
+  fix: no.
+- R5.5 · note · the paragraph's **Retired when:** line · its population,
+  "closed tickets whose Tier section names this paragraph", is self-marked,
+  and nothing obliged the marking — **note, taken**: step 3 of
+  `templates/TICKET.md` at 89f13d4 requires the Tier section of a
+  process-document ticket to name the paragraph, and this ticket's Tier
+  section is the first to do so. Inside previous fix: no.
+- R5.6 · note · this description, "How to verify", step 1 · "every file this
+  branch touches" over `60f39fb..HEAD` included the files `main`'s merge
+  brought in — **note, taken**: the step names `9758f07..HEAD` and says how
+  it differs from `9ae24f9..HEAD`. Inside previous fix: no.
+- **Post-review check after round 5 (2026-09-10)**, per
+  `docs/quality-gates.md`, "Review isolation", made at 8688715 before the
+  first edit of the repair: `git status --porcelain` in this worktree
+  returned no output, and `git worktree list | wc -l` returned 13, none of
+  the trees created by this ticket's executor and none left behind by the
+  review; `A:/projects/wt/review-EM-007-002` is the reviewer's own tree, at
+  8688715 and detached, and this tree was not written to. Nothing untracked,
+  nothing modified, so there is no finding against the review to record
+  beside row 5.
