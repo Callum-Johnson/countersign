@@ -1,13 +1,12 @@
 ---
 id: EM-007-002
 title: A change to a process document is trivial by the operative test and critical by ADR-0002
-status: blocked
-tier: critical
+status: in-progress
+tier: standard
 complexity: S
 dependencies: []
 claimed_by: claude-opus-5
 claimed_at: 2026-09-07
-blocked_at: 2026-09-08
 ---
 
 # EM-007-002 — Is a change to a process document trivial or critical?
@@ -427,6 +426,30 @@ pointing at it, so a reader of the blocker needs nothing else:
 Derived from the rows: 6 + 2 + 1 + 3 = twelve must-fixes over the four rounds,
 of which 2 + 1 + 3 = six sat inside the previous round's fix. Round 4's `—` in
 the last column is nothing repaired, which is the point of the block.
+
+**Discharged (2026-09-10) by the maintainer's answer recorded here. The
+blocker text above is left as the record of why the work stopped.** The
+maintainer did not order a fifth round and did not accept the record as it
+stood; the question the Specification carried was answered again, replacing
+the answer of 2026-09-07 before it landed:
+
+> A process-document change is **`standard`**: one independent review pass,
+> closing on that pass. **The executor may not raise it** to `critical`.
+> Neither trivial by the operative test nor critical by ADR-0002.
+
+The reasoning recorded with the answer: the raise-never-lower rule plus
+critical-by-default drove every documentation ticket into the full loop —
+EM-024 ran four independent passes on prose — and the loop's cost on
+documents was disproportionate to what it caught. The decision is to get the
+project back to product work and stop prose-based error rounds.
+
+What follows from it here: the line written under the answer of 2026-09-07
+does not land; the rule that lands is the answer above, with the tier of a
+process-document change fixed at `standard` and its review fixed at one pass;
+R4.1 to R4.3 are not repaired, since the text they land on is replaced; and
+this ticket is worked under its own answer, at `standard`, on one pass, per
+the Tier section below. The per-round record of the four passes stands in
+the Review table below as it was recorded.
 
 ## PR Description
 
