@@ -1,10 +1,12 @@
 ---
 id: EM-025
 title: The per-round table has one copy, and the blocker names the row
-status: ready
+status: in-progress
 tier: standard
 complexity: M
 dependencies: []
+claimed_by: claude-fable-5-1
+claimed_at: 2026-09-10
 ---
 
 # EM-025 — The per-round table has one copy, and the blocker names the row
