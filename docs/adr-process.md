@@ -63,8 +63,8 @@ applied at one step, and that decision has its record. This is the practice
 this repository has followed — the rules added by EM-008, EM-009, EM-010,
 EM-011, EM-012, EM-016 and EM-019-001 produced no record, and under this
 line none was owed. The line decides whether a record is owed and nothing
-about tier: a rule added to a process document is a process-surface change
-under the operative test either way.
+about tier: a rule added to a process document is a process-document change
+under the operative test either way, `standard` on one independent pass.
 
 **Retired when:** a rule added under an existing decision, and therefore
 recorded in no decision record, is found to have been undone or contradicted
@@ -110,14 +110,16 @@ were the ones that stopped a plausible-looking regression a month later.
 ## Decisions about the process are themselves ADRs
 
 The ticket lineage scheme, the tier trigger, and the review model each have a
-decision record. Changing the process is a process-surface change, which the
-operative test classifies as `critical`, which means it needs a second
-reviewer.
+decision record. Changing the process is a change to a process document,
+which the operative test classes as `standard` with one independent review
+pass, which means it still has a reader who did not write it.
 
 A governance system that cannot be changed becomes a system people route
 around. One that can be changed silently is not a control. Recording process
 changes the same way as technical ones is what keeps it honest.
 
-**Retired when:** the tier model ceases to class the process surface as
-`critical`, at which point this rule's second sentence is false and its first
-stands alone.
+**Retired when:** the tier model ceases to give a change to a process
+document an independent pass, at which point this rule's second sentence is
+false and its first stands alone. The previous line, which retired when the
+model ceased to class the process surface as `critical`, was matched by
+ADR-0004 and amended with that record.

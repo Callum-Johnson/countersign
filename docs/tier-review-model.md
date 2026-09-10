@@ -53,7 +53,8 @@ Run it against your change. **Any one clause means `critical`:**
 
 If none hold, the tier is `standard` — unless nothing a program executes
 and nothing a caller reads as a contract is touched, in which case it is
-`trivial`: documentation, comments, ticket files, data no program loads.
+`trivial`: documentation other than a process document, comments, ticket
+files, data no program loads.
 A program executes code, tests, migrations and CI configuration; a caller
 reads as a contract a schema, an interface, or a data file a program
 loads; anything in either set is at least `standard`. Where the line is
@@ -68,11 +69,57 @@ population, and a maintainer's spot-check of self-merged work is another;
 the line is then drawn in the wrong place, and the sentence retires in
 favour of one drawn from those cases.
 
+**A change to a process document.** A process document states rules a
+contributor follows or procedures a contributor performs: a document under
+`docs/` or `templates/` that does so, every document the contributor
+policy's map names, and a decision record under `docs/adr/`. What a file is
+named and where it sits do not decide, so a file at a project's root stating
+the rules its contributors work under is one. A ticket, a case study or a
+comment records work rather than stating rules and is not one.
+
+A change to a process document is **`standard`**, and its review is **one
+independent review pass, closing on that pass**. The reviewer is one who
+did not perform the work, receives what "Why 'another agent, human or AI'"
+says a reviewer receives, and records findings in the two columns of "What
+a review reports" as one row of the Review table; the executor repairs what
+the pass marked must-fix, or routes a finding where "When review ends"
+routes one, and closes. No second pass is taken: the round cap and the
+per-round loop of "When review ends" do not apply, because there is no
+loop. Where the pass is unavailable the ticket says so in its Tier section,
+as ADR-0002 provides.
+
+**The tier is not the executor's to raise.** The raise-never-lower rule in
+"Separation of duties" does not reach a change to a process document: it is
+neither `trivial` by the paragraph above, whose documentation clause does not
+carry process documents, nor `critical` by ADR-0002's Context, whose reach
+this paragraph narrows — ADR-0004 is the record, and carries the text it
+replaces. Clause 5 above names a change to the review model itself; the
+review model is a process document, and this paragraph decides its tier. A
+change that touches a process document and also something a program
+executes or a caller reads as a contract is classed by the rest of this test
+on that other thing; this paragraph lowers nothing.
+
+The reason the tier is fixed rather than movable is a cost that was paid: the
+raise-never-lower rule together with a `critical` default sent every
+documentation ticket into the full review loop — EM-024 ran four independent
+passes on prose — and the loop's cost on documents was disproportionate to
+what it caught. One pass keeps a second reader on every rule change; fixing
+the tier removes the occasion on which the executor chose.
+
+**Retired when:** over a stated population of process-document changes
+closed on one pass under this paragraph, a change so closed is later found
+to have changed what a program executes or what a caller reads as a
+contract, more than once — the boundary between a process document and the
+rest of this test was then drawn in the wrong place, and the paragraph
+retires in favour of one drawn from those cases. The population is read from
+the closed tickets whose Tier section names this paragraph.
+
 In one line:
 
 > **Could an existing caller, or a seeded run, notice this change without
 > opting in? If yes, `critical`. If no, `standard` — or `trivial`, where
-> nothing a program executes or a caller reads as a contract is touched.**
+> nothing a program executes or a caller reads as a contract is touched. A
+> process document is `standard`, on one pass, whatever the answer.**
 
 **Retired when:** a change every clause passed as `standard` is found by
 review to have changed an existing caller's outcome, more than once over a
@@ -86,8 +133,8 @@ to have drawn a must-fix at independent review.
 
 | Tier | Typical work | Review | Gates |
 |---|---|---|---|
-| `trivial` | Documentation, comments, data no program loads, ticket edits | None; author self-merges | Mandatory |
-| `standard` | Most feature work — new validators, resolvers, queries, components | None; author self-merges after a complete PR description with evidence per criterion | Mandatory |
+| `trivial` | Documentation other than a process document, comments, data no program loads, ticket edits | None; author self-merges | Mandatory |
+| `standard` | Most feature work — new validators, resolvers, queries, components; every change to a process document | None; author self-merges after a complete PR description with evidence per criterion — except a change to a process document, which takes **one independent review pass** and closes on it, per "The operative test" | Mandatory |
 | `critical` | Anything the operative test catches | One approval from **another agent**, human or AI, who must verify the evidence and run the suite themselves | Mandatory |
 
 Gates are mandatory at every tier. There is no tier that skips the four
@@ -138,7 +185,9 @@ directions:
 
 - **The author proposes** the tier when writing the ticket.
 - **The executor may raise** it — discovering mid-implementation that a change
-  touches an existing contract — and records a one-line reason.
+  touches an existing contract — and records a one-line reason. A change to a
+  process document is the exception: its tier is `standard` and is not
+  raised, per "The operative test".
 - **The executor may never lower it.**
 - **Only the reviewer may lower** a tier the executor raised, and only as far
   as the operative test warrants, recording the reasoning.
@@ -436,8 +485,9 @@ finding goes.
   second condition of "When review ends" from the round to the finding: the
   finding lies inside a limit the rule itself recorded, so it goes to a ticket
   that owns it, raised if it does not exist, and that one must-fix is
-  discharged by raising it. That ticket is a **retirement ticket**, critical
-  tier under the process-surface clause of the operative test. It produces a
+  discharged by raising it. That ticket is a **retirement ticket**,
+  `standard` on one independent pass, as every change to a process document
+  is under "The operative test". It produces a
   decision record, per the decision-record process, carrying the rule's text
   as it stood and the finding that matched, and the rule leaves the document.
   Retired rules are kept in the record for the reason superseded decision

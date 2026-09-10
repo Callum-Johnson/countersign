@@ -304,7 +304,9 @@ every reading of it. That is not caution — it is unreviewable code.
   reported under this rule are found wrong as often as the figures reported
   before it; the rule then costs a command per class of figure and catches
   nothing.
-- For critical-tier work, a second reviewer has approved.
+- For critical-tier work, a second reviewer has approved; for a change to a
+  process document, the one independent pass the tier model gives it has run
+  and is recorded.
 
 The pull-request description is appended to the ticket file before the ticket
 closes. It does not live only in a code-forge UI, because the repository has
