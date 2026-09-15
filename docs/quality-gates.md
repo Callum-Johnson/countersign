@@ -14,8 +14,8 @@ identical script afterwards. Failures block the merge regardless of tier.
 
 There is a fifth gate that no tool runs. The falsification gate, below, is an
 executor obligation discharged before the pull request is reported. It is
-listed here because it is a condition of merge like the other four, and
-because the four above cannot do its job.
+listed here because it is a condition of merge like the gates in the block
+above, and because those cannot do its job.
 
 **Retired when:** a gate is shown, over a stated count of pull requests, to
 block merges that a reviewer passes without any change to the work — a
@@ -76,7 +76,7 @@ round: the status command reports nothing untracked and nothing modified, and
 the worktree list shows only the worktrees the executor created — a clone or a
 copy elsewhere is not the tree under review and is not refused. Anything found
 is a finding against the review, recorded as its own line after the round's
-row in the record, outside the must-fix count and the two columns, and removed
+row in the record, outside the must-fix count and the columns, and removed
 before the tree is used again, the closing commit included.
 
 The mechanism this guards against, stated so the class is understood and not

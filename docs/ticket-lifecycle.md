@@ -254,7 +254,7 @@ or provenance is recorded in frontmatter and read in every place the id
 appears — commit messages, branch names, comments — which the lineage decision
 record in `examples/adr/` rejected because it is not.
 
-Three things the scheme does not say for itself, each found in use:
+What the scheme does not say for itself, each found in use:
 
 **A ticket raised by a review is created on the branch under review** — by
 the executor, from the review's record, before the next round or the close;

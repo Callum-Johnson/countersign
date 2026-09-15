@@ -35,8 +35,8 @@ a fleet of them from quietly destroying a codebase while doing so.
 |---|---|
 | [AI contributor policy](docs/ai-contributor-policy.md) | The rules AI agents work under — what they may and may not do, when to stop and block, what must be true before a change is reported done, the pre-flight checklist — and a map of which document settles what |
 | [Ticket lifecycle](docs/ticket-lifecycle.md) | How work is claimed, selected, batched, blocked and closed; how tickets are numbered; how impact and rationale make capacity decisions inspectable; and the directory/status invariant that keeps it honest |
-| [Tier review model](docs/tier-review-model.md) | Three risk tiers and the operative test that assigns them; who reviews, and who may move a tier; what a review reports and when it ends; how a rule leaves the documents, and what one needs before it enters |
-| [Quality gates](docs/quality-gates.md) | The four machine checks that must pass before merge, the falsification gate the executor discharges, where a number that something else determines lives, and where a review runs |
+| [Tier review model](docs/tier-review-model.md) | The risk tiers and the operative test that assigns them; who reviews, and who may move a tier; what a review reports and when it ends; how a rule leaves the documents, and what one needs before it enters |
+| [Quality gates](docs/quality-gates.md) | The machine checks that must pass before merge, the falsification gate the executor discharges, where a number that something else determines lives, and where a review runs |
 | [ADR process](docs/adr-process.md) | When a decision is a record, what the record carries, and why changes to the process are recorded the same way |
 | [Disclosure policy](DISCLOSURE.md) | What is withheld from this repository, what is published, and the reasoning |
 
@@ -84,9 +84,9 @@ executes or a caller reads as a contract is touched. A process document is
 standard, on one pass, whatever the answer. Touching an important file is a
 prompt to run the test, not an automatic escalation.
 
-**5. Four gates are machine-checked; the fifth is countersigned where the
-work is.** Lint, format, strict type-checking and tests run identically on a
-contributor's machine and in CI; an agent cannot talk its way past a failing
+**5. The machine-checked gates run identically everywhere; the fifth is
+countersigned where the work is.** Lint, format, strict type-checking and
+tests run identically on a contributor's machine and in CI; an agent cannot talk its way past a failing
 one, and skipping hooks is a forbidden action. The fifth gate, falsification,
 is a count the executor reports at every tier and a reviewer verifies where
 the tier summons one — the one gate an agent could talk past, which is why
