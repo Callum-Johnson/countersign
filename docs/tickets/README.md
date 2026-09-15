@@ -51,7 +51,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-019-001 | done | critical | A reported figure is read from a command, not written by its author |
 | EM-019-001-001 | done | critical | Rule-adding tickets produce no decision record, against the trigger list |
 | EM-019-001-001-001 | done | critical | The decision-record test reads wider than the line drawn beneath it |
-| EM-018-002 | ready | standard | The ADR template restates the decision-record test in its superseded form |
+| EM-018-002 | active | standard | The ADR template restates the decision-record test in its superseded form |
 | EM-020 | done | critical | Read the whole thing before acting on part of it |
 | EM-021 | done | critical | A rule needs a second instance before it is written |
 | EM-022 | done | critical | Define ticket rationale, impact and unattended selection |

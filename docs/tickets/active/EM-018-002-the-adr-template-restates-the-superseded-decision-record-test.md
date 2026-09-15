@@ -1,7 +1,7 @@
 ---
 id: EM-018-002
 title: The ADR template restates the decision-record test in its superseded form
-status: ready
+status: in-progress
 tier: standard
 kind: defect
 impact: degraded
@@ -9,8 +9,8 @@ delivery: maintenance
 why: "Without correcting it, the repository states one test two ways that disagree, and the template carries the wider reading that EM-019-001-001-001 removed from the document it restates."
 complexity: S
 dependencies: [EM-019-001-001-001]
-claimed_by:
-claimed_at:
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 blocked_at:
 closed_at:
 ---
