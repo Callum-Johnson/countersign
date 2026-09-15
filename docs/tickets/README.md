@@ -61,7 +61,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-007-002-001 | ready | standard | The operative test's one-line summary omits the process-surface clause |
 | EM-007-002-002 | done | standard | The ADR process states the wider reading the model no longer holds |
 | EM-007-002-003 | done | standard | Clause 5 of the operative test still names a change to the review model as critical |
-| EM-007-002-003-001 | ready | standard | ADR-0004 reads proposed while its decision is in force |
+| EM-007-002-003-001 | active | standard | ADR-0004 reads proposed while its decision is in force |
 | EM-009-001 | done | critical | The class obligation binds every repaired finding |
 | EM-018-001 | done | standard | The ticket template's how-to-use steps disagree with the lifecycle on three points |
 | EM-023 | done | standard | The next-id command misses an id created by renaming a ticket file |

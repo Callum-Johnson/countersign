@@ -1,7 +1,7 @@
 ---
 id: EM-007-002-003-001
 title: ADR-0004 reads proposed while its decision is in force
-status: ready
+status: in-progress
 tier: standard
 kind: defect
 impact: degraded
@@ -9,8 +9,8 @@ delivery: maintenance
 why: "Without the status matching the merge, a reader of ADR-0004 cannot tell from the record whether the decision it holds binds them, and the decision is the one that sets the tier of every process-document change."
 complexity: S
 dependencies: []
-claimed_by:
-claimed_at:
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 blocked_at:
 closed_at:
 ---
