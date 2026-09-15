@@ -75,22 +75,38 @@ decision), write "N/A".
 
 ## When to write an ADR vs not
 
+`docs/adr-process.md`, "When to write one", states this rule in full and
+carries its falsifier. The lists below are quoted from it, for a reader
+working from this template alone; where the two differ, that document
+governs.
+
 Write one when:
 
-- A library is added or swapped.
-- A public engine API shape changes.
-- A locked decision in the adopting project's own DESIGN.md needs revision.
-- A new top-level package is added.
-- A workflow rule in `docs/ai-contributor-policy.md`, `docs/ticket-lifecycle.md`
-  or `docs/tier-review-model.md` changes.
+- A dependency is added or swapped.
+- A public API shape changes.
+- A previously locked design decision is revised — in an adopting project,
+  one recorded in its own DESIGN.md.
+- A new top-level package appears.
+- A workflow rule changes — including a rule retired or amended under
+  `docs/tier-review-model.md`, "Retiring a control". That record carries the
+  rule's text as it stood, the finding that matched its falsifier, and the
+  text that replaces it, if any.
 
 Do **not** write one for:
 
-- Routine implementation choices internal to a single module.
-- Renaming a function (just rename it).
+- Implementation choices internal to one module.
+- Renaming something.
 - Test-only changes.
-- Configuration tweaks that any developer would make.
+- Configuration any contributor would make.
+
+The workflow-rule trigger does not reach a rule added inside a document, or
+extended in place one rule at a time, under an existing decision: the
+constraint is that decision's, and that decision has its record.
 
 When in doubt, apply the test in `docs/adr-process.md`, "When to write one".
 It is stated in full there and deliberately not restated here, per
 `docs/tier-review-model.md`, "Retiring a control".
+
+This template is written against `docs/adr-process.md` and
+`docs/tier-review-model.md`. A project copying `templates/` copies those or
+substitutes its own equivalents.
