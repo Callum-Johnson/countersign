@@ -227,8 +227,11 @@ schema migration and is amended here for a process document.
 > Not part of the decision as recorded. The text above the horizontal line is
 > unchanged by this annotation. The status read `proposed` when this
 > annotation was written and was moved to `accepted` the same day, under
-> EM-007-002-003-001, which is the transition `docs/adr-process.md` requires
-> once a record's change has merged.
+> EM-007-002-003-001, which was the transition `docs/adr-process.md` then
+> required once a record's change had merged. This preamble was amended on
+> the same date under EM-007-002-003-002, which is why it names a ticket
+> raised after the annotation was written; the findings below it are as
+> first written.
 
 The Consequences bullet beginning "clause 5 of the operative test still names
 'a change to the review model itself'" describes the clause as it stood at

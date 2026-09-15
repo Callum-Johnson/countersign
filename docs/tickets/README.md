@@ -63,7 +63,8 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-007-002-002 | done | standard | The ADR process states the wider reading the model no longer holds |
 | EM-007-002-003 | done | standard | Clause 5 of the operative test still names a change to the review model as critical |
 | EM-007-002-003-001 | done | standard | ADR-0004 reads proposed while its decision is in force |
-| EM-007-002-003-002 | active | standard | ADR-0004's annotation says the status is unchanged and the status has changed |
+| EM-007-002-003-002 | done | standard | ADR-0004's annotation says the status is unchanged and the status has changed |
+| EM-007-002-003-002-001 | ready | standard | The annotation preambles have no canonical form and two carry the stale wording |
 | EM-009-001 | done | critical | The class obligation binds every repaired finding |
 | EM-018-001 | done | standard | The ticket template's how-to-use steps disagree with the lifecycle on three points |
 | EM-023 | done | standard | The next-id command misses an id created by renaming a ticket file |
