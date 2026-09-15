@@ -224,8 +224,11 @@ schema migration and is amended here for a process document.
 
 ## Annotation — added 2026-09-15 under EM-007-002-003
 
-> Not part of the decision as recorded. The text above the horizontal line
-> is unchanged, and the status is unchanged.
+> Not part of the decision as recorded. The text above the horizontal line is
+> unchanged by this annotation. The status read `proposed` when this
+> annotation was written and was moved to `accepted` the same day, under
+> EM-007-002-003-001, which is the transition `docs/adr-process.md` requires
+> once a record's change has merged.
 
 The Consequences bullet beginning "clause 5 of the operative test still names
 'a change to the review model itself'" describes the clause as it stood at
