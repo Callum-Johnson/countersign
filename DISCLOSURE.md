@@ -64,14 +64,22 @@ identifiers were replaced with neutral equivalents, because the project names
 are themselves drawn from the third party's setting. No other text was
 changed at publication, and nothing was redacted within a published file.
 
-One exception was made after publication and is marked as such. The decision
-record on ticket lineage carries an annotation appended on 2026-09-06 under
-ticket EM-006, under its own dated heading, stating two defects in the
-scheme's lookup instructions that were found in use. The original text above
-the annotation is unchanged. It is annotated rather than superseded because
-the decision is sound and only its procedure was incomplete, and a reader
-copying the scheme needs the correction beside it rather than in a file they
-may not open.
+Two exceptions were made after publication, both to the same file and both
+marked as such. The decision record on ticket lineage carries an annotation
+appended on 2026-09-06 under ticket EM-006, under its own dated heading,
+stating two defects in the scheme's lookup instructions that were found in
+use; and a second appended on 2026-09-15 under ticket EM-023, stating two
+further routes by which an identifier is spent that the first annotation's
+command does not report. The original text above both annotations is
+unchanged, and so is the earlier annotation: the second was added below a rule
+of its own rather than by editing the first, because a dated annotation
+records what was found on its date. EM-023 first made its correction by
+editing the 2026-09-06 text in place; EM-023-001 restored that text and moved
+the correction below, and both facts are stated in the second annotation.
+
+They are annotations rather than supersessions because the decision is sound
+and only its procedure was incomplete, and a reader copying the scheme needs
+the correction beside it rather than in a file they may not open.
 
 Where an artifact needed redaction to be publishable, it was **excluded rather
 than redacted**. A partially redacted document invites the reader to

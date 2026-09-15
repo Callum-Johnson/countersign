@@ -5,15 +5,15 @@ architecture and workflow only. See [DISCLOSURE.md](../DISCLOSURE.md) for how
 they were selected and what was excluded.
 
 Project names and ticket identifiers are normalised. Nothing else was changed
-at publication, and nothing within a published file is redacted. One dated
-annotation was added later, under its own heading, to `adr-0038`; see
+at publication, and nothing within a published file is redacted. Two dated
+annotations were added later, each under its own heading, to `adr-0038`; see
 [DISCLOSURE.md](../DISCLOSURE.md) for why.
 
 ## Decision records
 
 | File | Why it is here |
 |---|---|
-| [`adr-0038`](adr/adr-0038-tickets-carry-the-lineage-of-the-ticket-that-raised-them.md) | The ticket lineage scheme, decided and recorded as an ADR. The clearest example of the process governing itself. Carries a dated annotation at the end, added under EM-006, correcting its lookup instructions; the original text is unchanged. |
+| [`adr-0038`](adr/adr-0038-tickets-carry-the-lineage-of-the-ticket-that-raised-them.md) | The ticket lineage scheme, decided and recorded as an ADR. The clearest example of the process governing itself. Carries two dated annotations at the end, added under EM-006 and EM-023, each correcting the lookup instructions further; the original text, and the earlier annotation, are unchanged. |
 | [`adr-0019`](adr/adr-0019-a-non-committing-validate-endpoint.md) | Adding an endpoint that answers "would this be legal?" without mutating state — a contract decision, reasoned through alternatives. |
 | [`adr-0018`](adr/adr-0018-the-adapter-states-a-cors-policy.md) | A CORS decision that starts by questioning whether the concern belongs to this component at all, and records the negative consequences of the answer honestly. |
 
