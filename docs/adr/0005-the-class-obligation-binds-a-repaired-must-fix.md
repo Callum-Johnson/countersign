@@ -1,6 +1,6 @@
 # ADR-0005: The class obligation binds a repaired must-fix, not a note
 
-- **Status:** proposed
+- **Status:** accepted
 - **Date:** 2026-09-07
 - **Deciders:** maintainer, answering the question EM-009-001 reserved to
   the maintainer under the contributor policy's §3
