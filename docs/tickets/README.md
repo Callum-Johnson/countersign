@@ -65,6 +65,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-018-001 | done | standard | The ticket template's how-to-use steps disagree with the lifecycle on three points |
 | EM-023 | done | standard | The next-id command misses an id created by renaming a ticket file |
 | EM-023-001 | done | trivial | The ADR-0038 correction rewrote a dated annotation instead of adding one |
+| EM-023-002 | done | trivial | The disclosure counts one post-publication annotation and there are now two |
 | EM-024 | ready | standard | A count written into prose has no falsifier and drifts silently |
 | EM-025 | done | standard | The per-round table has one copy, and the blocker names the row |
 | EM-026 | ready | standard | An exhaustive claim is derived, not listed |
