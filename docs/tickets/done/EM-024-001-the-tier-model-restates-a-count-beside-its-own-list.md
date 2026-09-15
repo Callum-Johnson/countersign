@@ -1,10 +1,12 @@
 ---
 id: EM-024-001
 title: The tier model restates a count beside its own list
-status: ready
+status: in-progress
 tier: standard
 complexity: S
 dependencies: [EM-024]
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 ---
 
 # EM-024-001 — The tier model restates a count beside its own list
