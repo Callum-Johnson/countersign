@@ -23,8 +23,12 @@ Do **not** write one for:
 - Test-only changes.
 - Configuration any contributor would make.
 
-The test: if the decision affects multiple tickets or constrains future work,
-it is an ADR. If it affects only the ticket in hand, the ticket is enough.
+The test: a decision is an ADR if it changes how the process itself is
+governed, or if it constrains work beyond the ticket in hand and sits under no
+decision already recorded. A rule added under a decision already recorded is
+not one, whatever it constrains: the constraint is that decision's, applied at
+one step, and that decision has its record. If it affects only the ticket in
+hand, the ticket is enough.
 
 **Retired when:** a regression a recorded decision would have prevented
 happens with the record present, more than once over a stated population, or
@@ -57,9 +61,7 @@ EM-021's second-instance bar sits nearest the line and on the second side:
 it says what a rule-adding ticket carries before its rule enters, and was
 added as one paragraph under ADR-0003's decision that a rule is held to
 evidence — ADR-0003's migration added a line to every rule in `docs/`, and
-EM-021 rewrote none. The section's test above reads the same way: the
-constraint such a rule places on future work is the existing decision's,
-applied at one step, and that decision has its record. This is the practice
+EM-021 rewrote none. This is the practice
 this repository has followed — the rules added by EM-008, EM-009, EM-010,
 EM-011, EM-012, EM-016 and EM-019-001 produced no record, and under this
 line none was owed. The line decides whether a record is owed and nothing
