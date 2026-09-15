@@ -162,11 +162,13 @@ See `docs/ai-contributor-policy.md` and `docs/ticket-lifecycle.md`
      second-agent review): append a three-digit sequence to the originating
      ticket's id — `PRJ-284-001`, then `PRJ-284-002`. A ticket raised while
      working *that* one is `PRJ-284-001-001`, and so on without limit. Find
-     the next sequence from the siblings of that one parent ever added, read
-     from history rather than the tree, since a deleted or renamed ticket's
-     id is spent: `git log --diff-filter=A --name-only --format= --
+     the next sequence from the ids the siblings of that one parent have ever
+     borne, read from history rather than the tree, since a deleted, absorbed
+     or renamed ticket's id is spent and a rename spends its destination id
+     too: `git log --full-history --diff-filter=AR --name-only --format= --
      docs/tickets`, with the ids extracted from the paths, as
-     `docs/ticket-lifecycle.md`, "Lineage", says. Because the read is scoped
+     `docs/ticket-lifecycle.md`, "Lineage", says — which is also where the
+     two flags are explained. Because the read is scoped
      to a single parent, two agents working different tickets cannot collide.
    - **Raised on its own account** — from a message from a downstream client, a
      rules audit, a planning pass, or the maintainer — continue the flat

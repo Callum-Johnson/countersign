@@ -148,7 +148,7 @@ it the count is thirteen, because there the reused id has a file again.)
 ticket files ever added:
 
 ```sh
-git log --diff-filter=A --name-only --format= -- docs/tickets \
+git log --full-history --diff-filter=AR --name-only --format= -- docs/tickets \
   | sed -nE 's#.*/(PRJ-[0-9]+(-[0-9]+)*)-.*#\1#p' | sort -u
 ```
 

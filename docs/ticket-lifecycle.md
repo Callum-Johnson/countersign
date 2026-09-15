@@ -277,17 +277,46 @@ longer decides whether a collision is seen.
 spent. A ticket raised and later deleted, absorbed or renamed leaves no file
 and remains named in closed tickets, commit messages and pull-request bodies,
 and a read of the tree hands its id out again. Take the next number from the
-set of ticket files ever added — `git log --diff-filter=A --name-only
---format= -- docs/tickets`, with the ids extracted from the paths — not from
-`ls`. This repository already has one such id:
-`EM-010-001` was created at 3da6c57 and renamed `EM-014-001` at 0947dda, so
-the tree shows no child of EM-010 while the history does, and the next child
-of EM-010 read from the tree would be `-001` again. On the source project — the
-rules engine in the growth case study — the count stood at fourteen against
-its default branch when EM-006 was raised, and
-the fourteenth was taken, worked and closed before anyone noticed. A reused id
-is not renumbered afterwards; the newer ticket records the reuse and points at
-the older use.
+set of ids ticket files have ever borne — `git log --full-history
+--diff-filter=AR --name-only --format= -- docs/tickets`, with the ids
+extracted from the paths — not from `ls`. This repository already has one
+spent id: `EM-010-001` was created at 3da6c57 and superseded by
+`EM-014-001` at 0947dda, so the tree shows no child of EM-010 while the
+history does, and the next child of EM-010 read from the tree would be `-001`
+again. On the source project — the rules engine in the growth case study —
+the count stood at fourteen against its default branch when EM-006 was
+raised, and the fourteenth was taken, worked and closed before anyone
+noticed. A reused id is not renumbered afterwards; the newer ticket records
+the reuse and points at the older use.
+
+Each flag answers a route by which an id is spent, and each was found by
+running the recipe against a history that refutes it rather than by reasoning
+about it.
+
+- `--diff-filter=AR` rather than `A`, because a file *renamed* to a new id —
+  where two agents allocated the same number — spends its destination id, and
+  a rename is not an addition. Given the command's own rename detection, a
+  history where `PRJ-028-first.md` is renamed to `PRJ-029-first.md` answers
+  `PRJ-028` under `A` and `PRJ-028 PRJ-029` under `AR`. A contributor
+  following `A` allocates `PRJ-029`, which is already in use. A renumber large
+  enough to fall below git's similarity threshold is recorded as a delete plus
+  an addition instead and is caught by `A` anyway — which is what 0947dda
+  above is, and why this repository was not itself exposed.
+- `--full-history`, because default history simplification drops a merged side
+  branch whose net effect on `docs/tickets` is nil. An id raised on a branch
+  and absorbed there before the merge is then reported by nothing: a history
+  where `PRJ-040` is raised on a branch, removed on that branch, and the
+  branch merged, answers `PRJ-001` alone without the flag and `PRJ-001
+  PRJ-040` with it. That is the deleted-and-absorbed case this rule's own
+  first sentence names, so without the flag the command misses the failure it
+  was written for.
+
+What the command covers is every id borne by a file under `docs/tickets` in
+the history of the ref it is run on. Adding `--all` reads every ref the
+repository holds, which is worth doing where branches are shared. What no
+form of it reaches is an id allocated on a ref this repository has never
+seen — two agents on unshared branches — which is a different defect with a
+different answer, and not one a read of one history can catch.
 
 **Retired when:** the project forbids deleting a ticket file — tickets are
 only ever moved — so that the tree is the history and reads the same.
