@@ -442,12 +442,12 @@ a finding.
 **Retired when:** over a stated population of critical-tier tickets closed
 under this rule, a must-fix found after the first round sits inside the
 previous round's repair more than once; the read then costs a section per
-repair and prevents nothing. At 5d94db7, before the rule, five must-fixes found
-after the first round sat inside the previous round's repair. The claim-time reading retires with §3's blocking rule, whose falsifier —
-blocks routinely unblocked with the reading the executor would have taken —
-it shares. The
-wrapping clause retires when a wrap convention applied by a tool lands, at
-which point it protects nothing.
+repair and prevents nothing. The pre-rule rate is in the paragraph above, with
+its baseline and the records it was read from; it is not restated here. The
+claim-time reading retires with §3's blocking rule, whose falsifier — blocks
+routinely unblocked with the reading the executor would have taken — it
+shares. The wrapping clause retires when a wrap convention applied by a tool
+lands, at which point it protects nothing.
 
 **The record.** The pull-request description's Review section carries, per
 round: the round number, the must-fix count, where the findings sat (rules,
@@ -594,10 +594,11 @@ published, the main branch force-pushed — may be written from one instance or
 from none, and says so. The reason is the brief: every rule here is read by
 every future reviewer on every round, and a rule written from one instance is
 a bet that the instance recurs, paid whether it does or not. Of the
-rule-adding tickets from EM-006 to EM-020, those that name one source ticket
-on one project in their Context are EM-007, EM-008, EM-010, EM-011, EM-012,
-EM-012-001, EM-014-001 and EM-019-001, found by reading each Context for the
-source it names. Those are this rule's instances, and none would have cleared
+tickets from EM-006 to EM-020 that add a rule to a document under `docs/`,
+those naming one source ticket on one project in their Context are EM-007,
+EM-008, EM-010, EM-011, EM-012, EM-012-001, EM-014-001 and EM-019-001 —
+population and predicate both found by reading each ticket, which is how a
+later reader checks the list against the same range. Those are this rule's instances, and none would have cleared
 the bar it supplies. The bar binds tickets raised after the ticket that landed
 this paragraph closed; a rule-adding ticket that names one instance and claims
 no exception is not ready.
