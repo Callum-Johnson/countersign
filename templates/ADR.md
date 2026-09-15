@@ -75,22 +75,20 @@ decision), write "N/A".
 
 ## When to write an ADR vs not
 
-Write one when:
+`docs/adr-process.md`, "When to write one", states this in full: the triggers,
+the cases that are not triggers, the test that settles the rest, and what the
+trigger reaches. It is not restated here, per `docs/tier-review-model.md`,
+"Retiring a control" — a rule stated in two documents carries one falsifier, at
+the place it is stated in full, and referencing it from the other is what keeps
+the two from drifting.
 
-- A library is added or swapped.
-- A public engine API shape changes.
-- A locked decision in the adopting project's own DESIGN.md needs revision.
-- A new top-level package is added.
-- A workflow rule in `docs/ai-contributor-policy.md`, `docs/ticket-lifecycle.md`
-  or `docs/tier-review-model.md` changes.
+Two things that document settles and a shorter list here got wrong, named so a
+reader knows what the reference is carrying: a rule **retired or amended** under
+"Retiring a control" is a trigger, because there the record is the control and
+the retired text survives nowhere else; and a rule merely **added inside a
+document under a decision already taken** is not one, whatever it constrains,
+because the constraint is that decision's and that decision has its record.
 
-Do **not** write one for:
-
-- Routine implementation choices internal to a single module.
-- Renaming a function (just rename it).
-- Test-only changes.
-- Configuration tweaks that any developer would make.
-
-When in doubt, apply the test in `docs/adr-process.md`, "When to write one".
-It is stated in full there and deliberately not restated here, per
-`docs/tier-review-model.md`, "Retiring a control".
+An adopting project copying this template takes `docs/adr-process.md` with it,
+as the README's "Start here" table directs; the template names it rather than
+carrying a copy that can fall behind.
