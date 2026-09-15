@@ -1,7 +1,7 @@
 ---
 id: EM-007-002-003-002
 title: ADR-0004's annotation says the status is unchanged and the status has changed
-status: ready
+status: in-progress
 tier: standard
 kind: defect
 impact: degraded
@@ -9,8 +9,8 @@ delivery: maintenance
 why: "Without correcting it, ADR-0004 states in its own text that its status is unchanged while the line above carries a changed value, and nothing in the file lets a reader order the two."
 complexity: S
 dependencies: [EM-007-002-003-001]
-claimed_by:
-claimed_at:
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 blocked_at:
 closed_at:
 ---
