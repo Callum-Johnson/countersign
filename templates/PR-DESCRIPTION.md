@@ -32,7 +32,13 @@ PRJ-XXX — <ticket title> (also in frontmatter; can be terse)
 Copy each AC from the ticket and tick it with evidence. Every measured
 number names its baseline in the same sentence and is read from a command
 the description names, run after the last commit that changes it
-(contributor policy §6):
+(contributor policy §6). A number that something other than its own sentence
+determines names its one site — the test that measures it, or, where the
+project has no suite, the command or the list — and is not restated anywhere
+else in the description; where a list or a search would serve, no number is
+written, and a number kept anyway says which determiner it copies and why
+naming it would not serve the reader there (quality gates, "A number
+determined elsewhere has one site that goes red"):
 - [x] AC1: <criterion> — see `tests/unit/test_modifiers.py::test_caps_sv`
 - [x] AC2: <criterion> — see implementation in `core/modifiers.py:42`
 - [ ] AC3: <not done — explain why>
@@ -94,9 +100,13 @@ Steps a reviewer or future agent can take to confirm this works:
 <known limitations, things to watch, follow-up tickets created>
 
 ### Review
-Critical tier only; write `N/A` otherwise. One row per independent review
-round. The total is derived from the rows and never asserted beside them
-(tier review model, "When review ends").
+Critical tier, and a change to a process document; write `N/A` otherwise.
+One row per independent review round — a process-document change has one
+(tier review model, "The operative test"). The total is derived from the
+rows and never asserted beside them (tier review model, "When review ends").
+The table appears once, here; a `BLOCKER:` comment written at the cap names
+its row, and a finding's `R<n>.<k>`, rather than copying either (tier review
+model, "When review ends", **One copy**).
 
 | Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
 |---|---|---|---|---|
@@ -182,7 +192,9 @@ A PR may not be merged unless all are true:
 9. **PR description** is complete per the template above; every measured
    number in it names its baseline in the same sentence, and was read from
    a command the description names, run after the last commit that changes
-   it (contributor policy §6).
+   it (contributor policy §6). A number something other than its own sentence
+   determines names its one site and appears in no second place, or says why
+   it was kept (quality gates).
 10. **No forbidden actions** taken (see `docs/ai-contributor-policy.md`, §5).
 11. **Falsification gate** discharged and recorded: a red count per
     behavioural claim, a zero written as a zero.

@@ -21,7 +21,8 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-001 | done | critical | Triage source artifacts for third-party IP (retrospective) |
 | EM-002 | done | standard | Publish policy documents, templates and cleared examples (retrospective) |
 | EM-003 | done | critical | Adopt the documented process in this repository |
-| EM-001-001 | blocked | standard | Harden the IP classifier and make the triage reproducible |
+| EM-001-001 | done | standard | Harden the IP classifier and make the triage reproducible (closed 2026-09-15 without the work; the maintainer declined a script in this repository) |
+| EM-001-001-001 | ready | standard | The lifecycle has no close for a ticket that will not be worked |
 | EM-004 | blocked | standard | Add per-project case studies |
 | EM-005 | done | critical | Publish the repository |
 | EM-005-001 | ready | trivial | Link commit authorship to the publishing account |
@@ -52,10 +53,19 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-019-001-001-001 | ready | critical | The decision-record test reads wider than the line drawn beneath it |
 | EM-020 | done | critical | Read the whole thing before acting on part of it |
 | EM-021 | done | critical | A rule needs a second instance before it is written |
-| EM-020-001 | blocked | critical | A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded |
-| EM-007-002 | blocked | critical | A process-document change is trivial by the test and critical by ADR-0002 |
+| EM-022 | done | critical | Define ticket rationale, impact and unattended selection |
+| EM-022-001 | blocked | trivial | Update ticket examples for rationale and impact metadata |
+| EM-020-001 | blocked | critical | A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded (answered (a) on 2026-09-15; assigned to the maintainer, not claimable by an agent executor) |
+| EM-007-002 | done | standard | A process-document change is trivial by the test and critical by ADR-0002 |
+| EM-007-002-001 | ready | standard | The operative test's one-line summary omits the process-surface clause |
+| EM-007-002-002 | done | standard | The ADR process states the wider reading the model no longer holds |
+| EM-007-002-003 | ready | standard | Clause 5 of the operative test still names a change to the review model as critical |
 | EM-009-001 | blocked | critical | The class obligation binds every repaired finding |
 | EM-018-001 | done | standard | The ticket template's how-to-use steps disagree with the lifecycle on three points |
+| EM-023 | ready | standard | The next-id command misses an id created by renaming a ticket file |
+| EM-024 | ready | standard | A count written into prose has no falsifier and drifts silently |
+| EM-025 | done | standard | The per-round table has one copy, and the blocker names the row |
+| EM-026 | ready | standard | An exhaustive claim is derived, not listed |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
 backdated; ADR-0001 explains why backdating was rejected.

@@ -34,9 +34,9 @@ a fleet of them from quietly destroying a codebase while doing so.
 | Document | What it covers |
 |---|---|
 | [AI contributor policy](docs/ai-contributor-policy.md) | The rules AI agents work under — what they may and may not do, when to stop and block, what must be true before a change is reported done, the pre-flight checklist — and a map of which document settles what |
-| [Ticket lifecycle](docs/ticket-lifecycle.md) | How work is claimed, batched, blocked and closed, how tickets are numbered, and the directory/status invariant that keeps it honest |
+| [Ticket lifecycle](docs/ticket-lifecycle.md) | How work is claimed, selected, batched, blocked and closed; how tickets are numbered; how impact and rationale make capacity decisions inspectable; and the directory/status invariant that keeps it honest |
 | [Tier review model](docs/tier-review-model.md) | Three risk tiers and the operative test that assigns them; who reviews, and who may move a tier; what a review reports and when it ends; how a rule leaves the documents, and what one needs before it enters |
-| [Quality gates](docs/quality-gates.md) | The four machine checks that must pass before merge, the falsification gate the executor discharges, and where a review runs |
+| [Quality gates](docs/quality-gates.md) | The four machine checks that must pass before merge, the falsification gate the executor discharges, where a number that something else determines lives, and where a review runs |
 | [ADR process](docs/adr-process.md) | When a decision is a record, what the record carries, and why changes to the process are recorded the same way |
 | [Disclosure policy](DISCLOSURE.md) | What is withheld from this repository, what is published, and the reasoning |
 
@@ -68,9 +68,10 @@ a ticket, an ADR, or a comment about a non-obvious invariant. Never in a chat
 log. This one rule generates most of the others.
 
 **2. The ticket is the contract.** An agent may implement what the ticket
-specifies and nothing else. Discovered work becomes a new ticket with recorded
-lineage; it does not get silently fixed. Ambiguity is escalated, never resolved
-by invention.
+specifies and nothing else. Its rationale and impact make the capacity decision
+inspectable. Discovered work becomes a new ticket with recorded lineage; it
+does not get silently fixed. Ambiguity is escalated, never resolved by
+invention.
 
 **3. State is stored twice and must agree.** A ticket's `status:` field and the
 directory it sits in are the same fact. Every move pairs the two in a single
@@ -79,8 +80,9 @@ commit, so the workflow cannot drift out of sync without leaving evidence.
 **4. Risk tier is decided by a test, not a feeling.** *Could an existing caller
 or a seeded roll notice this change without opting in?* Yes means critical and
 a second reviewer. No means standard — or trivial, where nothing a program
-executes or a caller reads as a contract is touched. Touching an important file
-is a prompt to run the test, not an automatic escalation.
+executes or a caller reads as a contract is touched. A process document is
+standard, on one pass, whatever the answer. Touching an important file is a
+prompt to run the test, not an automatic escalation.
 
 **5. Four gates are machine-checked; the fifth is countersigned where the
 work is.** Lint, format, strict type-checking and tests run identically on a

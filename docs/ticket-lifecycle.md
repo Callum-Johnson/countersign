@@ -56,6 +56,75 @@ a conflict — the lock failed silently, which it is designed not to do — or
 the project adopts a coordination service that makes the file move
 redundant.
 
+## Ticket rationale, impact and delivery
+
+Every ticket written after this rule takes effect carries four frontmatter
+fields and the `## Why this ticket should be worked` section from the ticket
+template. The section is the evidence-bearing explanation; the frontmatter is
+the short, machine-readable form.
+
+| Field | Legal values | It answers |
+|---|---|---|
+| `kind` | `defect`, `feature`, `maintenance`, `research`, `governance` | What sort of work is this? |
+| `impact` | `system-unavailable`, `multi-feature-blocking`, `feature-blocking`, `degraded`, `enhancement` | What follows if this work is deferred? |
+| `delivery` | `slice`, `enabling`, `maintenance` | Is this an end-to-end outcome, work that enables one, or upkeep? |
+| `why` | a non-empty concise causal statement | Why should this ticket receive capacity? |
+
+`why` names the consequence, not an implementation preference: "Without this
+work, the release command cannot run on a clean checkout" is a rationale;
+"add language support" is not. The justification section names the affected
+outcome, deferral consequence, supporting evidence and any condition under
+which deferral is acceptable. A missing field, an undeclared value or a
+justification that cannot make that causal case means the ticket is not ready.
+
+Impact values are ordered from greatest consequence of deferral to least:
+
+1. `system-unavailable` — a required build, test, deployment or runtime
+   operation cannot proceed.
+2. `multi-feature-blocking` — two or more defined delivery slices cannot
+   proceed.
+3. `feature-blocking` — one defined delivery slice cannot proceed.
+4. `degraded` — an existing capability is impaired but remains usable or has
+   a stated workaround.
+5. `enhancement` — no existing committed capability is impaired.
+
+A `slice` is the thinnest independently demonstrable end-to-end outcome. An
+`enabling` ticket may be horizontal, but names the slice or capability it
+enables where one exists. `maintenance` is work that preserves an existing
+capability without claiming a new outcome. These classifications and impact
+do not answer the tier question; `docs/tier-review-model.md`, "The operative
+test", remains the only rule that does.
+
+**Retired when:** over a stated population of new tickets, the rationale and
+impact fields are shown to misorder work compared with the maintainer's
+recorded decisions, or ticket authors regularly cannot choose between the
+listed values without inventing project-specific meanings. The portable scale
+then either does not represent the capacity decision or is too narrow to use.
+
+## Unattended selection
+
+A project may select tickets automatically only under a completed
+project-local policy in the form `templates/SCHEDULING-POLICY.md` gives. The
+policy is a maintainer's authorisation of selection, not an agent's inference
+from ticket prose.
+
+The selector considers only claimable tickets whose declared impact is allowed
+by that policy. It chooses the greatest allowed impact first, then applies the
+policy's declared deterministic tie-breaker. A ticket with incomplete
+dependencies, a blocker, a failed gate, a policy refusal or a missing required
+approval is handled by the existing procedures; the selection rule grants no
+exception. It authorises neither dispatch beyond the project policy nor
+review, merge, a tier reduction or a decision reserved to a human.
+
+Without a completed project-local policy, work is selected manually. A policy
+that authorises dispatch does not thereby authorise any later action.
+
+**Retired when:** a project's completed unattended-selection record shows
+that declared impact and deterministic tie-breaking selected work the
+maintainer reverses more often than manual selection does over a stated
+population. The rule then imposes metadata and policy maintenance without
+improving unattended ordering.
+
 ## Batching trivial work
 
 The tier model scales review to risk and nothing else: a `trivial` change and

@@ -20,10 +20,10 @@ row names where the rule is. What you must read before your first edit is
 | Question | Where it is settled |
 |---|---|
 | What may I do, what may I not, and what do I do when I cannot proceed? | this document |
-| How do I claim, block, batch and close work, and how are tickets numbered? | `docs/ticket-lifecycle.md` — the mechanics; §3 above states when to block |
+| How do I claim, select, block, batch and close work; how are tickets numbered; and what governs unattended selection? | `docs/ticket-lifecycle.md` — the mechanics and project-local scheduling-policy boundary; §3 above states when to block |
 | What must be true before I report this change done? | this document, §6 |
 | What tier is my change, who reviews it, what does a review report, when does it end, how does a rule leave, and what does one need before it enters? | `docs/tier-review-model.md` |
-| Which machine checks must pass, what does the falsification gate ask of me, and where does a review run? | `docs/quality-gates.md` |
+| Which machine checks must pass, what does the falsification gate ask of me, where does a number that something else determines live, and where does a review run? | `docs/quality-gates.md` |
 | Is this decision a record, and what does that record carry? | `docs/adr-process.md` |
 | What shape does a ticket, a pull-request description or a decision record take? | `templates/` |
 | What has this repository already decided, and on what reasoning? | `docs/adr/` |
@@ -102,11 +102,26 @@ criteria, the references, and an explicit out-of-scope list.
   rejection, however good the change.
 - One ticket at a time per agent. Do not claim several in parallel.
 - Do not start a ticket whose dependencies are unfinished.
+- A new ticket carries `kind`, `impact`, `delivery` and a concise `why` in
+  its frontmatter, plus the causal justification the ticket template names.
+  Those facts describe why it deserves capacity; they do not alter its tier.
+- Do not infer, upgrade or downgrade a ticket's impact from its prose. Where
+  the declared impact and its justification do not agree, block for the party
+  that owns the ticket to correct the contract.
+
+**Retired when:** the adopting project generates impact from a durable,
+maintainer-owned evidence record and agents cannot write either the generated
+field or its source. The agent then has no impact judgement to substitute.
 
 **Retired when:** a project's closed tickets show out-of-scope work rejected
 at review that the ticket's author, asked afterwards, would have accepted,
 more often than they show scope creep caught — counted over a stated
 population of tickets. The rule then costs more honest work than it stops.
+
+**Retired when:** over a stated population of new tickets, the required
+justification is routinely copied from the title or fails to distinguish work
+accepted by a maintainer from work they reject as speculative. The fields then
+cost authoring time without making the capacity decision inspectable.
 
 ## 3. Ambiguity is escalated, never resolved by invention
 
@@ -156,7 +171,10 @@ the trigger has had nothing to match.
 
 Non-convergence is a further trigger: a critical-tier review that reaches the
 round cap in `docs/tier-review-model.md`, "When review ends", blocks by this
-same procedure, with its review record attached.
+same procedure, with its review record attached — the per-round table has one
+copy, in the ticket's Review section, and the blocker names the rows and the
+findings it turns on rather than copying them, as that section's **One copy**
+says.
 
 **Retired when:** blocked tickets on a project are, over a stated population,
 routinely unblocked with the reading the executor would have taken. The block
@@ -333,12 +351,26 @@ every reading of it. That is not caution — it is unreviewable code.
   count beside a correctly named baseline is the most expensive kind of wrong
   number: it survives every check the description carries. This is the
   falsification gate's demand applied to figures — a number nobody re-ran is
-  unpinned, and naming its baseline makes it look pinned.
+  unpinned, and naming its baseline makes it look pinned. A number that
+  something other than its own sentence determines — a list, a table, a
+  directory, a set of files, a command over the tree, another sentence that
+  decides it — carries a further obligation, which extends this bullet and does
+  not replace it: the number has one site, that site is one that goes red when
+  what it counts moves, and prose names the site rather than restating the
+  number — a test where the project has a suite, and where it has none, no
+  number at all. `docs/quality-gates.md`, "A number determined elsewhere has
+  one site that goes red", states the question that settles which numbers that
+  reaches, what a number kept in prose anyway must carry beside it, what the
+  form without a suite costs, that section's own falsifier and what it does not
+  reach. This bullet is unchanged and still reaches every measured number,
+  counts included.
   **Retired when:** over a stated population of closed tickets, figures
   reported under this rule are found wrong as often as the figures reported
   before it; the rule then costs a command per class of figure and catches
   nothing.
-- For critical-tier work, a second reviewer has approved.
+- For critical-tier work, a second reviewer has approved; for a change to a
+  process document, the one independent pass the tier model gives it has run
+  and is recorded.
 
 The pull-request description is appended to the ticket file before the ticket
 closes. It does not live only in a code-forge UI, because the repository has
