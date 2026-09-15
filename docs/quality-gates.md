@@ -212,6 +212,41 @@ or that review let through, those that assert a mechanism are shown to have
 caught regressions that claim-level tests missed more often than they have
 blocked a correct change to the mechanism.
 
+**An exhaustive claim is derived, not listed.** A test that asserts something
+of *every* member of a population derives that population from the thing it
+describes; it does not restate it. A list the author wrote is a claim about
+the tree wearing the costume of a check: the suite is green, the recorded red
+count is non-zero, and the property the test names is absent, because the
+rival reddens the members the list happens to hold. The gate above does not
+reach this — it asks what a wrong implementation would redden, and here one
+does. Three ways to satisfy it, in order of preference, because the first is
+not always available:
+
+1. **Assert at the convergence point.** Where every member must pass through
+   one place, check there. A population that cannot be enumerated wrongly
+   beats one enumerated carefully.
+2. **Derive the population.** Walk the tree, read the registry, ask the
+   module. Do not list the files, the call shapes or the spellings.
+3. **Where neither is possible, the docstring says what the check cannot
+   see**, and that statement is itself pinned — the shape this gate already
+   uses for a non-discriminating test. Stating a gap honestly is a real
+   answer; a gap left to the reader is not.
+
+**A rival must redden a path a caller can take.** A count earned only through
+an entry point no caller reaches is a zero wearing a number. The gate's
+sentence above — a zero written down is a fact a reviewer can act on — does
+not reach it, because nothing was written down as zero. Where the rival is
+applied, the case that reddens names the caller that gets there.
+
+This binds checks written after it. Nothing sweeps an existing corpus for
+lists.
+
+**Retired when:** over a stated population of reviews, a check written under
+this rule is found to have derived its population and still missed a member —
+the rule would then be asking for the wrong thing rather than for more care.
+Or no reviewer finds a written-down population over a stated population of
+changes, at which point the rule restates practice and leaves.
+
 ## A number determined elsewhere has one site that goes red
 
 A number that something other than its own sentence determines is a claim in
