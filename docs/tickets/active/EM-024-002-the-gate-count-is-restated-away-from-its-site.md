@@ -1,10 +1,12 @@
 ---
 id: EM-024-002
 title: The gate count is restated away from its site, and it is not alone
-status: ready
+status: in-progress
 tier: standard
 complexity: M
 dependencies: [EM-024]
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 ---
 
 # EM-024-002 — The gate count is restated away from its site

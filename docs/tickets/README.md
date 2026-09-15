@@ -71,7 +71,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-023-002 | done | trivial | The disclosure counts one post-publication annotation and there are now two |
 | EM-024 | in-progress | critical | A count written into prose has no falsifier and drifts silently |
 | EM-024-001 | active | standard | The tier model restates a count beside its own list |
-| EM-024-002 | ready | standard | The gate count is restated away from its site, and it is not alone |
+| EM-024-002 | active | standard | The gate count is restated away from its site, and it is not alone |
 | EM-025 | done | standard | The per-round table has one copy, and the blocker names the row |
 | EM-026 | ready | standard | An exhaustive claim is derived, not listed |
 
