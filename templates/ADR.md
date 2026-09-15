@@ -91,6 +91,7 @@ Do **not** write one for:
 - Test-only changes.
 - Configuration tweaks that any developer would make.
 
-When in doubt: if the decision affects multiple tickets or constrains
-future work, ADR it. If it only affects this one ticket, the ticket
-itself is enough.
+When in doubt, apply the test in `docs/adr-process.md`, "When to write one".
+It is stated in full there, with its falsifier and the line that says which
+rules it reaches, and it is deliberately not restated here: a rule stated in
+two documents carries one falsifier, at the place the rule is stated in full.
