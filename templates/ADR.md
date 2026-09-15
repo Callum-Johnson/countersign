@@ -92,6 +92,5 @@ Do **not** write one for:
 - Configuration tweaks that any developer would make.
 
 When in doubt, apply the test in `docs/adr-process.md`, "When to write one".
-It is stated in full there, with its falsifier and the line that says which
-rules it reaches, and it is deliberately not restated here: a rule stated in
-two documents carries one falsifier, at the place the rule is stated in full.
+It is stated in full there and deliberately not restated here, per
+`docs/tier-review-model.md`, "Retiring a control".
