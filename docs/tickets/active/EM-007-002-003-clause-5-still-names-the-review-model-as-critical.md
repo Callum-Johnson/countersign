@@ -1,10 +1,12 @@
 ---
 id: EM-007-002-003
 title: Clause 5 of the operative test still names a change to the review model as critical
-status: ready
+status: in-progress
 tier: standard
 complexity: S
 dependencies: [EM-007-002]
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 ---
 
 # EM-007-002-003 — Clause 5 still names the review model as critical
