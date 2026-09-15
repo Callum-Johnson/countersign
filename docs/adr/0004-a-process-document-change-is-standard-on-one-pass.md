@@ -219,3 +219,31 @@ decision, at `standard`, on one pass. EM-007-002-002, which was to reconcile
 above and closed unworked; EM-007-002-001, that the operative test's
 one-line summary omits clause 5, stands for a CI configuration change and a
 schema migration and is amended here for a process document.
+
+---
+
+## Annotation — added 2026-09-15 under EM-007-002-003
+
+> Not part of the decision as recorded. The text above the horizontal line
+> is unchanged, and the status is unchanged.
+
+The Consequences bullet beginning "clause 5 of the operative test still names
+'a change to the review model itself'" describes the clause as it stood at
+this record's date, and both halves of its last two sentences have since
+stopped holding. EM-007-002-003 amended the clause on 2026-09-15. It stood as:
+
+> 5. **Process surface.** A schema migration, a CI configuration change, or a
+>    change to the review model itself.
+
+and now reads:
+
+> 5. **Process surface.** A schema migration or a CI configuration change. A
+>    change to the review model itself is a change to a process document, and
+>    the paragraph **A change to a process document** below, and the tier it
+>    states, decide that; this clause does not.
+
+So the clause no longer names a change to the review model, and its words are
+no longer unchanged. The decision this record holds — that a change to a
+process document is `standard` on one independent pass — is untouched, and the
+amendment brings the clause's words into agreement with it rather than
+altering it.
