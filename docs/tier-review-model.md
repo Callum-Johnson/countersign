@@ -119,9 +119,10 @@ the closed tickets whose Tier section names this paragraph.
 In one line:
 
 > **Could an existing caller, or a seeded run, notice this change without
-> opting in? If yes, `critical`. If no, `standard` — or `trivial`, where
-> nothing a program executes or a caller reads as a contract is touched. A
-> process document is `standard`, on one pass, whatever the answer.**
+> opting in — or is it a schema migration or a CI configuration change? If
+> yes, `critical`. If no, `standard` — or `trivial`, where nothing a program
+> executes or a caller reads as a contract is touched. A process document is
+> `standard`, on one pass, whatever the answer.**
 
 **Retired when:** a change every clause passed as `standard` is found by
 review to have changed an existing caller's outcome, more than once over a
