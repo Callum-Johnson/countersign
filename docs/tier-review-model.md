@@ -122,7 +122,8 @@ In one line:
 > opting in — or is it a schema migration or a CI configuration change? If
 > yes, `critical`. If no, `standard` — or `trivial`, where nothing a program
 > executes or a caller reads as a contract is touched. A process document is
-> `standard`, on one pass, whatever the answer.**
+> `standard`, on one pass — unless the change also touches something a program
+> executes or a caller reads as a contract, when the answer above stands.**
 
 **Retired when:** a change every clause passed as `standard` is found by
 review to have changed an existing caller's outcome, more than once over a
