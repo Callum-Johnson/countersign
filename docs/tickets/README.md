@@ -62,6 +62,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-023 | ready | standard | The next-id command misses an id created by renaming a ticket file |
 | EM-024 | ready | standard | A count written into prose has no falsifier and drifts silently |
 | EM-025 | done | standard | The per-round table has one copy, and the blocker names the row |
+| EM-026 | ready | standard | An exhaustive claim is derived, not listed |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
 backdated; ADR-0001 explains why backdating was rejected.
