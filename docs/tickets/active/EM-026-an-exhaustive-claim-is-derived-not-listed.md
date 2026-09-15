@@ -1,10 +1,12 @@
 ---
 id: EM-026
 title: An exhaustive claim is derived, not listed
-status: ready
+status: in-progress
 tier: standard
 complexity: S
 dependencies: []
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 claimed_by:
 claimed_at:
 closed_at:
