@@ -442,8 +442,8 @@ a finding.
 **Retired when:** over a stated population of critical-tier tickets closed
 under this rule, a must-fix found after the first round sits inside the
 previous round's repair more than once; the read then costs a section per
-repair and prevents nothing. At 5d94db7, before the rule, the count was five,
-over the thirteen closed tickets that carry a Review table. The claim-time reading retires with §3's blocking rule, whose falsifier —
+repair and prevents nothing. At 5d94db7, before the rule, five must-fixes found
+after the first round sat inside the previous round's repair. The claim-time reading retires with §3's blocking rule, whose falsifier —
 blocks routinely unblocked with the reading the executor would have taken —
 it shares. The
 wrapping clause retires when a wrap convention applied by a tool lands, at
@@ -593,12 +593,12 @@ rule that prevents an outcome that cannot be undone — third-party material
 published, the main branch force-pushed — may be written from one instance or
 from none, and says so. The reason is the brief: every rule here is read by
 every future reviewer on every round, and a rule written from one instance is
-a bet that the instance recurs, paid whether it does or not. Of the thirteen
-rule-adding tickets from EM-006 to EM-020, eight name one source ticket on one
-project in their Context — EM-007, EM-008, EM-010, EM-011, EM-012, EM-012-001,
-EM-014-001 and EM-019-001 — counted by reading each Context for the source it
-names. Those eight are this rule's instances, and none would have cleared the
-bar it supplies. The bar binds tickets raised after the ticket that landed
+a bet that the instance recurs, paid whether it does or not. Of the
+rule-adding tickets from EM-006 to EM-020, those that name one source ticket
+on one project in their Context are EM-007, EM-008, EM-010, EM-011, EM-012,
+EM-012-001, EM-014-001 and EM-019-001, found by reading each Context for the
+source it names. Those are this rule's instances, and none would have cleared
+the bar it supplies. The bar binds tickets raised after the ticket that landed
 this paragraph closed; a rule-adding ticket that names one instance and claims
 no exception is not ready.
 
