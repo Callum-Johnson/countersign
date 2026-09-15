@@ -1,6 +1,6 @@
 # ADR-0004: A change to a process document is standard, on one pass
 
-- **Status:** proposed
+- **Status:** accepted
 - **Date:** 2026-09-10
 - **Deciders:** maintainer, on the question EM-007-002 reserved
 - **Related:** EM-007-002; ADR-0002, whose Context sentence this narrows in
