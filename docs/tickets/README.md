@@ -73,7 +73,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-024-001 | active | standard | The tier model restates a count beside its own list |
 | EM-024-002 | done | standard | The gate count is restated away from its site, and it is not alone |
 | EM-025 | done | standard | The per-round table has one copy, and the blocker names the row |
-| EM-026 | ready | standard | An exhaustive claim is derived, not listed |
+| EM-026 | done | standard | An exhaustive claim is derived, not listed |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
 backdated; ADR-0001 explains why backdating was rejected.

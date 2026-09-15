@@ -212,6 +212,68 @@ or that review let through, those that assert a mechanism are shown to have
 caught regressions that claim-level tests missed more often than they have
 blocked a correct change to the mechanism.
 
+**An exhaustive claim is derived, not listed.** A test that asserts something
+of *every* member of a population derives that population from the thing it
+describes; it does not restate it. A list the author wrote is a claim about the
+tree wearing the costume of a check: the suite is green, the recorded red count
+is non-zero, and the property the test names is absent, because the rival
+reddens the members the list happens to hold. The gate above does not reach
+this — it asks what a wrong implementation would redden, and here one does.
+
+**Which claims this reaches.** Ask what fixes the population, not what the test
+iterates. Where something other than the test fixes it — a tree, a registry, a
+module, a protocol, a set of call sites — the claim is exhaustive and this rule
+binds. Where the test's claim is about the cases it names, the test fixes its
+own population and the rule does not reach it: a table of boundary inputs, a
+parametrised list of worked examples, a fixture set chosen to illustrate. The
+test is asked for no derivation, because it claims nothing about a member it
+did not name. **What this does not reach:** a test whose docstring states a
+claim over the cases it lists, and a check the ticket scopes to named subjects.
+
+Three ways to satisfy it where it binds, in order of preference, because the
+first is not always available:
+
+1. **Assert at the convergence point.** Where every member must pass through
+   one place, check there. A population that cannot be enumerated wrongly
+   beats one enumerated carefully.
+2. **Derive the population.** Walk the tree, read the registry, ask the
+   module. Do not list the files, the call shapes or the spellings.
+3. **Where neither is possible, the docstring says what the check cannot see,
+   and why the first two were unavailable** — the convergence point that does
+   not exist, the derivation the runtime does not permit — in the same place,
+   so that the unavailability is a claim a reviewer can check by looking
+   rather than a judgement taken on the author's word. Stating a gap honestly
+   is a real answer; a gap stated where tier 1 was available is the defect
+   this rule exists to catch, wearing a docstring. The form is the one the
+   gate already uses for a non-discriminating test: the label names what the
+   check cannot see and what it would take to see it.
+
+**A rival must redden a path a caller can take.** This reaches a rival applied
+against a claim the change makes about caller-visible behaviour. A count earned
+only through an entry point no caller reaches is a zero wearing a number: the
+gate's sentence above — a zero written down is a fact a reviewer can act on —
+does not reach it, because nothing was written down as zero. The count is
+recorded as it ran, with the unreachable path named beside it, so that the
+gate's number stays a measurement and this sentence stays a judgement about
+what it is worth. Where the claim's subject is the unit itself rather than
+what a caller sees, "A test pins a claim, not a mechanism" above governs it and
+this sentence does not.
+
+This binds checks written after it. Nothing sweeps an existing corpus for
+lists, and editing a listed check — adding an entry, widening a match — does
+not bring it under the rule; a check comes under it when the claim it asserts
+is written or rewritten.
+
+**Retired when:** over a stated population of reviews, a check written under
+this rule is found to have derived its population and still missed a member —
+the rule would then be asking for the wrong thing rather than for more care.
+Or no reviewer finds a written-down population over a stated population of
+changes, at which point the rule restates practice and leaves. The
+reachable-path sentence retires on its own evidence: over a stated population
+of changes, rivals that reddened only an unreachable path are found to have
+accompanied a real defect as often as rivals that reddened a reachable one, at
+which point the distinction is not doing the work claimed for it.
+
 ## A number determined elsewhere has one site that goes red
 
 A number that something other than its own sentence determines is a claim in
