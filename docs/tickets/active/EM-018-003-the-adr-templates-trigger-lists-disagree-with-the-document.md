@@ -1,7 +1,7 @@
 ---
 id: EM-018-003
 title: The ADR template's trigger lists disagree with the document in both directions
-status: ready
+status: in-progress
 tier: standard
 kind: defect
 impact: degraded
@@ -9,8 +9,8 @@ delivery: maintenance
 why: "Without aligning them, the template tells a contributor to write a record where the document says none is owed, and stays silent where the document says the record is the control."
 complexity: S
 dependencies: [EM-018-002]
-claimed_by:
-claimed_at:
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 blocked_at:
 closed_at:
 ---
