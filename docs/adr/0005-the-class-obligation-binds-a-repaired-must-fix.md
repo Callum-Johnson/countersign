@@ -1,4 +1,4 @@
-# ADR-0004: The class obligation binds a repaired must-fix, not a note
+# ADR-0005: The class obligation binds a repaired must-fix, not a note
 
 - **Status:** proposed
 - **Date:** 2026-09-07
@@ -127,8 +127,9 @@ gives. The executor supplies neither a rank nor a finding number the reviewer
 left out, for the reason the rank is the reviewer's at all. What a finding
 line costs is unchanged — `unranked` is one word where `note` is one word,
 and a finding number replaces `no` in the same field — and what the round
-table costs is one count per row, of the must-fix lines that name no finding
-and so sit neither in its `m of n` cell nor out of it.
+table costs is one count per row, of the must-fix lines the countability
+sentence leaves uncountable, and which so sit neither in its `m of n` cell
+nor out of it.
 
 **The template change is a consequence of this narrowing, and it is wider
 than the sentence amended.** A rank on every finding line changes the record
@@ -216,13 +217,17 @@ The text that replaces it:
   given rather than carrying one the reviewer did not give, and says that a
   finding sits inside an earlier fix the reviewer did not identify rather than
   naming one; a value the executor supplies where the reviewer was silent is a
-  value the party the obligation sits on has set. **Only a line naming a
-  finding, or one reading `no`, is countable.** Any other value the reviewer
-  wrote is counted by none of the rules that read the field: the second arm
-  needs the earlier finding's rank, and every other reader needs the round,
-  which only the number gives. Such a line is reported and left as it was
+  value the party the obligation sits on has set. **A line is countable where it names a
+  finding, reads `no`, or names the round the earlier fix sits in — `yes,
+  round 3`.** A line naming the round answers every reader that needs only
+  the round; it is not counted by the second arm alone, which needs the
+  earlier finding's rank and so its identity. Any other value the reviewer
+  wrote — `yes, unnamed`, or a hedge such as `partly` — is counted by none of
+  the rules that read the field. Such a line is reported and left as it was
   written — the cost of the silence, and not something the description may
-  resolve.
+  resolve. This sentence is the one statement of which lines are countable;
+  the rules and counts that read the field name it rather than restating the
+  list.
   A class with no finite enumeration — "what could a user type" — is recorded
   the way the third condition of "When review ends" in
   `docs/tier-review-model.md` records a list: best-effort, with the coverage
@@ -267,8 +272,8 @@ exemption. No such round exists at 60f39fb: the count is zero over zero
 rounds, and the first ticket closed under this rule starts it.
 
 **Beside it goes the count the arm cannot reach.** A finding line whose
-inside-the-previous-fix field names no finding is countable by none of that
-field's four readers, and a standing zero reported without it would let a
+inside-the-previous-fix field the countability sentence leaves uncountable is
+countable by none of that field's four readers, and a standing zero reported without it would let a
 starved arm read as a quiet one — the unnamed answer is the cheap one, and
 the party that gains from the arm never firing is the party writing the
 record. So both counts are stated, and both are zero over zero rounds
@@ -365,8 +370,9 @@ does not supply the permission to change what the rule reaches.
   ranked `note`. Two such lines, in rounds recorded under this rule, retire
   the exemption. Before this decision the arm named the rank of a finding
   and the identity of the fix it sat inside, and the record carried neither.
-  A line that names no finding — `yes, unnamed`, or whatever else the
-  reviewer wrote — is one no reader of the field can count, and it says so
+  A line the countability sentence leaves uncountable — `yes, unnamed`, or
+  whatever else the reviewer wrote that neither names a finding, reads `no`,
+  nor names the round — is one no reader of the field can count, and it says so
   on its face rather than passing as a `no`; the round table reports how
   many such lines a round holds, and this record states their standing count
   beside the arm's own.
@@ -376,8 +382,8 @@ does not supply the permission to change what the rule reaches.
   lines per round, on records already written and not rewritten; the cost
   falls on rounds recorded from here, and on every critical-tier review from
   here rather than only on the tickets that touch this rule. Each round row
-  costs one number besides — the count of must-fix lines naming no finding,
-  written even when it is zero. It buys the two facts the narrowed rule and
+  costs one number besides — the count of must-fix lines the countability
+  sentence leaves uncountable, written even when it is zero. It buys the two facts the narrowed rule and
   its falsifier turn on.
 - **Negative:** a note repaired one branch too shallow is now exempt, which
   is the defect EM-009 was raised for. It is not hypothetical, and the count
@@ -429,7 +435,7 @@ finding-line form and turns its inside-the-previous-fix field from a yes/no
 into the finding whose repair the finding sits inside, in any earlier round.
 That template carries the only list of the four rules that read the field, so
 that no second list of them can drift from it, and the round table's count of
-the must-fix lines that name none.
+the must-fix lines that sentence leaves uncountable.
 The same template carries §6's three forms of a repair line — a class with
 its siblings, a class with no finite enumeration recorded best-effort with
 its coverage stated, and the words "repair of the instance" — so that the

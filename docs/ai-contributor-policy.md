@@ -302,13 +302,17 @@ every reading of it. That is not caution — it is unreviewable code.
   given rather than carrying one the reviewer did not give, and says that a
   finding sits inside an earlier fix the reviewer did not identify rather than
   naming one; a value the executor supplies where the reviewer was silent is a
-  value the party the obligation sits on has set. **Only a line naming a
-  finding, or one reading `no`, is countable.** Any other value the reviewer
-  wrote is counted by none of the rules that read the field: the second arm
-  needs the earlier finding's rank, and every other reader needs the round,
-  which only the number gives. Such a line is reported and left as it was
+  value the party the obligation sits on has set. **A line is countable where it names a
+  finding, reads `no`, or names the round the earlier fix sits in — `yes,
+  round 3`.** A line naming the round answers every reader that needs only
+  the round; it is not counted by the second arm alone, which needs the
+  earlier finding's rank and so its identity. Any other value the reviewer
+  wrote — `yes, unnamed`, or a hedge such as `partly` — is counted by none of
+  the rules that read the field. Such a line is reported and left as it was
   written — the cost of the silence, and not something the description may
-  resolve.
+  resolve. This sentence is the one statement of which lines are countable;
+  the rules and counts that read the field name it rather than restating the
+  list.
   A class with no finite enumeration — "what could a user type" — is recorded
   the way the third condition of "When review ends" in
   `docs/tier-review-model.md` records a list: best-effort, with the coverage

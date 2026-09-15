@@ -116,7 +116,8 @@ model, "When review ends", **One copy**).
 `—` where nothing was repaired; `m` and `n` count must-fixes, not findings.
 `m` counts only must-fix lines whose inside-previous-fix field names a
 finding from the round before, and `k` reports beside it the must-fix
-lines that name no finding: those sit neither in `m` nor out of it, and
+lines whose field the countability sentence below leaves uncountable:
+those sit neither in `m` nor out of it, and
 "Repairs of repairs" in `docs/tier-review-model.md` reads this cell to
 decide whether a redesign is owed, so a cell that swallowed them would let
 the party the obligation sits on hold a round below "mostly". `k` is
@@ -154,14 +155,18 @@ finding sits inside an earlier fix without naming which, the line reads
 those nor a finding number — a hedge such as `partly` — the line carries
 the reviewer's own words. The executor writes neither a rank nor a finding
 number the reviewer did not give, because a value the executor supplies is
-a value the party the obligation sits on has set. **A line is countable
-only where it names a finding or reads `no`.** Any other value is counted
-by none of the four rules above: the second arm needs the earlier
-finding's rank, and the other three need the round, which only the number
-gives. Such a line is reported — on the finding line, and in the count `k`
+a value the party the obligation sits on has set. **A line is countable where it
+names a finding, reads `no`, or names the round the earlier fix sits in —
+`yes, round 3`.** A line naming the round answers the three rules above
+that need only the round; it is not counted by the second arm alone, which
+needs the earlier finding's rank and so its identity. Any other value —
+`yes, unnamed`, or a hedge such as `partly` — is counted by none of the
+four. Such a line is reported — on the finding line, and in the count `k`
 beside the round table's `m of n` — and left as the reviewer wrote it,
 which is the cost of the reviewer's silence rather than something the
-description may resolve. A tightening remedy carries its cost in the same
+description may resolve. This sentence is the one statement of which lines
+are countable; `k` and the rules that read the field name it rather than
+restating the list. A tightening remedy carries its cost in the same
 line.
 - R1.1 · permits · <rank> · <rule> · <what the change permits that the
   ticket refuses> — remedy: <x>; cost, if the remedy tightens a control:

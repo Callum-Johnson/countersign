@@ -171,8 +171,8 @@ pointing at it, so a reader of the blocker needs nothing else:
 
 | Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
 |---|---|---|---|---|
-| 1 | 3 (of 8 findings) | documents: §6's narrowed trigger turned on a per-finding rank the record did not carry (must-fix); the falsifier's new second arm named evidence the record could not produce (must-fix); the template's flat prohibition forbade the line the class signal demands (must-fix); nothing obliges a reviewer to rank; ADR-0004's second arm without a standing count; the same template sentence prohibiting where §6 owes; the authority for narrowing the rule unnamed in ADR-0004; an ungrammatical carried-forward sentence blessed by the whole-bullet re-wrap | — | 8e87a58 |
-| 2 | 2 (of 5 findings) | documents: the template's two finding-line exemplars fixed the rank as a literal, one per column, so the record's sole statement of its own form modelled rank as following column (must-fix); the same template exempted a note's repair from the class form except where the class signal had fired, unscoped in time, so every later note on that rule owed the form for the rest of the review (must-fix); §6 barring re-ranking but not renumbering or merging, which breaks the finding number the new field and the falsifier's second arm read; ADR-0004 crediting the narrowing with avoiding a separation-of-duties failure the narrowing created; "The record." in `docs/tier-review-model.md` one field further behind | 2 of 2 | f8880b5 |
+| 1 | 3 (of 8 findings) | documents: §6's narrowed trigger turned on a per-finding rank the record did not carry (must-fix); the falsifier's new second arm named evidence the record could not produce (must-fix); the template's flat prohibition forbade the line the class signal demands (must-fix); nothing obliges a reviewer to rank; ADR-0005's second arm without a standing count; the same template sentence prohibiting where §6 owes; the authority for narrowing the rule unnamed in ADR-0005; an ungrammatical carried-forward sentence blessed by the whole-bullet re-wrap | — | 8e87a58 |
+| 2 | 2 (of 5 findings) | documents: the template's two finding-line exemplars fixed the rank as a literal, one per column, so the record's sole statement of its own form modelled rank as following column (must-fix); the same template exempted a note's repair from the class form except where the class signal had fired, unscoped in time, so every later note on that rule owed the form for the rest of the review (must-fix); §6 barring re-ranking but not renumbering or merging, which breaks the finding number the new field and the falsifier's second arm read; ADR-0005 crediting the narrowing with avoiding a separation-of-duties failure the narrowing created; "The record." in `docs/tier-review-model.md` one field further behind | 2 of 2 | f8880b5 |
 | 3 | 1 (of 3 findings) | documents: the template's Review finding-line paragraph admits two ranks where §6 gives rank three states, so the record cannot express the unranked finding the same template names as owing a class line (must-fix); §6's clause that naming several findings in one repair line is not a merge was not carried into the template; nothing makes an asking rule discoverable, so the template's inventory of the rules that ask can go stale silently | 1 of 1 | — |
 
 Derived from the rows: 3 + 2 + 1 = six must-fixes over three rounds, of which
@@ -201,7 +201,7 @@ is finished, and the review recorded two must-fixes. Neither is repaired here.
 Whether a further round is ordered is the maintainer's decision and not the
 executor's, which is the contributor policy's §3 and the cap's own rule.
 
-R5.1: §6 of `docs/ai-contributor-policy.md`, the block ADR-0004 quotes from it,
+R5.1: §6 of `docs/ai-contributor-policy.md`, the block ADR-0005 quotes from it,
 and `templates/PR-DESCRIPTION.md` all say that a finding line reading `yes,
 unnamed` still answers the class signal, "which asks whether". The signal asks
 whether a finding sits inside **the previous round's** fix, and the same round
@@ -267,10 +267,10 @@ pointing at it, so a reader of the blocker needs nothing else:
 
 | Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
 |---|---|---|---|---|
-| 1 | 3 (of 8 findings) | documents: §6's narrowed trigger turned on a per-finding rank the record did not carry (must-fix); the falsifier's new second arm named evidence the record could not produce (must-fix); the template's flat prohibition forbade the line the class signal demands (must-fix); nothing obliges a reviewer to rank; ADR-0004's second arm without a standing count; the same template sentence prohibiting where §6 owes; the authority for narrowing the rule unnamed in ADR-0004; an ungrammatical carried-forward sentence blessed by the whole-bullet re-wrap | — | 8e87a58 |
-| 2 | 2 (of 5 findings) | documents: the template's two finding-line exemplars fixed the rank as a literal, one per column, so the record's sole statement of its own form modelled rank as following column (must-fix); the same template exempted a note's repair from the class form except where the class signal had fired, unscoped in time, so every later note on that rule owed the form for the rest of the review (must-fix); §6 barring re-ranking but not renumbering or merging, which breaks the finding number the new field and the falsifier's second arm read; ADR-0004 crediting the narrowing with avoiding a separation-of-duties failure the narrowing created; "The record." in `docs/tier-review-model.md` one field further behind | 2 of 2 | f8880b5 |
+| 1 | 3 (of 8 findings) | documents: §6's narrowed trigger turned on a per-finding rank the record did not carry (must-fix); the falsifier's new second arm named evidence the record could not produce (must-fix); the template's flat prohibition forbade the line the class signal demands (must-fix); nothing obliges a reviewer to rank; ADR-0005's second arm without a standing count; the same template sentence prohibiting where §6 owes; the authority for narrowing the rule unnamed in ADR-0005; an ungrammatical carried-forward sentence blessed by the whole-bullet re-wrap | — | 8e87a58 |
+| 2 | 2 (of 5 findings) | documents: the template's two finding-line exemplars fixed the rank as a literal, one per column, so the record's sole statement of its own form modelled rank as following column (must-fix); the same template exempted a note's repair from the class form except where the class signal had fired, unscoped in time, so every later note on that rule owed the form for the rest of the review (must-fix); §6 barring re-ranking but not renumbering or merging, which breaks the finding number the new field and the falsifier's second arm read; ADR-0005 crediting the narrowing with avoiding a separation-of-duties failure the narrowing created; "The record." in `docs/tier-review-model.md` one field further behind | 2 of 2 | f8880b5 |
 | 3 | 1 (of 3 findings) | documents: the template's Review finding-line paragraph admits two ranks where §6 gives rank three states, so the record cannot express the unranked finding the same template names as owing a class line (must-fix); §6's clause that naming several findings in one repair line is not a merge was not carried into the template; nothing makes an asking rule discoverable, so the template's inventory of the rules that ask can go stale silently | 1 of 1 | 3d22d3b |
-| 4 | 2 (of 7 findings) | documents: §6, ADR-0004's quoted block and the template all say a line reading `yes, unnamed` still answers the class signal, while the same round widened the field to any earlier round, so the value no longer answers the question the signal asks (must-fix); the round table's `m` and `n` count must-fixes and a must-fix line reading `yes, unnamed` sits neither in that cell nor out of it, so the executor resolves it and "Repairs of repairs" reads a cell the bound party can hold below "mostly" (must-fix); two divergent lists of the three rules one field answers; the sweep's exclusion of free prose not reaching the conditional cost field; `partly` still inadmissible, the repair covering three of four historical values; `yes, unnamed` the cheap answer on a field 1 of 5 historical lines filled admissibly; the record and the commissioning brief numbering this round differently | 2 of 2 | — |
+| 4 | 2 (of 7 findings) | documents: §6, ADR-0005's quoted block and the template all say a line reading `yes, unnamed` still answers the class signal, while the same round widened the field to any earlier round, so the value no longer answers the question the signal asks (must-fix); the round table's `m` and `n` count must-fixes and a must-fix line reading `yes, unnamed` sits neither in that cell nor out of it, so the executor resolves it and "Repairs of repairs" reads a cell the bound party can hold below "mostly" (must-fix); two divergent lists of the three rules one field answers; the sweep's exclusion of free prose not reaching the conditional cost field; `partly` still inadmissible, the repair covering three of four historical values; `yes, unnamed` the cheap answer on a field 1 of 5 historical lines filled admissibly; the record and the commissioning brief numbering this round differently | 2 of 2 | — |
 
 Derived from the rows: 3 + 2 + 1 + 2 = eight must-fixes over the four review
 rounds, of which 2 + 1 + 2 = five sat inside a previous round's fix. The total
@@ -312,12 +312,12 @@ review before it and §6 bars renumbering. Row 5 of the table below is this
 review; the offset is reconciled once, in the Review section, under "On the
 numbering, once".
 
-R6.1: the round-table paragraph of `templates/PR-DESCRIPTION.md`, ADR-0004 at
+R6.1: the round-table paragraph of `templates/PR-DESCRIPTION.md`, ADR-0005 at
 lines 130, 270, 379 and 432, and How-to-verify item 12 all define `k` as the
 must-fix lines that name no finding. A line reading `no` names no finding, and
 the same round's countability rule makes `no` countable, so `k` as defined
 swallows every `no`, and a round answered countably throughout reports
-`k = n`. ADR-0004 states flatly that such a line "is countable by none of that
+`k = n`. ADR-0005 states flatly that such a line "is countable by none of that
 field's four readers", which would stop the class signal reading a `no`. The
 count added so that a reader could see a starved arm cannot tell "answered no"
 from "hedged". The remedy is to define `k` on the countable side, as the
@@ -382,7 +382,7 @@ sit inside the previous round's fix.
 which the executor could set the scope of its own obligation are closed —
 renumbering, merging, an unranked finding, and the repair line answering for
 several findings at once — leaving one open, the executor deciding whether a
-line reading `no` enters `k`, which is R6.1. ADR-0004 claims only the
+line reading `no` enters `k`, which is R6.1. ADR-0005 claims only the
 authority it has: the block it quotes as the text that replaces §6 is verbatim
 in §6, and both "as it stood" blocks are byte-identical to the copies
 introduced at 3258933 and to the policy at 60f39fb. The cost figure is honest,
@@ -425,10 +425,10 @@ pointing at it, so a reader of the blocker needs nothing else:
 
 | Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
 |---|---|---|---|---|
-| 1 | 3 (of 8 findings) | documents: §6's narrowed trigger turned on a per-finding rank the record did not carry (must-fix); the falsifier's new second arm named evidence the record could not produce (must-fix); the template's flat prohibition forbade the line the class signal demands (must-fix); nothing obliges a reviewer to rank; ADR-0004's second arm without a standing count; the same template sentence prohibiting where §6 owes; the authority for narrowing the rule unnamed in ADR-0004; an ungrammatical carried-forward sentence blessed by the whole-bullet re-wrap | — | 8e87a58 |
-| 2 | 2 (of 5 findings) | documents: the template's two finding-line exemplars fixed the rank as a literal, one per column, so the record's sole statement of its own form modelled rank as following column (must-fix); the same template exempted a note's repair from the class form except where the class signal had fired, unscoped in time, so every later note on that rule owed the form for the rest of the review (must-fix); §6 barring re-ranking but not renumbering or merging, which breaks the finding number the new field and the falsifier's second arm read; ADR-0004 crediting the narrowing with avoiding a separation-of-duties failure the narrowing created; "The record." in `docs/tier-review-model.md` one field further behind | 2 of 2, 0 unnamed | f8880b5 |
+| 1 | 3 (of 8 findings) | documents: §6's narrowed trigger turned on a per-finding rank the record did not carry (must-fix); the falsifier's new second arm named evidence the record could not produce (must-fix); the template's flat prohibition forbade the line the class signal demands (must-fix); nothing obliges a reviewer to rank; ADR-0005's second arm without a standing count; the same template sentence prohibiting where §6 owes; the authority for narrowing the rule unnamed in ADR-0005; an ungrammatical carried-forward sentence blessed by the whole-bullet re-wrap | — | 8e87a58 |
+| 2 | 2 (of 5 findings) | documents: the template's two finding-line exemplars fixed the rank as a literal, one per column, so the record's sole statement of its own form modelled rank as following column (must-fix); the same template exempted a note's repair from the class form except where the class signal had fired, unscoped in time, so every later note on that rule owed the form for the rest of the review (must-fix); §6 barring re-ranking but not renumbering or merging, which breaks the finding number the new field and the falsifier's second arm read; ADR-0005 crediting the narrowing with avoiding a separation-of-duties failure the narrowing created; "The record." in `docs/tier-review-model.md` one field further behind | 2 of 2, 0 unnamed | f8880b5 |
 | 3 | 1 (of 3 findings) | documents: the template's Review finding-line paragraph admits two ranks where §6 gives rank three states, so the record cannot express the unranked finding the same template names as owing a class line (must-fix); §6's clause that naming several findings in one repair line is not a merge was not carried into the template; nothing makes an asking rule discoverable, so the template's inventory of the rules that ask can go stale silently | 1 of 1, 0 unnamed | 3d22d3b |
-| 4 | 2 (of 7 findings) | documents: §6, ADR-0004's quoted block and the template all say a line reading `yes, unnamed` still answers the class signal, while the same round widened the field to any earlier round, so the value no longer answers the question the signal asks (must-fix); the round table's `m` and `n` count must-fixes and a must-fix line reading `yes, unnamed` sits neither in that cell nor out of it, so the executor resolves it and "Repairs of repairs" reads a cell the bound party can hold below "mostly" (must-fix); two divergent lists of the three rules one field answers; the sweep's exclusion of free prose not reaching the conditional cost field; `partly` still inadmissible, the repair covering three of four historical values; `yes, unnamed` the cheap answer on a field 1 of 5 historical lines filled admissibly; the record and the commissioning brief numbering this round differently | 2 of 2, 0 unnamed | 0d0ecfe |
+| 4 | 2 (of 7 findings) | documents: §6, ADR-0005's quoted block and the template all say a line reading `yes, unnamed` still answers the class signal, while the same round widened the field to any earlier round, so the value no longer answers the question the signal asks (must-fix); the round table's `m` and `n` count must-fixes and a must-fix line reading `yes, unnamed` sits neither in that cell nor out of it, so the executor resolves it and "Repairs of repairs" reads a cell the bound party can hold below "mostly" (must-fix); two divergent lists of the three rules one field answers; the sweep's exclusion of free prose not reaching the conditional cost field; `partly` still inadmissible, the repair covering three of four historical values; `yes, unnamed` the cheap answer on a field 1 of 5 historical lines filled admissibly; the record and the commissioning brief numbering this round differently | 2 of 2, 0 unnamed | 0d0ecfe |
 | 5 | 3 (of 5 findings) | documents: `k` is defined as the must-fix lines that name no finding while the same round's rule makes `no` countable, so `k` swallows every `no` and a round answered countably throughout reports `k = n` (must-fix); the reason given for admitting only a finding number — that the other three readers need the round, which only the number gives — is false, since a line naming the round gives it and is countable by none (must-fix); the Risks paragraph states 10 and 1 from no command the description names, the command it names returning 11, and calls seven numbers five (must-fix); the numbering reconciliation states the row and round offset without stopping it recurring; §6's claim quantified over a list of readers held elsewhere | 2 of 3, 1 unnamed | — |
 
 Derived from the rows: 3 + 2 + 1 + 2 + 3 = eleven must-fixes over the five
@@ -455,7 +455,7 @@ The contributor policy's §6 bound the class obligation to "each finding
 repaired", while EM-009, which introduced it, priced it on must-fixes. The
 maintainer answered the question this ticket reserved on 2026-09-07 and
 narrowed the rule: the obligation binds a repaired must-fix, and a note
-repaired in the round or at close carries nothing. ADR-0004 records the
+repaired in the round or at close carries nothing. ADR-0005 records the
 amendment with the old text, the finding that prompted it, and the new text.
 Round 1 of the independent review found that the narrowing turned on a fact
 the record did not carry, and the repair is at that class: every finding line
@@ -502,7 +502,7 @@ passes.
   any other value the reviewer wrote is reported rather than resolved.
   3258933 is the amendment, 8e87a58 the round-1 repair, f8880b5 the round-2
   repair, 3d22d3b the round-3 repair and 0d0ecfe the round-5 repair.
-- [x] AC2: `docs/adr/0004-the-class-obligation-binds-a-repaired-must-fix.md`
+- [x] AC2: `docs/adr/0005-the-class-obligation-binds-a-repaired-must-fix.md`
   carries the rule's text as it stood, EM-009's round-1 finding R1.7 quoted
   from that ticket's closed record, and the replacement text, each in its
   own block — and, because R1.7 did not match the rule's stated falsifier,
@@ -548,7 +548,7 @@ passes.
   the round-5 repair, and returned the same 34 40 180 all four times. With
   `f/n` printed as well it returns a mean of 5.29 findings per round at
   60f39fb, which is what a rank on every finding line costs a review record
-  and is recorded with the template change in ADR-0004; the same 5.29412 came
+  and is recorded with the template change in ADR-0005; the same 5.29412 came
   back from the runs at 3d22d3b and 0d0ecfe. The closing commit adds this
   ticket to that directory and changes what the command counts, which is why
   the population is named as the closed tickets at 60f39fb rather than left
@@ -594,7 +594,7 @@ reaches", as EM-019-001-001 rewrote it — names "a rule retired or amended
 under 'Retiring a control'" explicitly, "because there the record is the
 control: the retired text leaves the document, and the record is the only
 place it and the finding that matched survive". That is this change exactly:
-the text binding every repaired finding leaves §6, and ADR-0004 is the only
+the text binding every repaired finding leaves §6, and ADR-0005 is the only
 place it, R1.7 and the old falsifier survive. The second side of the line
 reaches a rule added inside a document or extended in place under an
 existing decision, whose ticket is its own record; this is neither an
@@ -646,7 +646,7 @@ reader does differently, per criterion:
   second arm can now see which lines the arm cannot count, instead of reading
   a `no` that means "not asked".
 - AC2: a later contributor who finds §6 narrower than EM-009 left it reads
-  ADR-0004 and sees a decision with its evidence, rather than inferring that
+  ADR-0005 and sees a decision with its evidence, rather than inferring that
   a rule was quietly relaxed and restoring it.
 - AC3: a maintainer deciding whether to widen the rule again has the
   population it was narrowed on, and the falsifier's second arm names the
@@ -663,7 +663,7 @@ to prevent. There is no suite, so each sibling says what a reader does
 differently.
 
 - R1.1 — class: **on what fields of the record does the narrowed rule, its
-  falsifier, the template and ADR-0004 depend, and does the record carry
+  falsifier, the template and ADR-0005 depend, and does the record carry
   them?** Siblings the question enumerates, each checked against the record
   at 60f39fb:
   - §6's trigger, "a repaired must-fix" — needs the rank of each finding.
@@ -695,7 +695,7 @@ differently.
     arm as written took the whole record as its population. It now counts
     only rounds recorded under this rule. A reader knows which rounds count.
   - The arm's standing count, which is R1.5 — the record carried no count, so
-    no reader could see how close the arm sat to firing. ADR-0004 now states
+    no reader could see how close the arm sat to firing. ADR-0005 now states
     it. A reader sees zero, over zero such rounds, and beside it the eleven
     times over the 34 rounds at 60f39fb that a finding in a later round sat
     inside the repair of a finding its round did not record as blocking
@@ -705,7 +705,7 @@ differently.
     reading that finding's rank from its own round's Where cell — seven named
     outright by the record, four matched from the remedy that introduced the
     text, and three rounds unattributable because they name no earlier
-    finding at all. ADR-0004 carries the list and the method; that reading is
+    finding at all. ADR-0005 carries the list and the method; that reading is
     the labour the two new fields remove.
   - The first arm, "repairs declared 'repair of the instance' draw a sibling
     finding in the next round" — needs which repair a later finding is a
@@ -728,13 +728,13 @@ differently.
     signal ... has fired". A reader who asked the class question on a note
     and found siblings may now record them, and must where the signal fired.
   - The same sentence's force, which is R1.6 — "carries no line" prohibits
-    where §6 says "owes", and ADR-0004's own Neutral consequence says
+    where §6 says "owes", and ADR-0005's own Neutral consequence says
     recording more costs a later reader nothing. Repaired by the same words.
   - `templates/PR-DESCRIPTION.md`, the Review finding-line prose — states the
     form, not the obligation, and now names the rank and the linking field
     and says whose they are. A reader transcribing a round knows what to
     write and what not to decide.
-  - ADR-0004's Decision — carries the exemption and the saving clause
+  - ADR-0005's Decision — carries the exemption and the saving clause
     already, and now the record's form. Checked, no gap.
   - `docs/quality-gates.md`, "A test pins a claim, not a mechanism", and
     `docs/tier-review-model.md`, "Repairs of repairs" and the class signal —
@@ -798,7 +798,7 @@ sibling says what a reader does differently.
     narrowing does not reach" — checked, no gap: it disclaims reach and
     points at the other rule instead of restating that rule's trigger, so it
     cannot drift from it and needs no scope of its own.
-  - ADR-0004's Decision, "The exemption is from that bullet only" — checked,
+  - ADR-0005's Decision, "The exemption is from that bullet only" — checked,
     no gap, for the same reason.
   - Any other statement under `docs/` or `templates/` that carries an
     obligation as an exception — checked, none. `git grep -n "except
@@ -917,7 +917,7 @@ sibling says what a reader does differently.
 **What the round-4 sweep said about the cost the maintainer accepted.**
 Nothing on a finding line grew. `unranked` is one word where `note` is one
 word; a finding number replaces `no` in a field that already held one; `yes,
-unnamed` replaced `no` in the same field. The figure ADR-0004 carries — a mean
+unnamed` replaced `no` in the same field. The figure ADR-0005 carries — a mean
 of 5.29 finding lines per review record, from the counting command in AC3 with
 `f/n` printed as well — was therefore unchanged, and it was re-read at
 3d22d3b, after the round-3 repair, returning `34 40 180 5.29412` from the
@@ -963,7 +963,7 @@ R5.1 to R5.6.
   signal.** Re-opened by the value the previous pass added. That pass widened
   the field to name a finding from any earlier round, so `yes` without a number
   no longer says which round, while the signal asks about the previous round;
-  §6, the block ADR-0004 quotes from it and the template all asserted that such
+  §6, the block ADR-0005 quotes from it and the template all asserted that such
   a line still answered. That is R5.1, and a control the maintainer did not
   narrow was degraded while three documents said it was not. A reader of the
   signal can now see which lines it is able to read, instead of a line asserted
@@ -1000,7 +1000,7 @@ R5.1 to R5.6.
   round-4 repair reached three of the four. That is R5.5, and the description
   did not say so. A reader weighing the repair can now see what it covers.
 - **The standing count**, read by anyone asking how close the second arm sits
-  to firing. ADR-0004 stated a zero and not the count of lines no reader can
+  to firing. ADR-0005 stated a zero and not the count of lines no reader can
   count, while the unnamed answer is the cheap one on a field that 1 of 5
   historical lines filled countably, so the arm could be starved without a
   reader seeing it. That is R5.6. A reader now sees the two counts together.
@@ -1089,7 +1089,7 @@ under review", and this is one.
 Declared, round 1: only what the round-1 remedies moved was re-wrapped. In
 §6, everything above the sentence beginning "A class with no finite
 enumeration" is byte identical to 3258933, and the tail below it re-wraps
-because the inserted sentences moved the wrap; in ADR-0004 the two "as it
+because the inserted sentences moved the wrap; in ADR-0005 the two "as it
 stood" blocks are untouched and the two replacement blocks are re-taken from
 §6 as it now reads. The whole-bullet re-wrap at 3258933 is what let an
 ungrammatical carried-forward sentence into that replacement-text block,
@@ -1121,7 +1121,7 @@ where the finding sits inside", and everything above it is byte identical to
 f8880b5; the re-wrap runs from there to the end of the sentence before "A
 class with no finite enumeration", plus the one sentence of the falsifier that
 says where the second arm is read from. `git diff f8880b5 3d22d3b --
-docs/ai-contributor-policy.md` shows one hunk. In ADR-0004 the two "as it
+docs/ai-contributor-policy.md` shows one hunk. In ADR-0005 the two "as it
 stood" blocks are untouched and the two replacement blocks are re-taken from
 §6 as it now reads, so that the record and the rule do not diverge. In
 `templates/PR-DESCRIPTION.md` three hunks: the repair-line paragraph and its
@@ -1132,7 +1132,7 @@ them. No other paragraph of any of the three files changed, and nothing under
 
 Beyond the ticket's References and declared, round 5: nothing new is opened.
 The three files are the ones earlier rounds already opened — §6, the block
-ADR-0004 quotes from it, and the record's form in
+ADR-0005 quotes from it, and the record's form in
 `templates/PR-DESCRIPTION.md` — and every sentence this round changed was
 written by an earlier round of this ticket. `docs/tier-review-model.md` stays
 untouched: the class signal keeps its trigger and its words, and what changed
@@ -1145,7 +1145,7 @@ counts a finding in any later round", and everything above it is byte
 identical to 3d22d3b; the re-wrap runs from there to the end of the sentence
 before "A class with no finite enumeration", which is the run round 4
 re-wrapped. `git diff 3d22d3b 0d0ecfe -- docs/ai-contributor-policy.md` shows
-one hunk. In ADR-0004 the two "as it stood" blocks are untouched and the
+one hunk. In ADR-0005 the two "as it stood" blocks are untouched and the
 replacement block is re-taken from §6 as it now reads; seven hunks, being the
 tail of the Decision paragraph on the record carrying the rank, re-wrapped
 from the line round 4 left ragged and ending in the sentence on what the class
@@ -1167,13 +1167,13 @@ so a reader who notices finds it decided rather than missed.
 
 ### How to verify
 1. `git show 3258933` — the amendment to §6, the matching paragraph of
-   `templates/PR-DESCRIPTION.md`, and ADR-0004, in one commit; `git show
+   `templates/PR-DESCRIPTION.md`, and ADR-0005, in one commit; `git show
    8e87a58` — the round-1 repair across the same three files.
 2. `sed -n '/^## 6\./,/^## 7\./p' docs/ai-contributor-policy.md` — §6
    whole, as "When review ends" asks it be read before it is handed back.
 3. `git show 60f39fb:docs/ai-contributor-policy.md | sed -n '246,266p'` —
    the rule and its falsifier as they stood at the branch point, to check
-   against the two "as it stood" blocks quoted in ADR-0004.
+   against the two "as it stood" blocks quoted in ADR-0005.
 4. `grep -n -A 6 "R1\.7" docs/tickets/done/EM-009-a-review-*.md` — the
    finding the record quotes, in the ticket that recorded it.
 5. Re-run the counting commands above; the population they read,
@@ -1202,7 +1202,7 @@ so a reader who notices finds it decided rather than missed.
    silence, and the third form of a repair line.
 10. `grep -c "sits inside the repair of a finding from an earlier"
     docs/ai-contributor-policy.md docs/adr/0004-*.md` returns 1 for each —
-    the same sentence in the rule and in the block ADR-0004 quotes as the
+    the same sentence in the rule and in the block ADR-0005 quotes as the
     text that replaced the old rule, which is the check that the record
     quotes §6 as it stands rather than as it stood a round ago. The two "as
     it stood" blocks are the ones that must not move.
@@ -1237,7 +1237,7 @@ finding line — the rank, and the finding whose repair a finding sits inside.
 It counts only rounds recorded under this rule, since a note repaired while
 the obligation still bound it says nothing about the exemption; its standing
 count and the eleven historical near-instances over the 34 rounds at 60f39fb
-are in ADR-0004.
+are in ADR-0005.
 
 The class signal in `docs/tier-review-model.md`, "What a review reports",
 asks for §6's form on a trigger of its own and does not require either
@@ -1245,7 +1245,7 @@ finding to be a must-fix. §6 now says the exemption is from that bullet
 only, so the two rules do not disagree. Narrowing the class signal as well
 is reserved the same way this question was, and would be its own ticket.
 
-ADR-0004 is `proposed`. The commit that closes this ticket moves it to
+ADR-0005 is `proposed`. The commit that closes this ticket moves it to
 `accepted`, which is the practice ADR-0003 established.
 
 The record's two new fields cost one word and one finding number per finding
@@ -1270,7 +1270,7 @@ ticket invents.
 The template change is wider than the sentence the maintainer approved: a
 rank on every finding line changes the record that every future critical-tier
 review writes, not only the reviews of tickets that touch this rule. The
-maintainer accepted it on 2026-09-07 on the condition that ADR-0004 state the
+maintainer accepted it on 2026-09-07 on the condition that ADR-0005 state the
 template change as a consequence of the narrowing and carry its cost, and
 that is where it is stated — what changed, why the narrowing required it, and
 a cost of about five words and five finding numbers per review record, from
@@ -1278,9 +1278,9 @@ the mean of 5.29 finding lines over the 34 rounds at 60f39fb read by the
 counting command quoted in that record's Context with `f/n` printed as well,
 run after f8880b5 and again after 3d22d3b, which returned the same figure
 both times. Round 4 widened what the record's two fields can hold and left
-that cost where it was, for the reason ADR-0004 now states beside it. Round 5
+that cost where it was, for the reason ADR-0005 now states beside it. Round 5
 does add to it: each round row carries one further number, the count of
-must-fix lines naming no finding, written even when it is zero. ADR-0004
+must-fix lines naming no finding, written even when it is zero. ADR-0005
 states that beside the per-finding cost, since the maintainer's condition of
 2026-09-07 was that the record carry what the template change costs.
 
@@ -1317,7 +1317,7 @@ goes to whichever ticket adds a third asking rule. Settling here what an
 absent cost line means would be this ticket's executor widening a control the
 reviewer asked only to have recorded.
 
-R5.6's remedy is taken in ADR-0004 and not in a rule: the record reports the
+R5.6's remedy is taken in ADR-0005 and not in a rule: the record reports the
 count of lines no reader of the field can count beside the second arm's
 standing zero — both zero over zero rounds recorded under this amendment, with
 the 1 of 5 historical lines that would have been countable stated beside them.
@@ -1338,10 +1338,10 @@ tightening states its cost", which is the remedy its reviewer gave.
 ### Review
 | Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
 |---|---|---|---|---|
-| 1 | 3 (of 8 findings) | documents: §6's narrowed trigger turned on a per-finding rank the record did not carry (must-fix); the falsifier's new second arm named evidence the record could not produce (must-fix); the template's flat prohibition forbade the line the class signal demands (must-fix); nothing obliges a reviewer to rank; ADR-0004's second arm without a standing count; the same template sentence prohibiting where §6 owes; the authority for narrowing the rule unnamed in ADR-0004; an ungrammatical carried-forward sentence blessed by the whole-bullet re-wrap | — | 8e87a58 |
-| 2 | 2 (of 5 findings) | documents: the template's two finding-line exemplars fixed the rank as a literal, one per column, so the record's sole statement of its own form modelled rank as following column (must-fix); the same template exempted a note's repair from the class form except where the class signal had fired, unscoped in time, so every later note on that rule owed the form for the rest of the review (must-fix); §6 barring re-ranking but not renumbering or merging, which breaks the finding number the new field and the falsifier's second arm read; ADR-0004 crediting the narrowing with avoiding a separation-of-duties failure the narrowing created; "The record." in `docs/tier-review-model.md` one field further behind | 2 of 2, 0 unnamed | f8880b5 |
+| 1 | 3 (of 8 findings) | documents: §6's narrowed trigger turned on a per-finding rank the record did not carry (must-fix); the falsifier's new second arm named evidence the record could not produce (must-fix); the template's flat prohibition forbade the line the class signal demands (must-fix); nothing obliges a reviewer to rank; ADR-0005's second arm without a standing count; the same template sentence prohibiting where §6 owes; the authority for narrowing the rule unnamed in ADR-0005; an ungrammatical carried-forward sentence blessed by the whole-bullet re-wrap | — | 8e87a58 |
+| 2 | 2 (of 5 findings) | documents: the template's two finding-line exemplars fixed the rank as a literal, one per column, so the record's sole statement of its own form modelled rank as following column (must-fix); the same template exempted a note's repair from the class form except where the class signal had fired, unscoped in time, so every later note on that rule owed the form for the rest of the review (must-fix); §6 barring re-ranking but not renumbering or merging, which breaks the finding number the new field and the falsifier's second arm read; ADR-0005 crediting the narrowing with avoiding a separation-of-duties failure the narrowing created; "The record." in `docs/tier-review-model.md` one field further behind | 2 of 2, 0 unnamed | f8880b5 |
 | 3 | 1 (of 3 findings) | documents: the template's Review finding-line paragraph admits two ranks where §6 gives rank three states, so the record cannot express the unranked finding the same template names as owing a class line (must-fix); §6's clause that naming several findings in one repair line is not a merge was not carried into the template; nothing makes an asking rule discoverable, so the template's inventory of the rules that ask can go stale silently | 1 of 1, 0 unnamed | 3d22d3b |
-| 4 | 2 (of 7 findings) | documents: §6, ADR-0004's quoted block and the template all say a line reading `yes, unnamed` still answers the class signal, while the same round widened the field to any earlier round, so the value no longer answers the question the signal asks (must-fix); the round table's `m` and `n` count must-fixes and a must-fix line reading `yes, unnamed` sits neither in that cell nor out of it, so the executor resolves it and "Repairs of repairs" reads a cell the bound party can hold below "mostly" (must-fix); two divergent lists of the three rules one field answers; the sweep's exclusion of free prose not reaching the conditional cost field; `partly` still inadmissible, the repair covering three of four historical values; `yes, unnamed` the cheap answer on a field 1 of 5 historical lines filled admissibly; the record and the commissioning brief numbering this round differently | 2 of 2, 0 unnamed | 0d0ecfe |
+| 4 | 2 (of 7 findings) | documents: §6, ADR-0005's quoted block and the template all say a line reading `yes, unnamed` still answers the class signal, while the same round widened the field to any earlier round, so the value no longer answers the question the signal asks (must-fix); the round table's `m` and `n` count must-fixes and a must-fix line reading `yes, unnamed` sits neither in that cell nor out of it, so the executor resolves it and "Repairs of repairs" reads a cell the bound party can hold below "mostly" (must-fix); two divergent lists of the three rules one field answers; the sweep's exclusion of free prose not reaching the conditional cost field; `partly` still inadmissible, the repair covering three of four historical values; `yes, unnamed` the cheap answer on a field 1 of 5 historical lines filled admissibly; the record and the commissioning brief numbering this round differently | 2 of 2, 0 unnamed | 0d0ecfe |
 | 5 | 3 (of 5 findings) | documents: `k` is defined as the must-fix lines that name no finding while the same round's rule makes `no` countable, so `k` swallows every `no` and a round answered countably throughout reports `k = n` (must-fix); the reason given for admitting only a finding number — that the other three readers need the round, which only the number gives — is false, since a line naming the round gives it and is countable by none (must-fix); the Risks paragraph states 10 and 1 from no command the description names, the command it names returning 11, and calls seven numbers five (must-fix); the numbering reconciliation states the row and round offset without stopping it recurring; §6's claim quantified over a list of readers held elsewhere | 2 of 3, 1 unnamed | — |
 
 Derived from the rows above and not asserted beside them: 3 + 2 + 1 + 2 + 3 =
@@ -1428,7 +1428,7 @@ not collapsed into one.
   unranked finding is now repaired at its class as a must-fix is, so silence
   cannot narrow the obligation and the executor gains nothing from a missing
   rank; inside previous fix: no
-- R1.5 · permits · note · ADR-0004's second arm · no standing count, against
+- R1.5 · permits · note · ADR-0005's second arm · no standing count, against
   this repository's practice ("the count was five", "already past twenty"),
   and the change itself named one instance, so the arm sat close to firing
   with no reader able to see it — remedy: the count stated, zero over zero
@@ -1439,10 +1439,10 @@ not collapsed into one.
 - R1.6 · refuses · note · the same template sentence · "carries no line" is a
   prohibition where §6 says "owes", so an executor that asked the class
   question on a note and found siblings could not record them, though
-  ADR-0004's own Neutral consequence says recording more costs nothing —
+  ADR-0005's own Neutral consequence says recording more costs nothing —
   remedy: "need carry no line", which is R1.3's sentence; a loosening;
   inside previous fix: no
-- R1.7 · permits · note · ADR-0004, "Amendment in place rather than
+- R1.7 · permits · note · ADR-0005, "Amendment in place rather than
   retirement" · bullet 4 of "Retiring a control" authorises widening the
   falsifier; bullet 3's amendment path is conditioned on a match being
   technical, which the record says did not occur, so the authority for
@@ -1452,7 +1452,7 @@ not collapsed into one.
   fix: no
 - R1.8 · refuses · note · §6's carried-forward sentence · "is recorded as the
   third condition … records a list" is ungrammatical, pre-existing, and the
-  whole-bullet re-wrap at 3258933 had blessed it inside ADR-0004's "text that
+  whole-bullet re-wrap at 3258933 had blessed it inside ADR-0005's "text that
   replaces it" block — remedy: "is recorded the way the third condition …
   records a list", repaired in §6 and in that block, with nothing else in
   either re-flowed; inside previous fix: no
@@ -1529,7 +1529,7 @@ exception would have been paid again by every rule added after it.
   re-ranking only; renumbering or merging findings breaks the R-number the new
   field and the arm depend on — remedy: "does not re-rank, renumber or merge",
   in §6, in the same sentence of `templates/PR-DESCRIPTION.md`, and in
-  ADR-0004's quotation of §6, so the three do not diverge, with the reason
+  ADR-0005's quotation of §6, so the three do not diverge, with the reason
   stated once and a clause saying that naming several findings in one repair
   line is not a merge; cost: the reviewer priced three words and this is two
   sentences; an executor that would have tidied the reviewer's numbering may
@@ -1539,7 +1539,7 @@ exception would have been paid again by every rule added after it.
   docs/tickets/done/*.md | wc -l` and the same grep piped to `grep -cvE "^-
   R[0-9]+\.[0-9]+ "`, run after f8880b5 on a directory this branch does not
   touch; inside previous fix: R1.1
-- R2.4 · permits · note · ADR-0004 Decision, "the separation-of-duties
+- R2.4 · permits · note · ADR-0005 Decision, "the separation-of-duties
   failure the narrowing exists to avoid" · the narrowing created it; the
   repair closes it — remedy: reworded, so the record says the narrowing opened
   the scope-setting the rank field closes rather than crediting it with
@@ -1603,7 +1603,7 @@ by its own command:
   second arm — "sits inside the repair of a finding the reviewer ranked a
   note" — a rank nobody set. The same template names "the repair of a finding
   the reviewer left unranked" as owing a line, so the file contemplates a
-  state its own record form cannot express, which is ADR-0004's own stated
+  state its own record form cannot express, which is ADR-0005's own stated
   defect: "a rule whose trigger the record does not carry can be neither
   checked nor retired" — remedy: name `unranked` as the third value in that
   parenthetical and say the executor transcribes the absence rather than
@@ -1690,7 +1690,7 @@ was owed where a finding sits inside the previous round's fix, while the
 falsifier's second arm counted a finding in any later round. Five figures this
 description states were reproduced, each by its own command:
 
-- `34 40 180 5.29412`, whose mean rounds to the 5.29 ADR-0004 carries, from
+- `34 40 180 5.29412`, whose mean rounds to the 5.29 ADR-0005 carries, from
   AC3's counting command with `f/n` printed as well.
 - the finding-line statement at 29 lines against 10, from `sed -n
   '/^Findings, per round/,/^- R1[.]1 /p' templates/PR-DESCRIPTION.md | head -n
@@ -1708,11 +1708,11 @@ description states were reproduced, each by its own command:
   findings at once, from `grep -rh "^- R[0-9]" docs/tickets/done/*.md | wc -l`
   and the same grep piped to `grep -cvE "^- R[0-9]+\.[0-9]+ "`.
 
-ADR-0004's two replacement blocks were confirmed byte-identical to the §6 text
+ADR-0005's two replacement blocks were confirmed byte-identical to the §6 text
 they quote. No remedy below tightens a control, so no finding line owes a cost
 line.
 
-- R5.1 · permits · must-fix · §6, ADR-0004's quoted block and
+- R5.1 · permits · must-fix · §6, ADR-0005's quoted block and
   `templates/PR-DESCRIPTION.md`, "still answers the class signal, which asks
   whether" · the signal asks whether a finding sits inside **the previous
   round's** fix, and the same round widened the field to name a finding from
@@ -1743,7 +1743,7 @@ line.
   piece of reasoning, diverging in the round that wrote them — remedy: one
   list, stated once; inside previous fix: R3.1. **Taken at 0d0ecfe**: one
   list, in `templates/PR-DESCRIPTION.md`, of the four rules that read the
-  field, with §6 and ADR-0004 pointing at it rather than restating it. Neither
+  field, with §6 and ADR-0005 pointing at it rather than restating it. Neither
   of the two lists it replaces was complete.
 - R5.4 · permits · note · the sweep's exclusion, "a field of free prose …
   cannot fail to hold a state" · it does not reach the cost field, which is
@@ -1765,9 +1765,9 @@ line.
   round-4 repair had reached.
 - R5.6 · permits · note · §6, "the cost of the silence" · `yes, unnamed` is the
   cheap answer on a field only 1 of 5 historical lines filled admissibly, so
-  the second arm can be starved without a reader seeing it — remedy: ADR-0004
+  the second arm can be starved without a reader seeing it — remedy: ADR-0005
   reports the uncountable count beside its standing zero; inside previous fix:
-  R3.1. **Taken at 0d0ecfe**: ADR-0004 reports the count of lines no reader of
+  R3.1. **Taken at 0d0ecfe**: ADR-0005 reports the count of lines no reader of
   the field can count beside the second arm's standing zero, both zero over
   zero rounds recorded under this rule, with the historical 1 of 5 beside
   them.
@@ -1877,20 +1877,20 @@ routes by which the executor could still set the scope of its own obligation,
 four are closed — renumbering, merging, an unranked finding, and the repair
 line that answers for several findings at once — and one is open: the executor
 deciding whether a line reading `no` enters the round table's count of unnamed
-must-fix lines, which is R6.1. ADR-0004 claims only the authority it has. The
+must-fix lines, which is R6.1. ADR-0005 claims only the authority it has. The
 block it quotes as the text that replaces §6 is verbatim in §6 — the 55 lines
-at 178 to 232 of `docs/adr/0004-the-class-obligation-binds-a-repaired-must-fix.md`
+at 178 to 232 of `docs/adr/0005-the-class-obligation-binds-a-repaired-must-fix.md`
 diffed against the 55 lines from 246 of `docs/ai-contributor-policy.md` differ
 nowhere — and both "as it stood" blocks are byte-identical to the copies
 introduced at 3258933 and to the policy at 60f39fb, the first checked by
 diffing each block against its copy in that ADR as `git show 3258933` carries
 it, and the second by testing each block for byte containment in `git show
 60f39fb:docs/ai-contributor-policy.md`. The cost figure is honest, including
-the per-round-row number ADR-0004 states beside the per-finding one. The
+the per-round-row number ADR-0005 states beside the per-finding one. The
 falsifier is readable and can fire. Figures reproduced, each by its own
 command, all run after 0d0ecfe:
 
-- `34 40 180`, and the mean `5.29412` that rounds to the 5.29 ADR-0004
+- `34 40 180`, and the mean `5.29412` that rounds to the 5.29 ADR-0005
   carries, from AC3's counting command with `f/n` printed as well, over
   `docs/tickets/done/`, a directory this branch does not touch.
 - the finding-line statement at 39 lines, against 29 at 3d22d3b and 10 at
@@ -1921,10 +1921,10 @@ sits in Falsification.
 
 - R6.1 · permits · must-fix · `templates/PR-DESCRIPTION.md`'s round-table
   paragraph, "`k` reports beside it the must-fix lines that name no finding",
-  and ADR-0004 at lines 130, 270, 379 and 432, and How-to-verify item 12 · a
+  and ADR-0005 at lines 130, 270, 379 and 432, and How-to-verify item 12 · a
   line reading `no` names no finding, and the same round's rule makes `no`
   countable, so `k` as defined swallows every `no`, and a round answered
-  countably throughout reports `k = n`. ADR-0004 states flatly that a line
+  countably throughout reports `k = n`. ADR-0005 states flatly that a line
   naming no finding "is countable by none of that field's four readers", which
   would stop the class signal reading a `no`. The count added so that a reader
   could see a starved arm cannot tell "answered no" from "hedged" — remedy:
