@@ -84,10 +84,10 @@ executes or a caller reads as a contract is touched. A process document is
 standard, on one pass, whatever the answer. Touching an important file is a
 prompt to run the test, not an automatic escalation.
 
-**5. The machine-checked gates run identically everywhere; the fifth is
+**5. The gates a tool runs are machine-checked; the falsification gate is
 countersigned where the work is.** Lint, format, strict type-checking and
-tests run identically on a contributor's machine and in CI; an agent cannot talk its way past a failing
-one, and skipping hooks is a forbidden action. The fifth gate, falsification,
+tests run identically on a contributor's machine and in CI; an agent cannot
+talk its way past a failing one, and skipping hooks is a forbidden action. The fifth gate, falsification,
 is a count the executor reports at every tier and a reviewer verifies where
 the tier summons one — the one gate an agent could talk past, which is why
 the count is written down.

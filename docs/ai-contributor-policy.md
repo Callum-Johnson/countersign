@@ -244,8 +244,8 @@ Universal. They apply on every ticket whether or not the ticket restates them.
   that similar lines left unabstracted under this rule were later unified at
   a higher cost than an interface at the second occurrence would have been.
 
-Those closing bullets are there because agents reliably over-engineer when
-uncertain.
+The bullets on shims, flags and speculative abstractions are there because
+agents reliably over-engineer when uncertain.
 Given an unclear requirement, an agent will produce an abstraction that covers
 every reading of it. That is not caution — it is unreviewable code.
 
