@@ -277,9 +277,25 @@ longer decides whether a collision is seen.
 spent. A ticket raised and later deleted, absorbed or renamed leaves no file
 and remains named in closed tickets, commit messages and pull-request bodies,
 and a read of the tree hands its id out again. Take the next number from the
-set of ticket files ever added — `git log --diff-filter=A --name-only
---format= -- docs/tickets`, with the ids extracted from the paths — not from
-`ls`. This repository already has one such id:
+set of ids ticket files have ever borne — `git log --diff-filter=AR
+--name-only --format= -- docs/tickets`, with the ids extracted from the paths
+— not from `ls`.
+
+The filter is `AR` and not `A` because an id arrives by two routes and only
+one of them is an addition. A ticket file created under an id is an addition;
+a ticket file *renamed* to a new id — because two agents allocated the same
+number, or because the ticket was renumbered — is a rename, and its
+destination id never appears under `A`. Both routes spend an id, so both are
+read. A history where `PRJ-028-first.md` is renamed to `PRJ-029-first.md`
+answers `PRJ-028` under `A` and `PRJ-028 PRJ-029` under `AR`; a contributor
+following the first allocates `PRJ-029`, which is the collision the paragraph
+exists to prevent, reached by the one route it did not cover.
+
+What this covers and what it does not: every id borne by a file under
+`docs/tickets` on the refs the command is run against. It does not reach an id
+allocated on a ref the command cannot see, which is a different defect with a
+different answer — two agents on unshared branches — and no command over one
+repository's history catches it. This repository already has one such id:
 `EM-010-001` was created at 3da6c57 and renamed `EM-014-001` at 0947dda, so
 the tree shows no child of EM-010 while the history does, and the next child
 of EM-010 read from the tree would be `-001` again. On the source project — the
