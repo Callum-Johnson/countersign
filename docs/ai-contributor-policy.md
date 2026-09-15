@@ -20,7 +20,7 @@ row names where the rule is. What you must read before your first edit is
 | Question | Where it is settled |
 |---|---|
 | What may I do, what may I not, and what do I do when I cannot proceed? | this document |
-| How do I claim, block, batch and close work, and how are tickets numbered? | `docs/ticket-lifecycle.md` — the mechanics; §3 above states when to block |
+| How do I claim, select, block, batch and close work; how are tickets numbered; and what governs unattended selection? | `docs/ticket-lifecycle.md` — the mechanics and project-local scheduling-policy boundary; §3 above states when to block |
 | What must be true before I report this change done? | this document, §6 |
 | What tier is my change, who reviews it, what does a review report, when does it end, how does a rule leave, and what does one need before it enters? | `docs/tier-review-model.md` |
 | Which machine checks must pass, what does the falsification gate ask of me, where does a number that something else determines live, and where does a review run? | `docs/quality-gates.md` |
@@ -102,11 +102,26 @@ criteria, the references, and an explicit out-of-scope list.
   rejection, however good the change.
 - One ticket at a time per agent. Do not claim several in parallel.
 - Do not start a ticket whose dependencies are unfinished.
+- A new ticket carries `kind`, `impact`, `delivery` and a concise `why` in
+  its frontmatter, plus the causal justification the ticket template names.
+  Those facts describe why it deserves capacity; they do not alter its tier.
+- Do not infer, upgrade or downgrade a ticket's impact from its prose. Where
+  the declared impact and its justification do not agree, block for the party
+  that owns the ticket to correct the contract.
+
+**Retired when:** the adopting project generates impact from a durable,
+maintainer-owned evidence record and agents cannot write either the generated
+field or its source. The agent then has no impact judgement to substitute.
 
 **Retired when:** a project's closed tickets show out-of-scope work rejected
 at review that the ticket's author, asked afterwards, would have accepted,
 more often than they show scope creep caught — counted over a stated
 population of tickets. The rule then costs more honest work than it stops.
+
+**Retired when:** over a stated population of new tickets, the required
+justification is routinely copied from the title or fails to distinguish work
+accepted by a maintainer from work they reject as speculative. The fields then
+cost authoring time without making the capacity decision inspectable.
 
 ## 3. Ambiguity is escalated, never resolved by invention
 
