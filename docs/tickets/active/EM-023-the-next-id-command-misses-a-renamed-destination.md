@@ -1,10 +1,12 @@
 ---
 id: EM-023
 title: The next-id command misses an id created by renaming a ticket file
-status: ready
+status: in-progress
 tier: standard
 complexity: S
 dependencies: []
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 ---
 
 # EM-023 — The next-id command misses a renamed destination
