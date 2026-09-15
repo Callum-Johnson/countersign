@@ -49,8 +49,10 @@ Run it against your change. **Any one clause means `critical`:**
    not this.*
 4. **Determinism.** You touch the seeded random source, seed threading, or
    anything that could change a reproducible outcome.
-5. **Process surface.** A schema migration, a CI configuration change, or a
-   change to the review model itself.
+5. **Process surface.** A schema migration or a CI configuration change. A
+   change to the review model itself is a change to a process document, and
+   the paragraph **A change to a process document** below decides its tier;
+   this clause does not.
 
 If none hold, the tier is `standard` — unless nothing a program executes
 and nothing a caller reads as a contract is touched, in which case it is
@@ -94,11 +96,11 @@ as ADR-0002 provides.
 neither `trivial` by the paragraph above, whose documentation clause does not
 carry process documents, nor `critical` by ADR-0002's Context, whose reach
 this paragraph narrows — ADR-0004 is the record, and carries the text it
-replaces. Clause 5 above names a change to the review model itself; the
-review model is a process document, and this paragraph decides its tier. A
-change that touches a process document and also something a program
-executes or a caller reads as a contract is classed by the rest of this test
-on that other thing; this paragraph lowers nothing.
+replaces. Clause 5 above sends a change to the review model here rather than
+answering it, the review model being a process document, and this paragraph
+decides its tier. A change that touches a process document and also something
+a program executes or a caller reads as a contract is classed by the rest of
+this test on that other thing; this paragraph lowers nothing.
 
 The reason the tier is fixed rather than movable is a cost that was paid: the
 raise-never-lower rule together with a `critical` default sent every
