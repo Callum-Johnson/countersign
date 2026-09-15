@@ -21,7 +21,8 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-001 | done | critical | Triage source artifacts for third-party IP (retrospective) |
 | EM-002 | done | standard | Publish policy documents, templates and cleared examples (retrospective) |
 | EM-003 | done | critical | Adopt the documented process in this repository |
-| EM-001-001 | blocked | standard | Harden the IP classifier and make the triage reproducible |
+| EM-001-001 | done | standard | Harden the IP classifier and make the triage reproducible (closed 2026-09-15 without the work; the maintainer declined a script in this repository) |
+| EM-001-001-001 | ready | standard | The lifecycle has no close for a ticket that will not be worked |
 | EM-004 | blocked | standard | Add per-project case studies |
 | EM-005 | done | critical | Publish the repository |
 | EM-005-001 | ready | trivial | Link commit authorship to the publishing account |

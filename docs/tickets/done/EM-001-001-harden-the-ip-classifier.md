@@ -1,13 +1,14 @@
 ---
 id: EM-001-001
 title: Harden the IP classifier and make the triage reproducible
-status: blocked
+status: done
 tier: standard
 complexity: M
 dependencies: [EM-001]
 claimed_by: claude-fable-5-1
 claimed_at: 2026-09-06
 blocked_at: 2026-09-06
+closed_at: 2026-09-15
 ---
 
 # EM-001-001 — Harden the IP classifier and make the triage reproducible
@@ -103,3 +104,89 @@ input and one a decision reserved to the maintainer.
 To proceed the executor needs the maintainer's choice among those, and, for
 the first two, the list — or the two artifacts named in Context, or a stated
 substitute for AC2.
+
+## Maintainer decision (2026-09-15)
+
+**BLOCKER DISCHARGED.** The maintainer answered by closing the ticket rather
+than by answering either question it raised: no classifier is added to this
+repository. Item 2's publication question does not arise, because nothing is
+published. Item 1's missing term list does not arise, because nothing would
+consume it.
+
+The reason is a constraint this ticket's Specification contradicts. This
+repository publishes process, not product, as `DISCLOSURE.md` and the README
+both say, and it carries no runnable tooling. The Specification is
+`tools/ip-scan.py` and `tools/terms.txt` and nothing else, so no part of the
+ticket survives the constraint and could be worked as written. Respecifying it
+without a script was offered and declined.
+
+What the ticket recorded is not withdrawn. The classifier under-flagged, and
+the triage that cleared this repository's published artifacts is not
+reproducible from this repository. That is now an accepted risk, carried in
+Risks / follow-ups below, rather than a defect this repository will repair.
+
+## PR Description
+
+### Ticket
+EM-001-001 - Harden the IP classifier and make the triage reproducible.
+
+### Tier
+`trivial`. The frontmatter's `standard` priced the script and the term list
+the Specification asks for, and neither is written. What this change touches
+is this ticket file, one row of `docs/tickets/README.md`, and one new ticket
+file - "ticket edits" in the tier table's `trivial` row, which summons no
+independent pass. None was run. The board file states rules as well as
+carrying the board, but the rule-stating text is untouched here; only a
+record changes, and the tier model is explicit that a record of work is not
+a process document.
+
+### Summary
+EM-001-001 closes without the work it specifies. The maintainer's decision of
+2026-09-15 is that no classifier script enters this repository, which leaves
+the ticket with an empty Specification rather than an unanswered question.
+
+### Acceptance criteria
+Every criterion names the script or the term list, and neither exists. None is
+met, and none is to be met; the ticket closes on the decision above, not on
+the criteria.
+- [ ] AC1: running the script against `examples/`, `docs/`, `templates/` and
+  `case-studies/` exits zero - no script; not met.
+- [ ] AC2: running it against the two artifacts named in Context flags both -
+  no script, and the artifacts are private and outside this repository; not
+  met.
+- [ ] AC3: removing a term from `terms.txt` changes the result - no term list;
+  not met.
+- [ ] AC4: `tools/README.md` states the script is a filter and not a decision
+  - no `tools/` directory; not met.
+
+### Falsification
+N/A - this change makes no behavioural claim. Per criterion, what a reader
+does differently because of it: a reader looking for the classifier learns
+from this record that it is deliberately absent and why, rather than finding a
+blocked ticket that implies it is merely pending.
+
+### Out of scope (per ticket)
+Nothing here exceeds the ticket's scope; it falls short of it by decision.
+- Re-triaging the source project. Untouched, as the ticket already excluded.
+- Any semantic or model-based classification. Untouched.
+- Respecifying reproducible triage without a script. Offered to the maintainer
+  and declined; not carried to a follow-up.
+
+### How to verify
+1. `git show HEAD --stat` names only ticket files and the board.
+2. `ls tools 2>/dev/null` finds nothing; the repository carries no script.
+3. `grep -rn 'ip-scan' --include=*.md .` returns only this ticket's own text.
+
+### Risks / follow-ups
+- **Accepted risk.** The triage that cleared this repository's artifacts is
+  not reproducible from this repository, and its classifier is known to have
+  under-flagged. Anyone auditing the disclosure has the maintainer's word and
+  the result, not the mechanism. The maintainer accepts this in closing the
+  ticket.
+- **Follow-up raised.** EM-001-001-001, for a lifecycle gap this closure
+  exposed: "Closing" describes a ticket that was worked, and there is no
+  written path for one that will not be. This ticket took the `done/` path
+  because it is the only close the directory/status invariant offers.
+
+### Review
+N/A - `trivial` tier, and not a change to a process document.
