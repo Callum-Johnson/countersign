@@ -1,10 +1,13 @@
 ---
 id: EM-024-002
 title: The gate count is restated away from its site, and it is not alone
-status: ready
+status: done
 tier: standard
 complexity: M
 dependencies: [EM-024]
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
+closed_at: 2026-09-15
 ---
 
 # EM-024-002 — The gate count is restated away from its site
@@ -408,5 +411,261 @@ the executor may raise and never lower.
 
 ## PR Description
 
-> Leave this section empty when authoring the ticket. The implementing
+### Ticket
+EM-024-002 — The gate count is restated away from its site, and it is not
+alone.
+
+### Tier
+`standard`, on one independent review pass. Every file touched is a process
+document under `docs/` or `templates/`, or `README.md`, which the contributor
+policy's map names; "The operative test" fixes the tier there. The pass ran
+against a16ea73 and is row 1 of the Review table.
+
+**On the dependency.** The frontmatter names EM-024, which is `in-progress`.
+The rule this ticket applies — `docs/quality-gates.md`, "A number determined
+elsewhere has one site that goes red" — landed on the default branch at
+d669ead under the maintainer's direction to split EM-024: land the rule, leave
+the ticket open for its record defects and its siblings. The dependency is on
+the rule and the rule is in force.
+
+### Summary
+A number that something other than its own sentence determines is a copy. The
+gate count is determined by the code block at the top of
+`docs/quality-gates.md` and was restated away from it; the rest of the sweep's
+sites are index rows, map preambles, checklist closers and prose restating a
+number that a list, table, block or directory scheme determines. Every site the
+ticket's Context names is disposed of below.
+
+### Acceptance criteria
+- [x] AC1 and AC2: every site the Context lists is disposed of, one line each,
+  with the repair taken and why. The table is the enumeration; **no total is
+  stated beside it**, which is this section applied to this ticket, and a
+  reader who wants a count derives it from the rows.
+
+  | Context site | Repair taken, and why |
+  |---|---|
+  | `README.md:39` "four machine checks" | Number removed. An index row describes what a section covers; the count added nothing the row needed and the block determines it. |
+  | `README.md:85` "Four gates" | Rewritten to keep the claim and drop the number: "The gates a tool runs are machine-checked; the falsification gate is countersigned where the work is." The ticket's Constraints named this site as the one place the count could stay with an argument; it is not kept, because naming the gate carries the fifth-gate contrast without a number and without leaving an ordinal to count from. |
+  | `docs/quality-gates.md:17` "the other four" | Number removed; the sentence names the site — "a condition of merge like the gates in the block above". |
+  | `docs/quality-gates.md:18` "the four above" | Number removed; "those" resolves to the block named in the clause before it. |
+  | `docs/quality-gates.md:303` "the other four" | **Left alone**, as the ticket directs. It is the section's own worked example of the form a restatement takes, not a restatement of the gate count. Now `:308`. |
+  | `docs/tier-review-model.md:93` "four machine checks" | Number removed; "no tier that skips the machine checks" carries the obligation unchanged. |
+  | `docs/ai-contributor-policy.md:16` "searching five documents" | Number removed — "searching the documents for it", which is the repair the section's own degraded-form paragraph names as its example. |
+  | `docs/ai-contributor-policy.md:335` "tick all seven" | Number removed — "tick every item above", which resolves to the checklist directly above it and survives an item being added. |
+  | `docs/ticket-lifecycle.md:188` "Three things" | Number removed, plural head kept: "The things the scheme does not say for itself, each found in use". |
+  | `docs/tier-review-model.md:26` "The two questions" | Number removed from the index row; the section it names states them. |
+  | `docs/tier-review-model.md:27` "The three conditions" | Number removed from the index row; same reason. |
+  | `README.md:38` "Three risk tiers" | Number removed from the index row; the tier table determines it. |
+  | `docs/tier-review-model.md:359` "five of five" | **Kept** — the one site. See the exception recorded below. |
+  | `docs/adr-process.md:50` "the three that follow" | Number removed — "the cases that follow show them applied". |
+  | `templates/TICKET.md:35` "a fifth directory … beyond the four" | Both numbers removed — "a further directory, `backlog/`, for such tickets, beyond the ones `docs/ticket-lifecycle.md` names". The additional-to-the-scheme contrast is what "a fifth" carried, and "a further" carries it without deriving from a count. |
+  | `docs/ai-contributor-policy.md:229` "The last three are there" | Number removed and the boundary restored by naming the members: "The bullets on shims, flags and speculative abstractions". "Those closing bullets" was tried first and named no boundary a reader could derive. |
+  | `docs/ai-contributor-policy.md:35` "the three ways to be wrong" | Number removed; the ways are enumerated in the clause immediately above. |
+  | `docs/tier-review-model.md:493` "Those eight" | **Disposed of in EM-024-001**, at 77374a1, as the ticket directs — two copies of one count in one paragraph are repaired together. |
+  | `docs/quality-gates.md:79` "the two columns" | Number removed; the finding still sits outside the must-fix count and outside the columns. |
+  | `templates/PR-DESCRIPTION.md:90` "one of the two columns" | Number removed; the line already names `docs/tier-review-model.md` as what states them. |
+
+  **The exception taken, with its argument.** `docs/tier-review-model.md`, now
+  `:431`, keeps "five of five, per the Review tables of the closed tickets".
+  The determiner it copies is those Review tables, at baseline 5d94db7, and
+  both the determiner and the baseline are named in the same sentence, which
+  is the one-site form §6 asks for. Naming the determiner without the number
+  would not serve the reader there for a specific reason: EM-024-001, merged
+  at b57e220, rewrote the Retired-when below it to say "The pre-rule rate is in
+  the paragraph above, with its baseline and the records it was read from; it
+  is not restated here". Removing the number would leave that falsifier
+  pointing at a sentence that no longer carries a rate. It is one site because
+  the only other copy was the one EM-024-001 removed.
+
+  **The sweep, re-run at the closing commit.** The ticket's gate-count pattern,
+  run with the wrap-tolerant matcher over the ten documents `DOCS` names:
+
+      docs/quality-gates.md:308:the other four
+
+  At d470681 the same pattern returned six rows. **This output is the means of
+  re-locating the sites and not a clean bill**: it enumerates candidates over
+  ten documents for one count, and the one row it returns is the site the
+  ticket directs be left alone. The gate count read from its own site —
+  `sed -n '/^.\{3\}sh$/,/^.\{3\}$/p' docs/quality-gates.md | grep -c '^[a-z]'`
+  — returns 4 at the closing commit, unchanged.
+- [x] AC3: no rule text is changed. The edits are index rows, evidence
+  sentences and prose. Four edited lines sit inside normative paragraphs and
+  each was checked: `docs/ai-contributor-policy.md` "Keeping the map true" —
+  "the ways" is as closed a set as "the three ways"; §7's closing line —
+  "every item above" reads on the checklist it closes and survives an item
+  being added, where "all seven" did not; `docs/quality-gates.md` "Review
+  isolation" — the finding still sits outside the must-fix count and outside
+  both columns; `docs/tier-review-model.md` "The tiers" — gates mandatory at
+  every tier, unchanged.
+
+  The `##` section read whole before the repair, per "The repair is read
+  whole", one per document touched: `README.md` — "Start here" and "The core
+  ideas"; `docs/quality-gates.md` — the gate block and its following
+  paragraphs, and "Review isolation"; `docs/tier-review-model.md` — the index
+  table and "The tiers"; `docs/ai-contributor-policy.md` — "Which document
+  settles what", "Keeping the map true", §5 and §7; `docs/ticket-lifecycle.md`
+  — "Lineage"; `docs/adr-process.md` — "When to write one";
+  `templates/TICKET.md` — "Specification"; `templates/PR-DESCRIPTION.md` — the
+  Review section.
+- [x] AC4: the instrument's limits, as they stand at close. **The enumeration
+  is open.** The sweep's population is the ten documents named in its `DOCS`
+  list and nothing else — no decision record, ticket, case study or example is
+  read, and `DISCLOSURE.md` and `templates/ADR.md` are in the population but
+  were not edited. The matcher reads each file with single line breaks treated
+  as spaces and reports the line a match starts on, so a number split across a
+  paragraph break is not seen. It matches a number and stops; deciding whether
+  a candidate is a copy is the determiner question, asked site by site, which
+  is a reader's judgement and not the pattern's. A candidate the reader judges
+  out is invisible in the output, which is how two of the round-2 additions
+  were missed at round 1. A later reader must not read an empty result as an
+  absence of defects.
+
+  One live instance of that openness, found by the round-1 reviewer and not in
+  the Context list: `docs/tier-review-model.md:86` restates "the two columns"
+  in a third document, away from its site. It is not a defect of this change
+  and is recorded under Risks.
+
+### Falsification
+N/A for a behavioural claim — this repository publishes documents and runs no
+suite. Per criterion, what a reader does differently: a reader who wants the
+number of machine gates counts the block that runs them, and a reader who
+edits that block does not leave five sentences elsewhere asserting the old
+figure.
+
+For each must-fix repaired, per the contributor policy's §6:
+
+- R1.6 — class: **which repairs removed a claim along with a count?** The
+  README core-idea heading is the instance. The question was asked of every
+  sentence this branch rewrote rather than merely shortened. Siblings, each
+  checked:
+  - **`README.md` core idea 5** — the instance. "Four gates are
+    machine-checked" asserted which gates a machine checks; the first
+    replacement asserted the identical-script rule, which the body of the same
+    paragraph already carries, and left "the fifth" counting from nothing.
+    Repaired: the heading names the gates by what runs them and names the
+    falsification gate rather than numbering it.
+  - **`docs/ticket-lifecycle.md` "Lineage" intro** — same class, found by the
+    same question and reported as R1.5: dropping "Three" took the plural head
+    with it and left "each" quantifying over nothing. Repaired in the round.
+  - **`docs/ai-contributor-policy.md` §5's closing sentence** — same class,
+    reported as R1.7: "Those closing bullets" named no boundary a reader could
+    derive. Repaired in the round by naming the bullets' subjects.
+  - **`templates/TICKET.md`'s backlog sentence** — checked and sound. The
+    reviewer confirmed the contrast survives: "beyond the four
+    `docs/ticket-lifecycle.md` documents" used "documents" as a verb, and
+    "beyond the ones `docs/ticket-lifecycle.md` names" keeps that reading while
+    "a further directory" keeps what "a fifth" carried.
+  - **Every index row and the two column sentences** — checked and sound. Each
+    dropped a count from a noun phrase whose head survives, so no claim moved.
+  What a reader does differently: a reader of core idea 5 still learns which
+  gates a machine checks and which one is countersigned, instead of reading the
+  identical-script rule twice and an ordinal with no antecedent.
+
+- R1.2 — class: **which numbers did this change's own record state that
+  something other than its sentence determines?** The previous commit's message
+  is the instance: it asserted "sixteen restated counts" and "five places",
+  both determined by the Context enumeration and the sweep, neither carrying a
+  determiner, and "sixteen" does not reproduce — Context lists twenty sites, of
+  which seventeen lose a number here. Siblings, each checked: this description
+  states no total anywhere, the per-site table is the enumeration, and the
+  Review row's counts are the round table's own field, which the template's
+  countability rule governs. The commit message stands as written, because a
+  record is not rewritten; 3a64ffe is where it is corrected.
+  What a reader does differently: a reader auditing this ticket counts the
+  table's rows rather than checking a total against them and finding it short.
+
+- R1.1 — class: **which exception did this change take without recording it?**
+  The kept site is the instance, and the only one: the description now names
+  the site, the determiner it copies and the argument, under AC1 above. No
+  other number is kept anywhere in the diff.
+
+- R1.3 — note, and it is discharged by this description existing: the sweep is
+  quoted with its output, each AC carries its evidence, the `##` sections read
+  whole are named, and the instrument's limits are restated.
+- R1.5 and R1.7 — notes, repaired in the round and recorded under R1.6's class
+  above, since the class question found them.
+
+### Routed, not repaired
+R1.4 is routed. `docs/quality-gates.md:308` quotes "the other four", "the three
+that follow", "those eight" and "beyond the four" as illustrations of the form
+a restatement takes. After this branch and EM-024-001, none of the four
+survives anywhere in the ten documents except in that example. The reviewer
+judged, and I agree, that it is **not stale as a claim** — the phrases are
+offered as shapes, not as pointers to live text, and the measured sentence
+beside them is time-stamped to the round-1 review. What has thinned is its
+force as an exhibit. The ticket's Out of scope reserves that section, including
+"the numbers it quotes as examples of the form it rejects", so under the second
+condition of "When review ends" it goes to the ticket that owns it: **EM-024**,
+which is open in `active/` and owns that section. Nothing is owed unless EM-024
+wants the example to keep pointing at live text.
+
+### Out of scope (per ticket)
+Confirmed; nothing exceeds it.
+- `docs/tier-review-model.md`'s "thirteen"s and its "eight" restatements —
+  EM-024-001's, and untouched here.
+- `README.md`'s two commit counts — EM-015's, untouched.
+- `docs/quality-gates.md`, the section itself — untouched; the whole of it is
+  byte-identical apart from `:17`, `:18` and `:79`, which are outside it.
+- Decision records, tickets, case studies and examples — untouched.
+- Any figure about the control-plane or source project — untouched.
+
+### How to verify
+1. Re-run the gate sweep quoted under AC1 and compare with the output there.
+2. `sed -n '/^.\{3\}sh$/,/^.\{3\}$/p' docs/quality-gates.md | grep -c '^[a-z]'`
+   — 4, the count at its one site.
+3. `git diff main...HEAD --name-only` — eight documents, exactly the eight in
+   Files.
+4. For any row of the AC1 table, open the file and check the sentence says what
+   the row says it says.
+
+### Risks / follow-ups
+- **The enumeration is open, and one instance is already known.**
+  `docs/tier-review-model.md:86` restates "the two columns" in a third
+  document, away from the site that states them. The round-1 reviewer found it
+  and correctly did not rank it a defect of this change, since it is not in the
+  Context list. It belongs to the next sweep. Recorded here so it is not lost.
+- **The sweep's blind spots are structural, not incidental.** The instrument
+  cannot see a number split across a paragraph break, and cannot see a
+  candidate a reader judged out. The second is how two round-2 additions were
+  missed at round 1, and no change to the pattern fixes it — the determiner
+  question is a reader's.
+- `docs/quality-gates.md:308`'s example phrases are now archival, as R1.4
+  records. A reader who goes looking for the live sites they were drawn from
+  will not find them.
+
+### Review
+One independent review pass, per "The operative test" for a change to a
+process document. No second pass is taken.
+
+| Round | Must-fix | Where (rules / lists / documents / tests) | Inside previous round's fix | Repaired by |
+|---|---|---|---|---|
+| 1 | 3 (of 7 findings) | documents: the README core-idea heading lost its claim along with its count and left an ordinal counting from nothing, at the one site the ticket's Constraints named as the place to argue for keeping the number (must-fix, second column); the exception at the kept site was taken silently, with no determiner and no argument recorded (must-fix); the previous commit's own message restated two counts determined by the Context enumeration, one of which does not reproduce (must-fix); the four ACs' evidence did not yet exist at the reviewed commit; the section's own worked example now quotes four phrases with no live referent (routed to EM-024); "each" left quantifying over nothing in the lifecycle intro; the §5 closing sentence left no boundary a reader could derive | — | 3a64ffe |
+
+Derived from the row and not asserted beside it: three must-fixes over one
+review round, of which two are repaired here, one is discharged by this
+description, and one further finding is routed. Round 1 has no round before
+it, so its inside-previous-fix cell reads `—` and no line is uncountable.
+
+- R1.6 · refuses · must-fix · the ticket's Constraints, "`README.md:85` is a core-idea heading … Removing the number changes what the heading says, and the fifth-gate contrast depends on it", and `docs/quality-gates.md`, "Where a site cannot lose its number without losing something a reader needs at that point" · the removal took the heading's claim with it and left "the fifth" with nothing in the heading to count from, at the exact site the ticket signposted — remedy: keep the claim and name the gate rather than numbering it; cost, if the remedy tightens a control: none, it loosens a repair; inside previous fix: —
+- R1.1 · permits · must-fix · `docs/quality-gates.md`, "the change's description records, at that site, which determiner the number copies and why naming it does not serve the reader there. A number kept without that record is a defect on its face" · the one kept site was recorded as "one site is kept" and nothing more — remedy: name the site, the determiner and the argument; cost: none; inside previous fix: —
+- R1.2 · permits · must-fix · `docs/quality-gates.md`, "a number found in a second place is a defect on its face", and the ticket's own Context, "The enumeration is the count; no total is stated beside it" · the previous commit's message asserted "sixteen restated counts" and "five places", determined by the Context enumeration and the sweep, and sixteen does not reproduce — remedy: drop both totals and let the per-site lines be the enumeration; cost: none; inside previous fix: —
+- R1.3 · permits · note · `docs/ai-contributor-policy.md` §6, "Every acceptance criterion met and demonstrated in the pull-request description, with evidence" · none of the four ACs' evidence existed at the reviewed commit — remedy: the description at close; cost: none; inside previous fix: —
+- R1.4 · permits · note · the ticket's Out of scope, "`docs/quality-gates.md` … including the numbers it quotes as examples of the form it rejects" · the section's worked example quotes four phrases whose live sites this branch removed, thinning it as an exhibit though not falsifying it — remedy: routed to EM-024, which owns that section; cost: none; inside previous fix: —
+- R1.5 · permits · note · `docs/quality-gates.md`, "Where the determiner is a list, the list is the count and the reader derives it" · dropping "Three" took the plural head with it, leaving "each" quantifying over nothing — remedy: restore the head without the count; cost: none; inside previous fix: —
+- R1.7 · refuses · note · the same rule · "Those closing bullets" named no boundary a reader could derive, so a checkable sentence became only a readable one — remedy: name the bullets by content; cost: none; inside previous fix: —
+
+Both columns carry findings, and the second-column ones are the ones that
+changed the repair: R1.6 is a removal that took a claim with it, ranked a
+must-fix of the same rank as a first-column finding, and R1.7 is a repair that
+left a sentence less checkable than it found it. Both are the failure mode
+"What a review reports" names — a review that only ever tightens, or here a
+repair that only ever deletes.
+
+### Definition of Done (all tiers)
+The four machine checks do not apply to a repository that publishes documents
+and runs no suite; the falsification gate is discharged above, with N/A for the
+behavioural claim and a class line per must-fix repaired. Every measured figure
+names its baseline in the same sentence and is read from the command named
+beside it. The independent pass a process-document change takes has run and is
+recorded. The implementing
 > agent fills it in before closing the ticket (move to `done/`).

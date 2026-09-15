@@ -125,7 +125,7 @@ written even when it is zero, for the reason the falsification gate writes
 a zero red count as a zero: a count omitted is indistinguishable from a
 count nobody took. Round 1 has no round before it, and its cell reads `—`.
 
-Findings, per round, each in one of the two columns the tier review model
+Findings, per round, each in one of the columns the tier review model
 names ("What a review reports"), with the rank the reviewer gave it
 (`must-fix`, `note`, or `unranked` where the reviewer gave none — three
 values, because contributor policy §6 gives rank three states and repairs

@@ -24,8 +24,8 @@ opens that section, and reaches the rest when a finding turns on them.
 | The scrutiny list, and why it is not a trigger | Why a file path is a cue and not an escalation |
 | Separation of duties | Who may move a tier, and in which direction |
 | Why "another agent, human or AI" | Who reviews, what they receive, and where they work |
-| What a review reports | The two questions a review answers, what a tightening must cost, and the class signal |
-| When review ends | The three conditions, the round cap, the per-round record and its one copy, and the read before a repair is handed back |
+| What a review reports | The questions a review answers, what a tightening must cost, and the class signal |
+| When review ends | The conditions, the round cap, the per-round record and its one copy, and the read before a repair is handed back |
 | Retiring a control | The falsifier every rule states, how a rule leaves the documents, and what it needs before it enters |
 
 The rule that keeps this index current is stated once, with the map in
@@ -141,7 +141,7 @@ to have drawn a must-fix at independent review.
 | `standard` | Most feature work — new validators, resolvers, queries, components; every change to a process document | None; author self-merges after a complete PR description with evidence per criterion — except a change to a process document, which takes **one independent review pass** and closes on it, per "The operative test" | Mandatory |
 | `critical` | Anything the operative test catches | One approval from **another agent**, human or AI, who must verify the evidence and run the suite themselves | Mandatory |
 
-Gates are mandatory at every tier. There is no tier that skips the four
+Gates are mandatory at every tier. There is no tier that skips the
 machine checks — the tier governs *human and peer* review, not automated
 review. The fifth gate, falsification, is discharged by the executor at every
 tier, per `docs/quality-gates.md`, and independently verified only where the

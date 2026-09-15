@@ -61,8 +61,8 @@ What exactly is being built. Be concrete. Include:
 
 This section is the contract. If you cannot describe the spec
 concretely, the ticket is not ready and does not belong in `ready/`;
-an adopting project may keep a fifth directory, `backlog/`, for such
-tickets beyond the four `docs/ticket-lifecycle.md` documents.
+an adopting project may keep a further directory, `backlog/`, for such
+tickets, beyond the ones `docs/ticket-lifecycle.md` names.
 
 ### Files
 

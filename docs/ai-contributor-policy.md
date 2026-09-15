@@ -13,7 +13,7 @@ expensive and visible rather than cheap and silent.
 ## Which document settles what
 
 A map, so that a reader with a question goes to the place that settles it
-rather than searching five documents for it. The table states no rule; each
+rather than searching the documents for it. The table states no rule; each
 row names where the rule is. What you must read before your first edit is
 §7's checklist, not this table.
 
@@ -32,7 +32,7 @@ row names where the rule is. What you must read before your first edit is
 
 **Keeping the map true.** The map and the indexes it governs are wrong when
 they name something that is not there, omit something that is, or send a
-question to a place that no longer settles it. Those are the three ways to
+question to a place that no longer settles it. Those are the ways to
 be wrong, and each has a trigger.
 
 This rule governs every document the map names, and any document added
@@ -244,7 +244,8 @@ Universal. They apply on every ticket whether or not the ticket restates them.
   that similar lines left unabstracted under this rule were later unified at
   a higher cost than an interface at the second occurrence would have been.
 
-The last three are there because agents reliably over-engineer when uncertain.
+The bullets on shims, flags and speculative abstractions are there because
+agents reliably over-engineer when uncertain.
 Given an unclear requirement, an agent will produce an abstraction that covers
 every reading of it. That is not caution — it is unreviewable code.
 
@@ -402,7 +403,7 @@ Confirmed before the first edit of any session:
 - [ ] I am on a branch whose name begins with my ticket identifier.
 - [ ] I have confirmed my review tier using the operative test.
 
-If you cannot tick all seven, do not write code yet.
+If you cannot tick every item above, do not write code yet.
 
 **Retired when:** the transcript shows the ticks made without the reads — a
 ticket blocked on a reference its executor had ticked as read — more than once
