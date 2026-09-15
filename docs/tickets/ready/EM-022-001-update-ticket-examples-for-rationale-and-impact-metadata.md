@@ -1,7 +1,7 @@
 ---
 id: EM-022-001
 title: Update ticket examples for rationale and impact metadata
-status: blocked
+status: ready
 tier: trivial
 kind: maintenance
 impact: enhancement
@@ -11,7 +11,7 @@ complexity: S
 dependencies: []
 claimed_by:
 claimed_at:
-blocked_at: 2026-09-07
+blocked_at:
 closed_at:
 ---
 
@@ -29,8 +29,16 @@ frontmatter shape and no `## Why this ticket should be worked` section.
 Deferral is acceptable until EM-022 merges because the template continues to
 be the current authoritative form.
 
-BLOCKER: EM-022 must merge before examples can truthfully demonstrate its
-required ticket form. Unblock when that rule is present on the default branch.
+**BLOCKER DISCHARGED (2026-09-15).** EM-022 merged to `main` at f465b5d, so
+"Ticket rationale, impact and delivery" is present on the default branch and
+the examples can demonstrate the form truthfully. The blocker text is kept as
+the record of why the ticket stopped.
+
+> BLOCKER: EM-022 must merge before examples can truthfully demonstrate its
+> required ticket form. Unblock when that rule is present on the default
+> branch.
+
+Nothing else about the ticket changed; it is unclaimed and available.
 
 ## Context
 
