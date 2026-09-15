@@ -75,20 +75,38 @@ decision), write "N/A".
 
 ## When to write an ADR vs not
 
-`docs/adr-process.md`, "When to write one", states this in full: the triggers,
-the cases that are not triggers, the test that settles the rest, and what the
-trigger reaches. It is not restated here, per `docs/tier-review-model.md`,
-"Retiring a control" — a rule stated in two documents carries one falsifier, at
-the place it is stated in full, and referencing it from the other is what keeps
-the two from drifting.
+`docs/adr-process.md`, "When to write one", states this rule in full and
+carries its falsifier. The lists below are quoted from it, for a reader
+working from this template alone; where the two differ, that document
+governs.
 
-Two things that document settles and a shorter list here got wrong, named so a
-reader knows what the reference is carrying: a rule **retired or amended** under
-"Retiring a control" is a trigger, because there the record is the control and
-the retired text survives nowhere else; and a rule merely **added inside a
-document under a decision already taken** is not one, whatever it constrains,
-because the constraint is that decision's and that decision has its record.
+Write one when:
 
-An adopting project copying this template takes `docs/adr-process.md` with it,
-as the README's "Start here" table directs; the template names it rather than
-carrying a copy that can fall behind.
+- A dependency is added or swapped.
+- A public API shape changes.
+- A previously locked design decision is revised — in an adopting project,
+  one recorded in its own DESIGN.md.
+- A new top-level package appears.
+- A workflow rule changes — including a rule retired or amended under
+  `docs/tier-review-model.md`, "Retiring a control". That record carries the
+  rule's text as it stood, the finding that matched its falsifier, and the
+  text that replaces it, if any.
+
+Do **not** write one for:
+
+- Implementation choices internal to one module.
+- Renaming something.
+- Test-only changes.
+- Configuration any contributor would make.
+
+The workflow-rule trigger does not reach a rule added inside a document, or
+extended in place one rule at a time, under an existing decision: the
+constraint is that decision's, and that decision has its record.
+
+When in doubt, apply the test in `docs/adr-process.md`, "When to write one".
+It is stated in full there and deliberately not restated here, per
+`docs/tier-review-model.md`, "Retiring a control".
+
+This template is written against `docs/adr-process.md` and
+`docs/tier-review-model.md`. A project copying `templates/` copies those or
+substitutes its own equivalents.
