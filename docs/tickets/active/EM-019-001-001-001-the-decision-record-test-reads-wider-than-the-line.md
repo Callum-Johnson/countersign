@@ -1,10 +1,12 @@
 ---
 id: EM-019-001-001-001
 title: The decision-record test reads wider than the line drawn beneath it
-status: ready
+status: in-progress
 tier: critical
 complexity: S
 dependencies: [EM-019-001-001]
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 ---
 
 # EM-019-001-001-001 — The decision-record test reads wider than the line
