@@ -25,9 +25,11 @@ Do **not** write one for:
 
 The test: a decision is an ADR if it changes how the process itself is
 governed, or if it constrains work beyond the ticket in hand and sits under no
-decision already recorded. A rule added under a decision already recorded is
-not one, whatever it constrains: the constraint is that decision's, applied at
-one step, and that decision has its record. If it affects only the ticket in
+existing decision. A rule that does no more than apply an existing decision at
+one step is not one, whatever it constrains, because the constraint is that
+decision's — unless the rule is being retired or amended under
+`docs/tier-review-model.md`, "Retiring a control", where the record is the
+control and is owed however the rule arrived. If it affects only the ticket in
 hand, the ticket is enough.
 
 **Retired when:** a regression a recorded decision would have prevented
