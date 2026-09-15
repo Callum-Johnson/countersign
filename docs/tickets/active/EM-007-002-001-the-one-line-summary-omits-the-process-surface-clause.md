@@ -1,10 +1,12 @@
 ---
 id: EM-007-002-001
 title: The operative test's one-line summary omits the process-surface clause
-status: ready
+status: in-progress
 tier: standard
 complexity: S
 dependencies: [EM-007-002]
+claimed_by: claude-opus-5
+claimed_at: 2026-09-15
 ---
 
 # EM-007-002-001 — The one-line summary omits the process-surface clause
