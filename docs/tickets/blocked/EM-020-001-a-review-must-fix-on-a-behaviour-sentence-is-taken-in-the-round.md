@@ -126,6 +126,56 @@ To proceed the executor needs the maintainer's answer to 1, and where it is
 falsifier, which reads on blocks unblocked with the reading the executor
 would have taken; that count is the maintainer's to keep.
 
+## Maintainer decision (2026-09-15), and reassignment
+
+**Question 1 is answered: (a).** §3 gains the clause as Behaviour states it,
+with its conditions, its three instances - EM-007, EM-014-001, EM-020 - and
+its falsifier. The practice continues and is written down; AC1's second arm
+does not apply.
+
+**Question 2 is answered by reassignment.** The maintainer works this ticket
+directly rather than waiving "Retiring a control"'s last bullet. That bullet
+says a retirement ticket is not worked by the executor whose work the rule
+refused, and the three departures the clause would license were an agent
+executor's; every executor on this repository to date is one. No agent
+executor should claim this ticket.
+
+This ticket therefore stays in `blocked/`: the reserved question is answered,
+and no agent can proceed regardless. The block is now an assignment, not a
+question. `claimed_by` is left as it stands so the record of who stopped here
+survives.
+
+### Two things the blocker's premises got wrong, which the maintainer should
+### have before writing
+
+1. **EM-019-001-001 has closed.** The blocker's item 2 says it is "in
+   `ready/`" and owns whether a rule-adding ticket produces a decision
+   record. It is in `done/`, and `docs/adr-process.md` now carries the line
+   it drew.
+2. **Applying that line to this clause is genuinely ambiguous, and the
+   ambiguity is already a ticket.** The trigger list reaches "a rule retired
+   or amended under `docs/tier-review-model.md`, 'Retiring a control'",
+   which is what a clause loosening §3 is, and that reading demands a record
+   carrying §3's text as it stands, the finding that matched, and the new
+   text. The paragraph beneath it exempts "a rule added inside a document, or
+   extended in place one rule at a time, under an existing decision - one
+   that changes what the process asks at one step, **when to block** ...",
+   and when to block is exactly what §3 governs. The two readings disagree on
+   this clause. EM-019-001-001-001, in `ready/` - "The decision-record test
+   reads wider than the line drawn beneath it" - owns that disagreement. It
+   is not settled here, and whichever way the maintainer takes it, this
+   ticket is one instance for that one.
+
+### On the tier
+
+The frontmatter reads `critical`, which predates ADR-0004. Under "The
+operative test", a change to a process document is `standard` and its review
+is one independent pass, closing on that pass; the paragraph fixes the tier
+rather than allowing it to be moved. `docs/ai-contributor-policy.md` is a
+process document. The frontmatter is left untouched here because lowering a
+tier is not an executor's to do, but the review this ticket needs is one
+independent pass, not the critical loop the frontmatter implies.
+
 ## PR Description
 
 > Leave this section empty when authoring the ticket.

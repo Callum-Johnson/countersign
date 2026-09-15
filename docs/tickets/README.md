@@ -55,7 +55,7 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-021 | done | critical | A rule needs a second instance before it is written |
 | EM-022 | done | critical | Define ticket rationale, impact and unattended selection |
 | EM-022-001 | blocked | trivial | Update ticket examples for rationale and impact metadata |
-| EM-020-001 | blocked | critical | A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded |
+| EM-020-001 | blocked | critical | A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded (answered (a) on 2026-09-15; assigned to the maintainer, not claimable by an agent executor) |
 | EM-007-002 | done | standard | A process-document change is trivial by the test and critical by ADR-0002 |
 | EM-007-002-001 | ready | standard | The operative test's one-line summary omits the process-surface clause |
 | EM-007-002-002 | done | standard | The ADR process states the wider reading the model no longer holds |
