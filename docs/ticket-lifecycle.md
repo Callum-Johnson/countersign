@@ -56,6 +56,75 @@ a conflict — the lock failed silently, which it is designed not to do — or
 the project adopts a coordination service that makes the file move
 redundant.
 
+## Ticket rationale, impact and delivery
+
+Every ticket written after this rule takes effect carries four frontmatter
+fields and the `## Why this ticket should be worked` section from the ticket
+template. The section is the evidence-bearing explanation; the frontmatter is
+the short, machine-readable form.
+
+| Field | Legal values | It answers |
+|---|---|---|
+| `kind` | `defect`, `feature`, `maintenance`, `research`, `governance` | What sort of work is this? |
+| `impact` | `system-unavailable`, `multi-feature-blocking`, `feature-blocking`, `degraded`, `enhancement` | What follows if this work is deferred? |
+| `delivery` | `slice`, `enabling`, `maintenance` | Is this an end-to-end outcome, work that enables one, or upkeep? |
+| `why` | a non-empty concise causal statement | Why should this ticket receive capacity? |
+
+`why` names the consequence, not an implementation preference: "Without this
+work, the release command cannot run on a clean checkout" is a rationale;
+"add language support" is not. The justification section names the affected
+outcome, deferral consequence, supporting evidence and any condition under
+which deferral is acceptable. A missing field, an undeclared value or a
+justification that cannot make that causal case means the ticket is not ready.
+
+Impact values are ordered from greatest consequence of deferral to least:
+
+1. `system-unavailable` — a required build, test, deployment or runtime
+   operation cannot proceed.
+2. `multi-feature-blocking` — two or more defined delivery slices cannot
+   proceed.
+3. `feature-blocking` — one defined delivery slice cannot proceed.
+4. `degraded` — an existing capability is impaired but remains usable or has
+   a stated workaround.
+5. `enhancement` — no existing committed capability is impaired.
+
+A `slice` is the thinnest independently demonstrable end-to-end outcome. An
+`enabling` ticket may be horizontal, but names the slice or capability it
+enables where one exists. `maintenance` is work that preserves an existing
+capability without claiming a new outcome. These classifications and impact
+do not answer the tier question; `docs/tier-review-model.md`, "The operative
+test", remains the only rule that does.
+
+**Retired when:** over a stated population of new tickets, the rationale and
+impact fields are shown to misorder work compared with the maintainer's
+recorded decisions, or ticket authors regularly cannot choose between the
+listed values without inventing project-specific meanings. The portable scale
+then either does not represent the capacity decision or is too narrow to use.
+
+## Unattended selection
+
+A project may select tickets automatically only under a completed
+project-local policy in the form `templates/SCHEDULING-POLICY.md` gives. The
+policy is a maintainer's authorisation of selection, not an agent's inference
+from ticket prose.
+
+The selector considers only claimable tickets whose declared impact is allowed
+by that policy. It chooses the greatest allowed impact first, then applies the
+policy's declared deterministic tie-breaker. A ticket with incomplete
+dependencies, a blocker, a failed gate, a policy refusal or a missing required
+approval is handled by the existing procedures; the selection rule grants no
+exception. It authorises neither dispatch beyond the project policy nor
+review, merge, a tier reduction or a decision reserved to a human.
+
+Without a completed project-local policy, work is selected manually. A policy
+that authorises dispatch does not thereby authorise any later action.
+
+**Retired when:** a project's completed unattended-selection record shows
+that declared impact and deterministic tie-breaking selected work the
+maintainer reverses more often than manual selection does over a stated
+population. The rule then imposes metadata and policy maintenance without
+improving unattended ordering.
+
 ## Batching trivial work
 
 The tier model scales review to risk and nothing else: a `trivial` change and
@@ -208,17 +277,46 @@ longer decides whether a collision is seen.
 spent. A ticket raised and later deleted, absorbed or renamed leaves no file
 and remains named in closed tickets, commit messages and pull-request bodies,
 and a read of the tree hands its id out again. Take the next number from the
-set of ticket files ever added — `git log --diff-filter=A --name-only
---format= -- docs/tickets`, with the ids extracted from the paths — not from
-`ls`. This repository already has one such id:
-`EM-010-001` was created at 3da6c57 and renamed `EM-014-001` at 0947dda, so
-the tree shows no child of EM-010 while the history does, and the next child
-of EM-010 read from the tree would be `-001` again. On the source project — the
-rules engine in the growth case study — the count stood at fourteen against
-its default branch when EM-006 was raised, and
-the fourteenth was taken, worked and closed before anyone noticed. A reused id
-is not renumbered afterwards; the newer ticket records the reuse and points at
-the older use.
+set of ids ticket files have ever borne — `git log --full-history
+--diff-filter=AR --name-only --format= -- docs/tickets`, with the ids
+extracted from the paths — not from `ls`. This repository already has one
+spent id: `EM-010-001` was created at 3da6c57 and superseded by
+`EM-014-001` at 0947dda, so the tree shows no child of EM-010 while the
+history does, and the next child of EM-010 read from the tree would be `-001`
+again. On the source project — the rules engine in the growth case study —
+the count stood at fourteen against its default branch when EM-006 was
+raised, and the fourteenth was taken, worked and closed before anyone
+noticed. A reused id is not renumbered afterwards; the newer ticket records
+the reuse and points at the older use.
+
+Each flag answers a route by which an id is spent, and each was found by
+running the recipe against a history that refutes it rather than by reasoning
+about it.
+
+- `--diff-filter=AR` rather than `A`, because a file *renamed* to a new id —
+  where two agents allocated the same number — spends its destination id, and
+  a rename is not an addition. Given the command's own rename detection, a
+  history where `PRJ-028-first.md` is renamed to `PRJ-029-first.md` answers
+  `PRJ-028` under `A` and `PRJ-028 PRJ-029` under `AR`. A contributor
+  following `A` allocates `PRJ-029`, which is already in use. A renumber large
+  enough to fall below git's similarity threshold is recorded as a delete plus
+  an addition instead and is caught by `A` anyway — which is what 0947dda
+  above is, and why this repository was not itself exposed.
+- `--full-history`, because default history simplification drops a merged side
+  branch whose net effect on `docs/tickets` is nil. An id raised on a branch
+  and absorbed there before the merge is then reported by nothing: a history
+  where `PRJ-040` is raised on a branch, removed on that branch, and the
+  branch merged, answers `PRJ-001` alone without the flag and `PRJ-001
+  PRJ-040` with it. That is the deleted-and-absorbed case this rule's own
+  first sentence names, so without the flag the command misses the failure it
+  was written for.
+
+What the command covers is every id borne by a file under `docs/tickets` in
+the history of the ref it is run on. Adding `--all` reads every ref the
+repository holds, which is worth doing where branches are shared. What no
+form of it reaches is an id allocated on a ref this repository has never
+seen — two agents on unshared branches — which is a different defect with a
+different answer, and not one a read of one history can catch.
 
 **Retired when:** the project forbids deleting a ticket file — tickets are
 only ever moved — so that the tree is the history and reads the same.

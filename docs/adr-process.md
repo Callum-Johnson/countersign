@@ -23,8 +23,14 @@ Do **not** write one for:
 - Test-only changes.
 - Configuration any contributor would make.
 
-The test: if the decision affects multiple tickets or constrains future work,
-it is an ADR. If it affects only the ticket in hand, the ticket is enough.
+The test: a decision is an ADR if it changes how the process itself is
+governed, or if it constrains work beyond the ticket in hand and sits under no
+existing decision. A rule that does no more than apply an existing decision at
+one step is not one, whatever it constrains, because the constraint is that
+decision's — unless the rule is being retired or amended under
+`docs/tier-review-model.md`, "Retiring a control", where the record is the
+control and is owed however the rule arrived. If it affects only the ticket in
+hand, the ticket is enough.
 
 **Retired when:** a regression a recorded decision would have prevented
 happens with the record present, more than once over a stated population, or
@@ -57,14 +63,12 @@ EM-021's second-instance bar sits nearest the line and on the second side:
 it says what a rule-adding ticket carries before its rule enters, and was
 added as one paragraph under ADR-0003's decision that a rule is held to
 evidence — ADR-0003's migration added a line to every rule in `docs/`, and
-EM-021 rewrote none. The section's test above reads the same way: the
-constraint such a rule places on future work is the existing decision's,
-applied at one step, and that decision has its record. This is the practice
+EM-021 rewrote none. This is the practice
 this repository has followed — the rules added by EM-008, EM-009, EM-010,
 EM-011, EM-012, EM-016 and EM-019-001 produced no record, and under this
 line none was owed. The line decides whether a record is owed and nothing
-about tier: a rule added to a process document is a process-surface change
-under the operative test either way.
+about tier: a rule added to a process document is a process-document change
+under the operative test either way, `standard` on one independent pass.
 
 **Retired when:** a rule added under an existing decision, and therefore
 recorded in no decision record, is found to have been undone or contradicted
@@ -110,14 +114,16 @@ were the ones that stopped a plausible-looking regression a month later.
 ## Decisions about the process are themselves ADRs
 
 The ticket lineage scheme, the tier trigger, and the review model each have a
-decision record. Changing the process is a process-surface change, which the
-operative test classifies as `critical`, which means it needs a second
-reviewer.
+decision record. Changing the process is a change to a process document,
+which the operative test classes as `standard` with one independent review
+pass, which means it still has a reader who did not write it.
 
 A governance system that cannot be changed becomes a system people route
 around. One that can be changed silently is not a control. Recording process
 changes the same way as technical ones is what keeps it honest.
 
-**Retired when:** the tier model ceases to class the process surface as
-`critical`, at which point this rule's second sentence is false and its first
-stands alone.
+**Retired when:** the tier model ceases to give a change to a process
+document an independent pass, at which point this rule's second sentence is
+false and its first stands alone. The previous line, which retired when the
+model ceased to class the process surface as `critical`, was matched by
+ADR-0004 and amended with that record.

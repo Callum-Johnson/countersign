@@ -100,3 +100,18 @@ scope leaves it for a later ticket with evidence from this one.
 EM-014 adds the Retired-when lines to every rule in the five rule-bearing
 documents under `docs/` and states the counting method and count in its
 pull-request description. No rule is retired or amended by EM-014 itself.
+
+---
+
+## Annotation — added 2026-09-10 under EM-007-002
+
+> Not part of the decision as recorded. The text above the horizontal line
+> is unchanged, and the status is unchanged.
+
+The Consequences bullet "retirement and amendment tickets are critical tier,
+and reviews of process documents run long. The round cap applies" describes
+a tier the model no longer assigns. Since ADR-0004 a change to a process
+document — a retirement or amendment ticket included — is `standard` on one
+independent review pass, and the round cap does not apply because there is
+no loop. The decision, that every rule states its falsifier and a control
+can be retired, is untouched.

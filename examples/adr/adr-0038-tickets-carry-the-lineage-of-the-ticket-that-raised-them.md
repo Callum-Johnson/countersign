@@ -155,3 +155,40 @@ git log --diff-filter=A --name-only --format= -- docs/tickets \
 A reused id is not renumbered after the fact, consistent with the
 no-retroactive-renumbering rule above. The newer ticket records the reuse and
 points at the older use.
+
+---
+
+## Annotation — added 2026-09-15 under EM-023
+
+> This section is not part of the decision as recorded, and not part of the
+> annotation above it. Everything above this horizontal line is unchanged,
+> including the 2026-09-06 annotation and the command it quotes.
+
+The 2026-09-06 annotation's *Next-id rule* corrects the lookup to read history
+rather than the tree, and the command it gives still reads a smaller set than
+the set an id must be unique in. Two routes spend an id that
+`git log --diff-filter=A` does not report.
+
+- A ticket file **renamed** to a new id — where two agents allocated the same
+  number — spends its destination id, and a rename is not an addition.
+- An id raised on a branch and **absorbed there** before the branch merged is
+  dropped by default history simplification, because the branch is TREESAME on
+  `docs/tickets`. That is the deleted-and-absorbed case the annotation above is
+  itself about.
+
+The command that answers both:
+
+```sh
+git log --full-history --diff-filter=AR --name-only --format= -- docs/tickets \
+  | sed -nE 's#.*/(PRJ-[0-9]+(-[0-9]+)*)-.*#\1#p' | sort -u
+```
+
+`--all` reads every ref the repository holds, which is worth adding where
+branches are shared. No form of the command reaches an id allocated on a ref
+the repository has never seen.
+
+EM-023 first made this correction by editing the 2026-09-06 annotation's
+command in place. That was wrong: a dated annotation records what was found on
+its date, and editing it makes the dateline false. EM-023-001 restored that
+text and added this annotation instead, which is the form ADR-0002, ADR-0003
+and ADR-0004 carry.

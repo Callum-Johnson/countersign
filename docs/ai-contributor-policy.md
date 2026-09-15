@@ -20,7 +20,7 @@ row names where the rule is. What you must read before your first edit is
 | Question | Where it is settled |
 |---|---|
 | What may I do, what may I not, and what do I do when I cannot proceed? | this document |
-| How do I claim, block, batch and close work, and how are tickets numbered? | `docs/ticket-lifecycle.md` — the mechanics; §3 above states when to block |
+| How do I claim, select, block, batch and close work; how are tickets numbered; and what governs unattended selection? | `docs/ticket-lifecycle.md` — the mechanics and project-local scheduling-policy boundary; §3 above states when to block |
 | What must be true before I report this change done? | this document, §6 |
 | What tier is my change, who reviews it, what does a review report, when does it end, how does a rule leave, and what does one need before it enters? | `docs/tier-review-model.md` |
 | Which machine checks must pass, what does the falsification gate ask of me, where does a number that something else determines live, and where does a review run? | `docs/quality-gates.md` |
@@ -102,11 +102,26 @@ criteria, the references, and an explicit out-of-scope list.
   rejection, however good the change.
 - One ticket at a time per agent. Do not claim several in parallel.
 - Do not start a ticket whose dependencies are unfinished.
+- A new ticket carries `kind`, `impact`, `delivery` and a concise `why` in
+  its frontmatter, plus the causal justification the ticket template names.
+  Those facts describe why it deserves capacity; they do not alter its tier.
+- Do not infer, upgrade or downgrade a ticket's impact from its prose. Where
+  the declared impact and its justification do not agree, block for the party
+  that owns the ticket to correct the contract.
+
+**Retired when:** the adopting project generates impact from a durable,
+maintainer-owned evidence record and agents cannot write either the generated
+field or its source. The agent then has no impact judgement to substitute.
 
 **Retired when:** a project's closed tickets show out-of-scope work rejected
 at review that the ticket's author, asked afterwards, would have accepted,
 more often than they show scope creep caught — counted over a stated
 population of tickets. The rule then costs more honest work than it stops.
+
+**Retired when:** over a stated population of new tickets, the required
+justification is routinely copied from the title or fails to distinguish work
+accepted by a maintainer from work they reject as speculative. The fields then
+cost authoring time without making the capacity decision inspectable.
 
 ## 3. Ambiguity is escalated, never resolved by invention
 
@@ -156,7 +171,10 @@ the trigger has had nothing to match.
 
 Non-convergence is a further trigger: a critical-tier review that reaches the
 round cap in `docs/tier-review-model.md`, "When review ends", blocks by this
-same procedure, with its review record attached.
+same procedure, with its review record attached — the per-round table has one
+copy, in the ticket's Review section, and the blocker names the rows and the
+findings it turns on rather than copying them, as that section's **One copy**
+says.
 
 **Retired when:** blocked tickets on a project are, over a stated population,
 routinely unblocked with the reading the executor would have taken. The block
@@ -243,7 +261,9 @@ every reading of it. That is not caution — it is unreviewable code.
   not omitted. The gate and its two special cases are in
   `docs/quality-gates.md`; this is a pre-report duty, not something review is
   expected to catch.
-- A review finding is repaired at its class. For each finding repaired, the
+- A review must-fix is repaired at its class — a must-fix being a finding the
+  reviewer records as blocking merge, as "When review ends" in
+  `docs/tier-review-model.md` defines it. For each must-fix repaired, the
   description names **the class** — the question which, asked of the whole
   change, produces this finding and its siblings: "what does the interpreter
   load" is a class, "`.py` files at the root" is an instance — and **the
@@ -252,18 +272,66 @@ every reading of it. That is not caution — it is unreviewable code.
   rival as the gate already requires. A repair that names no class says
   **repair of the instance**, in those words. That is permitted — some
   findings are singular — and it is a claim the reviewer can check: the next
-  round finding a sibling is then a finding against the repair's own claim. A
-  class with no finite enumeration — "what could a user type" — is recorded as
-  the third condition of "When review ends" in `docs/tier-review-model.md`
-  records a list: best-effort, with the coverage stated. Where the change has
-  no suite, each sibling says what a reader would do differently, as the
-  template says for a claim. The form is in `templates/PR-DESCRIPTION.md`, and
-  the reason a test pins a claim rather than a mechanism is with the gate in
-  `docs/quality-gates.md`.
+  round finding a sibling is then a finding against the repair's own claim.
+  **A note carries nothing.** A finding the reviewer did not record as a
+  must-fix owes neither a class and its siblings nor the words "repair of the
+  instance", whether it is repaired in the round or at close. That exemption
+  is from this bullet only; the class signal in `docs/tier-review-model.md`,
+  "What a review reports", asks for the same form on a trigger of its own,
+  which this narrowing does not reach. **The rank is the reviewer's, and the
+  record carries it finding by finding.** Every finding line in the Review
+  section says whether the reviewer recorded that finding as blocking merge
+  and, where the finding sits inside the repair of a finding from an earlier
+  round, which finding's repair it sits inside — the two facts this bullet and
+  its falsifier turn on, in the form `templates/PR-DESCRIPTION.md` gives. An
+  earlier round and not only the round before, because the falsifier's second
+  arm counts a finding in any later round where every other rule that reads
+  the field asks about the round before, and the finding's own number says
+  which round it came from, so one field answers them all. Which rules read
+  it is listed once, in `templates/PR-DESCRIPTION.md`, so that no second list
+  of them can drift from the first. The executor transcribes both and does not
+  re-rank, renumber or merge, exactly as it routes a finding under the second
+  condition of "When review ends" without reclassifying it; a rank the
+  executor can set is a scope the controlled party can set, and an R-number
+  the executor can change is the link the falsifier's second arm and the
+  inside-the-previous-fix field both read. Naming several findings in one
+  repair line is not a merge: the numbers are all there. A finding the
+  reviewer left unranked is repaired at its class as a must-fix is, so that
+  silence never narrows the obligation of the party writing the description.
+  **An absence is recorded as an absence.** The line says the rank was not
+  given rather than carrying one the reviewer did not give, and says that a
+  finding sits inside an earlier fix the reviewer did not identify rather than
+  naming one; a value the executor supplies where the reviewer was silent is a
+  value the party the obligation sits on has set. **A line is countable where it names a
+  finding, reads `no`, or names the round the earlier fix sits in — `yes,
+  round 3`.** A line naming the round answers every reader that needs only
+  the round; it is not counted by the second arm alone, which needs the
+  earlier finding's rank and so its identity. Any other value the reviewer
+  wrote — `yes, unnamed`, or a hedge such as `partly` — is counted by none of
+  the rules that read the field. Such a line is reported and left as it was
+  written — the cost of the silence, and not something the description may
+  resolve. This sentence is the one statement of which lines are countable;
+  the rules and counts that read the field name it rather than restating the
+  list.
+  A class with no finite enumeration — "what could a user type" — is recorded
+  the way the third condition of "When review ends" in
+  `docs/tier-review-model.md` records a list: best-effort, with the coverage
+  stated. Where the change has no suite, each sibling says what a reader would
+  do differently, as the template says for a claim. The form is in
+  `templates/PR-DESCRIPTION.md`, and the reason a test pins a claim rather
+  than a mechanism is with the gate in `docs/quality-gates.md`.
   **Retired when:** over a stated population of critical-tier tickets, repairs
   declared "repair of the instance" draw a sibling finding in the next round
-  no more often than repairs that named a class; the enumeration then costs a
-  suite run per sibling and prevents nothing.
+  no more often than repairs that named a class — the enumeration then costs a
+  suite run per sibling and prevents nothing — or a finding in a later round
+  sits inside the repair of a finding the reviewer ranked a note, more than
+  once over a stated population of closed tickets, which is the exemption
+  above costing the rounds the enumeration exists to save. The second arm is
+  read from the finding lines of closed critical-tier tickets, each of which
+  carries its rank and, where it sits inside the repair of a finding from an
+  earlier round, that finding; it counts only rounds recorded under
+  this rule, since a note repaired while the obligation still bound it is not
+  evidence about the exemption.
 - Every measured number in the description names, **in the same sentence**,
   the baseline it was measured against: the commit, the branch, the date, or
   the population counted. A number without its baseline is indistinguishable
@@ -304,7 +372,9 @@ every reading of it. That is not caution — it is unreviewable code.
   reported under this rule are found wrong as often as the figures reported
   before it; the rule then costs a command per class of figure and catches
   nothing.
-- For critical-tier work, a second reviewer has approved.
+- For critical-tier work, a second reviewer has approved; for a change to a
+  process document, the one independent pass the tier model gives it has run
+  and is recorded.
 
 The pull-request description is appended to the ticket file before the ticket
 closes. It does not live only in a code-forge UI, because the repository has

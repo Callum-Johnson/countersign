@@ -21,7 +21,8 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-001 | done | critical | Triage source artifacts for third-party IP (retrospective) |
 | EM-002 | done | standard | Publish policy documents, templates and cleared examples (retrospective) |
 | EM-003 | done | critical | Adopt the documented process in this repository |
-| EM-001-001 | blocked | standard | Harden the IP classifier and make the triage reproducible |
+| EM-001-001 | done | standard | Harden the IP classifier and make the triage reproducible (closed 2026-09-15 without the work; the maintainer declined a script in this repository) |
+| EM-001-001-001 | ready | standard | The lifecycle has no close for a ticket that will not be worked |
 | EM-004 | blocked | standard | Add per-project case studies |
 | EM-005 | done | critical | Publish the repository |
 | EM-005-001 | ready | trivial | Link commit authorship to the publishing account |
@@ -49,17 +50,28 @@ The template is [`templates/TICKET.md`](../../templates/TICKET.md).
 | EM-019 | done | trivial | Three figures in EM-016's closed description were predicted, not measured |
 | EM-019-001 | done | critical | A reported figure is read from a command, not written by its author |
 | EM-019-001-001 | done | critical | Rule-adding tickets produce no decision record, against the trigger list |
-| EM-019-001-001-001 | ready | critical | The decision-record test reads wider than the line drawn beneath it |
+| EM-019-001-001-001 | done | critical | The decision-record test reads wider than the line drawn beneath it |
+| EM-018-002 | ready | standard | The ADR template restates the decision-record test in its superseded form |
 | EM-020 | done | critical | Read the whole thing before acting on part of it |
 | EM-021 | done | critical | A rule needs a second instance before it is written |
-| EM-020-001 | blocked | critical | A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded |
-| EM-007-002 | blocked | critical | A process-document change is trivial by the test and critical by ADR-0002 |
-| EM-009-001 | blocked | critical | The class obligation binds every repaired finding |
+| EM-022 | done | critical | Define ticket rationale, impact and unattended selection |
+| EM-022-001 | blocked | trivial | Update ticket examples for rationale and impact metadata |
+| EM-020-001 | blocked | critical | A review must-fix on a sentence the ticket's Behaviour dictates is taken in the round and recorded (answered (a) on 2026-09-15; assigned to the maintainer, not claimable by an agent executor) |
+| EM-007-002 | done | standard | A process-document change is trivial by the test and critical by ADR-0002 |
+| EM-007-002-001 | ready | standard | The operative test's one-line summary omits the process-surface clause |
+| EM-007-002-002 | done | standard | The ADR process states the wider reading the model no longer holds |
+| EM-007-002-003 | done | standard | Clause 5 of the operative test still names a change to the review model as critical |
+| EM-007-002-003-001 | ready | standard | ADR-0004 reads proposed while its decision is in force |
+| EM-009-001 | done | critical | The class obligation binds every repaired finding |
 | EM-018-001 | done | standard | The ticket template's how-to-use steps disagree with the lifecycle on three points |
-| EM-023 | ready | standard | The next-id command misses an id created by renaming a ticket file |
+| EM-023 | done | standard | The next-id command misses an id created by renaming a ticket file |
+| EM-023-001 | done | trivial | The ADR-0038 correction rewrote a dated annotation instead of adding one |
+| EM-023-002 | done | trivial | The disclosure counts one post-publication annotation and there are now two |
 | EM-024 | in-progress | critical | A count written into prose has no falsifier and drifts silently |
 | EM-024-001 | ready | standard | The tier model restates a count beside its own list |
 | EM-024-002 | ready | standard | The gate count is restated away from its site, and it is not alone |
+| EM-025 | done | standard | The per-round table has one copy, and the blocker names the row |
+| EM-026 | ready | standard | An exhaustive claim is derived, not listed |
 
 EM-001 and EM-002 are retrospective and say so in their bodies. They are not
 backdated; ADR-0001 explains why backdating was rejected.

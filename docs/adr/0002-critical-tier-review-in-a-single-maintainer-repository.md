@@ -115,3 +115,30 @@ R1.9 of round 1).
 
 This record was also created carrying `status: accepted` rather than
 `proposed`. ADR-0001's annotation records why both are left as they stand.
+
+## Annotation — added 2026-09-10 under EM-007-002
+
+> Not part of the decision as recorded. The text above the horizontal line
+> is unchanged, and the status stays `accepted`.
+
+The Context sentence "Changes to process documents are process-surface
+changes, which the operative test classifies as critical" no longer holds,
+and this annotation narrows its reach. Which of that sentence and the
+operative test governs the tier of a process-document change was reserved to
+the maintainer under the contributor policy's §3 and answered on 2026-09-10:
+a change to a process document is `standard`, reviewed in one independent
+pass and closed on that pass, and the executor may not raise it.
+`docs/tier-review-model.md`, "The operative test", states the rule with its
+falsifier and is the authority on it; ADR-0004 is the record, and carries
+the sentence as it stood, the finding, and the text that replaces it.
+
+What stands: everything this record decides about what critical-tier review
+requires, who may perform it and what the reviewer receives; and
+Alternative 2's rejection of `trivial` for a policy document — a
+process-document change still has a reader who did not write it. What
+narrows: the sentence's reach, which now carries no process-document change;
+and Alternative 2's second sentence, since changing the operative test is
+itself a process-document change and is worked at `standard`. An answer of
+2026-09-07 that drew a `critical`/`trivial` line through process-document
+changes was replaced by this one before it landed; ADR-0004's Context
+records it and the four review passes it took.
